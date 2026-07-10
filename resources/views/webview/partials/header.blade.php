@@ -12,64 +12,39 @@
     margin-top: 0px;
     margin-bottom: 0px;"> {{ $basicinfo->marquee_text }}</h5>
     </div>
-    <div class="main-header" id="myHeader" style="background: #fff;border-bottom: 1px solid #e9e9e9;">
+    <header class="custom-header">
         <div class="container">
-            <div class="row" style="margin: 0">
-                <div class="col-9 col-sm-9 col-md-9 col-lg-3 logo-holder ps-0">
-                    <!-- ============================================================= LOGO ============================================================= -->
-                    <div class="logo">
-                        <button type="button" onclick="openNav()" id="menubutton" class="d-lg-none">
-                            <img src="{{asset('public/menuooo.png')}}" style="width:40px">
-                        </button>
-
-                        <a href="{{ url('/') }}" id="logoimage">
-                            <img src="{{ asset($basicinfo->logo) }}" alt="" id="logosm" style="width: 53px;margin-bottom: 7px;">
-                        </a>
-                    </div>
-                    <!-- /.logo -->
-                    <!-- ============================================================= LOGO : END ============================================================= -->
+            <div class="row align-items-center">
+                <div class="col-4 col-lg-2">
+                    <a href="{{ url('/') }}" class="logo-link">
+                        <img src="{{ asset($basicinfo->logo) }}" alt="Logo" style="width: 53px;">
+                    </a>
                 </div>
-                <!-- /.logo-holder -->
 
-                <!-- /.top-search-holder -->
-                <div class="col-3 col-sm-3 col-md-3  col-lg-3 animate-dropdown top-cart-row p-0">
-                    <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-                    <div class=" dropdown-cart" style="padding-left: 14px;">
-                        <a href="#" class="dropdown" onclick="checkcart(this)" data-bs-toggle="dropdown"
-                            id="smcarticon">
-                            <div class="items-cart-inner">
-                                <div class="basket" style="padding: 0;padding-top: 2px;display:flex;">
-                                    <i class="fa-solid fa-basket-shopping" style="color: #F27336;font-size: 28px;"></i>
-                                    <span class="d-none d-lg-block lbl"
-                                        style="color: black;font-size: 13px;margin-top:13px">Cart</span>
-                                </div>
-                                <div class="nav-box-number" id="d-sm-none"><span
-                                        class="count">{{ count(Cart::content()) }}</span></div>
-                            </div>
+                <div class="col-lg-6 d-none d-lg-flex justify-content-center">
+                    <nav class="nav-links">
+                        <a href="#">Trending</a>
+                        <a href="#">Shop</a>
+                        <a href="#">Categories</a>
+                        <a href="#" class="active-link">Deals</a>
+                    </nav>
+                </div>
+
+                <div class="col-8 col-lg-4 d-flex justify-content-end align-items-center">
+                    <button class="header-icon-btn" onclick="openSearch()">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    
+                    <div class="cart-wrapper">
+                        <a href="#" onclick="checkcart(this)">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <span class="cart-count">{{ count(Cart::content()) }}</span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li id="checkcartview">
-                            </li>
-                        </ul>
-                        <!-- /.dropdown-menu-->
-                    </div>
-                    <!-- /.dropdown-cart -->
- 
-                    <div class="d-none d-lg-inline-block" id="d-sm-none" style="float:right;padding-right: 15px;">
-                        <div class="nav-wishlist-box" id="wishlist" style="    float: right;">
-                            <a href="tel:09613100400" class="nav-box-link">
-                                <i class="fa-solid fa-heart" id="bookmarkicon" style="color:#F27336"></i>  
-                            </a>
-                        </div>
                     </div>
 
-                  </div>
-                <!-- /.top-cart-row -->
+                    <a href="#" class="btn-order-now">Order Now</a>
+                </div>
             </div>
-            <!-- /.row -->
-
         </div>
-        <!-- /.container -->
-
-    </div>
+    </header>
 </header>
