@@ -112,7 +112,7 @@
             </div>
             <div class="col-12 d-block d-sm-none">
                 <div class="module-heading">
-                    <p class="module-title text-center">Copyright © 2022 - <a href="https://www.facebook.com/digital5p" target="_blank"> Designed by Digital P </a></p>
+                    <p class="module-title text-center">Copyright © 2026 - <a href="https://nextbuye.com" target="_blank"> Designed by nextbuye </a></p>
                 </div>
             </div>
             <div class="row" id="d-lg-none">
