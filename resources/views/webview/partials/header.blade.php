@@ -51,24 +51,6 @@
                 </div>
                 <!-- /.logo-holder -->
 
-                <div class="col-2 col-sm-2 col-md-2  col-lg-6 top-search-holder" id="d-sm-none">
-                    <!-- /.contact-row -->
-                    <!-- ============================================================= SEARCH AREA ============================================================= -->
-                    <div class="search-area" id="d-sm-none">
-                        <form method="GET" name="form" action="{{url('search')}}">
-                            @csrf
-                            <div class="control-group">
-
-                                <input class="search-field" placeholder="Search here..." name="search">
-
-                                <button class="search-button" type="submit"></button>
-
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.search-area -->
-                    <!-- ============================================================= SEARCH AREA : END ============================================================= -->
-                </div>
                 <!-- /.top-search-holder -->
 
                 <div class="col-3 col-sm-3 col-md-3  col-lg-3 animate-dropdown top-cart-row p-0">

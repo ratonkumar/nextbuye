@@ -12,20 +12,20 @@
 
     <meta itemprop="name" content="{{ $productdetails->ProductName }}">
     <meta itemprop="description" content="{{ env('APP_NAME') }}-{{ $productdetails->ProductName }}">
-    <meta itemprop="image" content="https://arishatex.com/{{ $productdetails->ProductImage }}">
+    <meta itemprop="image" content="https://nextbuye.com/{{ $productdetails->ProductImage }}">
 
-    <meta property="og:url" content="https://arishatex.com/product/{{$productdetails->ProductSlug}}">
+    <meta property="og:url" content="https://nextbuye.com/product/{{$productdetails->ProductSlug}}">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ $productdetails->ProductName }}">
     <meta property="og:description" content="{{ env('APP_NAME') }}-{{ $productdetails->ProductName }}">
-    <meta property="og:image" content="https://armadea.com.bd/{{ $productdetails->ProductImage }}">
-    <meta property="image" content="https://armadea.com.bd/{{ $productdetails->ProductImage }}" />
-    <meta property="url" content="https://armadea.com.bd/product/{{$productdetails->ProductSlug}}">
-    <meta itemprop="image" content="https://armadea.com.bd/{{ $productdetails->ProductImage }}">
-    <meta property="twitter:card" content="https://armadea.com.bd/{{ $productdetails->ProductImage }}" />
+    <meta property="og:image" content="https://nextbuye.com/{{ $productdetails->ProductImage }}">
+    <meta property="image" content="https://nextbuye.com/{{ $productdetails->ProductImage }}" />
+    <meta property="url" content="https://nextbuye.com/product/{{$productdetails->ProductSlug}}">
+    <meta itemprop="image" content="https://nextbuye.com/{{ $productdetails->ProductImage }}">
+    <meta property="twitter:card" content="https://nextbuye.com/{{ $productdetails->ProductImage }}" />
     <meta property="twitter:title" content="{{ $productdetails->ProductName }}" />
-    <meta property="twitter:url" content="https://armadea.com.bd/product/{{$productdetails->ProductSlug}}">
-    <meta name="twitter:image" content="https://armadea.com.bd/{{ $productdetails->ProductImage }}">
+    <meta property="twitter:url" content="https://nextbuye.com/product/{{$productdetails->ProductSlug}}">
+    <meta name="twitter:image" content="https://nextbuye.com/{{ $productdetails->ProductImage }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <!-- এই ৫টি লাইন WhatsApp প্রিভিউ নিয়ে আসবে -->
     
@@ -979,7 +979,7 @@
                 success: function(data) {
                     updatecart();
                     if (data == 'success') {
-                        window.location.href = 'https://arishatex.com/checkout';
+                        window.location.href = 'https://nextbuye.com/checkout';
                         $('#processing').modal('hide');
                     }
                 },
