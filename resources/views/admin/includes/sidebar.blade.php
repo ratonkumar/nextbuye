@@ -95,6 +95,7 @@
                 <span>Delivered</span>
             </a>
         </li>
+           {{-- 
         @if ($admin->hasRole('manager') || $admin->hasRole('user'))
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ url('order/complain') }}">
@@ -104,13 +105,14 @@
             </li>
         @else
         @endif
-
+          
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ url('complain/Pending') }}">
                 <i class="bi bi-truck-flatbed"></i>
                 <span>Complain Box</span>
             </a>
         </li>
+        --}}
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ url('/orderby-product') }}">
@@ -118,7 +120,7 @@
                 <span>Product Orders</span>
             </a>
         </li>
-
+        {{-- 
         @if ($admin->hasRole('manager') || $admin->hasRole('user'))
         @else
             <li class="nav-item">
@@ -154,14 +156,8 @@
                 </ul>
             </li><!-- End Tables Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('orderchange.bybarcode') }}">
-                    <i class="bi bi-person"></i>
-                    <span>OR Scanner</span>
-                </a>
-            </li>
         @endif
-
+        --}}
 
     </ul>
 
