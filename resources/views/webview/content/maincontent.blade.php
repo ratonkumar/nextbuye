@@ -27,43 +27,7 @@
     <meta property="twitter:url" content="https://arishatex.com/">
     <meta name="twitter:image" content="https://arishatex.com/{{\App\Models\Basicinfo::first()->logo}}">
 @endsection
-<style>
-    .product{
-            margin-top: 4px !important;
 
-    }
-
-    #featureimagess{
-        width: 100%;
-        padding: 2px;
-        padding-top: 0;
-        max-height:200px;
-    }
-</style>
-<div class="container-fluid" style="padding:0;background:{{\App\Models\Basicinfo::first()->header_bg_color}}">
-    <div class="container">
-    <div class="row" style="background:{{\App\Models\Basicinfo::first()->header_bg_color}}">
-        <div class="col-lg-3 d-none d-lg-block sidebar pe-0 ps-0">
-            <div class="side-menu animate-dropdown">
-                <div class="head"><i class="icon fas fa-align-justify fa-fw"></i> Categories</div>
-            </div>
-        </div>
-        <div class="col-lg-9 col-12 ps-0 pe-0" id="mainslider">
-            <div class="col-lg-12 position-static order-2 order-lg-0 d-none d-lg-block" style="background: {{\App\Models\Basicinfo::first()->header_bg_color}};">
-                <div id="menu">
-                    <ul>
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ url('/top-sale') }}">Best Selling</a></li>
-                        <li><a href="{{ url('/combo-offer') }}">Combo Offer</a></li>
-                        <!--<li><a href="{{ url('/') }}">News Feed</a></li>-->
-                        <li><a href="{{ url('/track-order') }}">Order Track</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 
 <div class="container">
     <div class="row bg-white">
