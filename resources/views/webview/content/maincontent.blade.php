@@ -31,72 +31,20 @@
 
 <div class="container">
     <div class="row bg-white">
-        <div class="col-lg-3 d-none d-lg-block sidebar pe-0 ps-0">
-            <div class="side-menu animate-dropdown outer-bottom-xs">
-                <nav class="yamm megamenu-horizontal" role="navigation" style="padding-top: 6px;">
-                    <ul class="nav m-0">
-                        @forelse ($categories as $maincategory)
-                            @if (count($maincategory->subcategories) > 0)
-                                <li class="dropdown menu-item">
-                                    <a href="{{ url('products/category/' . $maincategory->slug) }}"
-                                        class="dropdown-toggle" data-bs-hover="dropdown"> <img
-                                            src="{{ asset($maincategory->category_icon) }}"
-                                            alt="{{ $maincategory->category_name }}"
-                                            style="width: 22px !important;margin-top: -5px;">
-                                        <span style="margin-left:6px">{{ $maincategory->category_name }}</span></a>
-                                        <ul class="dropdown-menu mega-menu">
-                                            <li class="yamm-content" style="padding-bottom: 5px;padding-top: 5px;">
-                                                <ul class="links list-unstyled">
-                                                    <div class="row">
-                                                        @foreach ($maincategory->subcategories as $subcategory)
-                                                            <div class="col-sm-12 col-md-4 pt-1 pb-1" id="subcategoryhover" style="width: 100%;">
-                                                                <li><a href="{{ url('products/sub/category/' . $subcategory->slug) }}"
-                                                                        style="color:#666666">{{ $subcategory->sub_category_name }}</a>
-                                                                </li>
-                                                            </div>
-                                                        @endforeach
-                                                    </div>
-                                                </ul>
-                                                <!-- /.row -->
-                                            </li>
-                                            <!-- /.yamm-content -->
-                                        </ul>
-                                        <!-- /.dropdown-menu -->
-                                </li>
-                            @else
-                                <li class="dropdown menu-item">
-                                    <a href="{{ url('products/category/' . $maincategory->slug) }}"
-                                        class="dropdown-toggle text-truncate" data-bs-hover="dropdown"><img
-                                            src="{{ asset($maincategory->category_icon) }}"
-                                            alt="{{ $maincategory->category_name }}"
-                                            style="width: 22px !important;margin-top: -5px;"><span style="margin-left:6px">{{ $maincategory->category_name }}</span></a>
-                                    <!-- /.dropdown-menu -->
-                                </li>
-                            @endif
-                        @empty
-                        @endforelse
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div class="col-lg-9 col-12 ps-0 pe-0" id="mainslider">
-
-            <div class="col-12">
-                <div class="owl-carousel owl-theme" id="slider">
-                    @forelse ($sliders as $slider)
-                        <div class="item" style="margin:0 !important;">
-                            <img  src="{{ asset($slider->slider_image) }}"
-                                alt="{{ $slider->slider_title }}">
-                        </div>
-                    @empty
-                    @endforelse
-                </div>
-
+        <div class="col-12">
+            <div class="owl-carousel owl-theme" id="slider">
+                @forelse ($sliders as $slider)
+                    <div class="item" style="margin:0 !important;">
+                        <img  src="{{ asset($slider->slider_image) }}"
+                            alt="{{ $slider->slider_title }}">
+                    </div>
+                @empty
+                @endforelse
             </div>
         </div>
     </div>
 </div>
-@if(count($featuredproducts)>0)
+@if(count($featuredproducts) > 0)
 <!-- Promotional Products -->
 <div class="container pt-0 pb-4">
     <div class="row bg-white pb-4">

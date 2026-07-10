@@ -82,14 +82,11 @@
     @yield('subfooter')
 
 
-<a href="https://wa.me/{{ App\Models\Basicinfo::first()->whatsapp }}?text=I%20am%20interested" target="_blank" style="position: fixed;bottom: 50px;right: 6px;z-index:1111">
-    <img src="{{asset('public/whatsappns.png')}}" style="height:60px;border-radius:50%">
-</a>
-
-
+    <a href="https://wa.me/{{ App\Models\Basicinfo::first()->whatsapp }}?text=I%20am%20interested" target="_blank" style="position: fixed;bottom: 50px;right: 6px;z-index:1111">
+        <img src="{{asset('public/whatsappns.png')}}" style="height:60px;border-radius:50%">
+    </a>
 
     {{-- model cart --}}
-
     <div class="modal" id="processing">
         <div class="modal-dialog">
             <div class="modal-content" style="text-align: center">
