@@ -3,7 +3,7 @@
 
      <div class="d-flex align-items-center justify-content-between">
          <a href="" class="text-center" id="largelogotext">
-             <h2 style="font-family: Roboto,sans-serif;"><img src="{{asset(\App\Models\Basicinfo::first()->logo)}}" alt="logo" style="width:50%"></h2>
+             <h2 style="font-family: Roboto,sans-serif;"><img src="{{asset(\App\Models\Basicinfo::first()->logo)}}" alt="logo" style="width:50px"></h2>
          </a>
          <a href="" class="text-center" id="small_logo">
              <h2 style="font-family: Roboto,sans-serif;">INV</h2>
