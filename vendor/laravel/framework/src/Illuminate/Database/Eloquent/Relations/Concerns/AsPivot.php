@@ -15,13 +15,6 @@ trait AsPivot
     public $pivotParent;
 
     /**
-     * The related model of the relationship.
-     *
-     * @var \Illuminate\Database\Eloquent\Model
-     */
-    public $pivotRelated;
-
-    /**
      * The name of the foreign key column.
      *
      * @var string
@@ -83,9 +76,7 @@ trait AsPivot
 
         $instance->timestamps = $instance->hasTimestampAttributes($attributes);
 
-        $instance->setRawAttributes(
-            array_merge($instance->getRawOriginal(), $attributes), $exists
-        );
+        $instance->setRawAttributes($attributes, $exists);
 
         return $instance;
     }
@@ -93,8 +84,8 @@ trait AsPivot
     /**
      * Set the keys for a select query.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder<static>  $query
-     * @return \Illuminate\Database\Eloquent\Builder<static>
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     protected function setKeysForSelectQuery($query)
     {
@@ -114,8 +105,8 @@ trait AsPivot
     /**
      * Set the keys for a save update query.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder<static>  $query
-     * @return \Illuminate\Database\Eloquent\Builder<static>
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     protected function setKeysForSaveQuery($query)
     {
@@ -149,7 +140,7 @@ trait AsPivot
     /**
      * Get the query builder for a delete operation on the pivot.
      *
-     * @return \Illuminate\Database\Eloquent\Builder<static>
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     protected function getDeleteQuery()
     {
@@ -222,19 +213,6 @@ trait AsPivot
     }
 
     /**
-     * Set the related model of the relationship.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model|null  $related
-     * @return $this
-     */
-    public function setRelatedModel(?Model $related = null)
-    {
-        $this->pivotRelated = $related;
-
-        return $this;
-    }
-
-    /**
      * Determine if the pivot model or given attributes has timestamp attributes.
      *
      * @param  array|null  $attributes
@@ -242,8 +220,7 @@ trait AsPivot
      */
     public function hasTimestampAttributes($attributes = null)
     {
-        return ($createdAt = $this->getCreatedAtColumn()) !== null
-            && array_key_exists($createdAt, $attributes ?? $this->attributes);
+        return array_key_exists($this->getCreatedAtColumn(), $attributes ?? $this->attributes);
     }
 
     /**
@@ -292,7 +269,7 @@ trait AsPivot
      * Get a new query to restore one or more models by their queueable IDs.
      *
      * @param  int[]|string[]|string  $ids
-     * @return \Illuminate\Database\Eloquent\Builder<static>
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function newQueryForRestoration($ids)
     {
@@ -300,7 +277,7 @@ trait AsPivot
             return $this->newQueryForCollectionRestoration($ids);
         }
 
-        if (! str_contains($ids, ':')) {
+        if (! Str::contains($ids, ':')) {
             return parent::newQueryForRestoration($ids);
         }
 
@@ -315,13 +292,13 @@ trait AsPivot
      * Get a new query to restore multiple models by their queueable IDs.
      *
      * @param  int[]|string[]  $ids
-     * @return \Illuminate\Database\Eloquent\Builder<static>
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     protected function newQueryForCollectionRestoration(array $ids)
     {
         $ids = array_values($ids);
 
-        if (! str_contains($ids[0], ':')) {
+        if (! Str::contains($ids[0], ':')) {
             return parent::newQueryForRestoration($ids);
         }
 
@@ -347,7 +324,6 @@ trait AsPivot
     public function unsetRelations()
     {
         $this->pivotParent = null;
-        $this->pivotRelated = null;
         $this->relations = [];
 
         return $this;

@@ -5,11 +5,9 @@ namespace Illuminate\Cache\Console;
 use Illuminate\Cache\CacheManager;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-#[AsCommand(name: 'cache:clear')]
 class ClearCommand extends Command
 {
     /**
@@ -45,6 +43,7 @@ class ClearCommand extends Command
      *
      * @param  \Illuminate\Cache\CacheManager  $cache
      * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @return void
      */
     public function __construct(CacheManager $cache, Filesystem $files)
     {
@@ -57,7 +56,7 @@ class ClearCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return int
+     * @return void
      */
     public function handle()
     {
@@ -70,18 +69,14 @@ class ClearCommand extends Command
         $this->flushFacades();
 
         if (! $successful) {
-            $this->components->error('Failed to clear cache. Make sure you have the appropriate permissions.');
-
-            return self::FAILURE;
+            return $this->error('Failed to clear cache. Make sure you have the appropriate permissions.');
         }
 
         $this->laravel['events']->dispatch(
             'cache:cleared', [$this->argument('store'), $this->tags()]
         );
 
-        $this->components->info('Application cache cleared successfully.');
-
-        return self::SUCCESS;
+        $this->info('Application cache cleared!');
     }
 
     /**

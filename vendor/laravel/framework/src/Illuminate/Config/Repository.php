@@ -5,18 +5,13 @@ namespace Illuminate\Config;
 use ArrayAccess;
 use Illuminate\Contracts\Config\Repository as ConfigContract;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Traits\Macroable;
-use InvalidArgumentException;
 
 class Repository implements ArrayAccess, ConfigContract
 {
-    use Macroable;
-
     /**
      * All of the configuration items.
      *
-     * @var array<string,mixed>
+     * @var array
      */
     protected $items = [];
 
@@ -24,6 +19,7 @@ class Repository implements ArrayAccess, ConfigContract
      * Create a new configuration repository.
      *
      * @param  array  $items
+     * @return void
      */
     public function __construct(array $items = [])
     {
@@ -60,8 +56,8 @@ class Repository implements ArrayAccess, ConfigContract
     /**
      * Get many configuration values.
      *
-     * @param  array<string|int,mixed>  $keys
-     * @return array<string,mixed>
+     * @param  array  $keys
+     * @return array
      */
     public function getMany($keys)
     {
@@ -76,128 +72,6 @@ class Repository implements ArrayAccess, ConfigContract
         }
 
         return $config;
-    }
-
-    /**
-     * Get the specified string configuration value.
-     *
-     * @param  string  $key
-     * @param  (\Closure():(string|null))|string|null  $default
-     * @return string
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function string(string $key, $default = null): string
-    {
-        $value = $this->get($key, $default);
-
-        if (! is_string($value)) {
-            throw new InvalidArgumentException(
-                sprintf('Configuration value for key [%s] must be a string, %s given.', $key, gettype($value))
-            );
-        }
-
-        return $value;
-    }
-
-    /**
-     * Get the specified integer configuration value.
-     *
-     * @param  string  $key
-     * @param  (\Closure():(int|null))|int|null  $default
-     * @return int
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function integer(string $key, $default = null): int
-    {
-        $value = $this->get($key, $default);
-
-        if (! is_int($value)) {
-            throw new InvalidArgumentException(
-                sprintf('Configuration value for key [%s] must be an integer, %s given.', $key, gettype($value))
-            );
-        }
-
-        return $value;
-    }
-
-    /**
-     * Get the specified float configuration value.
-     *
-     * @param  string  $key
-     * @param  (\Closure():(float|null))|float|null  $default
-     * @return float
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function float(string $key, $default = null): float
-    {
-        $value = $this->get($key, $default);
-
-        if (! is_float($value)) {
-            throw new InvalidArgumentException(
-                sprintf('Configuration value for key [%s] must be a float, %s given.', $key, gettype($value))
-            );
-        }
-
-        return $value;
-    }
-
-    /**
-     * Get the specified boolean configuration value.
-     *
-     * @param  string  $key
-     * @param  (\Closure():(bool|null))|bool|null  $default
-     * @return bool
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function boolean(string $key, $default = null): bool
-    {
-        $value = $this->get($key, $default);
-
-        if (! is_bool($value)) {
-            throw new InvalidArgumentException(
-                sprintf('Configuration value for key [%s] must be a boolean, %s given.', $key, gettype($value))
-            );
-        }
-
-        return $value;
-    }
-
-    /**
-     * Get the specified array configuration value.
-     *
-     * @param  string  $key
-     * @param  (\Closure():(array<array-key, mixed>|null))|array<array-key, mixed>|null  $default
-     * @return array<array-key, mixed>
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function array(string $key, $default = null): array
-    {
-        $value = $this->get($key, $default);
-
-        if (! is_array($value)) {
-            throw new InvalidArgumentException(
-                sprintf('Configuration value for key [%s] must be an array, %s given.', $key, gettype($value))
-            );
-        }
-
-        return $value;
-    }
-
-    /**
-     * Get the specified array configuration value as a collection.
-     *
-     * @param  string  $key
-     * @param  (\Closure():(array<array-key, mixed>|null))|array<array-key, mixed>|null  $default
-     * @return Collection<array-key, mixed>
-     */
-    public function collection(string $key, $default = null): Collection
-    {
-        return new Collection($this->array($key, $default));
     }
 
     /**
@@ -264,7 +138,8 @@ class Repository implements ArrayAccess, ConfigContract
      * @param  string  $key
      * @return bool
      */
-    public function offsetExists($key): bool
+    #[\ReturnTypeWillChange]
+    public function offsetExists($key)
     {
         return $this->has($key);
     }
@@ -275,7 +150,8 @@ class Repository implements ArrayAccess, ConfigContract
      * @param  string  $key
      * @return mixed
      */
-    public function offsetGet($key): mixed
+    #[\ReturnTypeWillChange]
+    public function offsetGet($key)
     {
         return $this->get($key);
     }
@@ -287,7 +163,8 @@ class Repository implements ArrayAccess, ConfigContract
      * @param  mixed  $value
      * @return void
      */
-    public function offsetSet($key, $value): void
+    #[\ReturnTypeWillChange]
+    public function offsetSet($key, $value)
     {
         $this->set($key, $value);
     }
@@ -298,7 +175,8 @@ class Repository implements ArrayAccess, ConfigContract
      * @param  string  $key
      * @return void
      */
-    public function offsetUnset($key): void
+    #[\ReturnTypeWillChange]
+    public function offsetUnset($key)
     {
         $this->set($key, null);
     }

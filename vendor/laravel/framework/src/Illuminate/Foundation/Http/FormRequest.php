@@ -11,6 +11,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Validation\ValidatesWhenResolvedTrait;
+use Illuminate\Validation\ValidationException;
 
 class FormRequest extends Request implements ValidatesWhenResolved
 {
@@ -86,20 +87,13 @@ class FormRequest extends Request implements ValidatesWhenResolved
         $factory = $this->container->make(ValidationFactory::class);
 
         if (method_exists($this, 'validator')) {
-            $validator = $this->container->call($this->validator(...), compact('factory'));
+            $validator = $this->container->call([$this, 'validator'], compact('factory'));
         } else {
             $validator = $this->createDefaultValidator($factory);
         }
 
         if (method_exists($this, 'withValidator')) {
             $this->withValidator($validator);
-        }
-
-        if (method_exists($this, 'after')) {
-            $validator->after($this->container->call(
-                $this->after(...),
-                ['validator' => $validator]
-            ));
         }
 
         $this->setValidator($validator);
@@ -115,22 +109,10 @@ class FormRequest extends Request implements ValidatesWhenResolved
      */
     protected function createDefaultValidator(ValidationFactory $factory)
     {
-        $rules = $this->validationRules();
-
-        $validator = $factory->make(
-            $this->validationData(),
-            $rules,
-            $this->messages(),
-            $this->attributes(),
+        return $factory->make(
+            $this->validationData(), $this->container->call([$this, 'rules']),
+            $this->messages(), $this->attributes()
         )->stopOnFirstFailure($this->stopOnFirstFailure);
-
-        if ($this->isPrecognitive()) {
-            $validator->setRules(
-                $this->filterPrecognitiveRules($validator->getRulesWithoutPlaceholders())
-            );
-        }
-
-        return $validator;
     }
 
     /**
@@ -144,16 +126,6 @@ class FormRequest extends Request implements ValidatesWhenResolved
     }
 
     /**
-     * Get the validation rules for this form request.
-     *
-     * @return array
-     */
-    protected function validationRules()
-    {
-        return method_exists($this, 'rules') ? $this->container->call([$this, 'rules']) : [];
-    }
-
-    /**
      * Handle a failed validation attempt.
      *
      * @param  \Illuminate\Contracts\Validation\Validator  $validator
@@ -163,11 +135,9 @@ class FormRequest extends Request implements ValidatesWhenResolved
      */
     protected function failedValidation(Validator $validator)
     {
-        $exception = $validator->getException();
-
-        throw (new $exception($validator))
-            ->errorBag($this->errorBag)
-            ->redirectTo($this->getRedirectUrl());
+        throw (new ValidationException($validator))
+                    ->errorBag($this->errorBag)
+                    ->redirectTo($this->getRedirectUrl());
     }
 
     /**
@@ -229,26 +199,24 @@ class FormRequest extends Request implements ValidatesWhenResolved
     public function safe(?array $keys = null)
     {
         return is_array($keys)
-            ? $this->validator->safe()->only($keys)
-            : $this->validator->safe();
+                    ? $this->validator->safe()->only($keys)
+                    : $this->validator->safe();
     }
 
     /**
      * Get the validated data from the request.
      *
-     * @param  array|int|string|null  $key
-     * @param  mixed  $default
-     * @return mixed
+     * @return array
      */
-    public function validated($key = null, $default = null)
+    public function validated()
     {
-        return data_get($this->validator->validated(), $key, $default);
+        return $this->validator->validated();
     }
 
     /**
      * Get custom messages for validator errors.
      *
-     * @return array<string, string>
+     * @return array
      */
     public function messages()
     {
@@ -258,7 +226,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
     /**
      * Get custom attributes for validator errors.
      *
-     * @return array<string, string>
+     * @return array
      */
     public function attributes()
     {

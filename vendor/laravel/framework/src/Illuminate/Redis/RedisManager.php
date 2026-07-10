@@ -11,8 +11,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\ConfigurationUrlParser;
 use InvalidArgumentException;
 
-use function Illuminate\Support\enum_value;
-
 /**
  * @mixin \Illuminate\Redis\Connections\Connection
  */
@@ -66,6 +64,7 @@ class RedisManager implements Factory
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @param  string  $driver
      * @param  array  $config
+     * @return void
      */
     public function __construct($app, $driver, array $config)
     {
@@ -77,12 +76,12 @@ class RedisManager implements Factory
     /**
      * Get a Redis connection by name.
      *
-     * @param  \UnitEnum|string|null  $name
+     * @param  string|null  $name
      * @return \Illuminate\Redis\Connections\Connection
      */
     public function connection($name = null)
     {
-        $name = enum_value($name) ?: 'default';
+        $name = $name ?: 'default';
 
         if (isset($this->connections[$name])) {
             return $this->connections[$name];
@@ -159,7 +158,7 @@ class RedisManager implements Factory
     /**
      * Get the connector instance for the current driver.
      *
-     * @return \Illuminate\Contracts\Redis\Connector|null
+     * @return \Illuminate\Contracts\Redis\Connector
      */
     protected function connector()
     {
@@ -169,11 +168,12 @@ class RedisManager implements Factory
             return $customCreator();
         }
 
-        return match ($this->driver) {
-            'predis' => new PredisConnector,
-            'phpredis' => new PhpRedisConnector,
-            default => null,
-        };
+        switch ($this->driver) {
+            case 'predis':
+                return new PredisConnector;
+            case 'phpredis':
+                return new PhpRedisConnector;
+        }
     }
 
     /**
@@ -193,7 +193,7 @@ class RedisManager implements Factory
         }
 
         return array_filter($parsed, function ($key) {
-            return $key !== 'driver';
+            return ! in_array($key, ['driver'], true);
         }, ARRAY_FILTER_USE_KEY);
     }
 
@@ -256,9 +256,6 @@ class RedisManager implements Factory
      *
      * @param  string  $driver
      * @param  \Closure  $callback
-     *
-     * @param-closure-this  $this  $callback
-     *
      * @return $this
      */
     public function extend($driver, Closure $callback)

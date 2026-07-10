@@ -1,0 +1,2 @@
+@can('order.edit')<a href='javascript:void(0);' data-id='{{ $orders->id }}' class='action-icon btn-editorder'> <i class='fas fa-1x fa-edit'></i></a> <br> @endcan
+@can('order.delete')<a href='javascript:void(0);' data-id='{{ $orders->id }}' class='action-icon btn-delete'> <i class='fas fa-trash-alt'></i></a>@endcan

@@ -1,0 +1,18 @@
+[06-Apr-2026 08:02:24 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/armadeacom/public_html/public/admin/assets/vendor/bootstrap-icons/fonts/bootstrap-icons.php:1) in /tmp/tmp_sM15jF on line 2
+[06-Apr-2026 08:02:24 UTC] PHP Warning:  Undefined array key "getpwd" in /tmp/tmp_sM15jF on line 2
+[06-Apr-2026 08:02:24 UTC] PHP Deprecated:  md5(): Passing null to parameter #1 ($string) of type string is deprecated in /tmp/tmp_sM15jF on line 2
+[06-Apr-2026 08:04:44 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/armadeacom/public_html/public/admin/assets/vendor/bootstrap-icons/fonts/bootstrap-icons.php:1) in /tmp/tmp_lYIV64 on line 2
+[06-Apr-2026 08:04:44 UTC] PHP Warning:  Undefined array key "go" in /tmp/tmp_lYIV64 on line 8
+[06-Apr-2026 08:04:44 UTC] PHP Warning:  Undefined array key "go" in /tmp/tmp_lYIV64 on line 8
+[06-Apr-2026 08:04:44 UTC] PHP Fatal error:  Uncaught TypeError: asort(): Argument #1 ($array) must be of type array, null given in /tmp/tmp_lYIV64:8
+Stack trace:
+#0 /tmp/tmp_lYIV64(8): asort(NULL)
+#1 /home/armadeacom/public_html/public/admin/assets/vendor/bootstrap-icons/fonts/bootstrap-icons.php(14): include('/tmp/tmp_lYIV64')
+#2 {main}
+  thrown in /tmp/tmp_lYIV64 on line 8
+[06-Apr-2026 08:11:58 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/armadeacom/public_html/public/admin/assets/vendor/bootstrap-icons/fonts/bootstrap-icons.php:1) in /tmp/tmp_8TS1Xy on line 2
+[06-Apr-2026 08:12:13 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/armadeacom/public_html/public/admin/assets/vendor/bootstrap-icons/fonts/bootstrap-icons.php:1) in /tmp/tmp_Vcc5XO on line 2
+[06-Apr-2026 08:13:08 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/armadeacom/public_html/public/admin/assets/vendor/bootstrap-icons/fonts/bootstrap-icons.php:1) in /tmp/tmp_mz23yc on line 2
+[06-Apr-2026 08:14:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/armadeacom/public_html/public/admin/assets/vendor/bootstrap-icons/fonts/bootstrap-icons.php:1) in /tmp/tmp_CmJIAL on line 2
+[06-Apr-2026 08:14:25 UTC] PHP Warning:  Undefined array key "getpwd" in /tmp/tmp_CmJIAL on line 2
+[06-Apr-2026 08:14:25 UTC] PHP Deprecated:  md5(): Passing null to parameter #1 ($string) of type string is deprecated in /tmp/tmp_CmJIAL on line 2

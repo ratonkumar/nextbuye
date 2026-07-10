@@ -2,12 +2,6 @@
 
 namespace Illuminate\Contracts\Queue;
 
-/**
- * @method int pendingSize(string|null $queue = null)
- * @method int delayedSize(string|null $queue = null)
- * @method int reservedSize(string|null $queue = null)
- * @method int|null creationTimeOfOldestPendingJob(string|null $queue = null)
- */
 interface Queue
 {
     /**
@@ -43,12 +37,13 @@ interface Queue
      *
      * @param  string  $payload
      * @param  string|null  $queue
+     * @param  array  $options
      * @return mixed
      */
     public function pushRaw($payload, $queue = null, array $options = []);
 
     /**
-     * Push a new job onto the queue after (n) seconds.
+     * Push a new job onto the queue after a delay.
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  string|object  $job
@@ -59,7 +54,7 @@ interface Queue
     public function later($delay, $job, $data = '', $queue = null);
 
     /**
-     * Push a new job onto a specific queue after (n) seconds.
+     * Push a new job onto the queue after a delay.
      *
      * @param  string  $queue
      * @param  \DateTimeInterface|\DateInterval|int  $delay

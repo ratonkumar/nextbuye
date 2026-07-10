@@ -1,0 +1,2 @@
+@can('category.edit')<a href="#" type="button" id="editCategoryBtn" data-id="{{ $categorys->id }}"   class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editmainCategory" ><i class="bi bi-pencil-square"></i></a>@endcan
+@can('category.delete')<a href="#" type="button" id="deleteCategoryBtn" data-id="{{ $categorys->id }}" class="btn btn-danger btn-sm" ><i class="bi bi-archive" ></i></a>@endcan

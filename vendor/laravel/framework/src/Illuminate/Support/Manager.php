@@ -40,6 +40,7 @@ abstract class Manager
      * Create a new manager instance.
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
+     * @return void
      */
     public function __construct(Container $container)
     {
@@ -50,7 +51,7 @@ abstract class Manager
     /**
      * Get the default driver name.
      *
-     * @return string|null
+     * @return string
      */
     abstract public function getDefaultDriver();
 
@@ -75,7 +76,11 @@ abstract class Manager
         // If the given driver has not been created before, we will create the instances
         // here and cache it so we can return it next time very quickly. If there is
         // already a driver created by this name, we'll just return that instance.
-        return $this->drivers[$driver] ??= $this->createDriver($driver);
+        if (! isset($this->drivers[$driver])) {
+            $this->drivers[$driver] = $this->createDriver($driver);
+        }
+
+        return $this->drivers[$driver];
     }
 
     /**
@@ -93,12 +98,12 @@ abstract class Manager
         // callbacks allow developers to build their own "drivers" easily using Closures.
         if (isset($this->customCreators[$driver])) {
             return $this->callCustomCreator($driver);
-        }
+        } else {
+            $method = 'create'.Str::studly($driver).'Driver';
 
-        $method = 'create'.Str::studly($driver).'Driver';
-
-        if (method_exists($this, $method)) {
-            return $this->$method();
+            if (method_exists($this, $method)) {
+                return $this->$method();
+            }
         }
 
         throw new InvalidArgumentException("Driver [$driver] not supported.");
