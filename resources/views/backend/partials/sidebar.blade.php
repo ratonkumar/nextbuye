@@ -1,7 +1,13 @@
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-secondary navbar-dark">
         <a href="{{ url('/admin/dashboard') }}" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary"><img src="{{asset(\App\Models\Basicinfo::first()->logo)}}" alt="logo" style="width:100%"></h3>
+            <h3 class="text-primary"><img src="{{asset(\App\Models\Basicinfo::first()->logo)}}" alt="logo" style="    width: 62px;
+    margin: 0px auto;
+    display: block;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    margin-left: 40px;"></h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
