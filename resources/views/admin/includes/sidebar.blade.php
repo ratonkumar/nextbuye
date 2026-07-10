@@ -19,6 +19,7 @@
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
+        {{--
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-box"></i><span>Store</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -52,7 +53,7 @@
                     </li>
                 </ul>
             </li><!-- End Components Nav -->
-
+        --}}
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-truck"></i><span>Courier</span><i class="bi bi-chevron-down ms-auto"></i>
