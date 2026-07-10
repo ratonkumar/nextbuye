@@ -77,49 +77,36 @@
                 </div>
             </div>
             @endcan
-            @can('menu.attributes') 
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                        class="far fa-file-alt me-2"></i>Attributes</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a href="{{ route('admin.attributes.index') }}" class="dropdown-item">Attribute Name</a>
-                    <a href="{{ route('admin.attrvalues.index') }}" class="dropdown-item">Attribute Value</a>
-                </div>
-            </div>
-            @endcan
+        
             @can('menu.products') 
             <a href="{{ route('admin.products.index') }}" class="nav-item nav-link"><i
                     class="fa fa-keyboard me-2"></i>Products</a>
             @endcan
-            @can('menu.ip.block') 
-            <a href="{{ url('admin/ip/list') }}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>IP block
-                Panel</a>
-            @endcan
+       
             @can('menu.order') 
             <a href="{{ url('order/dashboard') }}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Order
                 Panel</a>
             @endcan
             @can('menu.charts')
           
-            <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                        class="far fa-file-alt me-2"></i>Pages</a>
-                <div class="dropdown-menu bg-transparent border-0">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                            class="far fa-file-alt me-2"></i>Pages</a>
+                    <div class="dropdown-menu bg-transparent border-0">
 
-                    <a href="{{ url('admin/information/about_us') }}" class="dropdown-item">About Us</a>
-                    <a href="{{ url('admin/information/contact_us') }}" class="dropdown-item">Contact Us</a>
-                    <a href="{{ url('admin/information/terms_codition') }}" class="dropdown-item">Terms Conditions</a>
-                    <a href="{{ url('admin/information/shipping_guide') }}" class="dropdown-item">Shipping Guide</a>
-                    <a href="{{ url('admin/information/investor_relation') }}"
-                        class="dropdown-item">Investor-Relation</a>
-                    <a href="{{ url('admin/information/company') }}" class="dropdown-item">Company</a>
-                    <a href="{{ url('admin/information/customer_service') }}" class="dropdown-item">Customer
-                        Service</a>
-                    <a href="{{ url('admin/information/help_center') }}" class="dropdown-item">Help Center</a>
-                    <a href="{{ url('admin/information/faq') }}" class="dropdown-item">FAQ</a>
-                    <a href="{{ url('admin/information/privacy_policy') }}" class="dropdown-item">Privacy & Policy</a>
-                </div>
+                        <a href="{{ url('admin/information/about_us') }}" class="dropdown-item">About Us</a>
+                        <a href="{{ url('admin/information/contact_us') }}" class="dropdown-item">Contact Us</a>
+                        <a href="{{ url('admin/information/terms_codition') }}" class="dropdown-item">Terms Conditions</a>
+                        <a href="{{ url('admin/information/shipping_guide') }}" class="dropdown-item">Shipping Guide</a>
+                        <a href="{{ url('admin/information/investor_relation') }}"
+                            class="dropdown-item">Investor-Relation</a>
+                        <a href="{{ url('admin/information/company') }}" class="dropdown-item">Company</a>
+                        <a href="{{ url('admin/information/customer_service') }}" class="dropdown-item">Customer
+                            Service</a>
+                        <a href="{{ url('admin/information/help_center') }}" class="dropdown-item">Help Center</a>
+                        <a href="{{ url('admin/information/faq') }}" class="dropdown-item">FAQ</a>
+                        <a href="{{ url('admin/information/privacy_policy') }}" class="dropdown-item">Privacy & Policy</a>
+                    </div>
             </div>
             @endcan
             
