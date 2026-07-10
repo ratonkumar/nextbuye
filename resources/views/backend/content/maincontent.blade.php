@@ -25,7 +25,7 @@
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-6 col-xl-4">
-            <div class="bg-secondary rounded d-flex align-items-center p-4">
+            <div class="bg-third rounded d-flex align-items-center p-4">
                 <i class="fa fa-chart-line fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">Today Sale</p>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-xl-4">
-            <div class="bg-secondary rounded d-flex align-items-center p-4">
+            <div class="bg-third rounded d-flex align-items-center p-4">
                 <i class="fa fa-chart-bar fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">Total Sale(Current Month)</p>
@@ -44,7 +44,7 @@
         </div>
         
         <div class="col-sm-6 col-xl-4">
-            <div class="bg-secondary rounded d-flex align-items-center p-4">
+            <div class="bg-third rounded d-flex align-items-center p-4">
                 <i class="fa fa-chart-bar fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">Total Delivery (Current Month)</p>
@@ -53,7 +53,7 @@
             </div>
         </div>
         {{-- <div class="col-sm-6 col-xl-3">
-            <div class="bg-secondary rounded d-flex align-items-center p-4">
+            <div class="bg-third rounded d-flex align-items-center p-4">
                 <i class="fa fa-chart-area fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">Today Revenue</p>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-xl-3">
-            <div class="bg-secondary rounded d-flex align-items-center p-4">
+            <div class="bg-third rounded d-flex align-items-center p-4">
                 <i class="fa fa-chart-pie fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">Total Revenue</p>
@@ -82,7 +82,7 @@
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-xl-6">
-            <div class="bg-secondary text-center rounded p-4">
+            <div class="bg-third text-center rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">Worldwide Sales</h6>
                     <a href="">Show All</a>
@@ -91,7 +91,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-xl-6">
-            <div class="bg-secondary text-center rounded p-4">
+            <div class="bg-third text-center rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">Salse & Revenue</h6>
                     <a href="">Show All</a>
@@ -108,7 +108,7 @@
 
 <!-- Recent Sales Start -->
 <div class="container-fluid pt-4 px-4">
-    <div class="bg-secondary text-center rounded p-4">
+    <div class="bg-third text-center rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h6 class="mb-0">Recent Salse</h6>
             <a href="{{ url('admin_order/orderall') }}">Show All</a>
@@ -158,7 +158,7 @@
     <div class="row g-4">
         {{--
         <div class="col-sm-12 col-md-6 col-xl-4">
-            <div class="h-100 bg-secondary rounded p-4">
+            <div class="h-100 bg-third rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-2">
                     <h6 class="mb-0">Messages</h6>
                     <a href="">Show All</a>
@@ -208,7 +208,7 @@
         
         --}}
         <div class="col-sm-12 col-md-6 col-xl-6">
-            <div class="h-100 bg-secondary rounded p-4">
+            <div class="h-100 bg-third rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">Calender</h6>
                     <!--<a href="">Show All</a>-->
@@ -217,7 +217,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-6 col-xl-6">
-            <div class="h-100 bg-secondary rounded p-4">
+            <div class="h-100 bg-third rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">To Do List</h6>
                     <!--<a href="">Show All</a>-->
