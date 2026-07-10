@@ -7,15 +7,17 @@
 
 @section('meta')
     @php
+        // Fetch the data from the database
+        $basicinfo = \App\Models\Basicinfo::first();
         $baseUrl = url('/');
         $logoUrl = url($basicinfo->logo);
-        $siteName = "Arishatex";
+        $siteName = "Best Buye";
         $pageTitle = "Best Online Shopping in Bangladesh | " . $siteName;
         $desc = "Online shopping in Bangladesh for beauty products, men, women, kids, fashion items, clothes, electronics, home appliances, gadgets, watch, and more.";
     @endphp
 
     <meta name="description" content="{{ $desc }}">
-    <meta name="keywords" content="Arishatex, online store bd, online shop bd, Organic fruits, Thai, UK, Korea, China, cosmetics, Jewellery, bags, dress, mobile, accessories, automation Products">
+    <meta name="keywords" content="Best Buye, online store bd, online shop bd, Organic fruits, Thai, UK, Korea, China, cosmetics, Jewellery, bags, dress, mobile, accessories, automation Products">
 
     <meta itemprop="name" content="{{ $pageTitle }}">
     <meta itemprop="description" content="{{ $desc }}">
