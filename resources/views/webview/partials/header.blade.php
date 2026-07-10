@@ -1,36 +1,9 @@
 <header class="header-style-1">
 
-    <!-- ============================================== TOP MENU ============================================== -->
-    <div class="top-barhead animate-dropdown" id="d-sm-none">
-        <div class="container">
-            <div class="header-top-inner">
-                <div class="cnt-account">
-                    <ul class="list-unstyled">  
-                        @if (Auth::id())
-                            <li><a href="{{ url('user/dashboard') }}"><i class="icon fas fa-user"></i>Dashboard</a></li>
-                        @else
-                            <li><a href="{{ url('login') }}">Sign In</a></li>
-                            <li><a href="javascript:void(0);">|</a></li>
-                            <li><a href="{{ url('register') }}">Sign Up</a></li>
-                        @endif
-                    </ul>
-                </div> 
-                <div class="cnt-account" style="float: left;">
-                    <ul class="list-unstyled">   
-                        <li><a href="tel:+88{{$basicinfo->phone_one}}"><i class="icon fas fa-phone"></i>Have any question? Call Us +88{{$basicinfo->phone_one}}</a></li> 
-                    </ul>
-                </div>
-                <!-- /.cnt-cart -->
-                <div class="clearfix"></div>
-            </div>
-            <!-- /.header-top-inner -->
-        </div>
-        <!-- /.container -->
-    </div>
     <!-- /.header-top  id="d-lg-none"-->
     <!-- ============================================== TOP MENU : END ============================================== -->
     <div class="col-12">
-        <marquee behavior="" direction="" style="color:#818a91"> {{ $basicinfo->marquee_text }}</marquee>
+        <h5 behavior="" direction="" style="color:#818a91"> {{ $basicinfo->marquee_text }}</h5>
     </div>
     <div class="main-header" id="myHeader" style="background: #fff;border-bottom: 1px solid #e9e9e9;">
         <div class="container">
