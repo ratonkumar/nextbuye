@@ -6,26 +6,32 @@
 @endsection
 
 @section('meta')
-    <meta name="description" content="Online shopping in Bangladesh for beauty products, men, women, kids, fashion items, clothes, electronics, home appliances, gadgets, watch, many more.">
-    <meta name="keywords" content="Arishatex, online store bd, online shop bd, Organic fruits, Thai, UK, Korea, China, cosmetics, Jewellery, bags, dress, mobile, accessories, automation Products,">
+    @php
+        $baseUrl = url('/');
+        $logoUrl = url($basicinfo->logo);
+        $siteName = "Arishatex";
+        $pageTitle = "Best Online Shopping in Bangladesh | " . $siteName;
+        $desc = "Online shopping in Bangladesh for beauty products, men, women, kids, fashion items, clothes, electronics, home appliances, gadgets, watch, and more.";
+    @endphp
 
+    <meta name="description" content="{{ $desc }}">
+    <meta name="keywords" content="Arishatex, online store bd, online shop bd, Organic fruits, Thai, UK, Korea, China, cosmetics, Jewellery, bags, dress, mobile, accessories, automation Products">
 
-    <meta itemprop="name" content="Best Online Shopping in Bangladesh | Arishatex">
-    <meta itemprop="description" content="Best online shopping in Bangladesh for beauty products, men, women, kids, fashion items, clothes, electronics, home appliances, gadgets, watch, many more.">
-    <meta itemprop="image" content="https://arishatex.com/{{\App\Models\Basicinfo::first()->logo}}">
+    <meta itemprop="name" content="{{ $pageTitle }}">
+    <meta itemprop="description" content="{{ $desc }}">
+    <meta itemprop="image" content="{{ $logoUrl }}">
 
-    <meta property="og:url" content="https://arishatex.com/">
+    <meta property="og:url" content="{{ $baseUrl }}">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Best Online Shopping in Bangladesh | arishatex">
-    <meta property="og:description" content="Online shopping in BD for beauty products, men, women, kids, fashion items, clothes, electronics, home appliances, gadgets, watch, many more.">
-    <meta property="og:image" content="https://arishatex.com/{{\App\Models\Basicinfo::first()->logo}}">
-    <meta property="image" content="https://arishatex.com/{{\App\Models\Basicinfo::first()->logo}}" />
-    <meta property="url" content="https://arishatex.com/">
-    <meta itemprop="image" content="https://arishatex.com/{{\App\Models\Basicinfo::first()->logo}}">
-    <meta property="twitter:card" content="https://arishatex.com/{{\App\Models\Basicinfo::first()->logo}}" />
-    <meta property="twitter:title" content="Best Online Shopping in Bangladesh | arishatex" />
-    <meta property="twitter:url" content="https://arishatex.com/">
-    <meta name="twitter:image" content="https://arishatex.com/{{\App\Models\Basicinfo::first()->logo}}">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $desc }}">
+    <meta property="og:image" content="{{ $logoUrl }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $pageTitle }}">
+    <meta name="twitter:description" content="{{ $desc }}">
+    <meta name="twitter:url" content="{{ $baseUrl }}">
+    <meta name="twitter:image" content="{{ $logoUrl }}">
 @endsection
 
 
@@ -44,6 +50,49 @@
         </div>
     </div>
 </div>
+<section class="shop-section py-5">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Shop</li>
+            </ol>
+        </nav>
+        <h1 class="fw-bold mb-2">Shop all gadgets</h1>
+        <p class="text-muted mb-4">Hand-picked products for your kitchen, home and health.</p>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="filter-buttons">
+                <button class="btn btn-dark rounded-pill px-4">All</button>
+                <button class="btn btn-outline-secondary rounded-pill px-4">Health & Wellness</button>
+                <button class="btn btn-outline-secondary rounded-pill px-4">Home</button>
+                <button class="btn btn-outline-secondary rounded-pill px-4">Kitchen</button>
+            </div>
+            <select class="form-select w-auto">
+                <option>Most popular</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="product-card">
+                    <span class="badge-offer">Launch Offer</span>
+                    <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                    <img src="product-image.jpg" class="img-fluid" alt="Product">
+                    <div class="p-3">
+                        <small class="text-uppercase text-danger">KITCHEN</small>
+                        <h5 class="mt-1">CHOPLET™ — কর্ডলেস ইলেকট্রিক চপার</h5>
+                        <div class="price">
+                            <span class="h4">৳1,190</span> 
+                            <del class="text-muted">৳1,690</del>
+                        </div>
+                        <button class="btn btn-primary w-100 mt-3 order-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @if(count($featuredproducts) > 0)
 <!-- Promotional Products -->
 <div class="container pt-0 pb-4">
