@@ -3,7 +3,14 @@
     <!-- /.header-top  id="d-lg-none"-->
     <!-- ============================================== TOP MENU : END ============================================== -->
     <div class="col-12">
-        <h5 behavior="" direction="" style="color:#818a91"> {{ $basicinfo->marquee_text }}</h5>
+        <h5 behavior="" direction="" style="    color: #fff;
+    background: #000;
+    text-align: center;
+    display: block;
+    padding: 10px 5px;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 0px;"> {{ $basicinfo->marquee_text }}</h5>
     </div>
     <div class="main-header" id="myHeader" style="background: #fff;border-bottom: 1px solid #e9e9e9;">
         <div class="container">
