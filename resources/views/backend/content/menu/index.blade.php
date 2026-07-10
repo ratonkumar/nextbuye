@@ -57,7 +57,7 @@
         {{-- create payment icon --}}
         <div class="modal fade" id="mainMenu" tabindex="-1">
             <div class="modal-dialog">
-                <div class="modal-content bg-secondary rounded h-100">
+                <div class="modal-content bg-third rounded h-100">
                     <div class="modal-header">
                         <h5 class="modal-title" style="color: red;">Create New Menu</h5>
                         <button type="button" class="btn-dark btn-close" data-bs-dismiss="modal"
@@ -97,7 +97,7 @@
         {{-- edit payment icon --}}
         <div class="modal fade" id="editmainMenu" tabindex="-1">
             <div class="modal-dialog">
-                <div class="modal-content bg-secondary rounded h-100">
+                <div class="modal-content bg-third rounded h-100">
                     <div class="modal-header">
                         <h5 class="modal-title" style="color: red;">Edit Menu</h5>
                         <button type="button" class="btn-dark btn-close" data-bs-dismiss="modal"

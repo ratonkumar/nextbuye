@@ -57,7 +57,7 @@
         {{-- create payment icon --}}
         <div class="modal fade" id="mainSubcategory" tabindex="-1">
             <div class="modal-dialog">
-                <div class="modal-content bg-secondary rounded h-100">
+                <div class="modal-content bg-third rounded h-100">
                     <div class="modal-header">
                         <h5 class="modal-title" style="color: red;">Create New Subcategory</h5>
                         <button type="button" class="btn-dark btn-close" data-bs-dismiss="modal"
@@ -107,7 +107,7 @@
         {{-- edit payment icon --}}
         <div class="modal fade" id="editmainSubcategory" tabindex="-1">
             <div class="modal-dialog">
-                <div class="modal-content bg-secondary rounded h-100">
+                <div class="modal-content bg-third rounded h-100">
                     <div class="modal-header">
                         <h5 class="modal-title" style="color: red;">Edit Subcategory</h5>
                         <button type="button" class="btn-dark btn-close" data-bs-dismiss="modal"
