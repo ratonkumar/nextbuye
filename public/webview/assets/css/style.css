@@ -2001,7 +2001,8 @@ section.section-content.padding-y.bg.slidetop.product_container {
     margin-right: 15px;
     color: #333;
     padding: 7px;
-    margin-top: 0px;
+    margin-top: 3px;
+    margin-bottom: 0px;
 }
 
 /* Cart Specific */
