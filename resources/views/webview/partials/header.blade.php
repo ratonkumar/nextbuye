@@ -16,7 +16,8 @@
                         </button>
 
                         <a href="{{ url('/') }}" id="logoimage">
-                            <img src="{{ asset($basicinfo->logo) }}" alt="" id="logosm" style="width:58%">
+                            <img src="{{ asset($basicinfo->logo) }}" alt="" id="logosm" style="    width: 53px;
+    margin-bottom: 7px;">
                         </a>
                     </div>
                     <!-- /.logo -->
