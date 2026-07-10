@@ -75,54 +75,6 @@
 
     </div>
 
-
-    <!-- side bar panel start -->
-    <div id="mySidepanel" class="sidepanel d-lg-none">
-        <div class="side-menu-header ">
-            <div class="side-menu-close" onclick="closeNav()">
-                <i class="fas fa-close"></i>
-            </div>
-            <div class="side-login px-3 pb-3" style="padding-top: 12px;padding-bottom: 15px; padding-left: 10px;">
-                <a href=""></a>
-                <a style="font-size: 16px" href="#">Categories</a>
-            </div>
-        </div>
-        <ul class="level1-styles collapse show" id="id0">
-
-            @forelse ($categories as $category)
-                @if (count($category->subcategories) > 0)
-                    <li>
-                        <a href="{{ url('products/category/' . $category->slug) }}" class="collapsed"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#id{{ $category->id }}">{{ $category->category_name }}<i
-                                class="fas fa-plus" aria-hidden="true" id="plusicon"></i></a>
-                        <ul class="collapse level2-styles" id="id{{ $category->id }}">
-                            @foreach ($category->subcategories as $subcategory)
-                                <li>
-                                    <a
-                                        href="{{ url('products/sub/category/' . $subcategory->slug) }}">{{ $subcategory->sub_category_name }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @else
-                    <li>
-                        <a
-                            href="{{ url('products/category/' . $category->slug) }}">{{ $category->category_name }}</a>
-                    </li>
-                @endif
-            @empty
-            @endforelse
-            
-            <li>
-                <a href="{{ url('top-sale/') }}">Best selling</a>
-            </li>
-            <li>
-                <a href="{{ url('track-order') }}">Track Order</a>
-            </li>
-        </ul>
-    </div>
-    <!-- side bar panel end -->
 </header>
 
 <!-- Search Popup Modal -->
@@ -147,30 +99,3 @@
     </div>
 </div>
 
-<style>
-    .modalsearch-area .search-field {
-        border: medium none;
-        padding: 10px;
-        border-right: none;
-        float: left;
-    }
-
-    .modalsearch-area .search-button {
-        display: inline-block;
-        float: left;
-        margin-top: -1px;
-        padding: 6px 15px 7px;
-        text-align: center;
-        background-color: #e62e04;
-        border: 1px solid #e62e04;
-    }
-
-    .modalsearch-area .search-button:after {
-        color: #fff;
-        content: "\f00d";
-        font-family: fontawesome;
-        font-size: 24px;
-        line-height: 9px;
-        vertical-align: middle;
-    }
-</style>
