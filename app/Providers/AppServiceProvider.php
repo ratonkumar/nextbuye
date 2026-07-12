@@ -198,7 +198,9 @@ class AppServiceProvider extends ServiceProvider
                 ->select('id', 'category_name', 'slug')
                 ->get();
             });
-
+            echo "<pre>";
+            print_r($categoryproducts);
+            die();
             $newproducts = Cache::remember('home_new_products', 600, function() {
                 return Product::where('status', 'Active')->where('is_sub_product', 0)->select('id', 'ProductName', 'ProductSlug', 'ProductSku', 'ViewProductImage', 'ProductRegularPrice', 'ProductSalePrice', 'Discount', 'ProductImage')->latest()->take(20)->get();
             });
