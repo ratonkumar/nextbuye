@@ -54,44 +54,32 @@
 </div>
 <section class="shop-section py-5">
     <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Shop</li>
-            </ol>
-        </nav>
-        <h1 class="fw-bold mb-2">Shop all gadgets</h1>
-        <p class="text-muted mb-4">Hand-picked products for your kitchen, home and health.</p>
-
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <div class="filter-buttons">
-                <button class="btn btn-dark rounded-pill px-4">All</button>
-                <button class="btn btn-outline-secondary rounded-pill px-4">Health & Wellness</button>
-                <button class="btn btn-outline-secondary rounded-pill px-4">Home</button>
-                <button class="btn btn-outline-secondary rounded-pill px-4">Kitchen</button>
-            </div>
-            <select class="form-select w-auto">
-                <option>Most popular</option>
-            </select>
+        <div class="filter-buttons mb-4">
+            <button class="btn btn-dark rounded-pill px-4 filter-btn active" data-filter="all">All</button>
+            @foreach($categoryproducts as $category)
+                <button class="btn btn-outline-secondary rounded-pill px-4 filter-btn" data-filter="cat-{{ $category->id }}">
+                    {{ $category->category_name }}
+                </button>
+            @endforeach
         </div>
 
-        <div class="row">
-            <div class="col-12 col-md-4 col-lg-3">
-                <div class="product-card">
-                    <span class="badge-offer">Launch Offer</span>
-                    <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
-                    <img src="product-image.jpg" class="img-fluid" alt="Product">
-                    <div class="p-3">
-                        <small class="text-uppercase text-danger">KITCHEN</small>
-                        <h5 class="mt-1">CHOPLET™ — কর্ডলেস ইলেকট্রিক চপার</h5>
-                        <div class="price">
-                            <span class="h4">৳1,190</span> 
-                            <del class="text-muted">৳1,690</del>
+        <div class="row" id="product-container">
+            @foreach($categoryproducts as $category)
+                @foreach($category->products as $product)
+                    <div class="col-12 col-md-4 col-lg-3 product-item" data-cat="cat-{{ $category->id }}">
+                        <div class="product-card border p-2 mb-4">
+                            <img src="{{ asset($product->ViewProductImage) }}" class="img-fluid" alt="{{ $product->ProductName }}">
+                            <h5>{{ $product->ProductName }}</h5>
+                            <p>৳{{ $product->ProductSalePrice }}</p>
+                            <form action="{{url('add-to-cart')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <button type="submit" class="btn btn-primary w-100">Order Now</button>
+                            </form>
                         </div>
-                        <button class="btn btn-primary w-100 mt-3 order-btn">Order Now</button>
                     </div>
-                </div>
-            </div>
+                @endforeach
+            @endforeach
         </div>
     </div>
 </section>
@@ -108,8 +96,6 @@
         <div class="col-12">
             <div class="owl-carousel " id="featuredProductSlide">
                 @forelse ($featuredproducts as $promotional)
-                
-           
                     <div class="item" id="featuredproduct">
                         <div class="products best-product">
                             <div class="product">
