@@ -11,8 +11,8 @@
     font-size: 14px;
     margin-top: 0px;
     margin-bottom: 0px;"> {{ $basicinfo->marquee_text }}</h5>
-    </div>
-    <header class="custom-header">
+    </div> 
+    <header class="custom-header" id="myHeader">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-4 col-lg-2">
