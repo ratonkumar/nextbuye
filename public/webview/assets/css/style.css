@@ -2080,3 +2080,9 @@ section.section-content.padding-y.bg.slidetop.product_container {
 .btn-dark { background-color: #333; }
 .btn-outline-secondary { border-color: #ddd; color: #333; }
 .btn-outline-secondary:hover { background-color: #eee; color: #333; }
+div#top-banner-and-menu {
+    margin-top: 8px;
+    padding-top: 10px;
+    display: block;
+    overflow: hidden;
+}
