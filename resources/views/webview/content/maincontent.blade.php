@@ -65,6 +65,11 @@
 
         <div class="row" id="product-container">
             @foreach($categoryproducts as $category)
+                @php
+                    echo "<pre>";
+                    print_r($category->products);
+                    echo "</pre>";    
+                @endphp
                 @foreach($category->products as $product)
                     <div class="col-12 col-md-4 col-lg-3 product-item" data-cat="cat-{{ $category->id }}">
                         <div class="product-card border p-2 mb-4">
