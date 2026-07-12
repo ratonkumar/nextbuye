@@ -54,32 +54,29 @@
 </div>
 <section class="shop-section py-5">
     <div class="container">
-        <div class="filter-buttons mb-4">
-            <button class="btn btn-dark rounded-pill px-4 filter-btn active" data-filter="all">All</button>
-            @foreach($categoryproducts as $category)
-                <button class="btn btn-outline-secondary rounded-pill px-4 filter-btn" data-filter="cat-{{ $category->id }}">
-                    {{ $category->category_name }}
+        <div class="d-flex justify-content-center mb-4 gap-2">
+            <button class="btn btn-dark rounded-pill px-4 filter-btn" data-filter="all">All</button>
+            @foreach($categoryproducts as $cat)
+                <button class="btn btn-outline-secondary rounded-pill px-4 filter-btn" data-filter="cat-{{ $cat->id }}">
+                    {{ $cat->category_name }}
                 </button>
             @endforeach
         </div>
 
         <div class="row" id="product-container">
             @foreach($categoryproducts as $category)
-                @php
-                    echo "<pre>";
-                    print_r($category->products);
-                    echo "</pre>";    
-                @endphp
                 @foreach($category->products as $product)
                     <div class="col-12 col-md-4 col-lg-3 product-item" data-cat="cat-{{ $category->id }}">
-                        <div class="product-card border p-2 mb-4">
+                        <div class="product-card border rounded p-3 mb-4">
                             <img src="{{ asset($product->ViewProductImage) }}" class="img-fluid" alt="{{ $product->ProductName }}">
-                            <h5>{{ $product->ProductName }}</h5>
-                            <p>৳{{ $product->ProductSalePrice }}</p>
-                            <form action="{{url('add-to-cart')}}" method="POST">
+                            <h5 class="mt-2">{{ $product->ProductName }}</h5>
+                            <div class="price mb-2">
+                                <span class="h5">৳{{ round($product->ProductSalePrice) }}</span>
+                            </div>
+                            <form action="{{ url('add-to-cart') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                <button type="submit" class="btn btn-primary w-100">Order Now</button>
+                                <button class="btn btn-primary w-100">Order Now</button>
                             </form>
                         </div>
                     </div>
@@ -501,6 +498,29 @@
 
 @empty
 @endforelse
+<script>
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        // বাটনের অ্যাক্টিভ স্টাইল পরিবর্তন
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('btn-dark');
+            btn.classList.add('btn-outline-secondary');
+        });
+        this.classList.add('btn-dark');
+        this.classList.remove('btn-outline-secondary');
 
+        const filter = this.getAttribute('data-filter');
+        
+        // প্রোডাক্ট ফিল্টারিং
+        document.querySelectorAll('.product-item').forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-cat') === filter) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
 
 @endsection
