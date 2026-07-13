@@ -377,6 +377,48 @@
         </div>
     </div>
 </section>
+<section style="padding: 60px 0; background-color: #ffffff;">
+    <div class="container">
+        <!-- রেটিং সামারি -->
+        <div class="d-flex align-items-center mb-5">
+            <div class="mr-5 text-center">
+                <h1 style="font-size: 60px; font-weight: 800; margin: 0;">4.8</h1>
+                <div style="color: #f1c40f;">★★★★★</div>
+                <p>৫৫০+ রিভিউ-এর গড়</p>
+            </div>
+            <div class="flex-grow-1">
+                @foreach([5=>86, 4=>10, 3=>3, 2=>1, 1=>0] as $star => $percent)
+                <div class="d-flex align-items-center mb-2">
+                    <span class="mr-2">{{$star}} ★</span>
+                    <div class="progress flex-grow-1" style="height: 8px; background: #eee; border-radius: 5px;">
+                        <div class="progress-bar" style="width: {{$percent}}%; background: #e67e22;"></div>
+                    </div>
+                    <span class="ml-2" style="width: 40px;">{{$percent}}%</span>
+                </div>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- রিভিউ কার্ডস -->
+        <div class="row">
+            @for($i=1; $i<=6; $i++)
+            <div class="col-md-4 mb-4">
+                <div class="p-4" style="background: #fcfaf7; border-radius: 15px; border: 1px solid #f0f0f0;">
+                    <div style="color: #f1c40f;" class="mb-2">★★★★★</div>
+                    <p style="font-size: 15px; color: #333;">“প্রোডাক্টটি সত্যিই অসাধারণ। রসুন-আদা কয়েক সেকেন্ডেই কুচি হয়ে যায়, চোখে পানি আসার ভয় নেই!”</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <div style="width: 40px; height: 40px; background: #e67e22; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 10px;">ত</div>
+                        <div>
+                            <h6 class="mb-0">তানভীর আহমেদ</h6>
+                            <small style="color: #888;">✓ ভেরিফাইড · ঢাকা</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endfor
+        </div>
+    </div>
+</section>
 <div class="body-content mt-4" id="top-banner-and-menu">
     <div class='container'>
   
