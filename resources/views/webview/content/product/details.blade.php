@@ -350,6 +350,33 @@
         </div>
     </div>
 </section>
+
+<section style="padding: 60px 0; background-color: #fcfaf7;">
+    <div class="container">
+        <!-- ইমেজ ও কোট সেকশন -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <img src="path/to/your/image.jpg" class="img-fluid" style="border-radius: 20px; width: 100%;" alt="Lifestyle">
+            </div>
+            <div class="col-md-6 p-4">
+                <span style="font-size: 40px; color: #ff5722; font-weight: bold;">“</span>
+                <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 20px;">যে সময়টা আগে কেবল কাটাকুটিতেই চলে যেত, সেটা আজ আপনার নিজের।</h2>
+                <p style="color: #555; line-height: 1.6;">রান্নাঘরে ঢুকলেন, অথচ আজ আর সেই পুরনো ক্লান্তিটা নেই। হয়তো এক কাপ চা হাতে একটু জিরিয়ে নিলেন, কিংবা পাশে দাঁড়িয়ে বাচ্চার সাথে দুটো কথা বললেন। রান্নাটা আর বোঝা মনে হয় না।</p>
+            </div>
+        </div>
+
+        <!-- গ্যারান্টি বক্স -->
+        <div class="p-4 text-white" style="background-color: #1a1a1a; border-radius: 15px; max-width: 900px; margin: 0 auto;">
+            <div class="d-flex align-items-center mb-3">
+                <i class="fa fa-shield-alt" style="color: #ff5722; font-size: 24px; margin-right: 15px;"></i>
+                <h4 class="mb-0">ঝুঁকি আপনার না — আমাদের</h4>
+            </div>
+            <p style="margin-bottom: 10px;"><b>১০-সেকেন্ড চ্যালেঞ্জ:</b> প্রোডাক্ট হাতে পেয়ে ডেলিভারি ম্যানের সামনেই খুলুন, রসুন দিন, চাপ দিন। ১০ সেকেন্ডে কুচি না হলে — টাকা দেবেন না, ফেরত পাঠিয়ে দিন।</p>
+            <p style="margin-bottom: 10px;"><b>আর কেনার পর?</b> ৬ মাসের মধ্যে যান্ত্রিক সমস্যা হলে নতুনটা পাঠাই — কোনো প্রশ্ন ছাড়া।</p>
+            <p style="font-weight: bold; color: #ff5722;">এক টাকাও অগ্রিম নেই! আপনি শুধু তখনই টাকা দেবেন, যখন নিজের চোখে দেখে নেবেন।</p>
+        </div>
+    </div>
+</section>
 <div class="body-content mt-4" id="top-banner-and-menu">
     <div class='container'>
   
