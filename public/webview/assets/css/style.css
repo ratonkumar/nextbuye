@@ -2102,3 +2102,52 @@ div#top-banner-and-menu {
 .order-btn { background: #e67e22; color: #fff; padding: 15px; border-radius: 50px; font-weight: bold; border: none; width: 100%; font-size: 18px; }
 .trust-box { border: 1px solid #d35400; border-radius: 8px; padding: 10px; margin-top: 15px; background: #fffdfc; }
 .call-btn { border: 1px solid #ccc; padding: 10px; border-radius: 50px; text-align: center; margin-top: 15px; display: block; color: #333; text-decoration: none; }
+/* মেইন কন্টেইনার এবং ব্যাকগ্রাউন্ড */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* আইকন সেকশনের স্টাইল */
+.feature-box {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #fff;
+    margin-bottom: 15px;
+}
+
+.feature-box i {
+    font-size: 24px;
+    color: #ff5722;
+    margin-right: 15px;
+}
+
+/* নিচের গাঢ় সেকশনের স্টাইল */
+.dark-feature-section {
+    background: #1a1a1a;
+    padding: 50px 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.dark-feature-section h2 {
+    color: #ff5722; /* সিগনেচার অরেঞ্জ কালার */
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.dark-feature-section p {
+    font-size: 16px;
+    color: #cccccc;
+}
+
+/* রেসপনসিভনেস */
+@media (max-width: 768px) {
+    .col-md-3 {
+        margin-bottom: 25px;
+    }
+}

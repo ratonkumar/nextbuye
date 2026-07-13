@@ -119,6 +119,67 @@
         </div>
     </div>
 </div>
+<!-- উপরের আইকন সেকশন -->
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="d-flex align-items-center p-3 border rounded">
+                <i class="fa fa-truck mr-3" style="font-size: 24px;"></i>
+                <div>
+                    <strong>ফ্রি ডেলিভারি</strong><br><small>সারাদেশে</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="d-flex align-items-center p-3 border rounded">
+                <i class="fa fa-wallet mr-3" style="font-size: 24px;"></i>
+                <div>
+                    <strong>ক্যাশ অন ডেলিভারি</strong><br><small>হাতে পেয়ে পেমেন্ট</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="d-flex align-items-center p-3 border rounded">
+                <i class="fa fa-shield-alt mr-3" style="font-size: 24px;"></i>
+                <div>
+                    <strong>৬ মাস ওয়ারেন্টি</strong><br><small>রিপ্লেসমেন্ট</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="d-flex align-items-center p-3 border rounded">
+                <i class="fa fa-check-circle mr-3" style="font-size: 24px;"></i>
+                <div>
+                    <strong>১০০% অরিজিনাল</strong><br><small>কোয়ালিটি গ্যারান্টি</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- নিচের গাঢ় রঙের ফিচার সেকশন -->
+<div class="container-fluid" style="background: #1a1a1a; padding: 40px 0; color: #fff;">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 mb-3">
+                <h2 style="color: #ff5722;">১০ সে.</h2>
+                <p>এক চাপে কুচি রেডি</p>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h2 style="color: #ff5722;">১৭০০</h2>
+                <p>RPM মোটর স্পিড</p>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h2 style="color: #ff5722;">২৫০ml</h2>
+                <p>বাটি ক্যাপাসিটি</p>
+            </div>
+            <div class="col-md-3 mb-3">
+                <h2 style="color: #ff5722;">৬ মাস</h2>
+                <p>রিপ্লেসমেন্ট ওয়ারেন্টি</p>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="body-content mt-4" id="top-banner-and-menu">
     <div class='container'>
   
