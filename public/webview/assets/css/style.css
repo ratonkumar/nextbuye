@@ -2085,3 +2085,20 @@ div#top-banner-and-menu {
     display: block;
     overflow: hidden;
 }
+
+/* Custom Styles for Product Page */
+.bg-light-cream { background-color: #fcfaf7; padding: 30px; }
+.product-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    margin-top: 11px;
+}
+.highlight-text { color: #d35400; font-weight: bold; }
+.offer-box { background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 15px; }
+.price-box { font-size: 36px; font-weight: 900; color: #1a1a1a; }
+.discount-badge { background: #d35400; color: #fff; padding: 5px 10px; border-radius: 5px; font-size: 14px; }
+.order-btn { background: #e67e22; color: #fff; padding: 15px; border-radius: 50px; font-weight: bold; border: none; width: 100%; font-size: 18px; }
+.trust-box { border: 1px solid #d35400; border-radius: 8px; padding: 10px; margin-top: 15px; background: #fffdfc; }
+.call-btn { border: 1px solid #ccc; padding: 10px; border-radius: 50px; text-align: center; margin-top: 15px; display: block; color: #333; text-decoration: none; }
