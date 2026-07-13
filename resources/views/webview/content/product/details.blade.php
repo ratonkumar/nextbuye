@@ -278,26 +278,6 @@
                                 </div><div class="quantity-container info-container text-center" style="width: 100%; border-bottom: 1px solid #dfd6d6; float: left;">
 
     <div class="row mx-0 px-2 mt-2" style="row-gap: 12px;">
-
-        <div class="col-6 px-1">
-            <form name="form" id="AddToCartForm" method="POST" enctype="multipart/form-data" style="width: 100%; margin: 0; padding: 0;">
-                @method('POST')
-                @csrf
-                <input type="text" name="color" id="product_color" hidden>
-                <input type="text" name="size" id="product_size" hidden>
-                <input type="text" name="weight" id="product_weight_cart" hidden>
-                <input type="text" name="sale_price" id="product_weight_salePrice" hidden>
-                <input type="text" name="rg_price" id="product_weight_regularPrice" hidden>
-                <input type="text" name="product_id" value="{{ $productdetails->id }}" hidden>
-                <input type="text" name="qty" value="1" id="qtyor" hidden>
-
-                <button type="submit" class="btn btn-styled btn-base-1 btn-icon-left strong-700 hov-bounce hov-shaddow buy-now" 
-                    style="background:{{\App\Models\Basicinfo::first()->button_color}}; color:white; width: 100%; font-size: 16px; height: 50px; border:none; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 0 !important;">
-                    কার্টে যোগ করুন
-                </button>
-            </form>
-        </div>
-
         <div class="col-6 px-1">
             <form name="form" action="{{url('add-to-cart')}}" method="POST" enctype="multipart/form-data" style="width: 100%; margin: 0; padding: 0;">
                 @method('POST')
@@ -336,25 +316,7 @@
         @endphp
 
         @if(Agent::isMobile())
-            <div class="col-6 px-1">
-                <a href="{{ $whatsappLink }}" target="_blank" class="btn btn-success"
-                    style="    font-size: 14px;
-    font-weight: bold;
-    height: 50px;
-    line-height: 16px;
-    width: 100%;
-    background: #49c958;
-    border: 1px solid #49c958;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    text-align: left;
-    padding-left: 11px;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 16px; height: 17px; margin-right: 4px;">
-                    WhatsApp এ অর্ডার করুন
-                </a>
-            </div>
+           
 
             <div class="col-6 px-1">
                 <a class="btn btn-success" id="formText" href="tel:{{App\Models\Basicinfo::first()->phone_one}}" 
@@ -374,15 +336,7 @@
                 </a>
             </div>
 
-            <div class="col-6 px-1">
-                <a class="btn btn-success" id="formText" href="tel:{{App\Models\Basicinfo::first()->phone_one}}" 
-                    style="font-size: 16px; font-weight:bold; height: 50px; width: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 6px;">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                    কল করুন
-                </a>
-            </div>
+           
         @endif
 
     </div> </div> <style>
