@@ -328,15 +328,17 @@
                 </a>
             </div>
         @else 
+           
+
             <div class="col-6 px-1">
-                <a href="{{ $whatsappLink }}" target="_blank" class="btn btn-success"
-                    style="font-size:16px; font-weight:bold; height: 50px; line-height: 20px; width: 100%; background:#49c958; border:1px solid #49c958; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px; margin-right: 6px;">
-                    WhatsApp এ অর্ডার করুন
+                <a class="btn btn-success" id="formText" href="tel:{{App\Models\Basicinfo::first()->phone_one}}" 
+                    style="font-size: 16px; font-weight:bold; height: 50px; width: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="margin-right: 6px;">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    কল করুন
                 </a>
             </div>
-
-           
         @endif
 
     </div> </div> <style>
