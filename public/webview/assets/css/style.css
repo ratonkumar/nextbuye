@@ -1382,7 +1382,7 @@ ul.toggle-footer {
 /* product details */
 
 .detail-block {
-    background-color: #fff;
+
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
     padding: 8px;
     padding-top: 20px;
@@ -1397,7 +1397,6 @@ ul.toggle-footer {
 
 .single-product .product-tabs {
     margin-top: 30px;
-    background-color: #fff;
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
     padding: 0px;
     overflow: hidden;
