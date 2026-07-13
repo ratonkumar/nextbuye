@@ -308,7 +308,48 @@
         </div>
     </div>
 </section>
+<section style="background-color: #1a1a1a; color: #fff; padding: 60px 0;">
+    <div class="container text-center">
+        <!-- ইমেজ -->
+        <img src="path/to/your/chopper-image.jpg" class="img-fluid mb-4" style="border-radius: 20px; max-width: 400px;">
+        <p class="mb-5" style="color: #ccc;">ধাপ ১ থেকে ৩ — পুরো প্রক্রিয়া মাত্র ১০ সেকেন্ড</p>
 
+        <!-- ৩টি স্টেপ কার্ড -->
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="p-4" style="border: 1px solid #ff5722; border-radius: 15px;">
+                    <div style="background: #ff5722; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">১</div>
+                    <h5>রসুন দিন</h5>
+                    <p style="font-size: 14px; color: #ccc;">কয়েক কোয়া রসুন বা যেকোনো সবজি বাটিতে রাখুন।</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4" style="border: 1px solid #333; border-radius: 15px;">
+                    <div style="background: #333; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">২</div>
+                    <h5>চাপ দিন</h5>
+                    <p style="font-size: 14px; color: #ccc;">ঢাকনা বসিয়ে আলতো করে চাপ দিন — ব্যস, এতটুকুই।</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4" style="border: 1px solid #333; border-radius: 15px;">
+                    <div style="background: #333; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">৩</div>
+                    <h5>রেডি</h5>
+                    <p style="font-size: 14px; color: #ccc;">১০ সেকেন্ডেই মিহি কুচি — চোখে পানি নেই, হাতে গন্ধ নেই।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- কন্ট্রোল সেকশন -->
+        <div class="mt-5 p-4" style="background: #252525; border-radius: 15px; max-width: 800px; margin: 0 auto; text-align: left;">
+            <h4 class="mb-3">কতটা কুচি হবে — পুরোটাই আপনার হাতে</h4>
+            <p style="color: #ccc; margin-bottom: 20px;">চাপ দিয়ে রাখলে চলে, ছেড়ে দিলেই থেমে যায়। নিচে চাপ দিয়ে দেখুন —</p>
+            <div class="d-flex gap-2">
+                <button class="btn" style="background: #ff5722; color: #fff; border-radius: 20px; padding: 5px 15px;">হালকা চাপ → মোটা কুচি</button>
+                <button class="btn" style="background: #333; color: #ccc; border-radius: 20px; padding: 5px 15px;">বেশিক্ষণ → মিহি পেস্ট</button>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="body-content mt-4" id="top-banner-and-menu">
     <div class='container'>
   
