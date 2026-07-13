@@ -180,6 +180,51 @@
         </div>
     </div>
 </div>
+<section class="problem-section" style="padding: 50px 0; background-color: #fcfaf7;">
+    <div class="container text-center">
+        <!-- Heading -->
+        <p style="color: #d35400; font-weight: bold; margin-bottom: 5px;">প্রতিদিনের গল্প</p>
+        <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 20px;">কাজগুলো ছোট, কিন্তু প্রতিদিন জমতে থাকে</h2>
+        <p style="margin-bottom: 40px; color: #555;">রান্নাঘরে যে সময়টা আপনি পরিবারের জন্য দেন, তার একটা বড় অংশ চলে যায় শুধু কাটাকুটিতেই।</p>
+
+        <!-- Cards Row -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card p-4 border-0 shadow-sm" style="border-radius: 15px;">
+                    <i class="fa fa-hand-paper" style="color: #ff5722; font-size: 30px; margin-bottom: 15px;"></i>
+                    <h5>নখে ব্যথা</h5>
+                    <p style="font-size: 14px; color: #666;">রসুন ছিলতে গিয়ে আঙুল আর নখে চাপ — প্রতিদিনের যন্ত্রণা।</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-4 border-0 shadow-sm" style="border-radius: 15px;">
+                    <i class="fa fa-tint" style="color: #ff5722; font-size: 30px; margin-bottom: 15px;"></i>
+                    <h5>চোখে পানি</h5>
+                    <p style="font-size: 14px; color: #666;">পেঁয়াজ কাটতে বসলেই চোখ জ্বালা, পানি — চেনা বিরক্তি।</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-4 border-0 shadow-sm" style="border-radius: 15px;">
+                    <i class="fa fa-fire" style="color: #ff5722; font-size: 30px; margin-bottom: 15px;"></i>
+                    <h5>হাতের জ্বলুনি</h5>
+                    <p style="font-size: 14px; color: #666;">মরিচ কুচির পর হাতের জ্বলুনি সহজে যেতে চায় না।</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-4 border-0 shadow-sm" style="border-radius: 15px;">
+                    <i class="fa fa-clock" style="color: #ff5722; font-size: 30px; margin-bottom: 15px;"></i>
+                    <h5>সময় নষ্ট</h5>
+                    <p style="font-size: 14px; color: #666;">রোজ ৫০+ মিনিট কাটাকুটিতেই চলে যায়। বছরে হিসাব করলে — প্রায় ৬০ ঘণ্টা, আড়াই দিন, শুধু কাটাকুটিতে।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Banner -->
+        <div class="mt-5 p-4 text-white" style="background-color: #1a1a1a; border-radius: 10px; display: inline-block; max-width: 800px;">
+            <h5 class="mb-0">আমরা ধরেই নিয়েছি — “রান্না মানেই তো এই ঝক্কি” <span style="color: #ff5722;">অথচ এটা এমন হওয়ার কথা ছিল না।</span></h5>
+        </div>
+    </div>
+</section>
 <div class="body-content mt-4" id="top-banner-and-menu">
     <div class='container'>
   
