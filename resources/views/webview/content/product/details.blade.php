@@ -225,6 +225,39 @@
         </div>
     </div>
 </section>
+<section style="padding: 50px 0;">
+    <div class="container text-center">
+        <h2 style="font-weight: 800; font-size: 32px; margin-bottom: 40px;">
+            পার্থক্যটা <span style="color: #ff5722;">চোখে পড়ার মতো</span>
+        </h2>
+
+        <div class="row justify-content-center">
+            <!-- বাম দিকের টেবিল: হাতে কাটা -->
+            <div class="col-md-5 p-4" style="background: #f4f1ed; border-radius: 15px; margin: 10px;">
+                <h4 class="mb-4 text-left"><i class="fa fa-clock"></i> হাতে কাটা</h4>
+                <div class="text-left">
+                    <p><b>সময়:</b> <br>৬০+ মিনিট রোজ</p>
+                    <p><b>চোখে পানি:</b> <br>পেঁয়াজে চোখ জ্বলে</p>
+                    <p><b>হাতে গন্ধ:</b> <br>রসুন-মরিচের গন্ধ থেকে যায়</p>
+                    <p><b>পরিশ্রম:</b> <br>গায়ের জোর লাগে</p>
+                    <p><b>মাসিক সময় সাশ্রয়:</b> <br>প্রায় ৫ ঘণ্টা মাসে</p>
+                </div>
+            </div>
+
+            <!-- ডান দিকের টেবিল: Choplet দিয়ে -->
+            <div class="col-md-5 p-4" style="background: #1a1a1a; color: #fff; border-radius: 15px; margin: 10px;">
+                <h4 class="mb-4 text-left"><i class="fa fa-bolt"></i> Choplet দিয়ে</h4>
+                <div class="text-left">
+                    <p style="color: #ff5722;">✓ <b>সময়:</b> <br>মাত্র ১০ সেকেন্ড</p>
+                    <p style="color: #ff5722;">✓ <b>চোখে পানি:</b> <br>ঢাকনা বন্ধ — পানি নেই</p>
+                    <p style="color: #ff5722;">✓ <b>হাতে গন্ধ:</b> <br>হাতে একটুও গন্ধ নেই</p>
+                    <p style="color: #ff5722;">✓ <b>পরিশ্রম:</b> <br>শুধু এক চাপ</p>
+                    <p style="color: #ff5722;">✓ <b>মাসিক সময় সাশ্রয়:</b> <br>মাত্র কয়েক মিনিট — বাকিটা আপনার নিজের সময়</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="body-content mt-4" id="top-banner-and-menu">
     <div class='container'>
   
