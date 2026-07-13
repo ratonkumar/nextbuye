@@ -419,6 +419,62 @@
         </div>
     </div>
 </section>
+<style>
+    :root { --primary-color: #ff5722; --dark-bg: #1a1a1a; }
+    .btn-custom { background: var(--primary-color); color: #fff; border-radius: 50px; padding: 15px 30px; font-weight: bold; }
+    .section-padding { padding: 60px 0; }
+    .feature-card { border: 1px solid #eee; padding: 20px; border-radius: 15px; background: #fff; }
+</style>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="{{ asset('path/to/choplet.jpg') }}" class="img-fluid rounded-lg">
+            </div>
+            <div class="col-md-6">
+                <span class="badge bg-warning">● নতুন লঞ্চ</span>
+                <h1>CHOPLET™ — কর্ডলেস ইলেকট্রিক চপার</h1>
+                <p>রোজ ১০ মিনিটের কাটাকুটি, চোখে পানি, হাতে জ্বলুনি — এবার সেটাই মাত্র ১০ সেকেন্ডে!</p>
+                <div class="price-box">
+                    <h2 class="text-danger">৳৭৯০</h2>
+                    <p>নিয়মিত মূল্য <s>৳১৬৯০</s></p>
+                </div>
+                <button class="btn btn-custom w-100">অর্ডার করুন — টাকা হাতে পেয়ে দেবেন →</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light">
+    <div class="container text-center">
+        <h2 class="mb-5">এক নজরে Choplet</h2>
+        <div class="row">
+            <div class="col-md-2 col-6"><div class="feature-card"><i class="fa fa-coffee"></i><p>২৫০ ml</p></div></div>
+            <div class="col-md-2 col-6"><div class="feature-card"><i class="fa fa-bolt"></i><p>১৭০০ RPM</p></div></div>
+            <div class="col-md-2 col-6"><div class="feature-card"><i class="fa fa-battery-full"></i><p>৮০০ mAh</p></div></div>
+            <div class="col-md-2 col-6"><div class="feature-card"><i class="fa fa-cut"></i><p>Stainless Steel</p></div></div>
+            <div class="col-md-2 col-6"><div class="feature-card"><i class="fa fa-plug"></i><p>USB-C ক্যাবল</p></div></div>
+            <div class="col-md-2 col-6"><div class="feature-card"><i class="fa fa-shield"></i><p>৬ মাস ওয়ারেন্টি</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <h2 class="text-center mb-4">সচরাচর জিজ্ঞাসা</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="card">
+                <div class="card-header">একবার চার্জে কতদিন চলে?</div>
+                <div class="card-body">এটি ফুল চার্জে দীর্ঘ সময় ব্যাকআপ দেয়।</div>
+            </div>
+            <div class="card">
+                <div class="card-header">পরিষ্কার করা কি ঝামেলার?</div>
+                <div class="card-body">না, এর পার্টসগুলো সহজেই খোলা ও ধোয়া যায়।</div>
+            </div>
+            </div>
+    </div>
+</section>
 <section class="py-5 bg-light">
     <div class="container">
         <div class="row">
