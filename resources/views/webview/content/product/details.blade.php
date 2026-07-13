@@ -419,6 +419,37 @@
         </div>
     </div>
 </section>
+
+<!-- উপরের ডার্ক সেকশন -->
+<section style="background-color: #1a1a1a; color: #fff; padding: 80px 20px; text-align: center;">
+    <h2 style="font-size: 36px; font-weight: 800; margin-bottom: 20px;">ভালো থাকা লুকিয়ে থাকে প্রতিদিনের ছোট ছোট মুহূর্তে</h2>
+    <p style="color: #ccc; max-width: 600px; margin: 0 auto 20px;">আমরা চাই, আপনার প্রতিদিনের সাধারণ কাজগুলোও হোক সহজ, একটু সুন্দর। তাই আমরা যা বানাই, তাতে তাড়াহুড়ো থাকে না — শুধু "সস্তা" বানানোর জন্য আমরা কিছু বানাই না।</p>
+    <p style="color: #fff; font-weight: bold;">সেই প্রিমিয়াম অনুভূতিটা শুধু কিছু মানুষের জন্য নয়, <span style="color: #ff5722;">এটা সবার প্রাপ্য।</span></p>
+    
+    <div style="margin-top: 40px; opacity: 0.7;">
+        <h3 style="margin-bottom: 5px;">Stylify</h3>
+        <p style="font-size: 14px;">Effortlessly elevated.</p>
+    </div>
+</section>
+
+<!-- নিচের প্রোডাক্ট কার্ড -->
+<section style="background-color: #fcfaf7; padding: 50px 20px;">
+    <div class="container" style="background: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 900px;">
+        <div class="row align-items-center">
+            <div class="col-md-5">
+                <img src="path/to/image.jpg" class="img-fluid" style="border-radius: 15px;">
+            </div>
+            <div class="col-md-7">
+                <h4 style="font-weight: 800;">দিনে ৮৫.৫০ — আজ থেকে শুরু</h4>
+                <p style="font-size: 14px; color: #666; margin-bottom: 15px;">প্রতিদিনের ছোট্ট একটা কাজে আজ থেকে সময় বাঁচান। এক টাকাও অগ্রিম নেই — হাতে পেয়ে, দেখে, তারপর টাকা দেবেন।</p>
+                <div style="font-size: 28px; font-weight: 900; margin-bottom: 15px;">
+                    ৳৭৯০ <s style="color: #888; font-size: 18px;">৳১৬৯০</s>
+                </div>
+                <button class="btn" style="background: #ff5722; color: #fff; padding: 12px 30px; border-radius: 30px; font-weight: bold;">অর্ডার করুন — টাকা হাতে পেয়ে দেবেন →</button>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="body-content mt-4" id="top-banner-and-menu">
     <div class='container'>
   
