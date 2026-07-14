@@ -8,12 +8,13 @@
     
     @php
         $allSections = [
+            'highlights_section' => ['val1', 'label1', 'val2', 'label2', 'val3', 'label3', 'val4', 'label4'],
             'hero_section' => ['title', 'subtitle', 'button_text'],
             'about_section' => ['title', 'description', 'image_url'],
             'service_section' => ['title', 'service_list'],
             'problem_section' => ['title', 'problem_desc'],
             'difference_section' => ['title', 'comparison'],
-            'question_section' => ['question', 'answer'], // FAQ Section
+            'question_section' => ['question', 'answer'],
             'video_section' => ['video_title', 'video_link'],
             'cart_section' => ['cart_title', 'shipping_info']
         ];
@@ -28,7 +29,7 @@
 
             <div class="card mb-4" id="section_{{ $key }}">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0">{{ ucfirst(str_replace('_', ' ', $key)) }}</h5>
+                    <h5 class="mb-0 text-capitalize">{{ str_replace('_', ' ', $key) }}</h5>
                     <button class="btn btn-sm {{ ($sectionData && $sectionData->is_active) ? 'btn-success' : 'btn-danger' }}" 
                             onclick="toggleSection('{{ $key }}')">
                         {{ ($sectionData && $sectionData->is_active) ? 'ON' : 'OFF' }}
@@ -39,13 +40,13 @@
                         @csrf
                         <div class="row">
                             @foreach($fields as $field)
-                                <div class="col-md-6 mb-3">
-                                    <label>{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
+                                <div class="col-md-3 mb-3">
+                                    <label class="small fw-bold">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
                                     <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
                                 </div>
                             @endforeach
                         </div>
-                        <button type="submit" class="btn btn-primary">Save {{ ucfirst(str_replace('_', ' ', $key)) }}</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Save {{ ucfirst(str_replace('_', ' ', $key)) }}</button>
                     </form>
                 </div>
             </div>
@@ -63,17 +64,24 @@
             url: '/admin/settings/update/' + key,
             method: 'POST',
             data: $(this).serialize(),
-            success: function(res) { alert('Updated Successfully!'); }
+            success: function(res) { 
+                alert('Updated Successfully!'); 
+            },
+            error: function() {
+                alert('Something went wrong!');
+            }
         });
     });
 
-    // Toggle Logic (ON/OFF)
+    // Toggle Logic
     function toggleSection(key) {
         $.ajax({
             url: '/admin/settings/toggle/' + key,
             method: 'POST',
             data: {_token: '{{ csrf_token() }}'},
-            success: function(res) { location.reload(); }
+            success: function(res) { 
+                location.reload(); 
+            }
         });
     }
 </script>
