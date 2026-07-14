@@ -178,8 +178,8 @@
 
         <div class="mt-5 p-4 text-white" style="background-color: #1a1a1a; border-radius: 10px; display: inline-block;">
             <h5 class="mb-0">
-                {{ $p['footer_text'] ?? 'আমরা ধরেই নিয়েছি — “রান্না মানেই তো এই ঝক্কি”' }} 
-                <span style="color: #ff5722;">{{ $p['footer_highlight'] ?? 'অথচ এটা এমন হওয়ার কথা ছিল না।' }}</span>
+                {!! $p['footer_text'] ?? 'আমরা ধরেই নিয়েছি — “রান্না মানেই তো এই ঝক্কি”' !!} 
+               
             </h5>
         </div>
     </div>
