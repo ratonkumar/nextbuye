@@ -12,6 +12,8 @@ use App\Models\Subcategory;
 use App\Models\Brand;
 use App\Models\Stock;
 use App\Models\Purchase;
+use App\Models\Color;
+use App\Models\Size;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
@@ -286,13 +288,15 @@ class ProductController extends Controller
         $product = Product::with('specifications')->findOrFail($id);
         
         // প্রয়োজনীয় অন্যান্য ডাটা (যেমন: brands, categories ইত্যাদি যা আপনার ফর্মে লাগে)
-        $brands            = Brand::all();
-        $categories        = Category::all();
-        $singleProductList = Product::where('id', '!=', $id)->get();
+        $brands     = Brand::all();
+        $categories = Category::all();
+        $colors     = Color::all();
+        $sizes      = Size::all();
+        $singleProductList =Product::where('id', '!=', $id)->get();
 
         // 'products.edit' ভিউ ফাইলটি লোড করা
         return view('backend.content.product.edit', compact(
-            'product', 'brands', 'categories',  'singleProductList'
+            'product', 'brands', 'categories', 'colors', 'sizes', 'singleProductList'
         ));
     }
     
