@@ -50,7 +50,7 @@
                             @foreach($fields as $field)
                                 <div class="col-md-6 mb-3"> <label class="small fw-bold">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
                                     
-                                    @if(in_array($field, ['problem_desc', 'card1_desc', 'card2_desc', 'footer_text']))
+                                    @if(in_array($field, ['problem_desc', 'card1_desc', 'card2_desc','card3_desc','card4_desc', 'footer_text']))
                                         <textarea name="content[{{ $field }}]" class="form-control">{{ $content[$field] ?? '' }}</textarea>
                                     @else
                                         <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
@@ -74,7 +74,7 @@
 <script>
     // নির্দিষ্ট ফিল্ডগুলোকে এডিটরে কনভার্ট করার ফাংশন
     function initEditors() {
-        let editors = ['problem_desc', 'card1_desc', 'card2_desc', 'footer_text'];
+        let editors = ['problem_desc', 'card1_desc', 'card2_desc', 'card3_desc', 'card4_desc', 'footer_text'];
         
         editors.forEach(function(fieldName) {
             ClassicEditor
