@@ -156,7 +156,7 @@
 
         <!-- Cards Row -->
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 ml-0">
                 <div class="card p-4 border-0 shadow-sm" style="border-radius: 15px;">
                     <i class="fa fa-hand-paper" style="color: #ff5722; font-size: 30px; margin-bottom: 15px;"></i>
                     <h5>নখে ব্যথা</h5>
