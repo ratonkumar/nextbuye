@@ -800,6 +800,24 @@ button.remove {
 <!-- Include Select2 JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
+    function addSpecRow() {
+        let container = document.getElementById('specs-wrapper');
+        let index = container.getElementsByClassName('row').length;
+        let html = `
+        <div class="row mb-2">
+            <div class="col-5">
+                <input type="text" name="specs[${index}][label]" placeholder="Feature Name" class="form-control">
+            </div>
+            <div class="col-5">
+                <input type="text" name="specs[${index}][value]" placeholder="Value" class="form-control">
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-danger" onclick="this.parentElement.parentElement.remove()">-</button>
+            </div>
+        </div>`;
+        container.insertAdjacentHTML('beforeend', html);
+    }
+
     $(document).ready(function() {
         $('#editcategory_id').select2({
           placeholder: 'Select an option',
