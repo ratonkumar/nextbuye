@@ -13,6 +13,7 @@ use App\Models\LandingPageSetting;
 use App\Models\Brand;
 use App\Models\Stock;
 use App\Models\Purchase;
+use App\Models\Section;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
