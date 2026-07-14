@@ -671,7 +671,29 @@ button.remove {
                                         </div>
                                     </div>
                                 </div>
-                                
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">Product Specifications</h5>
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" name="is_specs_active" id="is_specs_active" value="1" checked>
+                                            <label class="form-check-label" for="is_specs_active">Enable Specification Section</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="specs-wrapper">
+                                    <div class="row mb-2">
+                                        <div class="col-5">
+                                            <input type="text" name="specs[0][label]" placeholder="Feature Name (e.g. Battery)" class="form-control">
+                                        </div>
+                                        <div class="col-5">
+                                            <input type="text" name="specs[0][value]" placeholder="Value (e.g. 5000mAh)" class="form-control">
+                                        </div>
+                                        <div class="col-2">
+                                            <button type="button" class="btn btn-success" onclick="addSpecRow()">+</button>
+                                        </div>
+                                    </div>
+                                </div>
                                <div class="row" >
                                     <div class="col-12">
                                         <label for="single_page">Add Single page ? <span  class="text-danger">*</span></label>
