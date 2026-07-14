@@ -211,6 +211,10 @@ class ProductController extends Controller
             ->rawColumns(['single_page_status', 'action'])
             ->make(true);
     }
+
+    public function getSinglePageEdit($productID) {
+        dd($productID);
+    }
     
      /**
      * Show the form for editing the specified resource.
