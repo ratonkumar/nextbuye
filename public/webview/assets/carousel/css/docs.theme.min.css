@@ -7812,7 +7812,7 @@ p {
     font-size: 1rem;
     font-weight: normal;
     line-height: 1.6;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0px;
     text-rendering: optimizeLegibility
 }
 
