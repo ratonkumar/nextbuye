@@ -123,7 +123,7 @@
 <!-- উপরের আইকন সেকশন -->
 @php
     // নির্দিষ্ট প্রোডাক্টের 'highlights_section' ডাটা নিয়ে আসা
-    $highlightSection = \App\Models\LandingPageSetting::where('key', 'highlights_section')
+    $highlightSection = \App\Models\LandingPageSetting::where('section_key', 'highlights_section')
                         ->where('product_id', $productdetails->id)
                         ->where('is_active', 1)
                         ->first();
