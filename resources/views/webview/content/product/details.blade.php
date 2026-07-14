@@ -531,8 +531,6 @@
         </div>
     </div>
 </section>
-
-
 {{-- modal for process and cart --}}
 
 <!-- FancyBox CSS & JS -->

@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Attrvalue;
 use App\Models\Attribute;
 use App\Models\Subcategory;
+use App\Models\LandingPageSetting;
 use App\Models\Brand;
 use App\Models\Stock;
 use App\Models\Purchase;
@@ -213,7 +214,30 @@ class ProductController extends Controller
     }
 
     public function getSinglePageEdit($productID) {
-        dd($productID);
+        // ১. নির্দিষ্ট প্রোডাক্টটি খুঁজে বের করা
+        $product = Product::findOrFail($productID);
+
+        // ২. সব সেকশন সেটিংস নিয়ে আসা (যাতে এডিট পেজে লুপ চালানো যায়)
+        $sections = LandingPageSetting::all()->keyBy('section_key');
+
+        // ৩. এডিট ব্লেড পেজে ডাটা পাঠানো
+        return view('backend.content.product.edit', compact('product', 'sections'));
+    }
+
+    public function updateSection(Request $request, $sectionKey) {
+        // সেকশন ডাটা আপডেট
+        $setting = LandingPageSetting::updateOrCreate(
+            ['section_key' => $sectionKey],
+            ['content' => $request->all(), 'is_active' => $request->has('is_active')]
+        );
+        return response()->json(['success' => true, 'message' => 'Updated successfully']);
+    }
+
+    public function toggleSection($sectionKey) {
+        $setting = LandingPageSetting::where('section_key', $sectionKey)->first();
+        $setting->is_active = !$setting->is_active;
+        $setting->save();
+        return response()->json(['success' => true, 'status' => $setting->is_active]);
     }
     
      /**
