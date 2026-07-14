@@ -249,7 +249,7 @@ class ProductController extends Controller
     public function toggleSection (Request $request,$key)
     {
 
-        $productID = $request->productID;
+        $productID = $request->product_id;
         // সেকশনটি খুঁজে বের করুন অথবা নতুন তৈরি করুন
         $section = LandingPageSetting::firstOrNew([
             'section_key' => $key, 
