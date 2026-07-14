@@ -237,6 +237,8 @@ class ProductController extends Controller
                 'product_id' => $productID
             ],
             [
+                'product_id' => $productID,
+                'section_key' => $sectionKey,
                 'content' => json_encode($request->content)
             ]
         );
