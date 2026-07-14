@@ -222,7 +222,7 @@ class ProductController extends Controller
         $sections = LandingPageSetting::all()->keyBy('section_key');
 
         // ৩. এডিট ব্লেড পেজে ডাটা পাঠানো
-        return view('backend.content.product.edit', compact('product', 'sections'));
+        return view('backend.content.product.edit', compact('product', 'sections','productID'));
     }
 
     public function updateSection(Request $request, $sectionKey) 

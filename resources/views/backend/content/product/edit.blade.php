@@ -5,7 +5,8 @@
 
 <div class="container-fluid pt-4 px-4">
     <h2>Landing Page Management</h2>
-    
+
+   
     @php
         $allSections = [
             'highlights_section' => ['val1', 'label1', 'val2', 'label2', 'val3', 'label3', 'val4', 'label4'],
@@ -38,6 +39,7 @@
                 <div class="card-body">
                     <form class="update-form" data-key="{{ $key }}">
                         @csrf
+                         <input type="hidden" value="{{ $productID ?? 0 }}" name="productID" id="productID">
                         <div class="row">
                             @foreach($fields as $field)
                                 <div class="col-md-3 mb-3">
@@ -53,34 +55,79 @@
         @endforeach
     </div>
 </div>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     // Update Logic
     $('.update-form').on('submit', function(e) {
         e.preventDefault();
-        let key = $(this).data('key');
+        
+        let form = $(this);
+        let key = form.data('key');
+        
+        // Loadding Start
+        Swal.fire({
+            title: 'Updating...',
+            allowOutsideClick: false,
+            didOpen: () => { Swal.showLoading(); }
+        });
+
         $.ajax({
             url: '/admin/settings/update/' + key,
             method: 'POST',
-            data: $(this).serialize(),
+            data: form.serialize(),
             success: function(res) { 
-                alert('Updated Successfully!'); 
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Section updated successfully.',
+                    timer: 1500
+                });
             },
-            error: function() {
-                alert('Something went wrong!');
+            error: function(xhr) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: xhr.responseJSON?.message || 'Something went wrong, please try again.'
+                });
             }
         });
     });
 
     // Toggle Logic
     function toggleSection(key) {
+        let productID = $('#productID').val(); // ইনপুট থেকে আইডি নেওয়া হচ্ছে
+
+        Swal.fire({
+            title: 'Processing...',
+            allowOutsideClick: false,
+            didOpen: () => { Swal.showLoading(); }
+        });
+
         $.ajax({
             url: '/admin/settings/toggle/' + key,
             method: 'POST',
-            data: {_token: '{{ csrf_token() }}'},
+            data: {
+                _token: '{{ csrf_token() }}',
+                product_id: productID // প্রোডাক্ট আইডি পাঠানো হচ্ছে
+            },
             success: function(res) { 
-                location.reload(); 
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Status Updated!',
+                    showConfirmButton: false,
+                    timer: 1000
+                }).then(() => {
+                    location.reload();
+                });
+            },
+            error: function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed!',
+                    text: 'Could not update status.'
+                });
             }
         });
     }
