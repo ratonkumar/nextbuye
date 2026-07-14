@@ -82,6 +82,7 @@ button.remove {
                                 <th>Featured</th>
                                 <th>Promotion</th>
                                 <th>Status</th>
+                                <th>Config</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -1115,6 +1116,12 @@ button.remove {
 
 
                     }
+                },
+                {
+                    data: 'single_page_status',
+                    name: 'single_page_status',
+                    orderable: false,
+                    searchable: false
                 },
                 {
                     data: 'action',

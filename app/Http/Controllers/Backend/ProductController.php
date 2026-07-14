@@ -195,6 +195,15 @@ class ProductController extends Controller
     {
         $products = Product::all();
         return Datatables::of($products)
+            ->addColumn('single_page_status', function ($products) {
+                // এখানে '/product/single-page/{id}' রাউটে রিডাইরেক্ট করবে
+                $url = url('products.single.edit', $products->id);
+                
+                $statusClass = $products->is_single_page == 1 ? 'btn-success' : 'btn-secondary';
+                $statusText = $products->is_single_page == 1 ? 'Active' : 'Inactive';
+
+                return '<a href="'.$url.'" class="btn '.$statusClass.' btn-sm">'.$statusText.'</a>';
+            })
             ->addColumn('action', function ($products) {
                 return '<a href="#" type="button" id="editProductBtn" data-id="' . $products->id . '"   class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editmainProduct" style="margin-bottom:2px;"><i class="bi bi-pencil-square"></i></a>
                 <a href="#" type="button" style="margin-bottom:2px;" id="deleteProductBtn" data-id="' . $products->id . '" class="btn btn-danger btn-sm" ><i class="bi bi-archive" ></i></a>  <a href="#" type="button" style="margin-bottom:2px;" id="copyBtnData" data-id="' . $products->id . '" class="btn btn-info btn-sm" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
