@@ -9,7 +9,7 @@
     @php
         $allSections = [
             'highlights_section' => ['val1', 'label1', 'val2', 'label2', 'val3', 'label3', 'val4', 'label4'],
-              'problem_section' => [
+            'problem_section' => [
                 'story_title', 'title', 'problem_desc', 
                 'card1_title', 'card1_desc', 'card2_title', 'card2_desc', 
                 'card3_title', 'card3_desc', 'card4_title', 'card4_desc',

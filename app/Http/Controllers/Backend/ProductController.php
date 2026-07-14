@@ -225,25 +225,19 @@ class ProductController extends Controller
         return view('backend.content.product.edit', compact('product', 'sections','productID'));
     }
 
-    public function updateSection(Request $request, $sectionKey) 
-    {
-        // ১. ডাটা যাচাই (productID অবশ্যই থাকতে হবে)
-        $productID = $request->productID;
+    public function updateSection(Request $request, $key) {
+        // $request->content হলো আপনার ফর্ম থেকে আসা ডাটা
+        $data = $request->content; 
 
-        // ২. আপডেট অথবা ক্রিয়েট করুন (product_id কলামের সাথে ইনপুটের ডাটা চেক করছে)
         $setting = LandingPageSetting::updateOrCreate(
+            ['key' => $key, 'product_id' => $request->productID], // product_id অনুযায়ী ডাটা খুঁজে বের করা
             [
-                'section_key' => $sectionKey, 
-                'product_id' => $productID
-            ],
-            [
-                'product_id' => $productID,
-                'section_key' => $sectionKey,
-                'content' => json_encode($request->content)
+                'content' => json_encode($data), // ডাটা অবশ্যই encode করে সেভ করবেন
+                'is_active' => 1 // ডিফল্ট বা অন্য কোনো লজিক
             ]
         );
 
-        return response()->json(['success' => true, 'message' => 'Updated successfully']);
+        return response()->json(['success' => true]);
     }
 
     public function toggleSection (Request $request,$key)
