@@ -8,7 +8,8 @@
 
     @php
         $allSections = [
-            'hero_section' => ['val1', 'label1', 'val2', 'label2', 'val3', 'label3', 'val4', 'label4'],
+            'highlights_section' => ['val1', 'label1', 'val2', 'label2', 'val3', 'label3', 'val4', 'label4'],
+            'hero_section' => ['title', 'subtitle', 'button_text'],
             'about_section' => ['title', 'description', 'image_url'],
             'service_section' => ['title', 'service_list'],
             'problem_section' => [

@@ -219,7 +219,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($productID);
 
         // ২. সব সেকশন সেটিংস নিয়ে আসা (যাতে এডিট পেজে লুপ চালানো যায়)
-        $sections = LandingPageSetting::all()->keyBy('section_key');
+        $sections = LandingPageSetting::where('product_id', $productID)->get();
 
         // ৩. এডিট ব্লেড পেজে ডাটা পাঠানো
         return view('backend.content.product.edit', compact('product', 'sections','productID'));
