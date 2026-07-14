@@ -170,7 +170,7 @@
                 <div class="card p-4 border-0 shadow-sm" style="border-radius: 15px;">
                     <i class="fa fa-{{ $i==1 ? 'hand-paper' : ($i==2 ? 'tint' : ($i==3 ? 'fire' : 'clock')) }}" style="color: #ff5722; font-size: 30px; margin-bottom: 15px;"></i>
                     <h5>{{ $p['card'.$i.'_title'] ?? '' }}</h5>
-                    <p style="font-size: 14px; color: #666;">{{ $p['card'.$i.'_desc'] ?? '' }}</p>
+                    <p style="font-size: 14px; color: #666;">{!! $p['card'.$i.'_desc'] ?? '' !!}</p>
                 </div>
             </div>
             @endfor
