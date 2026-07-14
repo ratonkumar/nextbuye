@@ -148,7 +148,7 @@
 
 
 @php
-    $problemData = \App\Models\LandingPageSetting::where('key', 'problem_section')
+    $problemData = \App\Models\LandingPageSetting::where('section_key', 'problem_section')
                     ->where('product_id', $productdetails->id)
                     ->where('is_active', 1)
                     ->first();
