@@ -425,7 +425,8 @@ class ProductController extends Controller
             $product->subTitle3        = NULL;
             $product->sub_product_id   = NULL;
         }
-        
+        // সুইচ অন থাকলে ডাটা আপডেট হবে
+        $product->is_specs_active = $request->has('is_specs_active') ? 1 : 0;
     
         $product->ProductSlug= $request->ProductSlug;
         $product->is_weight= $request->edit_is_weight;
@@ -484,7 +485,15 @@ class ProductController extends Controller
 
         $product->save();
         
-        
+        // স্পেসিফিকেশন ডিলিট করে নতুন ডাটা ইনসার্ট করা
+        $product->specifications()->delete();
+        if($request->has('specs')) {
+            foreach($request->specs as $spec) {
+                if(!empty($spec['label'])) {
+                    $product->specifications()->create($spec);
+                }
+            }
+        }
          $categoryID = $request->category_id;
         if(!empty($categoryID)) {
             DB::table('category_product')->where('product_id',  $product->id)->delete();

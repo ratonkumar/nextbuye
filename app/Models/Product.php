@@ -39,5 +39,8 @@ class Product extends Model
         return 'ProductSlug';
     }
 
-
+    public function specifications()
+    {
+        return $this->hasMany(ProductSpecification::class, 'product_id');
+    }
 }
