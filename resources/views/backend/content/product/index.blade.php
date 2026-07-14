@@ -402,6 +402,370 @@ button.remove {
             </div>
         </div><!-- End popup Modal-->
 
+        {{-- edit payment icon --}}
+        <div class="modal fade" id="editmainProduct" tabindex="-1" style="    overflow: scroll;
+   ">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content bg-third rounded h-100">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: red;">Edit Product</h5>
+                        <button type="button" class="btn-dark btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form name="form" id="EditProduct" class="outer-repeater" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h5 class="text-uppercase bg-light p-2 mt-0 mb-3">General</h5>
+                                    <input type="text" name="product_id" id="product_id" hidden>
+                                    <div class="form-group mb-3">
+                                        <label for="ProductName">Product Name <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" name="ProductName" id="ProductName"
+                                            class="form-control" required>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="ProductSlug">Custom Url <span class="text-danger">*</spa <span class="text-danger">*</span> </label>
+                                        <input type="text" id="ProductSlug" name="ProductSlug" class="form-control" required>
+                                    </div>
+                                     <div class="form-group mb-3">
+                                        <label for="ProductSku">Product SKU <span class="text-danger">*</spa <span class="text-danger">*</span> </label>
+                                        <input type="text" id="ProductSku" name="ProductSku" class="form-control" required>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group mb-3">
+                                                <label for="ProductRegularPrice">Sale Price <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="number"  id="EditProductSalePrice"
+                                                    name="ProductSalePrice" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group mb-3">
+                                                <label for="ProductSalePrice">Regular Price <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="number" id="EditProductRegularPrice" name="ProductRegularPrice"
+                                                    class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group mb-3">
+                                                <label for="ProductSalePrice">Discount (%) </label>
+                                                <input type="number" id="EditDiscount" name="Discount"
+                                                    class="form-control" >
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group mb-3">
+                                                <label for="ProductCategory" style="width: 100%;">Brand Name </label>
+                                                <select class="form-control" id="brand_id" style="background: black;" name="brand_id">
+                                                    <option>Select Brands</option>
+                                                    @forelse ($brands as $brand)
+                                                        <option value="{{ $brand->id }}">
+                                                            {{ $brand->brand_name }}
+                                                        </option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group mb-3" id="productCateEdit">
+                                                <label for="editcategory_id" style="width: 100%;">Categories <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="form-control" id="editcategory_id"
+                                                    style="background: black;" name="category_id[]"
+                                                    onchange="editsetsubcategory()" multiple>
+                                                    <option>Select Category</option>
+                                                    @forelse ($categories as $category)
+                                                        <option value="{{ $category->id }}" selected >
+                                                            {{ $category->category_name }}
+                                                        </option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <div class="form-group mb-3">
+                                                <label for="editsub_category_id" style="width: 100%">Sub Category <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="form-control select2" id="editsub_category_id"
+                                                    style="background: black;" name="subcategory_id[]" multiple >
+                                                    <option>Select Sub-Category</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label for="ProductRegularPrice">Product Short Description <span
+                                                class="text-danger">*</span></label>
+                                        <textarea class="form-control" name="ProductBreaf" id="editProductBreaf" rows="2"></textarea>
+                                    </div>
+
+                                    <div class="form-group mb-3" id="descriptionPro">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6">
+
+
+                                    <h5 class="text-uppercase mt-0 mb-3 bg-light p-2">Product Images</h5>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group mb-3">
+                                                <label for="ProductSalePrice">Youtube Embade Code</label>
+                                                <input type="text" id="youtube_embade" name="youtube_embade"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group mb-3">
+                                                <label for="ProductDetails">Product Image <span
+                                                        class="text-danger">*</span></label>
+                                                <button type="button" class="btn btn-danger d-block mb-2">
+                                                    <input type="file" name="ProductImage" id="ProductImage"
+                                                        onchange="editloadFile(event)">
+                                                </button>
+                                                <div class="single-image image-holder-wrapper clearfix">
+                                                    <div class="image-holder placeholder">
+                                                        <div id="previmg"> </div>
+                                                        <img id="editprevImage" style="height: 80px" />
+                                                        <i class="mdi mdi-folder-image"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 mb-4">
+                                            <div class="form-group"
+                                                style="padding: 10px;padding-top: 3px;margin:0;padding-bottom:3px;width:96%;margin-left: 8px;border-radius: 8px;padding-left: 0;margin-left: -0;">
+                                                <label class="fileContainer">
+                                                    <span style="font-size: 20px;">Product Slider
+                                                        image</span>
+                                                </label>
+                                                <br>
+                                                <button type="button" class="btn btn-danger d-block mb-2"
+                                                    style="background: red">
+                                                    <input type="file" onchange="editprevPost_Img()"
+                                                        name="PostImage[]" id="editPostImage" multiple>
+                                                </button>
+                                            </div>
+                                            <div class="file">
+                                                <div id="editprevFile"
+                                                    style="width: 100%;float:left;background: lightgray;">
+
+                                                </div>
+                                                <div id="viewprevFile"
+                                                    style="width: 100%;float:left;background: lightgray;">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group mb-3">
+                                                <label for="ProductRegularPrice">Colour
+                                                    <span class="text-danger">*</span></label>
+                                                <br>
+                                                @forelse ($colors as $color)
+                                                    <input type="checkbox" name="color[]"
+                                                        value="{{ $color->value }}">
+                                                    {{ $color->value }} &nbsp;
+                                                @empty
+                                                @endforelse
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group mb-3">
+                                                <label for="ProductSalePrice">Size <span
+                                                        class="text-danger">*</span></label>
+                                                <br>
+                                                @forelse ($sizes as $size)
+                                                    <input type="checkbox" name="size[]"
+                                                        value="{{ $size->value }}">
+                                                    {{ $size->value }} &nbsp;
+                                                @empty
+                                                @endforelse
+                                            </div>
+                                        </div>
+                                        {{--
+                                        <div class="col-12">
+                                            <div class="form-group mb-3">
+                                                <label for="ProductSalePrice">Weights <span
+                                                        class="text-danger">*</span></label>
+                                                <br>
+                                                @forelse ($weights as $weight)
+                                                    <input type="checkbox" name="weight[]"
+                                                        value="{{ $weight->value }}"> {{ $weight->value }}
+                                                    &nbsp;
+                                                @empty
+                                                @endforelse
+                                            </div>
+                                        </div>
+                                        --}}
+                                    </div>
+                                </div>
+                                <div class="row" >
+                                    <div class="col-12">
+                                        <label for="is_sub_product">Category Status ? <span  class="text-danger">*</span></label>
+                                        <br>
+                                        <select class="form-control" id="edit_sub_product" name="is_sub_product" >
+                                            <option value="0" selected> Parent</option>
+                                            <option value="1"> Child</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" >
+                                    <div class="col-12">
+                                        <label for="edit_is_weight">Add Weight ? <span  class="text-danger">*</span></label>
+                                        <br>
+                                        <select class="form-control" id="edit_is_weight" name="edit_is_weight" onchange="editweightChange()">
+                                            <option value="1"> Yes</option>
+                                            <option value="0" selected> No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" id="edit_weight_id_hidden" style="display:none">
+                                    
+                             
+                                    <label for="ProductSalePrice">Weights <span  class="text-danger">*</span></label>
+                                    <br>
+                                    <div data-repeater-list="outer-group" class="outer" id="weightEdit">
+                                        <div data-repeater-item class="outer">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                   <input type="text" name="weight" placeholder="Weight here" class="form-control outer"/>
+                                                </div>
+                                                <div class="col-3">
+                                                   <input type="text"  name="regular_price" placeholder="Regular Price"  class="form-control outer"/>
+                                               </div>
+                                                 <div class="col-3">
+                                                   <input type="text"  name="sale_price" placeholder="Sale Price "  class="form-control outer"/>
+                                               </div>
+                                               <div class="col-2">
+                                                    <input data-repeater-delete type="button" value="Delete" class="btn btn-danger outer"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <input data-repeater-create type="button" value="Add" class="btn btn-warning outer"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                               <div class="row" >
+                                    <div class="col-12">
+                                        <label for="single_page">Add Single page ? <span  class="text-danger">*</span></label>
+                                        <br>
+                                        <select class="form-control" id="is_single_page" name="is_single_page" onchange="editsingle_pageChange()">
+                                            <option value="1"> Yes</option>
+                                            <option value="0" selected> No</option>
+                                        </select>
+                                    </div>
+                                    
+                                   
+                                    
+                                    
+                                    <div id="edit_page_id_hidden">
+                                        <div class="col-12">
+                                            <label for="single_page">Add Sub Product <span  class="text-danger">*</span></label>
+                                            <br>
+                                            <select class="form-control select2" id="sub_product_id" name="sub_product_id[]" multiple  >
+                                                <option value="0"> select Product</option>
+                                               @foreach ($singleProductList as $singleProduct)
+                                                    <option value="{{ $singleProduct->id }}"> {{ $singleProduct->ProductName }}
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group mb-3">
+                                                <label for="single_page">Sub Title</label>
+                                                <input type="text" id="subTitle1" name="subTitle1"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="ProductDetailsss">Product Description <span
+                                                    class="text-danger">*</span></label>
+                                            <textarea class="form-control" id="ProductDetails1" name="ProductDetails1" rows="5"></textarea>
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            <div class="form-group mb-3">
+                                                <label for="single_page">Sub Title(1)</label>
+                                                <input type="text" id="subTitle2" name="subTitle2"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="ProductDetailsss">Product Description(1) <span
+                                                    class="text-danger">*</span></label>
+                                            <textarea class="form-control" id="ProductDetails2" name="ProductDetails2" rows="5"></textarea>
+                                        </div>
+                                        
+                                          <div class="col-12">
+                                            <div class="form-group mb-3">
+                                                <label for="single_page">Sub Title(2)</label>
+                                                <input type="text" id="subTitle3" name="subTitle3"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="ProductDetailsss">Product Description(2) <span
+                                                    class="text-danger">*</span></label>
+                                            <textarea class="form-control" id="ProductDetails3" name="ProductDetails3" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(document).ready(function() {
+                                            $('#ProductDetails1').summernote();
+                                            $('#ProductDetails2').summernote();
+                                            $('#ProductDetails3').summernote();
+                                            
+                                            $('#subTitle1').summernote();
+                                            $('#subTitle2').summernote();
+                                            $('#subTitle3').summernote();
+                                        });
+                                        
+                                        
+                                    </script>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group mt-2" style="text-align: right">
+                                <div class="submitBtnSCourse">
+                                    <button type="submit" name="btn" data-bs-dismiss="modal"
+                                        class="btn btn-dark btn-block" style="float: left">Close</button>
+                                    <button type="submit" name="btn"
+                                        class="btn btn-primary AddCourierBtn btn-block">Save</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div><!-- End popup Modal-->
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </div>
 </div>
@@ -414,8 +778,6 @@ button.remove {
 <!-- Include Select2 JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
-   
-
     $(document).ready(function() {
         $('#editcategory_id').select2({
           placeholder: 'Select an option',
