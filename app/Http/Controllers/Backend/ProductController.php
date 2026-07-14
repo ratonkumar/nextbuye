@@ -246,7 +246,7 @@ class ProductController extends Controller
     public function toggleSection ($key)
     {
         // সেকশনটি খুঁজে বের করুন অথবা নতুন তৈরি করুন
-        $section = LandingPageSetting::firstOrNew(['key' => $key]);
+        $section = LandingPageSetting::firstOrNew(['section_key' => $key]);
 
         // যদি ডাটাবেসে সেকশনটি থাকে, তাহলে স্ট্যাটাস উল্টে দিন (True থাকলে False, False থাকলে True)
         // আর যদি নতুন হয়, তাহলে ডিফল্টভাবে active করে দিন
