@@ -1,6 +1,9 @@
-@extends('layouts.admin')
+@extends('backend.master')
 
-@section('content')
+@section('maincontent')
+@section('title')
+    {{ env('APP_NAME') }}- Products
+@endsection
 <div class="container py-5">
     <h2>Landing Page Management - Choplet</h2>
     
