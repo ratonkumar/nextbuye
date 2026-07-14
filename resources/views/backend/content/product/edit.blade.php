@@ -4,7 +4,8 @@
 @section('title')
     {{ env('APP_NAME') }}- Products
 @endsection
-<div class="container py-5">
+<div class="container-fluid pt-4 px-4">
+    <div class="row">
     <h2>Landing Page Management - Choplet</h2>
     
     {{-- প্রতিটি সেকশনের জন্য একটি কার্ড --}}
@@ -33,6 +34,7 @@
         </div>
     </div>
     @endforeach
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
