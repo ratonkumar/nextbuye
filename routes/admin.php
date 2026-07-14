@@ -153,6 +153,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth.admin:admin']], function 
     //products
     Route::resource('products', ProductController::class,['names'=>'admin.products']);
     Route::get('product/get/data', [ProductController::class, 'productdata'])->name('admin.product.data');
+    Route::get('product/get/edit/{id}', [ProductController::class, 'productdata'])->name('admin.products.single.edit');
     Route::post('products-copy/{id}', [ProductController::class, 'productCopy'])->name('admin.product.productCopy');
     Route::get('product_order_no_save/{id}', [ProductController::class, 'productOrder'])->name('admin.product.productOrder');
     Route::get('products-image-remove/{id}', [ProductController::class, 'productImageRemove'])->name('admin.product.productImageRemove');

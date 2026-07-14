@@ -197,7 +197,7 @@ class ProductController extends Controller
         return Datatables::of($products)
             ->addColumn('single_page_status', function ($products) {
                 // এখানে '/product/single-page/{id}' রাউটে রিডাইরেক্ট করবে
-                $url = url('products.single.edit', $products->id);
+                $url = route('admin.products.single.edit', $products->id);
                 $statusClass = $products->is_single_page == 1 ? 'btn-success' : 'btn-secondary';
                 $statusText = $products->is_single_page == 1 ? 'Edit' : 'Edit';
                 return '<a href="'.$url.'" class="btn '.$statusClass.' btn-sm">'.$statusText.'</a>';
