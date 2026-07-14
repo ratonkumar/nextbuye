@@ -16,6 +16,7 @@ class LandingPageSetting extends Model
     protected $fillable = [
         'section_key',
         'content',
+        'product_id',
         'is_active'
     ];
 
