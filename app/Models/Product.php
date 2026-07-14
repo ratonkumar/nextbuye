@@ -43,4 +43,6 @@ class Product extends Model
     {
         return $this->hasMany(ProductSpecification::class, 'product_id');
     }
+
+    
 }
