@@ -154,6 +154,19 @@ Route::group(['prefix'=>'admin','middleware' => ['auth.admin:admin']], function 
     Route::resource('products', ProductController::class,['names'=>'admin.products']);
     Route::get('product/get/data', [ProductController::class, 'productdata'])->name('admin.product.data');
     Route::get('product/get/edit/{id}', [ProductController::class, 'getSinglePageEdit'])->name('admin.products.single.edit');
+
+    // ল্যান্ডিং পেজ ম্যানেজমেন্টের জন্য নতুন রাউটগুলো
+    Route::prefix('settings')->group(function () {
+        
+        // সেকশন আপডেট করার রাউট
+        Route::post('/update/{sectionKey}', [ProductController::class, 'updateSection'])
+            ->name('admin.settings.update');
+
+        // সেকশন টগল (ON/OFF) করার রাউট
+        Route::post('/toggle/{sectionKey}', [ProductController::class, 'toggleSection'])
+            ->name('admin.settings.toggle');
+    });
+
     Route::post('products-copy/{id}', [ProductController::class, 'productCopy'])->name('admin.product.productCopy');
     Route::get('product_order_no_save/{id}', [ProductController::class, 'productOrder'])->name('admin.product.productOrder');
     Route::get('products-image-remove/{id}', [ProductController::class, 'productImageRemove'])->name('admin.product.productImageRemove');

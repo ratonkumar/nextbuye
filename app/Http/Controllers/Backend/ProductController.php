@@ -224,20 +224,41 @@ class ProductController extends Controller
         return view('backend.content.product.edit', compact('product', 'sections'));
     }
 
-    public function updateSection(Request $request, $sectionKey) {
-        // সেকশন ডাটা আপডেট
+    public function updateSection(Request $request, $sectionKey) 
+    {
+        // ১. শুধুমাত্র 'content' এর ভেতরের ডাটাগুলো নিন (Blade-এ name="content[]" ফরম্যাট অনুযায়ী)
+        // আর _token বাদ দিন
+        $data = $request->except('_token', 'is_active');
+
+        // ২. আপডেট অথবা ক্রিয়েট করুন
         $setting = LandingPageSetting::updateOrCreate(
             ['section_key' => $sectionKey],
-            ['content' => $request->all(), 'is_active' => $request->has('is_active')]
+            [
+                'content'   => json_encode($data['content']), // JSON হিসেবে সেভ হচ্ছে
+                'is_active' => $request->has('is_active') ? 1 : 0
+            ]
         );
+
         return response()->json(['success' => true, 'message' => 'Updated successfully']);
     }
 
-    public function toggleSection($sectionKey) {
-        $setting = LandingPageSetting::where('section_key', $sectionKey)->first();
-        $setting->is_active = !$setting->is_active;
-        $setting->save();
-        return response()->json(['success' => true, 'status' => $setting->is_active]);
+    public function toggle($key)
+    {
+        // সেকশনটি খুঁজে বের করুন অথবা নতুন তৈরি করুন
+        $section = Section::firstOrNew(['key' => $key]);
+
+        // যদি ডাটাবেসে সেকশনটি থাকে, তাহলে স্ট্যাটাস উল্টে দিন (True থাকলে False, False থাকলে True)
+        // আর যদি নতুন হয়, তাহলে ডিফল্টভাবে active করে দিন
+        $section->is_active = $section->is_active ? 0 : 1;
+        
+        // কন্টেন্ট খালি থাকলে অন্তত একটি ডিফল্ট ভ্যালু দিন যেন এরর না দেয়
+        if (!$section->content) {
+            $section->content = json_encode([]); 
+        }
+
+        $section->save();
+
+        return response()->json(['success' => true]);
     }
     
      /**

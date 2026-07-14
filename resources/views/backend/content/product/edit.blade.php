@@ -1,24 +1,29 @@
 @extends('backend.master')
 
 @section('maincontent')
-@section('title')
-    {{ env('APP_NAME') }} - Landing Page Management
-@endsection
+@section('title') {{ env('APP_NAME') }}- Landing Page Management @endsection
 
 <div class="container-fluid pt-4 px-4">
-    <div class="row">
-        <h2>Landing Page Management</h2>
-        
-        {{-- আপনার যে সেকশনগুলো প্রয়োজন, সেগুলোর একটি অ্যারে এখানে রাখুন --}}
-        @php
-            $definedSections = ['hero_section', 'about_section', 'service_section'];
-        @endphp
+    <h2>Landing Page Management</h2>
+    
+    @php
+        $allSections = [
+            'hero_section' => ['title', 'subtitle', 'button_text'],
+            'about_section' => ['title', 'description', 'image_url'],
+            'service_section' => ['title', 'service_list'],
+            'problem_section' => ['title', 'problem_desc'],
+            'difference_section' => ['title', 'comparison'],
+            'question_section' => ['question', 'answer'], // FAQ Section
+            'video_section' => ['video_title', 'video_link'],
+            'cart_section' => ['cart_title', 'shipping_info']
+        ];
+    @endphp
 
-        @foreach($definedSections as $key)
+    <div class="row">
+        @foreach($allSections as $key => $fields)
             @php
-                // ডাটাবেস থেকে ডাটা খুঁজুন
-                $sectionData = $sections->where('key', $key)->first();
-                $content = $sectionData ? json_decode($sectionData->content, true) : ['title' => '', 'subtitle' => ''];
+                $sectionData = $sections->get($key);
+                $content = $sectionData ? json_decode($sectionData->content, true) : array_fill_keys($fields, '');
             @endphp
 
             <div class="card mb-4" id="section_{{ $key }}">
@@ -33,17 +38,14 @@
                     <form class="update-form" data-key="{{ $key }}">
                         @csrf
                         <div class="row">
-                            {{-- এখানে আপনার প্রয়োজন অনুযায়ী ফিল্ডগুলো যোগ করুন --}}
-                            <div class="col-md-6 mb-3">
-                                <label>Title</label>
-                                <input type="text" name="content[title]" value="{{ $content['title'] ?? '' }}" class="form-control">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label>Subtitle</label>
-                                <input type="text" name="content[subtitle]" value="{{ $content['subtitle'] ?? '' }}" class="form-control">
-                            </div>
+                            @foreach($fields as $field)
+                                <div class="col-md-6 mb-3">
+                                    <label>{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
+                                    <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
+                                </div>
+                            @endforeach
                         </div>
-                        <button type="submit" class="btn btn-primary mt-2">Save Changes</button>
+                        <button type="submit" class="btn btn-primary">Save {{ ucfirst(str_replace('_', ' ', $key)) }}</button>
                     </form>
                 </div>
             </div>
@@ -53,25 +55,19 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    // আপডেট করার AJAX
+    // Update Logic
     $('.update-form').on('submit', function(e) {
         e.preventDefault();
         let key = $(this).data('key');
-        let formData = $(this).serialize();
-
         $.ajax({
             url: '/admin/settings/update/' + key,
             method: 'POST',
-            data: formData,
-            success: function(res) { 
-                alert('Updated Successfully!');
-                location.reload(); 
-            },
-            error: function() { alert('Something went wrong!'); }
+            data: $(this).serialize(),
+            success: function(res) { alert('Updated Successfully!'); }
         });
     });
 
-    // টগল করার AJAX
+    // Toggle Logic (ON/OFF)
     function toggleSection(key) {
         $.ajax({
             url: '/admin/settings/toggle/' + key,
