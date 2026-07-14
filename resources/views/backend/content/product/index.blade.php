@@ -82,7 +82,7 @@ button.remove {
                                 <th>Featured</th>
                                 <th>Promotion</th>
                                 <th>Status</th>
-                                <th>Config</th>
+                                <th>S. edit</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
