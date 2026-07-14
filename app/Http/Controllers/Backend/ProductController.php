@@ -242,7 +242,7 @@ class ProductController extends Controller
         return response()->json(['success' => true, 'message' => 'Updated successfully']);
     }
 
-    public function toggle($key)
+    public function toggleSection ($key)
     {
         // সেকশনটি খুঁজে বের করুন অথবা নতুন তৈরি করুন
         $section = Section::firstOrNew(['key' => $key]);
