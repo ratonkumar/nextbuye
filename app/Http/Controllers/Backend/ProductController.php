@@ -227,16 +227,17 @@ class ProductController extends Controller
 
     public function updateSection(Request $request, $sectionKey) 
     {
-        // ১. শুধুমাত্র 'content' এর ভেতরের ডাটাগুলো নিন (Blade-এ name="content[]" ফরম্যাট অনুযায়ী)
-        // আর _token বাদ দিন
-        $data = $request->except('_token', 'is_active');
+        // ১. ডাটা যাচাই (productID অবশ্যই থাকতে হবে)
+        $productID = $request->productID;
 
-        // ২. আপডেট অথবা ক্রিয়েট করুন
+        // ২. আপডেট অথবা ক্রিয়েট করুন (product_id কলামের সাথে ইনপুটের ডাটা চেক করছে)
         $setting = LandingPageSetting::updateOrCreate(
-            ['section_key' => $sectionKey],
             [
-                'content'   => json_encode($data['content']), // JSON হিসেবে সেভ হচ্ছে
-                'is_active' => $request->has('is_active') ? 1 : 0
+                'key' => $sectionKey, 
+                'product_id' => $productID
+            ],
+            [
+                'content' => json_encode($request->content)
             ]
         );
 
@@ -245,8 +246,13 @@ class ProductController extends Controller
 
     public function toggleSection ($key)
     {
+
+         $productID = $request->productID;
         // সেকশনটি খুঁজে বের করুন অথবা নতুন তৈরি করুন
-        $section = LandingPageSetting::firstOrNew(['section_key' => $key]);
+        $section = LandingPageSetting::firstOrNew([
+            'key' => $key, 
+            'product_id' => $productID
+        ]);
 
         // যদি ডাটাবেসে সেকশনটি থাকে, তাহলে স্ট্যাটাস উল্টে দিন (True থাকলে False, False থাকলে True)
         // আর যদি নতুন হয়, তাহলে ডিফল্টভাবে active করে দিন
