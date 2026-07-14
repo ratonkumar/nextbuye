@@ -148,7 +148,7 @@
 
 
 <section class="problem-section" style="padding: 50px 0; background-color: #fcfaf7;">
-    <div class="container text-center">
+    <div class="container">
         <!-- Heading -->
         <p style="color: #d35400; font-weight: bold; margin-bottom: 5px;">প্রতিদিনের গল্প</p>
         <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 20px;">কাজগুলো ছোট, কিন্তু প্রতিদিন জমতে থাকে</h2>
