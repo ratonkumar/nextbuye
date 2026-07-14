@@ -233,7 +233,7 @@ class ProductController extends Controller
         // ২. আপডেট অথবা ক্রিয়েট করুন (product_id কলামের সাথে ইনপুটের ডাটা চেক করছে)
         $setting = LandingPageSetting::updateOrCreate(
             [
-                'key' => $sectionKey, 
+                'section_key' => $sectionKey, 
                 'product_id' => $productID
             ],
             [
@@ -244,13 +244,13 @@ class ProductController extends Controller
         return response()->json(['success' => true, 'message' => 'Updated successfully']);
     }
 
-    public function toggleSection ($key)
+    public function toggleSection (Request $request,$key)
     {
 
-         $productID = $request->productID;
+        $productID = $request->productID;
         // সেকশনটি খুঁজে বের করুন অথবা নতুন তৈরি করুন
         $section = LandingPageSetting::firstOrNew([
-            'key' => $key, 
+            'section_key' => $key, 
             'product_id' => $productID
         ]);
 
