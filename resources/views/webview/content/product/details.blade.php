@@ -148,8 +148,8 @@
 
 
 @php
-    $problemData = \App\Models\Section::where('key', 'problem_section')
-                    ->where('product_id', $product->id)
+    $problemData = \App\Models\LandingPageSetting::where('key', 'problem_section')
+                    ->where('product_id', $productdetails->id)
                     ->where('is_active', 1)
                     ->first();
     $p = $problemData ? json_decode($problemData->content, true) : [];
