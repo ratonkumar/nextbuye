@@ -27,22 +27,22 @@
     @endphp
 
     <div class="row">
-        @foreach($allSections as $key => $fields)
+        @foreach($allSections as $section_key => $fields)
             @php
-                $sectionData = $sections->where('key', $key)->first();
+                $sectionData = $sections->where('section_key', $section_key)->first();
                 $content = $sectionData ? json_decode($sectionData->content, true) : array_fill_keys($fields, '');
             @endphp
 
-            <div class="card mb-4" id="section_{{ $key }}">
+            <div class="card mb-4" id="section_{{ $section_key }}">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0 text-capitalize">{{ str_replace('_', ' ', $key) }}</h5>
+                    <h5 class="mb-0 text-capitalize">{{ str_replace('_', ' ', $section_key) }}</h5>
                     <button class="btn btn-sm {{ ($sectionData && $sectionData->is_active) ? 'btn-success' : 'btn-danger' }}" 
-                            onclick="toggleSection('{{ $key }}')">
+                            onclick="toggleSection('{{ $section_key }}')">
                         {{ ($sectionData && $sectionData->is_active) ? 'ON' : 'OFF' }}
                     </button>
                 </div>
                 <div class="card-body">
-                    <form class="update-form" data-key="{{ $key }}">
+                    <form class="update-form" data-key="{{ $section_key }}">
                         @csrf
                         <input type="hidden" value="{{ $productID ?? 0 }}" name="productID">
                         
@@ -54,7 +54,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm">Save {{ ucfirst(str_replace('_', ' ', $key)) }}</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Save {{ ucfirst(str_replace('_', ' ', $section_key)) }}</button>
                     </form>
                 </div>
             </div>
