@@ -9,15 +9,16 @@
     @php
         $allSections = [
             'highlights_section' => ['val1', 'label1', 'val2', 'label2', 'val3', 'label3', 'val4', 'label4'],
-            'hero_section' => ['title', 'subtitle', 'button_text'],
-            'about_section' => ['title', 'description', 'image_url'],
-            'service_section' => ['title', 'service_list'],
-            'problem_section' => [
+              'problem_section' => [
                 'story_title', 'title', 'problem_desc', 
                 'card1_title', 'card1_desc', 'card2_title', 'card2_desc', 
                 'card3_title', 'card3_desc', 'card4_title', 'card4_desc',
                 'footer_text', 'footer_highlight'
             ],
+            'hero_section' => ['title', 'subtitle', 'button_text'],
+            'about_section' => ['title', 'description', 'image_url'],
+            'service_section' => ['title', 'service_list'],
+          
             'difference_section' => ['title', 'comparison'],
             'question_section' => ['question', 'answer'],
             'video_section' => ['video_title', 'video_link'],
