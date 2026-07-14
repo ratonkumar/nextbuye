@@ -197,7 +197,7 @@ class ProductController extends Controller
         return Datatables::of($products)
             ->addColumn('action', function ($products) {
                 // Edit বাটনটি এখন একটি সাধারণ <a> ট্যাগ যা নির্দিষ্ট রাউটে নিয়ে যাবে
-                $editBtn = '<a href="' . route('products.edit', $products->id) . '" class="btn btn-primary btn-sm" style="margin-bottom:2px;"><i class="bi bi-pencil-square"></i></a>';
+                $editBtn = '<a href="' . route('admin.products.edit', $products->id) . '" class="btn btn-primary btn-sm" style="margin-bottom:2px;"><i class="bi bi-pencil-square"></i></a>';
                 
                 $deleteBtn = '<a href="#" type="button" style="margin-bottom:2px;" id="deleteProductBtn" data-id="' . $products->id . '" class="btn btn-danger btn-sm" ><i class="bi bi-archive" ></i></a>';
                 
