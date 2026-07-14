@@ -121,42 +121,30 @@
     </div>
 </div>
 <!-- উপরের আইকন সেকশন -->
-<div class="container my-4">
-    <div class="row">
-        <div class="col-md-6 mb-3">
-            <div class="d-flex align-items-center p-3 border rounded">
-                <i class="fa fa-truck mr-3" style="font-size: 24px;"></i>
-                <div>
-                    <strong>ফ্রি ডেলিভারি</strong><br><small>সারাদেশে</small>
+@php
+    // নির্দিষ্ট প্রোডাক্টের 'highlights_section' ডাটা নিয়ে আসা
+    $highlightSection = \App\Models\LandingPageSetting::where('key', 'highlights_section')
+                        ->where('product_id', $product->id)
+                        ->where('is_active', 1)
+                        ->first();
+
+    $highlights = $highlightSection ? json_decode($highlightSection->content, true) : null;
+@endphp
+
+@if($highlights)
+<div class="container-fluid" style="background: #1a1a1a; padding: 40px 0; color: #fff;">
+    <div class="container">
+        <div class="row text-center">
+            @for($i = 1; $i <= 4; $i++)
+                <div class="col-md-3 mb-3">
+                    <h2 style="color: #ff5722;">{{ $highlights['val'.$i] ?? '' }}</h2>
+                    <p>{{ $highlights['label'.$i] ?? '' }}</p>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <div class="d-flex align-items-center p-3 border rounded">
-                <i class="fa fa-wallet mr-3" style="font-size: 24px;"></i>
-                <div>
-                    <strong>ক্যাশ অন ডেলিভারি</strong><br><small>হাতে পেয়ে পেমেন্ট</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <div class="d-flex align-items-center p-3 border rounded">
-                <i class="fa fa-shield-alt mr-3" style="font-size: 24px;"></i>
-                <div>
-                    <strong>৬ মাস ওয়ারেন্টি</strong><br><small>রিপ্লেসমেন্ট</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <div class="d-flex align-items-center p-3 border rounded">
-                <i class="fa fa-check-circle mr-3" style="font-size: 24px;"></i>
-                <div>
-                    <strong>১০০% অরিজিনাল</strong><br><small>কোয়ালিটি গ্যারান্টি</small>
-                </div>
-            </div>
+            @endfor
         </div>
     </div>
 </div>
+@endif
 
 <!-- নিচের গাঢ় রঙের ফিচার সেকশন -->
 <div class="container-fluid" style="background: #1a1a1a; padding: 40px 0; color: #fff;">
