@@ -136,7 +136,7 @@
     <div class="container">
         <div class="row text-center">
             @for($i = 1; $i <= 4; $i++)
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3">
                     <h2 style="color: #ff5722;">{{ $highlights['val'.$i] ?? '' }}</h2>
                     <p>{{ $highlights['label'.$i] ?? '' }}</p>
                 </div>
@@ -146,29 +146,7 @@
 </div>
 @endif
 
-<!-- নিচের গাঢ় রঙের ফিচার সেকশন -->
-<div class="container-fluid" style="background: #1a1a1a; padding: 40px 0; color: #fff;">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-3 mb-3">
-                <h2 style="color: #ff5722;">১০ সে.</h2>
-                <p>এক চাপে কুচি রেডি</p>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h2 style="color: #ff5722;">১৭০০</h2>
-                <p>RPM মোটর স্পিড</p>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h2 style="color: #ff5722;">২৫০ml</h2>
-                <p>বাটি ক্যাপাসিটি</p>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h2 style="color: #ff5722;">৬ মাস</h2>
-                <p>রিপ্লেসমেন্ট ওয়ারেন্টি</p>
-            </div>
-        </div>
-    </div>
-</div>
+
 <section class="problem-section" style="padding: 50px 0; background-color: #fcfaf7;">
     <div class="container text-center">
         <!-- Heading -->
