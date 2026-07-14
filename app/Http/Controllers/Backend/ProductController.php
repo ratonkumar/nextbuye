@@ -280,16 +280,20 @@ class ProductController extends Controller
     }
     
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $product=Product::where('id',$id)->first();
-        return response()->json($product, 200);
+        // রিলেশনশিপসহ প্রোডাক্ট খুঁজে বের করা
+        $product = Product::with('specifications')->findOrFail($id);
+        
+        // প্রয়োজনীয় অন্যান্য ডাটা (যেমন: brands, categories ইত্যাদি যা আপনার ফর্মে লাগে)
+        $brands            = Brand::all();
+        $categories        = Category::all();
+        $singleProductList = Product::where('id', '!=', $id)->get();
+
+        // 'products.edit' ভিউ ফাইলটি লোড করা
+        return view('backend.content.product.edit', compact(
+            'product', 'brands', 'categories',  'singleProductList'
+        ));
     }
     
   public function removeGalleryImage(Request $request)
