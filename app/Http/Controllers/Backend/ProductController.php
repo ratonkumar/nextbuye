@@ -191,17 +191,28 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function productdata()
+   public function productdata()
     {
+        // Product মডেলের সাথে যদি স্পেসিফিকেশন রিলেশন থাকে, তবে with('specifications') ব্যবহার করুন
         $products = Product::all();
+
         return Datatables::of($products)
             ->addColumn('action', function ($products) {
-                return '<a href="#" type="button" id="editProductBtn" data-id="' . $products->id . '"   class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editmainProduct" style="margin-bottom:2px;"><i class="bi bi-pencil-square"></i></a>
-                <a href="#" type="button" style="margin-bottom:2px;" id="deleteProductBtn" data-id="' . $products->id . '" class="btn btn-danger btn-sm" ><i class="bi bi-archive" ></i></a>  <a href="#" type="button" style="margin-bottom:2px;" id="copyBtnData" data-id="' . $products->id . '" class="btn btn-info btn-sm" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
-</svg></a>';
-            })
+                // Edit বাটন: মডালের পরিবর্তে এখন এটি একটি সরাসরি URL-এ যাবে
+                // নিশ্চিত করুন আপনার routes/web.php তে route('products.edit', $products->id) আছে
+                $editBtn = '<a href="' . route('admin.products.edit', $products->id) . '" class="btn btn-primary btn-sm" style="margin-bottom:2px;"><i class="bi bi-pencil-square"></i></a>';
+                
+                $deleteBtn = '<a href="#" type="button" style="margin-bottom:2px;" id="deleteProductBtn" data-id="' . $products->id . '" class="btn btn-danger btn-sm" ><i class="bi bi-archive" ></i></a>';
+                
+                $copyBtn = '<a href="#" type="button" style="margin-bottom:2px;" id="copyBtnData" data-id="' . $products->id . '" class="btn btn-info btn-sm" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                                </svg>
+                            </a>';
 
+                return $editBtn . ' ' . $deleteBtn . ' ' . $copyBtn;
+            })
+            ->rawColumns(['action']) // HTML বাটন দেখানোর জন্য এটি অত্যন্ত জরুরি
             ->make(true);
     }
     
