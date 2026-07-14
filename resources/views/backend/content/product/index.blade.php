@@ -93,6 +93,7 @@ button.remove {
                 </div>
             </div>
         </div>
+        
 
         {{-- create product modal --}}
         <div class="modal fade" id="mainProduct" tabindex="-1">
