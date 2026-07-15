@@ -247,15 +247,12 @@ class ProductController extends Controller
         foreach ($imageFields as $field) {
             if ($request->hasFile("content.$field")) {
                 $file = $request->file("content.$field");
-                
-                // ফাইলটির জন্য একটি ইউনিক নাম তৈরি করুন
                 $fileName = time() . '_' . $file->getClientOriginalName();
                 
-                // ফাইলটি public/uploads/products ফোল্ডারে মুভ করুন
-                // লক্ষ্য করুন: এখানে 'public' ডিস্ক ব্যবহার করা হচ্ছে না
+                // ফাইলটি public/uploads/products এ মুভ করুন
                 $file->move(public_path('uploads/products'), $fileName);
                 
-                // ডাটাবেজে সেভ করার জন্য পাথ তৈরি (storage ছাড়া)
+                // ডাটাবেজে সেভ করার জন্য পাথ (এখানে 'public/' বাদ দেয়া হয়েছে)
                 $content[$field] = 'uploads/products/' . $fileName; 
             }
         }

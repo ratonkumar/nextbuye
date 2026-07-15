@@ -75,6 +75,7 @@
                                         {{-- প্রিভিউ দেখানোর জন্য একটি ডিভ --}}
                                         <div class="mt-2" id="{{ $field }}-preview">
                                             @if(!empty($content[$field]))
+                                                {{-- এখানে asset() ফাংশন সরাসরি public ফোল্ডারকে ধরবে --}}
                                                 <img src="{{ asset($content[$field]) }}" width="100" class="img-thumbnail">
                                                 <small class="d-block text-muted">Current Image</small>
                                             @endif
