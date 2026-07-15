@@ -76,33 +76,33 @@
 <script>
     // নির্দিষ্ট ফিল্ডগুলোকে এডিটরে কনভার্ট করার ফাংশন
     function initEditors() {
-    let editors = ['problem_desc', 'card1_desc', 'card2_desc', 'card3_desc', 'card4_desc', 'footer_text'];
-    
-    editors.forEach(function(fieldName) {
-        let textarea = document.querySelector('textarea[name="content[' + fieldName + ']"]');
+        let editors = ['problem_desc', 'card1_desc', 'card2_desc', 'card3_desc', 'card4_desc', 'footer_text'];
         
-        if (textarea) {
-            ClassicEditor
-                .create(textarea, {
-                    toolbar: {
-                        items: [
-                            'heading', '|', 'bold', 'italic', '|',
-                            'fontSize', 'fontColor', 'fontBackgroundColor', '|',
-                            'bulletedList', 'numberedList', '|', 'undo', 'redo'
-                        ]
-                    },
-                    fontSize: {
-                        options: [ 9, 11, 13, 'default', 17, 19, 21 ]
-                    }
-                })
-                .then(editor => {
-                    // এটি নিশ্চিত করবে যে আগের টেক্সটগুলো এডিটরে লোড হবে
-                    editor.setData(textarea.value); 
-                })
-                .catch(error => { console.error(error); });
-        }
-    });
-}
+        editors.forEach(function(fieldName) {
+            let textarea = document.querySelector('textarea[name="content[' + fieldName + ']"]');
+            
+            if (textarea) {
+                ClassicEditor
+                    .create(textarea, {
+                        toolbar: {
+                            items: [
+                                'heading', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontColor', 'fontBackgroundColor', '|',
+                                'bulletedList', 'numberedList', '|', 'undo', 'redo'
+                            ]
+                        },
+                        fontSize: {
+                            options: [ 9, 11, 13, 'default', 17, 19, 21 ]
+                        }
+                    })
+                    .then(editor => {
+                        // এটি নিশ্চিত করবে যে আগের টেক্সটগুলো এডিটরে লোড হবে
+                        editor.setData(textarea.value); 
+                    })
+                    .catch(error => { console.error(error); });
+            }
+        });
+    }
 
     $(document).ready(function() {
         initEditors();
