@@ -63,13 +63,13 @@
                                 @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                     
-                                @elseif($field == 'features_list')
-                                    {{-- ডাইনামিক রিপিটার কম্পোনেন্ট কল করা --}}
+                                @elseif($field == 'product_features')
+                                    {{-- ডাইনামিক রিপিটার কম্পোনেন্ট --}}
                                     @include('backend.content.product.repeater', [
                                         'id' => 'features_list', 
-                                        'label' => 'Product Features',
-                                        'data' => $content['features_list'] ?? null,
-                                        'imageField' => true // যদি ইমেজ দরকার হয়
+                                        'label' => 'Product Features Section',
+                                        'data' => (isset($content['features_list']) && is_array($content['features_list'])) ? $content['features_list'] : [['title'=>'', 'subtitle'=>'']],
+                                        'imageField' => true
                                     ])
                                     
                                 @else
