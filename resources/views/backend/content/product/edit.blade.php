@@ -51,9 +51,9 @@
                             @foreach($fields as $field)
                                 <div class="col-md-6 mb-3"> <label class="small fw-bold">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
                                     
-                                    @if(in_array($field, ['problem_desc', 'card1_desc', 'card2_desc','card3_desc','card4_desc', 'footer_text']))
+                                    @if(in_array($field, ['problem_desc', 'card1_desc', 'card2_desc','card3_desc','card4_desc']))
                                         <textarea name="content[{{ $field }}]" class="form-control">{{ $content[$field] ?? '' }}</textarea>
-                                    @elseif(in_array($field, ['comparison_title','comparison_left','comparison_right']))
+                                    @elseif(in_array($field, ['comparison_title','comparison_left','comparison_right','footer_text']))
                                         <textarea name="content[{{ $field }}]"class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                     @else
                                         <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
