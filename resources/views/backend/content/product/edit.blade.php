@@ -48,6 +48,7 @@
                 <div class="card-body">
                     <form class="update-form" data-key="{{ $section_key }}" enctype="multipart/form-data">
                         @csrf
+
                         <input type="hidden" value="{{ $productID ?? 0 }}" name="productID">
                         
                         <div class="row">
@@ -206,9 +207,13 @@
 <script>
     // Update Logic
     $('.update-form').on('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // ফর্ম সাবমিট হওয়া আটকান
+        
         let form = $(this);
         let key = form.data('key');
+        
+        // FormData ব্যবহার করুন যাতে ফাইল এবং টেক্সট একসাথে যায়
+        let formData = new FormData(this);
         
         Swal.fire({
             title: 'Updating...',
@@ -219,12 +224,23 @@
         $.ajax({
             url: '/admin/settings/update/' + key,
             method: 'POST',
-            data: form.serialize(),
+            data: formData, // form.serialize() এর বদলে formData দিন
+            processData: false, // ফাইল আপলোডের জন্য এটি false হওয়া জরুরি
+            contentType: false, // ফাইল আপলোডের জন্য এটি false হওয়া জরুরি
             success: function(res) { 
-                Swal.fire({ icon: 'success', title: 'Success!', text: 'Updated successfully.', timer: 1500 });
+                Swal.fire({ 
+                    icon: 'success', 
+                    title: 'Success!', 
+                    text: 'Updated successfully.', 
+                    timer: 1500 
+                });
             },
-            error: function() {
-                Swal.fire({ icon: 'error', title: 'Oops...', text: 'Something went wrong!' });
+            error: function(xhr) {
+                Swal.fire({ 
+                    icon: 'error', 
+                    title: 'Oops...', 
+                    text: 'Something went wrong!' 
+                });
             }
         });
     });
