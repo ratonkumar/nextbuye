@@ -263,7 +263,7 @@
     
     $f = $funcData ? json_decode($funcData->content, true) : [];
     // এখানে স্টেপস এবং কন্ট্রোল ডাটা ধরা হচ্ছে
-    $steps = $f['steps'] ?? []; 
+    $steps = $f['product_features_steps'] ?? []; 
 @endphp
 
 @if($funcData)
