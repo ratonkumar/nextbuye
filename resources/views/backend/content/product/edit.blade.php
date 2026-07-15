@@ -70,6 +70,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- কালারসহ সিডিএন লিঙ্ক -->
 <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
 <script>
     // নির্দিষ্ট ফিল্ডগুলোকে এডিটরে কনভার্ট করার ফাংশন
@@ -77,16 +78,31 @@
         let editors = ['problem_desc', 'card1_desc', 'card2_desc', 'card3_desc', 'card4_desc', 'footer_text'];
         
         editors.forEach(function(fieldName) {
-            ClassicEditor
-                .create(document.querySelector('textarea[name="content[' + fieldName + ']"]'))
-                .catch(error => { console.error(error); });
+            let element = document.querySelector('textarea[name="content[' + fieldName + ']"]');
+            
+            if (element) {
+                ClassicEditor
+                    .create(element, {
+                        // টুলবারে কালার এবং ফন্ট সাইজ অপশনগুলো যোগ করা হলো
+                        toolbar: [ 
+                            'heading', '|', 'bold', 'italic', 'link', 
+                            '|', 'fontSize', 'fontColor', 'fontBackgroundColor', 
+                            '|', 'bulletedList', 'numberedList', '|', 'undo', 'redo' 
+                        ],
+                        // ফন্ট সাইজ কনফিগারেশন (ঐচ্ছিক)
+                        fontSize: {
+                            options: [ 9, 11, 13, 'default', 17, 19, 21 ]
+                        }
+                    })
+                    .catch(error => { console.error(error); });
+            }
         });
     }
 
-    // পেজ লোড হওয়ার পর এডিটর চালু হবে
     $(document).ready(function() {
         initEditors();
     });
+
 </script>
 <script>
     // Update Logic
