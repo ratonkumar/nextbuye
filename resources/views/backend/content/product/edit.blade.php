@@ -15,11 +15,12 @@
                 'card3_title', 'card3_desc', 'card4_title', 'card4_desc',
                 'footer_text', 'footer_highlight'
             ],
+            'comparison_section' => ['comparison_title', 'comparison_left', 'comparison_right'],
             'hero_section' => ['title', 'subtitle', 'button_text'],
             'about_section' => ['title', 'description', 'image_url'],
             'service_section' => ['title', 'service_list'],
           
-            'difference_section' => ['title', 'comparison'],
+            
             'question_section' => ['question', 'answer'],
             'video_section' => ['video_title', 'video_link'],
             'cart_section' => ['cart_title', 'shipping_info']
@@ -52,6 +53,8 @@
                                     
                                     @if(in_array($field, ['problem_desc', 'card1_desc', 'card2_desc','card3_desc','card4_desc', 'footer_text']))
                                         <textarea name="content[{{ $field }}]" class="form-control">{{ $content[$field] ?? '' }}</textarea>
+                                    @elseif(in_array($field, ['comparison_title']))
+                                        <textarea name="content[{{ $field }}]"class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                     @else
                                         <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
                                     @endif
@@ -72,8 +75,26 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- কালারসহ সিডিএন লিঙ্ক -->
 <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
+<!-- Bootstrap 4 (Summernote এর জন্য প্রয়োজন) -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<!-- Summernote CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" rel="stylesheet">
 <script>
     // নির্দিষ্ট ফিল্ডগুলোকে এডিটরে কনভার্ট করার ফাংশন
+    $(document).ready(function() {
+        // 'summernote' ক্লাসযুক্ত সব টেক্সট এরিয়াতে এডিটর চালু হবে
+        $('.summernote').summernote({
+            height: 200, // এডিটরের উচ্চতা
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']], // ফন্ট সাইজের জন্য
+                ['color', ['color']],       // কালারের জন্য
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link']]
+            ]
+        });
+    });
     function initEditors() {
         let editors = ['problem_desc', 'card1_desc', 'card2_desc', 'card3_desc', 'card4_desc', 'footer_text'];
         
