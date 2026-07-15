@@ -23,19 +23,13 @@
                 'features_list'    // রিপিটার ডাটা (title ও subtitle এর সমন্বয়ে)
             ],
            'product_functionality' => [
-                'product_title'              => 'text',          // মেইন হেডিং (যেমন: শিখতে হয় না এক চাপেই হয়)
-                'product_sub_title'          => 'text',          // উপরের ছোট টেক্সট
-                'product_main_image'         => 'file',          // বড় ইমেজটি
-                'product_step_description'   => 'text',          // মাঝখানের টেক্সট (যেমন: ধাপ ১ থেকে ৩...)
-                
+                'product_title'             ,          // মেইন হেডিং (যেমন: শিখতে হয় না এক চাপেই হয়)
+                'product_sub_title'         ,          // উপরের ছোট টেক্সট
+                'product_main_image'        ,          // বড় ইমেজটি
+                'product_step_description'  ,          // মাঝখানের টেক্সট (যেমন: ধাপ ১ থেকে ৩...)
                 // রিপিটার বা ডাইনামিক ডাটার জন্য:
-                'product_features_steps'     => [                // ৩টি স্টেপের ডাটা
-                    ['step_title' => 'text', 'step_desc' => 'text', 'icon' => 'file'],
-                ],
-                
-                'product_bottom_feature'     => [                // নিচের ছোট বক্সের ডাটা
-                    'title' => 'text', 'description' => 'text', 'image' => 'file'
-                ]
+                'product_features_steps', 
+                'product_bottom_feature' 
             ],
             'service_section' => ['title', 'service_list'],
             'question_section' => ['question', 'answer'],
