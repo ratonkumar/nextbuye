@@ -253,7 +253,7 @@ class ProductController extends Controller
                 $file->move(public_path('uploads/products'), $fileName);
                 
                 // ডাটাবেজে সেভ করার জন্য পাথ (এখানে 'public/' বাদ দেয়া হয়েছে)
-                $content[$field] = 'uploads/products/' . $fileName; 
+                $content[$field] = 'public/uploads/products/' . $fileName; 
             }
         }
 
