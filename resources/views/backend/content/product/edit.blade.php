@@ -75,10 +75,10 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- কালারসহ সিডিএন লিঙ্ক -->
 <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
-<!-- Bootstrap 4 (Summernote এর জন্য প্রয়োজন) -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<!-- Summernote CSS -->
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" rel="stylesheet">
+<!-- Summernote JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
 <script>
     // নির্দিষ্ট ফিল্ডগুলোকে এডিটরে কনভার্ট করার ফাংশন
     $(document).ready(function() {
