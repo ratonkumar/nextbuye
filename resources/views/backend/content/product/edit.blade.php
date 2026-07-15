@@ -67,15 +67,18 @@
                                 @elseif(in_array($field, ['features_left_image', 'image_3', 'image_4', 'image_5', 'image_6', 'image_7']))
                                     <div class="mb-3">
                                         <label class="small fw-bold">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
-                                        <input type="file" name="content[{{ $field }}]" class="form-control">
                                         
-                                        @if(!empty($content[$field]))
-                                            <div class="mt-2">
-                                                <img src="{{ asset($content[$field]) }}" width="100" class="img-thumbnail">
+                                        {{-- ইনপুট ফিল্ডে একটি ক্লাস এবং আইডি যোগ করলাম --}}
+                                        <input type="file" name="content[{{ $field }}]" class="form-control image-input" data-target="{{ $field }}-preview">
+                                        
+                                        {{-- প্রিভিউ দেখানোর জন্য একটি ডিভ --}}
+                                        <div class="mt-2" id="{{ $field }}-preview">
+                                            @if(!empty($content[$field]))
+                                                <img src="{{ asset('storage/' . $content[$field]) }}" width="100" class="img-thumbnail">
                                                 <small class="d-block text-muted">Current Image</small>
-                                            </div>
-                                        @endif
-                                    </div>     
+                                            @endif
+                                        </div>
+                                    </div>
                                 {{-- ৪. ডাইনামিক রিপিটার --}}
                                 {{-- লুপের ভেতরে কন্ডিশনটি এভাবে আপডেট করুন --}}
                                 @elseif(in_array($field, $repeaterFields))
