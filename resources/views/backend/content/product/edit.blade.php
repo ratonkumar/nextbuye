@@ -17,7 +17,7 @@
             ],
             'comparison_section' => ['comparison_title', 'comparison_left', 'comparison_right'],
             'product_features' => [
-                'left_image',      // ইমেজ আপলোডের জন্য
+                'features_left_image',      // ইমেজ আপলোডের জন্য
                 'sub_title',       // সেকশনের সাব-টাইটেল
                 'title',           // মেইন টাইটেল
                 'features_list'    // রিপিটার ডাটা (title ও subtitle এর সমন্বয়ে)
@@ -51,6 +51,10 @@
                         <input type="hidden" value="{{ $productID ?? 0 }}" name="productID">
                         
                         <div class="row">
+                            @php
+                                // আপনার সব রিপিটার ফিল্ডের নাম এখানে যোগ করুন
+                                $repeaterFields = ['features_list', 'benefits_list', 'steps_list', 'requirements_list'];
+                            @endphp
                             @foreach($fields as $field)
                             <div class="col-md-6 mb-3"> 
                                 <label class="small fw-bold">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
@@ -60,23 +64,35 @@
                                     
                                 @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
-                                    
+                                @elseif(in_array($field, ['features_left_image', 'image_3', 'image_4', 'image_5', 'image_6', 'image_7']))
+                                    <div class="mb-3">
+                                        <label class="small fw-bold">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
+                                        <input type="file" name="content[{{ $field }}]" class="form-control">
+                                        
+                                        @if(!empty($content[$field]))
+                                            <div class="mt-2">
+                                                <img src="{{ asset($content[$field]) }}" width="100" class="img-thumbnail">
+                                                <small class="d-block text-muted">Current Image</small>
+                                            </div>
+                                        @endif
+                                    </div>     
                                 {{-- ৪. ডাইনামিক রিপিটার --}}
-                                @elseif($field == 'features_list')
+                                {{-- লুপের ভেতরে কন্ডিশনটি এভাবে আপডেট করুন --}}
+                                @elseif(in_array($field, $repeaterFields))
                                     <div class="card p-3 mb-4">
-                                        <h5>Features List</h5>
-                                        <div id="features_list-repeater" class="mt-3">
+                                        <h5>{{ ucfirst(str_replace('_', ' ', $field)) }}</h5>
+                                        <div id="{{ $field }}-repeater" class="mt-3">
                                             @php
-                                                $features = (isset($content['features_list']) && is_array($content['features_list'])) ? $content['features_list'] : [['title'=>'', 'subtitle'=>'']];
+                                                $items = (isset($content[$field]) && is_array($content[$field])) ? $content[$field] : [['title'=>'', 'subtitle'=>'']];
                                             @endphp
                                             
-                                            @foreach($features as $index => $item)
+                                            @foreach($items as $index => $item)
                                                 <div class="row mb-2 feature-row">
                                                     <div class="col-md-5">
-                                                        <input type="text" name="content[features_list][{{$index}}][title]" class="form-control" placeholder="Title" value="{{ $item['title'] ?? '' }}">
+                                                        <input type="text" name="content[{{ $field }}][{{$index}}][title]" class="form-control" value="{{ $item['title'] ?? '' }}" placeholder="Title">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" name="content[features_list][{{$index}}][subtitle]" class="form-control" placeholder="Description" value="{{ $item['subtitle'] ?? '' }}">
+                                                        <input type="text" name="content[{{ $field }}][{{$index}}][subtitle]" class="form-control" value="{{ $item['subtitle'] ?? '' }}" placeholder="Description">
                                                     </div>
                                                     <div class="col-md-1">
                                                         <button type="button" class="btn btn-danger remove-row">-</button>
@@ -84,7 +100,7 @@
                                                 </div>
                                             @endforeach
                                         </div>
-                                        <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('features_list')">Add Feature</button>
+                                        <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('{{ $field }}')">Add New Item</button>
                                     </div>
 
                                 {{-- ৫. সাধারণ ইনপুট --}}
