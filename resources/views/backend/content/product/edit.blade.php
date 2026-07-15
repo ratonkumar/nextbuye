@@ -90,7 +90,6 @@
                                         {{-- জাভাস্ক্রিপ্ট ফাংশনে আইডি পাস করছি --}}
                                         <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('features_list')">Add Feature</button>
                                     </div>
-                                @endif
                                     
                                 @else
                                     <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
