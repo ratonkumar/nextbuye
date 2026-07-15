@@ -268,8 +268,8 @@
 @if($funcData)
 <section style="background-color: #1a1a1a; color: #fff; padding: 60px 0;">
     <div class="container text-center">
-        <div class="mb-5">{!! $f['product_sub_title'] ?? '' !!}</div>
-        <div class="mb-5">{!! $f['product_title'] ?? '' !!}</div>
+        {!! $f['product_sub_title'] ?? '' !!}
+        {!! $f['product_title'] ?? '' !!}<
         @if(!empty($f['product_main_image']))
             @php
                 $extension = pathinfo($f['product_main_image'], PATHINFO_EXTENSION);
