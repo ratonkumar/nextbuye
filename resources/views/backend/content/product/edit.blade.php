@@ -73,7 +73,7 @@
                                     
                                 @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
-                                @elseif(in_array($field, ['features_left_image', 'image_3', 'image_4', 'image_5', 'image_6', 'image_7']))
+                                @elseif(in_array($field, ['features_left_image', 'product_main_image', 'image_4', 'image_5', 'image_6', 'image_7']))
                                     <div class="mb-3">
                                         <label class="small fw-bold">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
                                         
