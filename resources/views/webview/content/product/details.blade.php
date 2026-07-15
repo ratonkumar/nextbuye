@@ -185,7 +185,7 @@
     </div>
 </section>
 @endif
-<section style="padding: 50px 0;">
+<section style="padding: 50px 0; background-color:#fff">
     <div class="container text-center">
         <h2 style="font-weight: 800; font-size: 32px; margin-bottom: 40px;">
             পার্থক্যটা <span style="color: #ff5722;">চোখে পড়ার মতো</span>
