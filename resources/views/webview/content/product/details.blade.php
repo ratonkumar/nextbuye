@@ -275,14 +275,14 @@
        {!! $f['product_sub_title'] ?? '' !!}
        {!! $f['product_title'] ?? '' !!}
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-left">
             @foreach($steps as $index => $step)
             <div class="col-md-3">
                 <div class="p-4" style="border: 1px solid {{ $index == 0 ? '#ff5722' : '#333' }}; border-radius: 15px;">
                     <div style="background: {{ $index == 0 ? '#ff5722' : '#333' }}; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
                         {{ $index + 1 }}
                     </div>
-                    <h5>{{ $step['title'] ?? '' }}</h5>
+                    <h5 style="color:#fff; font-weight:bold; ">{{ $step['title'] ?? '' }}</h5>
                     <p style="font-size: 14px; color: #ccc;">{{ $step['subtitle'] ?? '' }}</p>
                 </div>
             </div>
@@ -290,7 +290,7 @@
         </div>
 
         <div class="mt-5 p-4" style="background: #252525; border-radius: 15px; max-width: 800px; margin: 0 auto; text-align: left;">
-            <h4 class="mb-3">{{ $f['product_features_steps'] ?? '' }}</h4>
+            <h4 class="mb-3">{{ $f['product_step_description'] ?? '' }}</h4>
             <p style="color: #ccc; margin-bottom: 20px;">{{ $f['product_bottom_feature'] ?? '' }}</p>
             <div class="d-flex gap-2">
                 <span class="btn" style="background: #ff5722; color: #fff; border-radius: 20px; padding: 5px 15px;">{{ $f['btn_1'] ?? '' }}</span>
