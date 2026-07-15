@@ -62,7 +62,7 @@
                         <div class="row">
                             @php
                                 // আপনার সব রিপিটার ফিল্ডের নাম এখানে যোগ করুন
-                                $repeaterFields = ['features_list', 'benefits_list', 'steps_list', 'requirements_list'];
+                                $repeaterFields = ['features_list', 'product_features_steps', 'steps_list', 'requirements_list'];
                             @endphp
                             @foreach($fields as $field)
                             <div class="col-md-6 mb-3"> 
