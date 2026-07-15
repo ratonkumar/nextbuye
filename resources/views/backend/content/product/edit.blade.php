@@ -16,7 +16,12 @@
                 'footer_text', 'footer_highlight'
             ],
             'comparison_section' => ['comparison_title', 'comparison_left', 'comparison_right'],
-            'hero_section' => ['title', 'subtitle', 'button_text'],
+            'product_features' => [
+                'left_image',      // ইমেজ আপলোডের জন্য
+                'sub_title',       // সেকশনের সাব-টাইটেল
+                'title',           // মেইন টাইটেল
+                'features_list'    // রিপিটার ডাটা (title ও subtitle এর সমন্বয়ে)
+            ],
             'about_section' => ['title', 'description', 'image_url'],
             'service_section' => ['title', 'service_list'],
           
@@ -49,17 +54,29 @@
                         
                         <div class="row">
                             @foreach($fields as $field)
-                                <div class="col-md-6 mb-3"> <label class="small fw-bold">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
+                            <div class="col-md-6 mb-3"> 
+                                <label class="small fw-bold">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
+                                
+                                @if(in_array($field, ['problem_desc', 'card1_desc', 'card2_desc', 'card3_desc', 'card4_desc']))
+                                    <textarea name="content[{{ $field }}]" class="form-control">{{ $content[$field] ?? '' }}</textarea>
                                     
-                                    @if(in_array($field, ['problem_desc', 'card1_desc', 'card2_desc','card3_desc','card4_desc']))
-                                        <textarea name="content[{{ $field }}]" class="form-control">{{ $content[$field] ?? '' }}</textarea>
-                                    @elseif(in_array($field, ['comparison_title','comparison_left','comparison_right','footer_text']))
-                                        <textarea name="content[{{ $field }}]"class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
-                                    @else
-                                        <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
-                                    @endif
-                                </div>
-                            @endforeach
+                                @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text']))
+                                    <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
+                                    
+                                @elseif($field == 'product_features')
+                                    {{-- ডাইনামিক রিপিটার কম্পোনেন্ট কল করা --}}
+                                    @include('backend.content.product.repeater', [
+                                        'id' => 'features_list', 
+                                        'label' => 'Product Features',
+                                        'data' => $content['features_list'] ?? null,
+                                        'imageField' => true // যদি ইমেজ দরকার হয়
+                                    ])
+                                    
+                                @else
+                                    <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
+                                @endif
+                            </div>
+                        @endforeach
                            
                         </div>
                         <button type="submit" class="btn btn-primary btn-sm">Save {{ ucfirst(str_replace('_', ' ', $section_key)) }}</button>
@@ -80,6 +97,23 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" rel="stylesheet">
 <!-- Summernote JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+<script>
+    function addRow(id) {
+        let container = $('#' + id + '-repeater');
+        let index = container.find('.feature-row').length;
+        let html = `
+            <div class="row mb-2 feature-row">
+                <div class="col-md-5"><input type="text" name="content[${id}][${index}][title]" class="form-control" placeholder="Title"></div>
+                <div class="col-md-6"><input type="text" name="content[${id}][${index}][subtitle]" class="form-control" placeholder="Description"></div>
+                <div class="col-md-1"><button type="button" class="btn btn-danger remove-row">-</button></div>
+            </div>`;
+        container.append(html);
+    }
+
+    $(document).on('click', '.remove-row', function() {
+        $(this).closest('.feature-row').remove();
+    });
+</script>
 <script>
     // নির্দিষ্ট ফিল্ডগুলোকে এডিটরে কনভার্ট করার ফাংশন
     $(document).ready(function() {
