@@ -280,10 +280,10 @@
             <div class="col-md-3">
                 <div class="p-4" style="border: 1px solid {{ $index == 0 ? '#ff5722' : '#333' }}; border-radius: 15px;">
                     <div class="left-icon-serial">
-                        <div style="background: {{ $index == 0 ? '#ff5722' : '#333' }}; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
+                        <div style="background: {{ $index == 0 ? '#ff5722' : '#333' }};float: left; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
                             {{ $index + 1 }}
                         </div>
-                        <i class="fas fa-blender"></i>
+                        <i class="fas fa-blender" style="float: right"></i>
                     </div>
                     <h5 style="color:#fff; font-weight:bold; text-align:left ">{{ $step['title'] ?? '' }}</h5>
                     <p style="font-size: 14px; color: #ccc; text-align:left">{{ $step['subtitle'] ?? '' }}</p>
