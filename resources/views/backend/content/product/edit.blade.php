@@ -63,7 +63,7 @@
                                 @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                     
-                                @elseif($field == 'product_features')
+                                @elseif($field == 'features_list')
                                     {{-- ডাইনামিক রিপিটার কম্পোনেন্ট কল করা --}}
                                     @include('backend.content.product.repeater', [
                                         'id' => 'features_list', 
