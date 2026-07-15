@@ -214,55 +214,46 @@
     </div>
 </section>
 @endif
+@php
+    // ডাটাবেজ থেকে product_features সেকশনের ডাটা আনুন
+    $featureData = \App\Models\LandingPageSetting::where('section_key', 'product_features')
+                        ->where('product_id', $productdetails->id)
+                        ->where('is_active', 1)
+                        ->first();
+    
+    $f = $featureData ? json_decode($featureData->content, true) : [];
+    // ডিফল্ট ফিচার লিস্ট যদি ডাটা না থাকে
+    $featuresList = $f['features_list'] ?? [];
+@endphp
+
+@if($featureData)
 <section style="padding: 60px 0; background-color: #fcfaf7;">
     <div class="container">
         <div class="row align-items-center">
-            <!-- বাম পাশে ইমেজ -->
             <div class="col-md-6">
-                <img src="path/to/your/image.jpg" class="img-fluid" style="border-radius: 20px; width: 100%;" alt="Cooking with Choplet">
+                @if(!empty($f['features_left_image']))
+                    <img src="{{ asset($f['features_left_image']) }}" class="img-fluid" style="border-radius: 20px; width: 100%;" alt="Product Image">
+                @endif
             </div>
 
-            <!-- ডান পাশে টেক্সট এবং কার্ড -->
             <div class="col-md-6">
-                <p style="color: #d35400; font-weight: bold; margin-bottom: 5px;">পরিচয় - CHOPLET</p>
-                <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 30px;">দেখতে যতটা সুন্দর, কাজে ঠিক ততটাই সহজ।</h2>
+                <p style="color: #d35400; font-weight: bold; margin-bottom: 5px;">{{ $f['sub_title'] ?? '' }}</p>
+                <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 30px;">{{ $f['title'] ?? '' }}</h2>
 
-                <!-- ফিচার কার্ডস -->
+                @foreach($featuresList as $item)
                 <div class="feature-card" style="background: #fff; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #eee; display: flex; align-items: center;">
-                    <i class="fa fa-plug" style="color: #ff5722; font-size: 24px; margin-right: 20px;"></i>
+                    <i class="fa fa-check-circle" style="color: #ff5722; font-size: 24px; margin-right: 20px;"></i>
                     <div>
-                        <h5 style="margin-bottom: 5px;">কোনো তার নেই</h5>
-                        <p style="font-size: 14px; color: #666; margin: 0;">সকেট খোঁজার ঝামেলা নেই, গায়ের জোর লাগে না। কর্ডলেস ও রিচার্জেবল।</p>
+                        <h5 style="margin-bottom: 5px;">{{ $item['title'] ?? '' }}</h5>
+                        <p style="font-size: 14px; color: #666; margin: 0;">{{ $item['subtitle'] ?? '' }}</p>
                     </div>
                 </div>
-
-                <div class="feature-card" style="background: #fff; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #eee; display: flex; align-items: center;">
-                    <i class="fa fa-hand-pointer" style="color: #ff5722; font-size: 24px; margin-right: 20px;"></i>
-                    <div>
-                        <h5 style="margin-bottom: 5px;">শুধু এক চাপ</h5>
-                        <p style="font-size: 14px; color: #666; margin: 0;">কয়েক কোয়া রসুন বাটিতে রেখে ঢাকনা বসিয়ে আলতো করে চাপ দিন।</p>
-                    </div>
-                </div>
-
-                <div class="feature-card" style="background: #fff; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #eee; display: flex; align-items: center;">
-                    <i class="fa fa-eye" style="color: #ff5722; font-size: 24px; margin-right: 20px;"></i>
-                    <div>
-                        <h5 style="margin-bottom: 5px;">চোখের সামনে কুচি</h5>
-                        <p style="font-size: 14px; color: #666; margin: 0;">স্বচ্ছ বাটির ভেতর দিয়ে দেখুন — কয়েক সেকেন্ডে সব মিহি কুচি।</p>
-                    </div>
-                </div>
-
-                <div class="feature-card" style="background: #fff; padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #eee; display: flex; align-items: center;">
-                    <i class="fa fa-utensils" style="color: #ff5722; font-size: 24px; margin-right: 20px;"></i>
-                    <div>
-                        <h5 style="margin-bottom: 5px;">সব কিছুতে পারদর্শী</h5>
-                        <p style="font-size: 14px; color: #666; margin: 0;">পেঁয়াজ, মরিচ, আদা, বাদাম, এমনকি মাংস কিংবা বাচ্চার খাবার — সব এক যন্ত্রে।</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
 </section>
+@endif
 <section style="background-color: #1a1a1a; color: #fff; padding: 60px 0;">
     <div class="container text-center">
         <!-- ইমেজ -->
