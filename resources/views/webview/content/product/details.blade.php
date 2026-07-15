@@ -290,7 +290,7 @@
         </div>
 
         <div class="mt-5 p-4" style="background: #252525; border-radius: 15px; max-width: 800px; margin: 0 auto; text-align: left;">
-            <h4 class="mb-3">{{ $f['product_step_description'] ?? '' }}</h4>
+            <h4 class="mb-3" style="color:#fff; font-weight:bold; text-align:left ">{{ $f['product_step_description'] ?? '' }}</h4>
             <p style="color: #ccc; margin-bottom: 20px;">{{ $f['product_bottom_feature'] ?? '' }}</p>
             <div class="d-flex gap-2">
                 <span class="btn" style="background: #ff5722; color: #fff; border-radius: 20px; padding: 5px 15px;">{{ $f['btn_1'] ?? '' }}</span>
