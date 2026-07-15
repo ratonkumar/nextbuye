@@ -61,14 +61,25 @@
                                 @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                     
-                                @elseif(in_array($field, ['product_features']))
+                                @elseif(in_array($field, ['features_list']))
                                     {{-- ডাইনামিক রিপিটার কম্পোনেন্ট --}}
-                                    @include('backend.content.product.repeater', [
-                                        'id' => 'features_list', 
-                                        'label' => 'Product Features Section',
-                                        'data' => (isset($content['features_list']) && is_array($content['features_list'])) ? $content['features_list'] : [['title'=>'', 'subtitle'=>'']],
-                                        'imageField' => true
-                                    ])
+                                    <div class="card p-3 mb-4">
+                                        <h5>{{ $label }}</h5>
+                                        
+
+
+                                        <div id="{{ $id }}-repeater" class="mt-3">
+                                            <label>Features List</label>
+                                            @foreach(($data ?? [['title'=>'', 'subtitle'=>'']]) as $index => $item)
+                                                <div class="row mb-2 feature-row">
+                                                    <div class="col-md-5"><input type="text" name="content[{{$id}}][{{$index}}][title]" class="form-control" placeholder="Title" value="{{ $item['title'] }}"></div>
+                                                    <div class="col-md-6"><input type="text" name="content[{{$id}}][{{$index}}][subtitle]" class="form-control" placeholder="Description" value="{{ $item['subtitle'] }}"></div>
+                                                    <div class="col-md-1"><button type="button" class="btn btn-danger remove-row">-</button></div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('{{ $id }}')">Add Feature</button>
+                                    </div>
                                     
                                 @else
                                     <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
