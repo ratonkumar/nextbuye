@@ -228,17 +228,40 @@ class ProductController extends Controller
     public function updateSection(Request $request, $sectionKey) 
     {
         // ১. ফর্ম থেকে আসা content এরেটি নিন
-        $content = $request->input('content');
+        $content = $request->input('content') ?? [];
         $productID = $request->productID;
 
-        // ২. আপডেট অথবা ক্রিয়েট করুন
+        // ২. ইমেজ হ্যান্ডেলিং লজিক
+        // আমরা জানি কোন কোন ফিল্ড ইমেজ হতে পারে
+        $imageFields = ['features_left_image', 'image_3', 'image_4', 'image_5', 'image_6', 'image_7', 'image_url'];
+
+        foreach ($imageFields as $field) {
+            if ($request->hasFile("content.$field")) {
+                // ফাইলটি সেভ করুন
+                $file = $request->file("content.$field");
+                $path = $file->store('uploads/products', 'public');
+                
+                // content অ্যারেতে ফাইলের পাথ বসিয়ে দিন
+                $content[$field] = $path;
+            }
+        }
+
+        // ৩. রিপিটার ডাটা পরিষ্কার করা (Optional কিন্তু ভালো প্র্যাকটিস)
+        // রিপিটারে যদি খালি রো থাকে, সেগুলো রিমুভ করা
+        foreach ($content as $key => $value) {
+            if (is_array($value) && isset($value[0]['title'])) {
+                $content[$key] = array_values($value); // ইনডেক্স ঠিক রাখা
+            }
+        }
+
+        // ৪. আপডেট অথবা ক্রিয়েট করুন
         $setting = LandingPageSetting::updateOrCreate(
             [
-                'section_key' => $sectionKey, // আপনার কলামের নাম 'key' না 'section_key'? তা চেক করুন
+                'section_key' => $sectionKey,
                 'product_id' => $productID
             ],
             [
-                'content' => json_encode($content) // শুধু content এরেটি JSON হচ্ছে
+                'content' => json_encode($content)
             ]
         );
 
