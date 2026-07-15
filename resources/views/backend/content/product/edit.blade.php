@@ -24,8 +24,6 @@
             ],
             'about_section' => ['title', 'description', 'image_url'],
             'service_section' => ['title', 'service_list'],
-          
-            
             'question_section' => ['question', 'answer'],
             'video_section' => ['video_title', 'video_link'],
             'cart_section' => ['cart_title', 'shipping_info']
@@ -63,7 +61,7 @@
                                 @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                     
-                                @elseif($field == 'product_features')
+                                @elseif(in_array($field, ['product_features']))
                                     {{-- ডাইনামিক রিপিটার কম্পোনেন্ট --}}
                                     @include('backend.content.product.repeater', [
                                         'id' => 'features_list', 
