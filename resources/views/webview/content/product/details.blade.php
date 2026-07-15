@@ -269,7 +269,19 @@
 <section style="background-color: #1a1a1a; color: #fff; padding: 60px 0;">
     <div class="container text-center">
         @if(!empty($f['product_main_image']))
-            <img src="{{ asset($f['product_main_image']) }}" class="img-fluid mb-4" style="border-radius: 20px; max-width: 400px;">
+            @php
+                $extension = pathinfo($f['product_main_image'], PATHINFO_EXTENSION);
+                $videoExtensions = ['mp4', 'webm', 'ogg', 'mov'];
+            @endphp
+
+            @if(in_array(strtolower($extension), $videoExtensions))
+                <video class="img-fluid mb-4" style="border-radius: 20px; max-width: 400px;" autoplay muted loop playsinline>
+                    <source src="{{ asset($f['product_main_image']) }}" type="video/{{ $extension }}">
+                    আপনার ব্রাউজার ভিডিওটি সাপোর্ট করছে না।
+                </video>
+            @else
+                <img src="{{ asset($f['product_main_image']) }}" class="img-fluid mb-4" style="border-radius: 20px; max-width: 400px;">
+            @endif
         @endif
         
         <div class="mb-5">{!! $f['product_sub_title'] ?? '' !!}</div>
