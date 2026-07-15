@@ -269,8 +269,8 @@
 @if($funcData)
 <section style="background-color: #1a1a1a; color: #fff; padding: 60px 0;">
     <div class="container text-center">
-        @if(!empty($f['main_image']))
-            <img src="{{ asset($f['main_image']) }}" class="img-fluid mb-4" style="border-radius: 20px; max-width: 400px;">
+        @if(!empty($f['product_main_image']))
+            <img src="{{ asset($f['product_main_image']) }}" class="img-fluid mb-4" style="border-radius: 20px; max-width: 400px;">
         @endif
         <p class="mb-5" style="color: #ccc;">{{ $f['step_header'] ?? '' }}</p>
 
@@ -281,16 +281,16 @@
                     <div style="background: {{ $index == 0 ? '#ff5722' : '#333' }}; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
                         {{ $index + 1 }}
                     </div>
-                    <h5>{{ $step['title'] ?? '' }}</h5>
-                    <p style="font-size: 14px; color: #ccc;">{{ $step['description'] ?? '' }}</p>
+                    <h5>{{ $step['product_title'] ?? '' }}</h5>
+                    <p style="font-size: 14px; color: #ccc;">{{ $step['product_description'] ?? '' }}</p>
                 </div>
             </div>
             @endforeach
         </div>
 
         <div class="mt-5 p-4" style="background: #252525; border-radius: 15px; max-width: 800px; margin: 0 auto; text-align: left;">
-            <h4 class="mb-3">{{ $f['control_title'] ?? '' }}</h4>
-            <p style="color: #ccc; margin-bottom: 20px;">{{ $f['control_desc'] ?? '' }}</p>
+            <h4 class="mb-3">{{ $f['product_control_title'] ?? '' }}</h4>
+            <p style="color: #ccc; margin-bottom: 20px;">{{ $f['product_control_desc'] ?? '' }}</p>
             <div class="d-flex gap-2">
                 <span class="btn" style="background: #ff5722; color: #fff; border-radius: 20px; padding: 5px 15px;">{{ $f['btn_1'] ?? '' }}</span>
                 <span class="btn" style="background: #333; color: #ccc; border-radius: 20px; padding: 5px 15px;">{{ $f['btn_2'] ?? '' }}</span>
