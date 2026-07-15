@@ -61,15 +61,13 @@
                                 @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                     
+                                {{-- ৪. ডাইনামিক রিপিটার --}}
                                 @elseif($field == 'features_list')
-                                    {{-- ডাইনামিক রিপিটার কম্পোনেন্ট --}}
                                     <div class="card p-3 mb-4">
                                         <h5>Features List</h5>
-                                        
                                         <div id="features_list-repeater" class="mt-3">
-                                            {{-- ডাটাবেজ থেকে ডাটা চেক করে লুপ চালানো --}}
                                             @php
-                                                $features = $content['features_list'] ?? [['title'=>'', 'subtitle'=>'']];
+                                                $features = (isset($content['features_list']) && is_array($content['features_list'])) ? $content['features_list'] : [['title'=>'', 'subtitle'=>'']];
                                             @endphp
                                             
                                             @foreach($features as $index => $item)
@@ -86,10 +84,10 @@
                                                 </div>
                                             @endforeach
                                         </div>
-                                        
-                                        {{-- জাভাস্ক্রিপ্ট ফাংশনে আইডি পাস করছি --}}
                                         <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('features_list')">Add Feature</button>
                                     </div>
+
+                                {{-- ৫. সাধারণ ইনপুট --}}
                                     
                                 @else
                                     <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
