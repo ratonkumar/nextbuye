@@ -46,7 +46,7 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    <form class="update-form" data-key="{{ $section_key }}">
+                    <form class="update-form" data-key="{{ $section_key }}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{ $productID ?? 0 }}" name="productID">
                         
