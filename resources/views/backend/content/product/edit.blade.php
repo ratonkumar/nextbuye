@@ -61,24 +61,36 @@
                                 @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                     
-                                @elseif(in_array($field, ['features_list']))
+                                @elseif($field == 'features_list')
                                     {{-- ডাইনামিক রিপিটার কম্পোনেন্ট --}}
                                     <div class="card p-3 mb-4">
                                         <h5>Features List</h5>
                                         
-
-                                        <div id="{{ $id }}-repeater" class="mt-3">
-                                            <label>Features List</label>
-                                            @foreach(($data ?? [['title'=>'', 'subtitle'=>'']]) as $index => $item)
+                                        <div id="features_list-repeater" class="mt-3">
+                                            {{-- ডাটাবেজ থেকে ডাটা চেক করে লুপ চালানো --}}
+                                            @php
+                                                $features = $content['features_list'] ?? [['title'=>'', 'subtitle'=>'']];
+                                            @endphp
+                                            
+                                            @foreach($features as $index => $item)
                                                 <div class="row mb-2 feature-row">
-                                                    <div class="col-md-5"><input type="text" name="content[{{$id}}][{{$index}}][title]" class="form-control" placeholder="Title" value="{{ $item['title'] }}"></div>
-                                                    <div class="col-md-6"><input type="text" name="content[{{$id}}][{{$index}}][subtitle]" class="form-control" placeholder="Description" value="{{ $item['subtitle'] }}"></div>
-                                                    <div class="col-md-1"><button type="button" class="btn btn-danger remove-row">-</button></div>
+                                                    <div class="col-md-5">
+                                                        <input type="text" name="content[features_list][{{$index}}][title]" class="form-control" placeholder="Title" value="{{ $item['title'] ?? '' }}">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" name="content[features_list][{{$index}}][subtitle]" class="form-control" placeholder="Description" value="{{ $item['subtitle'] ?? '' }}">
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <button type="button" class="btn btn-danger remove-row">-</button>
+                                                    </div>
                                                 </div>
                                             @endforeach
                                         </div>
-                                        <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('{{ $id }}')">Add Feature</button>
+                                        
+                                        {{-- জাভাস্ক্রিপ্ট ফাংশনে আইডি পাস করছি --}}
+                                        <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('features_list')">Add Feature</button>
                                     </div>
+                                @endif
                                     
                                 @else
                                     <input type="text" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
