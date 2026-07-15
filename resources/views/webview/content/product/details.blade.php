@@ -287,7 +287,7 @@
                     </div>
                     <h5 style="color:#fff; font-weight:bold; text-align:left ">{{ $step['title'] ?? '' }}</h5>
                     <p style="font-size: 14px; color: #ccc; text-align:left">{{ $step['subtitle'] ?? '' }}</p>
-                </.div>
+                </div>
             </div>
             @endforeach
         </div>
