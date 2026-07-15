@@ -275,15 +275,15 @@
        {!! $f['product_sub_title'] ?? '' !!}
        {!! $f['product_title'] ?? '' !!}
 
-        <div class="row justify-content-left">
+        <div class="row justify-content-center">
             @foreach($steps as $index => $step)
             <div class="col-md-3">
                 <div class="p-4" style="border: 1px solid {{ $index == 0 ? '#ff5722' : '#333' }}; border-radius: 15px;">
                     <div style="background: {{ $index == 0 ? '#ff5722' : '#333' }}; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
                         {{ $index + 1 }}
                     </div>
-                    <h5 style="color:#fff; font-weight:bold; ">{{ $step['title'] ?? '' }}</h5>
-                    <p style="font-size: 14px; color: #ccc;">{{ $step['subtitle'] ?? '' }}</p>
+                    <h5 style="color:#fff; font-weight:bold; text-align:left ">{{ $step['title'] ?? '' }}</h5>
+                    <p style="font-size: 14px; color: #ccc; text-align:left">{{ $step['subtitle'] ?? '' }}</p>
                 </div>
             </div>
             @endforeach
