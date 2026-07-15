@@ -282,8 +282,8 @@
                     <div style="background: {{ $index == 0 ? '#ff5722' : '#333' }}; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
                         {{ $index + 1 }}
                     </div>
-                    <h5>{{ $step['product_title'] ?? '' }}</h5>
-                    <p style="font-size: 14px; color: #ccc;">{{ $step['product_description'] ?? '' }}</p>
+                    <h5>{{ $step['title'] ?? '' }}</h5>
+                    <p style="font-size: 14px; color: #ccc;">{{ $step['subtitle'] ?? '' }}</p>
                 </div>
             </div>
             @endforeach
