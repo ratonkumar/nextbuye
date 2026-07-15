@@ -165,7 +165,6 @@
         <p style="margin-bottom: 40px; color: #555;">{{ $p['description'] ?? 'রান্নাঘরে যে সময়টা আপনি পরিবারের জন্য দেন, তার একটা বড় অংশ চলে যায় শুধু কাটাকুটিতেই।' }}</p>
 
         <div class="row">
-            <div class="row">
                 @for($i = 1; $i <= 4; $i++)
                 <div class="col-md-3">
                     <div class="card p-4 border-0 shadow-sm" style="border-radius: 15px;">
@@ -175,7 +174,6 @@
                     </div>
                 </div>
                 @endfor
-            </div>
         </div>
 
         <div class="mt-5 p-4 text-white" style="background-color: #1a1a1a; border-radius: 10px; display: inline-block;">
