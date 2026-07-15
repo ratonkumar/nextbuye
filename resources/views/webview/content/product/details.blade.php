@@ -283,7 +283,7 @@
                         <div style="background: {{ $index == 0 ? '#ff5722' : '#333' }};float: left; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
                             {{ $index + 1 }}
                         </div>
-                        <i class="fas fa-blender" style="float: right"></i>
+                        <i class="fas fa-blender" style="float: right; color:rgb(240, 83, 43)"></i>
                     </div>
                     <h5 style="color:#fff; font-weight:bold; text-align:left ">{{ $step['title'] ?? '' }}</h5>
                     <p style="font-size: 14px; color: #ccc; text-align:left">{{ $step['subtitle'] ?? '' }}</p>
