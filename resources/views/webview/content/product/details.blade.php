@@ -196,9 +196,7 @@
 <section style="padding: 50px 0; background-color:#fff">
     <div class="container text-center">
         {{-- ডাইনামিক টাইটেল --}}
-        <h2 style="font-weight: 800; font-size: 32px; margin-bottom: 40px;">
-            {!! $c['comparison_title'] ?? 'পার্থক্যটা <span style="color: #ff5722;">চোখে পড়ার মতো</span>' !!}
-        </h2>
+         {!! $c['comparison_title'] ?? 'পার্থক্যটা <span style="color: #ff5722;">চোখে পড়ার মতো</span>' !!}
 
         <div class="row justify-content-center">
             <div class="col-md-5 p-4" style="background: #f4f1ed; border-radius: 15px; margin: 10px;">
