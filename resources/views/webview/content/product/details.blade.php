@@ -273,6 +273,7 @@
             <img src="{{ asset($f['product_main_image']) }}" class="img-fluid mb-4" style="border-radius: 20px; max-width: 400px;">
         @endif
         <p class="mb-5" style="color: #ccc;">{!! $f['product_sub_title'] ?? '' !!}</p>
+        <p class="mb-5" style="color: #ccc;">{!! $f['product_title'] ?? '' !!}</p>
 
         <div class="row justify-content-center">
             @foreach($steps as $index => $step)
