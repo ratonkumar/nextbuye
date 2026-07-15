@@ -265,25 +265,25 @@
     // এখানে স্টেপস এবং কন্ট্রোল ডাটা ধরা হচ্ছে
     $steps = $f['product_features_steps'] ?? []; 
 @endphp
-
 @if($funcData)
 <section style="background-color: #1a1a1a; color: #fff; padding: 60px 0;">
     <div class="container text-center">
         @if(!empty($f['product_main_image']))
             <img src="{{ asset($f['product_main_image']) }}" class="img-fluid mb-4" style="border-radius: 20px; max-width: 400px;">
         @endif
-       {!! $f['product_sub_title'] ?? '' !!}
-       {!! $f['product_title'] ?? '' !!}
+        
+        <div class="mb-5">{!! $f['product_sub_title'] ?? '' !!}</div>
 
         <div class="row justify-content-center">
             @foreach($steps as $index => $step)
             <div class="col-md-3">
-                <div class="p-4" style="border: 1px solid {{ $index == 0 ? '#ff5722' : '#333' }}; border-radius: 15px;">
-                    <div class="left-icon-serial">
-                        <div style="background: {{ $index == 0 ? '#ff5722' : '#333' }};float: left; width: 30px; height: 30px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
+                <div class="p-4" style="border: 1px solid {{ $index == 0 ? '#ff5722' : '#333' }}; border-radius: 15px; height: 100%;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div style="background: {{ $index == 0 ? '#ff5722' : '#333' }}; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                             {{ $index + 1 }}
                         </div>
-                        <i class="fas fa-blender" style="float: right; color:rgb(240, 83, 43)"></i>
+                        {{-- ডাইনামিক আইকন: ডাটাবেজে যদি 'icon_class' নামে কিছু থাকে --}}
+                        <i class="{{ $step['icon_class'] ?? 'fas fa-blender' }}" style="color:rgb(240, 83, 43); font-size: 20px;"></i>
                     </div>
                     <h5 style="color:#fff; font-weight:bold; text-align:left ">{{ $step['title'] ?? '' }}</h5>
                     <p style="font-size: 14px; color: #ccc; text-align:left">{{ $step['subtitle'] ?? '' }}</p>
@@ -292,12 +292,25 @@
             @endforeach
         </div>
 
-        <div class="mt-5 p-4" style="background: #252525; border-radius: 15px; max-width: 800px; margin: 0 auto; text-align: left;">
-            <h4 class="mb-3" style="color:#fff; font-weight:bold; text-align:left ">{{ $f['product_step_description'] ?? '' }}</h4>
-            <p style="color: #ccc; margin-bottom: 20px;">{{ $f['product_bottom_feature'] ?? '' }}</p>
-            <div class="d-flex gap-2">
-                <span class="btn" style="background: #ff5722; color: #fff; border-radius: 20px; padding: 5px 15px;">{{ $f['btn_1'] ?? '' }}</span>
-                <span class="btn" style="background: #333; color: #ccc; border-radius: 20px; padding: 5px 15px;">{{ $f['btn_2'] ?? '' }}</span>
+        <div class="mt-5 p-4" style="background: #252525; border-radius: 15px; max-width: 900px; margin: 0 auto; text-align: left; display: flex; align-items: center; justify-content: space-between;">
+            
+            <div style="flex: 1;">
+                <h4 class="mb-3" style="color:#fff; font-weight:bold;">{{ $f['product_step_description'] ?? '' }}</h4>
+                <p style="color: #ccc; margin-bottom: 20px;">{{ $f['product_bottom_feature'] ?? '' }}</p>
+                <div class="d-flex gap-2">
+                    <span class="btn" style="background: #ff5722; color: #fff; border-radius: 20px; padding: 5px 15px;">{{ $f['btn_1'] ?? '' }}</span>
+                    <span class="btn" style="background: #333; color: #ccc; border-radius: 20px; padding: 5px 15px;">{{ $f['btn_2'] ?? '' }}</span>
+                </div>
+            </div>
+
+            <div style="background: #1a1a1a; padding: 15px; border-radius: 10px; margin-left: 20px; min-width: 250px; border: 1px solid #333;">
+                <div class="d-flex align-items-center">
+                    <img src="{{ asset($f['bottom_card_image'] ?? '') }}" style="width: 40px; margin-right: 10px;">
+                    <div>
+                        <h6 style="margin:0; color:#fff;">{{ $f['bottom_card_title'] ?? 'মোটা কুচি' }}</h6>
+                        <small style="color:#ccc;">{{ $f['bottom_card_desc'] ?? 'সালাদ বা ভর্তায়...' }}</small>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
