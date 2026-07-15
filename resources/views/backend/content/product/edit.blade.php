@@ -64,9 +64,8 @@
                                 @elseif(in_array($field, ['features_list']))
                                     {{-- ডাইনামিক রিপিটার কম্পোনেন্ট --}}
                                     <div class="card p-3 mb-4">
-                                        <h5>{{ $label }}</h5>
+                                        <h5>Features List</h5>
                                         
-
 
                                         <div id="{{ $id }}-repeater" class="mt-3">
                                             <label>Features List</label>
