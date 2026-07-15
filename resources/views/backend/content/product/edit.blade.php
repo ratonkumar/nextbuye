@@ -134,6 +134,28 @@
 <!-- Summernote JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
 <script>
+    $(document).ready(function() {
+        $('.image-input').change(function() {
+            let input = this;
+            let targetId = $(input).data('target');
+            
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    // যদি আগে কোনো ছবি থাকে, সেটি সরিয়ে নতুনটি দেখাবে
+                    $('#' + targetId).html(`
+                        <img src="${e.target.result}" width="100" class="img-thumbnail">
+                        <small class="d-block text-muted">New Preview</small>
+                    `);
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+    });
+</script>
+<script>
     function addRow(id) {
         let container = $('#' + id + '-repeater');
         let index = container.find('.feature-row').length;
