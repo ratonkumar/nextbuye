@@ -165,15 +165,17 @@
         <p style="margin-bottom: 40px; color: #555;">{{ $p['description'] ?? 'রান্নাঘরে যে সময়টা আপনি পরিবারের জন্য দেন, তার একটা বড় অংশ চলে যায় শুধু কাটাকুটিতেই।' }}</p>
 
         <div class="row">
-            @for($i = 1; $i <= 4; $i++)
-            <div class="col-md-3">
-                <div class="card p-4 border-0 shadow-sm" style="border-radius: 15px;">
-                    <i class="fa fa-{{ $i==1 ? 'hand-paper' : ($i==2 ? 'tint' : ($i==3 ? 'fire' : 'clock')) }}" style="color: #ff5722; font-size: 30px; margin-bottom: 15px;"></i>
-                    <h5>{{ $p['card'.$i.'_title'] ?? '' }}</h5>
-                    <p style="font-size: 14px; color: #666;">{!! $p['card'.$i.'_desc'] ?? '' !!}</p>
+            <div class="row">
+                @for($i = 1; $i <= 4; $i++)
+                <div class="col-md-3">
+                    <div class="card p-4 border-0 shadow-sm" style="border-radius: 15px;">
+                        <i class="fa fa-{{ $i==1 ? 'hand-paper' : ($i==2 ? 'tint' : ($i==3 ? 'fire' : 'clock')) }}" style="color: #ff5722; font-size: 30px; margin-bottom: 15px;"></i>
+                        <h5>{{ $p['card'.$i.'_title'] ?? '' }}</h5>
+                        <p style="font-size: 14px; color: #666;">{!! $p['card'.$i.'_desc'] ?? '' !!}</p>
+                    </div>
                 </div>
+                @endfor
             </div>
-            @endfor
         </div>
 
         <div class="mt-5 p-4 text-white" style="background-color: #1a1a1a; border-radius: 10px; display: inline-block;">
