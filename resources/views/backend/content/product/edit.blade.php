@@ -29,7 +29,11 @@
                 'product_step_description'  ,          // মাঝখানের টেক্সট (যেমন: ধাপ ১ থেকে ৩...)
                 // রিপিটার বা ডাইনামিক ডাটার জন্য:
                 'product_features_steps', 
-                'product_bottom_feature' 
+                'product_bottom_feature', 
+                'bottom_card_title', 
+                'bottom_card_desc', 
+                'btn_1', 
+                'btn_2', 
             ],
             'service_section' => ['title', 'service_list'],
             'question_section' => ['question', 'answer'],
