@@ -166,7 +166,7 @@
 
         <div class="row">
                 @for($i = 1; $i <= 4; $i++)
-                <div class="col-md-3">
+                <div class="col-md-3" @if($i == 1) style="margin-left: 0px;padding-left: 0px;" @endif>
                     <div class="card p-4 border-0 shadow-sm" style="border-radius: 15px;">
                         <i class="fa fa-{{ $i==1 ? 'hand-paper' : ($i==2 ? 'tint' : ($i==3 ? 'fire' : 'clock')) }}" style="color: #ff5722; font-size: 30px; margin-bottom: 15px;"></i>
                         <h5>{{ $p['card'.$i.'_title'] ?? '' }}</h5>
