@@ -54,13 +54,98 @@
         </div>
 
 
-        <div class="price-box">৳{{ $salePrice }}</div>
+            <div
+                class="reveal-s"
+                style="
+                    display: flex;
+                    align-items: center;
+                    gap: 18px;
+                    background: #fce9e1;
+                    border: 1px solid #f6d7cb;
+                    border-radius: 18px;
+                    padding: 16px 20px;
+                    margin-bottom: 18px;
+                "
+            >
+                <div style="text-align: center; flex-shrink: 0">
+                    <div
+                        class="bn"
+                        style="
+                            font-size: 10.5px;
+                            font-weight: 700;
+                            letter-spacing: 0.6px;
+                            color: #b23a18;
+                            text-transform: uppercase;
+                            margin-bottom: 3px;
+                        "
+                    >
+                        প্রতিদিন
+                    </div>
+                    <div class="bnum pop4" style="font-size: 42px; font-weight: 800; line-height: 0.9; color: #f0532b">৳৫.৫০</div>
+                </div>
+                <div style="border-left: 1px solid #eac9bb; padding-left: 18px">
+                    <div
+                        class="bh"
+                        style="font-weight: 700; font-size: 16px; line-height: 1.35; color: #1e1a15; margin-bottom: 4px"
+                    >
+                        দিনে এক কাপ চায়ের চেয়েও কম
+                    </div>
+                    <div class="bn" style="font-size: 12.5px; line-height: 1.5; color: #6b645a">
+                        ৬ মাসের ওয়ারেন্টি হিসাবে <span class="bnum">৳৯৯০ ÷ ১৮০</span> দিন
+                    </div>
+                </div>
+            </div>
 
             <!-- Trust Box -->
-            <div class="trust-box">
-                <i class="fa fa-shield-alt"></i> <b>এখনি টাকা নয় — আগে টেস্ট, পরে পেমেন্ট</b><br>
-                <small>প্রোডাক্ট হাতে পেয়ে, খুলে, ১০ সেকেন্ড চালিয়ে দেখে — তারপর টাকা দিন।</small>
+            <div
+                style="
+                    display: flex;
+                    gap: 12px;
+                    align-items: flex-start;
+                    background: #fff;
+                    border: 1.5px solid #f0532b;
+                    border-radius: 16px;
+                    padding: 14px 16px;
+                    margin-bottom: 18px;
+                "
+            >
+                <span
+                    style="
+                        width: 38px;
+                        height: 38px;
+                        border-radius: 10px;
+                        background: #fce9e1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-shrink: 0;
+                        color: #f0532b;
+                    "
+                    ><svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="display: block"
+                    >
+                        <path
+                            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                        ></path>
+                        <path d="m9 12 2 2 4-4"></path></svg></span>
+                <div>
+                    <div class="bh" style="font-weight: 700; font-size: 15px; line-height: 1.35; margin-bottom: 2px">
+                        এখনই টাকা নয় — আগে টেস্ট, পরে পেমেন্ট
+                    </div>
+                    <div class="bn" style="font-size: 13px; line-height: 1.55; color: #6b645a">
+                        প্রোডাক্ট হাতে পেয়ে, খুলে, ১০ সেকেন্ড চালিয়ে দেখে — তারপর টাকা দিন।
+                    </div>
+                </div>
             </div>
+
 
             
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap">
@@ -156,8 +241,8 @@
                     >
                         <path
                             d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l.61-.61a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                        ></path></svg
-                ></span>
+                        ></path></svg>
+                </span>
                 কল করে অর্ডার করুন: <span style="color: #b23a18">০৯৬৩৮-৯৮৮৮৮৮</span></a
             >
 
@@ -197,8 +282,8 @@
                             <rect x="1" y="6" width="13" height="10" rx="1"></rect>
                             <path d="M14 9h4l3 3v4h-7z"></path>
                             <circle cx="6" cy="18" r="2"></circle>
-                            <circle cx="17" cy="18" r="2"></circle></svg
-                    ></span>
+                            <circle cx="17" cy="18" r="2"></circle></svg>
+                        </span>
                     <div>
                         <div class="bn" style="font-weight: 600; font-size: 14px; line-height: 1.2">ফ্রি ডেলিভারি</div>
                         <div class="bn" style="font-size: 12px; color: #8a8278">সারাদেশে</div>
