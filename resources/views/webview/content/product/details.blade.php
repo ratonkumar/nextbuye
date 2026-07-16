@@ -1669,74 +1669,9 @@ p {
         </div>
     </div>
 </section>
-<section style="max-width: 900px; margin: 0px auto; padding: 40px 20px">
-    <div
-        class="reveal-s"
-        style="
-            background: rgb(30, 26, 21);
-            color: rgb(250, 246, 240);
-            border-radius: 28px;
-            padding: 44px 34px;
-            text-align: center;
-        "
-    >
-        <h2
-            class="bh"
-            style="font-weight: 800; font-size: 27px; line-height: 1.35; letter-spacing: -0.3px; margin: 0px 0px 14px"
-        >
-            যিনি রোজ রাঁধেন — তাঁর হাত দুটোর কথা একবার ভাবুন।
-        </h2>
-        <p
-            class="bn"
-            style="
-                font-size: 16.5px;
-                line-height: 1.9;
-                color: rgb(217, 209, 194);
-                max-width: 580px;
-                margin: 0px auto 26px;
-            "
-        >
-            মা, স্ত্রী কিংবা বড় বোন — যে মানুষটা প্রতিদিন আপনার প্লেট ভরে রাখে, তার চোখের পানি আর হাতের জ্বালা বন্ধ করে
-            দেওয়ার চেয়ে সুন্দর উপহার আর কী হতে পারে?
-        </p>
-        <a
-            href="https://wa.me/8801302448888?text=%E0%A6%86%E0%A6%AE%E0%A6%BF%20Choplet%20%E0%A6%97%E0%A6%BF%E0%A6%AB%E0%A6%9F%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="lift"
-            style="
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 9px;
-                background: rgb(240, 83, 43);
-                color: rgb(255, 255, 255);
-                font-weight: 600;
-                font-size: 16px;
-                padding: 15px 32px;
-                border-radius: 30px;
-                border-width: medium;
-                border-style: none;
-                border-color: currentcolor;
-                border-image: none;
-                cursor: pointer;
-                box-shadow: rgba(240, 83, 43, 0.6) 0px 10px 24px -10px;
-                text-decoration: none;
-            "
-            >গিফট হিসেবে পাঠান<svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.4"
-            >
-                <path d="M5 12h14M13 6l6 6-6 6"></path></svg
-        ></a>
-    </div>
-</section>
 
 
+@include('webview.content.product.single.gift_section')
 @include('webview.content.product.single.cart_future')
 @include('webview.content.product.single.faq')
 @include('webview.content.product.single.feedback')
