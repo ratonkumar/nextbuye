@@ -12,8 +12,9 @@
 @if($feedbackData)
 <section style="background: rgb(30, 26, 21); padding: 80px 20px;">
     <div style="max-width: 800px; margin: 0px auto; text-align: center;">
+        <div class="bn" style="font-weight:600;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#F0532B;margin-bottom:20px">{!! $feedback['feedback_subtitle'] ?? 'যাঁরা আমাদের ওপর আস্থা রেখেছেন' !!}</div>
         {!! $feedback['feedback_title'] ?? 'আমাদের সম্পর্কে গ্রাহকদের মতামত' !!}
-        {!! $feedback['feedback_subtitle'] ?? 'যাঁরা আমাদের ওপর আস্থা রেখেছেন' !!}
+        
 
         <div style=" padding: 20px; border-radius: 24px;box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
             "{!! $feedback['feedback_descraption'] ?? 'এখানে গ্রাহকের মন্তব্যটি প্রদর্শিত হবে...' !!}"
