@@ -346,7 +346,12 @@
     <div class="container">
         <div class="row align-items-center mb-5">
             <div class="col-md-6">
-                <img src="{{ asset($l['interactive_main_image'] ?? 'placeholder.jpg') }}" class="img-fluid" style="border-radius: 20px; width: 100%;" alt="Lifestyle">
+                <img src="{{ asset($l['interactive_main_image'] ?? 'placeholder.jpg') }}" class="img-fluid" style="border-radius: 20px; width: 100%;    border-radius: 20px;
+    width: 83%;
+    height: 361px;
+    text-align: center;
+    display: block;
+    margin: 0px auto;" alt="Lifestyle">
             </div>
             <div class="col-md-6 p-4">
                 <span style="font-size: 40px; color: #ff5722; font-weight: bold;">“</span>
