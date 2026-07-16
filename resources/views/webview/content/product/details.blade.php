@@ -269,7 +269,7 @@
 <section style="background-color: #1a1a1a; color: #fff; padding: 60px 0;">
     <div class="container text-center">
         {!! $f['product_sub_title'] ?? '' !!}
-        {!! $f['product_title'] ?? '' !!}<
+        {!! $f['product_title'] ?? '' !!}
         @if(!empty($f['product_main_image']))
             @php
                 $extension = pathinfo($f['product_main_image'], PATHINFO_EXTENSION);

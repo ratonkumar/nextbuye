@@ -35,6 +35,15 @@
                 'btn_1', 
                 'btn_2', 
             ],
+            'interactive_card' => [
+                'interactive_title',          // মেইন হেডিং (যেমন: শিখতে হয় না এক চাপেই হয়)
+                'interactive_sub_title',          // উপরের ছোট টেক্সট
+                'interactive_main_image',          // বড় ইমেজটি
+                'interactive_step_description',          // মাঝখানের টেক্সট (যেমন: ধাপ ১ থেকে ৩...)
+                // রিপিটার বা ডাইনামিক ডাটার জন্য:
+                'interactive_features_steps', 
+                'interactive_bottom_feature'
+            ],
             'service_section' => ['title', 'service_list'],
             'question_section' => ['question', 'answer'],
             'video_section' => ['video_title', 'video_link'],
