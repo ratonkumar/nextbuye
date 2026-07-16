@@ -2307,7 +2307,7 @@ p {
         </div>
     </div>
 </section>
-@include('webview.product.single.cra_cart')
+@include('webview.content.product.single.cra_cart')
 
 <div
     style="
