@@ -42,10 +42,7 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 12px">
             @foreach($cartContent['cart_middle_repeter'] as $item2)
             <div style="background: rgb(38, 33, 26); border: 1px solid rgb(52, 45, 36); border-radius: 16px; padding: 18px 16px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 11px; color: rgb(229, 169, 143)">
-                    {!! $item2['icon'] ?? '' !!}
-                    <span class="bn" style="font-size: 12.5px; color: rgb(163, 154, 136)">{{ $item['title'] ?? '' }}</span>
-                </div>
+                 {!! $item2['icon'] ?? '' !!}
                 <div class="bh" style="font-weight: 800; font-size: 23px; color: rgb(255, 255, 255); letter-spacing: -0.5px; margin-bottom: 3px;">
                     {{ $item2['title'] ?? '' }}
                 </div>
