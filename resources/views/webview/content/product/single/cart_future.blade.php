@@ -17,17 +17,17 @@
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
         @if(isset($featureContent['features_rep']) && is_array($featureContent['features_rep']))
-            @foreach($featureContent['features_rep'] as $item)
+            @foreach($featureContent['features_rep'] as $item1)
             <div class="reveal lift" style="background: #fff; border: 1px solid #e8e0d4; border-radius: 20px; padding: 24px;">
                 <div style="width: 46px; height: 46px; border-radius: 13px; background: #fce9e1; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #f0532b;">
                     {{-- এখানে আইকন হিসেবে SVG কোড বা HTML রেন্ডার হবে --}}
-                    {!! $item['icon'] ?? '' !!}
+                    {!! $item1['icon'] ?? '' !!}
                 </div>
                 <div class="bn" style="font-size: 13px; color: #8a8278; margin-bottom: 4px">
-                    {{ $item['title'] ?? '' }}
+                    {{ $item1['title'] ?? '' }}
                 </div>
                 <div class="bh" style="font-weight: 700; font-size: 19px; line-height: 1.3">
-                    {{ $item['subtitle'] ?? '' }}
+                    {{ $item1['subtitle'] ?? '' }}
                 </div>
             </div>
             @endforeach
