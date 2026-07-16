@@ -27,7 +27,7 @@
                     {{ $item['title'] ?? '' }}
                 </div>
                 <div class="bh" style="font-weight: 700; font-size: 19px; line-height: 1.3">
-                    {{ $item['sub_title'] ?? '' }}
+                    {{ $item['subtitle'] ?? '' }}
                 </div>
             </div>
             @endforeach
