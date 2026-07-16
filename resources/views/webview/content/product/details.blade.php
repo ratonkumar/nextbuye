@@ -2211,76 +2211,10 @@ p {
         </details>
     </div>
 </section>
-<section style="background: rgb(30, 26, 21); color: rgb(250, 246, 240)">
-    <div class="reveal" style="max-width: 820px; margin: 0px auto; padding: 84px 20px; text-align: center">
-        <div
-            class="bn"
-            style="
-                font-weight: 600;
-                font-size: 13px;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-                color: rgb(240, 83, 43);
-                margin-bottom: 20px;
-            "
-        >
-            কেন Stylify
-        </div>
-        <h2
-            class="bh"
-            style="font-weight: 800; font-size: 38px; line-height: 1.3; letter-spacing: -0.4px; margin: 0px 0px 26px"
-        >
-            ভালো থাকা লুকিয়ে থাকে প্রতিদিনের ছোট ছোট মুহূর্তে।
-        </h2>
-        <p class="bn" style="font-size: 17.5px; line-height: 1.95; color: rgb(184, 175, 159); margin: 0px 0px 18px">
-            আমরা চাই, আপনার প্রতিদিনের সাধারণ কাজগুলোও হোক একটু সহজ, একটু সুন্দর। তাই আমরা যা বানাই, তাতে তাড়াহুড়ো
-            থাকে না — শুধু “সস্তা” বানানোর জন্য আমরা কিছু বানাই না।
-        </p>
-        <p
-            class="bh"
-            style="color: rgb(255, 255, 255); font-weight: 600; font-size: 23px; line-height: 1.5; margin: 0px"
-        >
-            সেই প্রিমিয়াম অনুভূতিটা শুধু কিছু মানুষের জন্য নয়।
-            <span style="color: rgb(240, 83, 43)">এটা সবার প্রাপ্য।</span>
-        </p>
-        <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid rgb(44, 38, 30)">
-            <div class="num" style="font-weight: 800; font-size: 26px; letter-spacing: -0.5px">Stylify</div>
-            <div
-                style="
-                    font-family: var(--font-hanken), sans-serif;
-                    font-size: 15px;
-                    color: rgb(163, 154, 136);
-                    margin-top: 4px;
-                "
-            >
-                Effortlessly elevated.
-            </div>
-        </div>
-    </div>
-</section>
+
+@include('webview.content.product.single.feedback')
 @include('webview.content.product.single.cra_cart')
 
-<div
-    style="
-        position: fixed;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-        z-index: 60;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(12px);
-        border-top: 1px solid rgb(232, 224, 212);
-        box-shadow: rgba(30, 26, 21, 0.08) 0px -4px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 12px 18px;
-        transform: translateY(0px);
-        transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
-        pointer-events: auto;
-    "
->
 @include('webview.content.product.single.footer_cart')
 
 
