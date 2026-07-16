@@ -17,21 +17,21 @@
     
     <div style="display: flex; flex-direction: column; gap: 12px">
         @if(isset($faqContent['faq_rep']) && is_array($faqContent['faq_rep']))
-             @for($i = 1; $i <= 4; $i++)
+            @foreach($faqContent['faq_rep'] as $index => $item)
             <details class="reveal clp" 
                 style="background: #fff; border: 1px solid #e8e0d4; border-radius: 16px; padding: 18px 22px;"
                 {{ $index == 0 ? 'open' : '' }}> {{-- প্রথম আইটেমটি ডিফল্ট খোলা রাখার জন্য --}}
                 
                 <summary class="bh" style="font-weight: 600; font-size: 17.5px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-                    {{ $faqContent['val'.$i] ?? '' }}
+                    {{ $item['val'] ?? '' }}
                     <span class="clp-plus" style="color: #f0532b; font-size: 22px; flex-shrink: 0; transition: transform 0.2s">+</span>
                 </summary>
                 
                 <p class="bn" style="font-size: 15.5px; line-height: 1.85; color: #6b645a; margin: 14px 0px 0px">
-                    {{ $faqContent['label'.$i] ?? '' }}
+                    {{ $item['label'] ?? '' }}
                 </p>
             </details>
-            @endfor
+            @endforeach
         @endif
     </div>
 </section>
