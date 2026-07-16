@@ -32,7 +32,7 @@
             @endphp
 
             <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 22px; flex-wrap: wrap">
-                <span style="font-weight: 800; font-size: 38px">৳{{ $salePrice }}</span>
+                <span style="font-weight: 800; font-size: 32px">৳{{ $salePrice }}</span>
                 
                 <span style="font-weight: 500; font-size: 20px; color: rgb(154, 145, 131); text-decoration: line-through">
                     ৳{{ $regularPrice }}
@@ -44,7 +44,7 @@
                     </span>
                 @endif
                 
-                <span style="font-size: 13px; color: rgb(138, 130, 120)">ফ্রি ডেলিভারি · COD</span>
+                {{-- <span style="font-size: 13px; color: rgb(138, 130, 120)">ফ্রি ডেলিভারি · COD</span> --}}
             </div>
 
             <button class="lift"  onclick="addtocart('{{ $productdetails->id }}')" style="display: flex; align-items: center; justify-content: center; gap: 9px; background: rgb(240, 83, 43); color: rgb(255, 255, 255); font-weight: 600; font-size: 17px; padding: 17px 36px; border-radius: 30px; border: none; cursor: pointer; box-shadow: rgba(240, 83, 43, 0.6) 0px 10px 24px -10px; align-self: flex-start;">

@@ -44,6 +44,12 @@
                 'interactive_features_steps', 
                 'interactive_bottom_feature'
             ],
+           'feedback_section' => [
+                'feedback_title', 
+                'feedback_subtitle', 
+                'feedback_image', 
+                'feedback_button_text'
+            ]
             'order_cta_section' => [
                 'order_cta_title', 
                 'order_cta_subtitle', 
