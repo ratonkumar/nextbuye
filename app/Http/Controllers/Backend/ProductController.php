@@ -242,7 +242,7 @@ class ProductController extends Controller
         $content = array_merge($content, $newData);
 
         // ৪. ইমেজ হ্যান্ডেলিং লজিক
-        $imageFields = ['features_left_image', 'product_main_image', 'interactive_main_image', 'image_5', 'image_6', 'image_7', 'image_url'];
+        $imageFields = ['features_left_image', 'product_main_image', 'interactive_main_image', 'order_cta_image', 'image_6', 'image_7', 'image_url'];
 
         foreach ($imageFields as $field) {
             if ($request->hasFile("content.$field")) {

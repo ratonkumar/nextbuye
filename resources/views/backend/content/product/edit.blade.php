@@ -44,10 +44,12 @@
                 'interactive_features_steps', 
                 'interactive_bottom_feature'
             ],
-            'service_section' => ['title', 'service_list'],
-            'question_section' => ['question', 'answer'],
-            'video_section' => ['video_title', 'video_link'],
-            'cart_section' => ['cart_title', 'shipping_info']
+            'order_cta_section' => [
+                'order_cta_title', 
+                'order_cta_subtitle', 
+                'order_cta_image', 
+                'order_cta_button_text'
+            ]
         ];
     @endphp
 
@@ -86,7 +88,7 @@
                                     
                                 @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text', 'product_title', 'product_sub_title','interactive_bottom_feature']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
-                                @elseif(in_array($field, ['features_left_image', 'product_main_image', 'interactive_main_image', 'image_5', 'image_6', 'image_7']))
+                                @elseif(in_array($field, ['features_left_image', 'product_main_image', 'interactive_main_image', 'order_cta_image', 'image_6', 'image_7']))
                                     <div class="mb-3">
                                         <label class="small fw-bold">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
                                         
