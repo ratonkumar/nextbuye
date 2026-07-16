@@ -153,7 +153,7 @@
                                                         <input type="text" name="content[{{ $field }}][{{$index}}][subtitle]" class="form-control" value="{{ $item['subtitle'] ?? '' }}" placeholder="Description">
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <input type="text" name="content[{{ $field }}][{{$index}}][icon]" class="form-control" value="{{ $item['icon'] ?? '' }}" placeholder="Icon Name herer">
+                                                        <textarea type="text" name="content[{{ $field }}][{{$index}}][icon]" class="form-control" value="{{ $item['icon'] ?? '' }}" placeholder="Icon Name herer">{{ $item['icon'] ?? '' }}</textarea>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <button type="button" class="btn btn-danger remove-row">-</button>
