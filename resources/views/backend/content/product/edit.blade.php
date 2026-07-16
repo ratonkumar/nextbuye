@@ -44,7 +44,7 @@
                 'interactive_features_steps', 
                 'interactive_bottom_feature'
             ],
-            'product_middle_cart_section' => [
+            'product_gift_cart_section' => [
                 'gift_title', 
                 'gift_descraption',
                 'gift_Button_text',
