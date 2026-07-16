@@ -1,6 +1,6 @@
 
 
-<section style="max-width: 820px; margin: 0px auto; padding: 80px 20px">
+<section style="max-width: 820px; margin: 0px auto; padding: 20px 20px">
     <div class="reveal" style="text-align: center; margin-bottom: 30px">
         <span
             class="bn"
@@ -780,7 +780,7 @@
 @endphp
 
 @if($giftContent)
-<section style="max-width: 820px; margin: 0px auto; padding: 80px 20px">
+<section style="max-width: 820px; margin: 0px auto; padding: 20px 20px">
     <div
         class="reveal-s"
         style="
