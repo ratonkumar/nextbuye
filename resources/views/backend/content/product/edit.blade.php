@@ -44,6 +44,14 @@
                 'interactive_features_steps', 
                 'interactive_bottom_feature'
             ],
+             'product_cart_section' => [
+                'cart_top_sub_title', 
+                'cart_top_title', 
+                'cart_middle_title', 
+                'cart_middle_count', 
+                'cart_middle_text', 
+                'cart_middle_repeter', 
+            ],
             'product_gift_cart_section' => [
                 'gift_top_title', 
                 'gift_top_rep', 
@@ -99,7 +107,7 @@
                         <div class="row">
                             @php
                                 // আপনার সব রিপিটার ফিল্ডের নাম এখানে যোগ করুন
-                                $repeaterFields = ['features_list', 'product_features_steps', 'steps_list', 'requirements_list', 'faq_rep','features_rep','gift_top_rep'];
+                                $repeaterFields = ['features_list', 'product_features_steps', 'steps_list', 'requirements_list', 'faq_rep','features_rep','gift_top_rep','cart_middle_repeter'];
                             @endphp
                             @foreach($fields as $field)
                             <div class="col-md-6 mb-3"> 

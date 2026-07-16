@@ -1,205 +1,66 @@
 
-<section style="max-width: 820px; margin: 0px auto; padding: 20px 20px">
+@php
+    // ডাটাবেজ থেকে ডাটা নিয়ে আসা
+    $cartData = \App\Models\LandingPageSetting::where('section_key', 'product_cart_section')
+        ->where('product_id', $productdetails->id)
+        ->where('is_active', 1)
+        ->first();
+    
+    // ডাটা ডিকোড করা
+    $cartContent = $cartData ? json_decode($cartData->content, true) : null;
+@endphp
+
+@if($cartContent)
+<section style="max-width: 900px; margin: 0px auto; padding: 40px 20px">
     <div class="reveal" style="text-align: center; margin-bottom: 30px">
-        <span
-            class="bn"
-            style="
-                display: inline-block;
-                background: rgb(252, 233, 225);
-                color: rgb(178, 58, 24);
-                font-weight: 700;
-                font-size: 12.5px;
-                padding: 6px 14px;
-                border-radius: 20px;
-                margin-bottom: 15px;
-            "
-            >একটু হিসাব করে দেখি</span
-        >
+        <span class="bn" style="display: inline-block; background: rgb(252, 233, 225); color: rgb(178, 58, 24); font-weight: 700; font-size: 12.5px; padding: 6px 14px; border-radius: 20px; margin-bottom: 15px;">
+            {{ $cartContent['cart_top_sub_title'] ?? 'একটু হিসাব করে দেখি' }}
+        </span>
         <h2 class="bh" style="font-weight: 800; font-size: 31px; line-height: 1.3; letter-spacing: -0.4px; margin: 0px">
-            কাটাকুটির পেছনে বছরে আসলে কত খরচ হয়?
+            {{ $cartContent['cart_top_title'] ?? 'কাটাকুটির পেছনে বছরে আসলে কত খরচ হয়?' }}
         </h2>
     </div>
-    <div
-        class="reveal-s"
-        style="
-            background: rgb(30, 26, 21);
-            color: rgb(250, 246, 240);
-            border-radius: 26px;
-            padding: 34px 28px;
-            margin-bottom: 18px;
-            box-shadow: rgba(30, 26, 21, 0.55) 0px 30px 60px -40px;
-        "
-    >
-        <div
-            class="bn"
-            style="
-                font-size: 12.5px;
-                font-weight: 700;
-                letter-spacing: 0.6px;
-                text-transform: uppercase;
-                color: rgb(229, 169, 143);
-                margin-bottom: 16px;
-                text-align: center;
-            "
-        >
-            পুরনো নিয়মে যা খরচ হয়
+
+    <div class="reveal-s" style="background: rgb(30, 26, 21); color: rgb(250, 246, 240); border-radius: 26px; padding: 34px 28px; margin-bottom: 18px; box-shadow: rgba(30, 26, 21, 0.55) 0px 30px 60px -40px;">
+        
+        <div class="bn" style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: rgb(229, 169, 143); margin-bottom: 16px; text-align: center;">
+            {{ $cartContent['cart_middle_title'] ?? 'পুরনো নিয়মে যা খরচ হয়' }}
         </div>
+        
         <div style="text-align: center; margin-bottom: 6px">
-            <span
-                class="num"
-                style="
-                    font-weight: 800;
-                    font-size: 60px;
-                    line-height: 1;
-                    color: rgb(255, 139, 99);
-                    letter-spacing: -2.5px;
-                "
-                >৳24,000+</span
-            >
+            <span class="num" style="font-weight: 800; font-size: 60px; line-height: 1; color: rgb(255, 139, 99); letter-spacing: -2.5px;">
+                {{ $cartContent['cart_middle_count'] ?? '৳24,000+' }}
+            </span>
         </div>
-        <p
-            class="bn"
-            style="
-                text-align: center;
-                font-size: 15px;
-                color: rgb(201, 191, 173);
-                margin: 0px auto 28px;
-                line-height: 1.65;
-                max-width: 480px;
-            "
-        >
-            প্রতি বছর — শুধু বুয়ার কাটাকুটির পেছনেই। সময় আর রোজকার ভোগান্তি তো এর বাইরে।
+        
+        <p class="bn" style="text-align: center; font-size: 15px; color: rgb(201, 191, 173); margin: 0px auto 28px; line-height: 1.65; max-width: 480px;">
+            {{ $cartContent['cart_middle_text'] ?? 'প্রতি বছর — শুধু বুয়ার কাটাকুটির পেছনেই। সময় আর রোজকার ভোগান্তি তো এর বাইরে।' }}
         </p>
+
+        {{-- রিপিটার সেকশন --}}
+        @if(isset($cartContent['cart_middle_repeter']) && is_array($cartContent['cart_middle_repeter']))
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 12px">
-            <div
-                style="
-                    background: rgb(38, 33, 26);
-                    border: 1px solid rgb(52, 45, 36);
-                    border-radius: 16px;
-                    padding: 18px 16px;
-                "
-            >
-                <div
-                    style="display: flex; align-items: center; gap: 8px; margin-bottom: 11px; color: rgb(229, 169, 143)"
-                >
-                    <svg
-                        width="17"
-                        height="17"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style="display: block"
-                    >
-                        <path
-                            d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5"
-                        ></path>
-                        <path d="M16 12h.01"></path></svg>
-                        <span class="bn" style="font-size: 12.5px; color: rgb(163, 154, 136)">বুয়া রাখলে</span>
+            @foreach($cartContent['cart_middle_repeter'] as $item2)
+            <div style="background: rgb(38, 33, 26); border: 1px solid rgb(52, 45, 36); border-radius: 16px; padding: 18px 16px;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 11px; color: rgb(229, 169, 143)">
+                    {!! $item2['icon'] ?? '' !!}
+                    <span class="bn" style="font-size: 12.5px; color: rgb(163, 154, 136)">{{ $item['title'] ?? '' }}</span>
                 </div>
-                <div
-                    class="bh"
-                    style="
-                        font-weight: 800;
-                        font-size: 23px;
-                        color: rgb(255, 255, 255);
-                        letter-spacing: -0.5px;
-                        margin-bottom: 3px;
-                    "
-                >
-                    ৳2,000+
-                </div>
-                <div class="bn" style="font-size: 12px; color: rgb(138, 130, 120); line-height: 1.45">প্রতি মাসে</div>
-            </div>
-            <div
-                style="
-                    background: rgb(38, 33, 26);
-                    border: 1px solid rgb(52, 45, 36);
-                    border-radius: 16px;
-                    padding: 18px 16px;
-                "
-            >
-                <div
-                    style="display: flex; align-items: center; gap: 8px; margin-bottom: 11px; color: rgb(229, 169, 143)"
-                >
-                    <svg
-                        width="17"
-                        height="17"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style="display: block"
-                    >
-                        <circle cx="12" cy="12" r="9"></circle>
-                        <path d="M12 7v5l3 2"></path></svg>
-                        <span class="bn" style="font-size: 12.5px; color: rgb(163, 154, 136)">নিজে করলে</span>
-                </div>
-                <div
-                    class="bh"
-                    style="
-                        font-weight: 800;
-                        font-size: 23px;
-                        color: rgb(255, 255, 255);
-                        letter-spacing: -0.5px;
-                        margin-bottom: 3px;
-                    "
-                >
-                    ৬০+ ঘণ্টা
+                <div class="bh" style="font-weight: 800; font-size: 23px; color: rgb(255, 255, 255); letter-spacing: -0.5px; margin-bottom: 3px;">
+                    {{ $item2['title'] ?? '' }}
                 </div>
                 <div class="bn" style="font-size: 12px; color: rgb(138, 130, 120); line-height: 1.45">
-                    বছরে — পুরো আড়াই দিন
+                    {{ $item2['subtitle'] ?? '' }}
                 </div>
             </div>
-            <div
-                style="
-                    background: rgb(38, 33, 26);
-                    border: 1px solid rgb(52, 45, 36);
-                    border-radius: 16px;
-                    padding: 18px 16px;
-                "
-            >
-                <div
-                    style="display: flex; align-items: center; gap: 8px; margin-bottom: 11px; color: rgb(229, 169, 143)"
-                >
-                    <svg
-                        width="17"
-                        height="17"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style="display: block"
-                    >
-                        <path
-                            d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"
-                        ></path></svg>
-                        <span class="bn" style="font-size: 12.5px; color: rgb(163, 154, 136)">রোজকার ভোগান্তি</span>
-                </div>
-                <div
-                    class="bh"
-                    style="
-                        font-weight: 800;
-                        font-size: 23px;
-                        color: rgb(255, 255, 255);
-                        letter-spacing: -0.5px;
-                        margin-bottom: 3px;
-                    "
-                >
-                    প্রতিদিন
-                </div>
-                <div class="bn" style="font-size: 12px; color: rgb(138, 130, 120); line-height: 1.45">
-                    চোখে পানি, হাতে জ্বালা
-                </div>
-            </div>
+            @endforeach
         </div>
+        @endif
     </div>
+</section>
+@endif
+<section style="max-width: 820px; margin: 0px auto; padding: 20px 20px">
+   
     <p
         class="reveal bn"
         style="text-align: center; font-size: 15.5px; color: rgb(107, 100, 90); margin: 0px 0px 40px; line-height: 1.7"
