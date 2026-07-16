@@ -165,14 +165,7 @@
                   
                   <input type="hidden" name="qty" id="qtyInput" value="1">
 
-                <button type="button" onclick="changeQty(-1)" style="    width: 44px;
-    height: 30px;
-    border: none;
-    background: transparent;
-    font-size: 22px;
-    cursor: cell;
-    color: #000;
-    font-weight: bold;">−</button>
+                <button type="button" onclick="changeQty(-1)" style="width: 44px; height: 30px; border: none; background: transparent; font-size: 22px; cursor: cell;color: #000;font-weight: bold;">−</button>
 
                 <span id="numDisplay" class="num" style="min-width: 30px; text-align: center; font-weight: 700; font-size: 17px">১</span>
 
@@ -416,10 +409,6 @@
                 </div>
             </div>
 
-
-            <a href="tel:01638188888" class="call-btn">
-                <i class="fa fa-phone"></i> কল করে অর্ডার করুন: ০১৬৩৮-১৮৮৮৮৮
-            </a>
         </div>
     </div>
 </div>
