@@ -375,8 +375,8 @@
                             stroke-linejoin="round"
                             style="flex-shrink: 0"
                         >
-                            <path d="M20 6L9 17l-5-5"></path></svg
-                        >সারাদেশে হোম ডেলিভারি</span
+                            <path d="M20 6L9 17l-5-5"></path></svg>সারাদেশে হোম ডেলিভারি
+                        </span
                     ><span style="display: flex; align-items: baseline; gap: 7px; white-space: nowrap"
                         ><span
                             class="num"
@@ -411,17 +411,18 @@
                             stroke-linejoin="round"
                             style="flex-shrink: 0"
                         >
-                            <path d="M20 6L9 17l-5-5"></path></svg
-                        >ফ্রি ডিজিটাল বোনাস প্যাক</span
-                    ><span style="display: flex; align-items: baseline; gap: 7px; white-space: nowrap"
+                            <path d="M20 6L9 17l-5-5"></path></svg>ফ্রি ডিজিটাল বোনাস প্যাক
+                    </span
+                    >
+                    <span style="display: flex; align-items: baseline; gap: 7px; white-space: nowrap"
                         ><span
                             class="num"
                             style="font-size: 13.5px; color: rgb(154, 145, 131); text-decoration: line-through"
                             >৳500</span
                         ><span class="bn" style="font-weight: 700; font-size: 13.5px; color: rgb(178, 58, 24)"
                             >ফ্রি</span
-                        ></span
-                    >
+                        >
+                    </span>
                 </div>
                 <div
                     style="
@@ -508,8 +509,8 @@
                         <path
                             d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
                         ></path>
-                        <path d="m9 12 2 2 4-4"></path></svg
-                ></span>
+                        <path d="m9 12 2 2 4-4"></path></svg>
+                    </span>
                 <div class="bn" style="font-size: 13.5px; line-height: 1.55; color: rgb(58, 53, 46)">
                     লঞ্চের <b style="color: rgb(178, 58, 24)">প্রথম ১০০ পরিবারের</b> একজন হয়ে যান — শুধু তাঁরাই পাচ্ছেন
                     পরের অর্ডারে <b style="color: rgb(178, 58, 24)">২০% ছাড়</b>।
@@ -723,6 +724,7 @@
                     box-shadow: rgba(240, 83, 43, 0.6) 0px 10px 24px -10px;
                     width: 100%;
                 "
+                onclick="buynow('{{ $productdetails->id }}')"
             >
                 অর্ডার করুন — টাকা হাতে পেয়ে দেবেন<svg
                     width="18"
@@ -761,8 +763,7 @@
                     <path
                         d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
                     ></path>
-                    <path d="m9 12 2 2 4-4"></path></svg
-                >এক টাকাও অগ্রিম নেই — হাতে পেয়ে, দেখে, তারপর পেমেন্ট।
+                    <path d="m9 12 2 2 4-4"></path></svg>এক টাকাও অগ্রিম নেই — হাতে পেয়ে, দেখে, তারপর পেমেন্ট।
             </div>
         </div>
     </div>
