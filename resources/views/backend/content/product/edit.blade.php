@@ -92,7 +92,7 @@
                                 @if(in_array($field, ['problem_desc', 'card1_desc', 'card2_desc', 'card3_desc', 'card4_desc']))
                                     <textarea name="content[{{ $field }}]" class="form-control">{{ $content[$field] ?? '' }}</textarea>
                                     
-                                @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text', 'product_title', 'product_sub_title','interactive_bottom_feature','feedback_title','feedback_descraption']))
+                                @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text', 'product_title', 'product_sub_title','interactive_bottom_feature','feedback_title','feedback_descraption','feedback_author']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                 @elseif(in_array($field, ['features_left_image', 'product_main_image', 'interactive_main_image', 'order_cta_image', 'image_6', 'image_7']))
                                     <div class="mb-3">
