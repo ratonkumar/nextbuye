@@ -47,7 +47,7 @@
                 <span style="font-size: 13px; color: rgb(138, 130, 120)">ফ্রি ডেলিভারি · COD</span>
             </div>
 
-            <button class="lift" style="display: flex; align-items: center; justify-content: center; gap: 9px; background: rgb(240, 83, 43); color: rgb(255, 255, 255); font-weight: 600; font-size: 17px; padding: 17px 36px; border-radius: 30px; border: none; cursor: pointer; box-shadow: rgba(240, 83, 43, 0.6) 0px 10px 24px -10px; align-self: flex-start;">
+            <button class="lift"  onclick="addtocart('{{ $productdetails->id }}')" style="display: flex; align-items: center; justify-content: center; gap: 9px; background: rgb(240, 83, 43); color: rgb(255, 255, 255); font-weight: 600; font-size: 17px; padding: 17px 36px; border-radius: 30px; border: none; cursor: pointer; box-shadow: rgba(240, 83, 43, 0.6) 0px 10px 24px -10px; align-self: flex-start;">
                 {{ $cta['order_cta_button_text'] ?? 'অর্ডার করুন — টাকা হাতে পেয়ে দেবেন' }}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
                     <path d="M5 12h14M13 6l6 6-6 6"></path>
