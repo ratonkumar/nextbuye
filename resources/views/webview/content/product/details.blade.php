@@ -363,7 +363,7 @@
         <div class="p-4 text-white" style="background-color: #1a1a1a; border-radius: 15px; max-width: 900px; margin: 0 auto;">
             <div class="d-flex align-items-center mb-3">
                 <i class="fa fa-shield-alt" style="color: #ff5722; font-size: 24px; margin-right: 15px;"></i>
-                <h4 class="mb-0">{{ $l['interactive_features_steps'] ?? '' }}</h4>
+                <h4 class="mb-0" style="color: #fff;">{{ $l['interactive_features_steps'] ?? '' }}</h4>
             </div>
             <p style="margin-bottom: 10px;">{!! $l['interactive_bottom_feature'] ?? '' !!}</p>
             <p style="font-weight: bold; color: #ff5722;">{{ $l['payment_note'] ?? '' }}</p>
