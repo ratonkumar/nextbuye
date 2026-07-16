@@ -32,6 +32,23 @@
     
 @endsection
 <style>
+    .accordion-button:not(.collapsed) {
+        color: #f97316;
+        background-color: #fff !important;
+        box-shadow: none;
+    }
+    .accordion-button::after {
+        content: '+';
+        background-image: none;
+        font-size: 1.5rem;
+    }
+    .accordion-button:not(.collapsed)::after {
+        content: '×'; /* ওপেন থাকলে ক্রস দেখাবে */
+        background-image: none;
+        transform: none;
+    }
+</style>
+<style>
 p {
     color: #555555;
     margin-bottom: 0px !important;
@@ -476,6 +493,110 @@ p {
                         <small>চোখ পানি, হাত জখম</small>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="container py-5">
+            <div class="card shadow-lg border-0 rounded-4 p-4 text-center">
+                <h5 class="fw-bold">CHOPLET™ — একবার কিনলেই শেষ</h5>
+                <h2 class="display-5 fw-bold">৳৯৯০ <span class="text-decoration-line-through text-muted fs-4">৳১,৬৯০</span></h2>
+
+                <div class="bg-dark text-white rounded-3 p-3 my-3">
+                    <h3 class="text-orange">৫.৫০ ৳/দিন</h3>
+                    <p class="mb-0 small">৳৯৯০ ÷ ১৮০ দিন — এক কাপ চায়ের চেয়েও কম। আর ৬ মাস পেরোলে? যতদিন চলবে, প্রতিটা দিন একদম ফ্রি!</p>
+                </div>
+
+                <ul class="list-group list-group-flush text-start">
+                    <li class="list-group-item d-flex justify-content-between"><span>✅ CHOPLET™ কর্ডলেস চপার</span> <span>৳১,৪৯০</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><span>✅ ৬ মাস রিপ্লেসমেন্ট ওয়ারেন্টি</span> <span><s>৳৩০০</s></span></li>
+                    <li class="list-group-item d-flex justify-content-between"><span>✅ সারা দেশে হোম ডেলিভারি</span> <span><s>৳১২০</s></span></li>
+                    <li class="list-group-item d-flex justify-content-between"><span>✅ ফ্রি ডিজিটাল বোনাস প্যাক</span> <span><s>৳৫০০</s></span></li>
+                </ul>
+
+                <div class="alert alert-warning mt-3">আজকের মূল্য: <span class="text-decoration-line-through">৳২,৪১০</span> <strong>৳৯৯০</strong></div>
+
+                <div class="d-flex justify-content-center gap-2 my-4" id="countdown">
+                    <div class="bg-dark text-white p-2 rounded">01<br><small>দিন</small></div>
+                    <div class="bg-dark text-white p-2 rounded">11<br><small>ঘণ্টা</small></div>
+                    <div class="bg-dark text-white p-2 rounded">88<br><small>মিনিট</small></div>
+                    <div class="bg-dark text-white p-2 rounded">26<br><small>সেকেন্ড</small></div>
+                </div>
+
+                <button class="btn btn-warning btn-lg fw-bold text-white shadow">অর্ডার করুন — টাকা হাতে পেয়ে দেবেন →</button>
+            </div>
+        </div>
+        <div class="container py-5">
+            <div class="border border-warning border-dashed rounded-3 p-4 mb-5" style="border-style: dashed !important;">
+                <h5 class="text-danger"><i class="bi bi-stars"></i> অর্ডার করলেই ফ্রি — ৳৫০০ মূল্যের ডিজিটাল গিফট</h5>
+                <ul class="list-unstyled mt-3">
+                    <li>✓ ৩০টি ঝটপট বাংলা রেসিপি (ভর্তা, বাটা মশলা, কিমা, রান্নার খাবার)</li>
+                    <li>✓ রান্নার সময় বাঁচানোর ২০টি টিপস</li>
+                    <li>✓ CHOPLET কেয়ার গাইড (পরিষ্কার, চার্জ, ব্লেডের যত্ন)</li>
+                </ul>
+                <small class="text-muted">🚛 ডেলিভারির পর আপনার ইনবক্সে পাঠিয়ে দেওয়া হবে।</small>
+            </div>
+
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">একটা, নাকি দুটো?</h2>
+                <p>বেশিরভাগ মানুষ দুটোই নেন — একটা নিজের ঘরে, আরেকটা প্রিয় কারো হাতে।</p>
+                
+                <div class="row justify-content-center g-4 mt-3">
+                    <div class="col-md-4">
+                        <div class="card p-4 border-0 shadow-sm">
+                            <h6>১টা</h6>
+                            <h3 class="fw-bold">৳৯৯০ <span class="text-decoration-line-through text-muted small">৳১,৬৯০</span></h3>
+                            <p class="small">নিজের রান্নার জন্য</p>
+                            <button class="btn btn-warning text-white w-100">অর্ডার করুন →</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card p-4 border-2 border-warning shadow">
+                            <span class="badge bg-warning text-dark mb-2">সবচেয়ে জনপ্রিয়</span>
+                            <h6>২টা</h6>
+                            <h3 class="fw-bold">৳১,৫৯০ <span class="text-decoration-line-through text-muted small">৳২৩৯০</span></h3>
+                            <p class="small">একটা আপনার, আরেকটা মায়ের হাতে তুলে দিন</p>
+                            <button class="btn btn-warning text-white w-100">WhatsApp-এ অর্ডার →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-dark text-white p-5 rounded-4 text-center">
+                <h3 class="fw-bold">যিনি রোজ রাঁধেন — তাঁর হাত দুটোর কথা একবার ভাবুন</h3>
+                <p class="text-secondary mt-3">মা, স্ত্রী কিংবা বড় বোন — যে মানুষটা প্রতিদিন আপনার প্লেট ভরে রাখে, তার চোখের পানি আর হাতের জ্বালা বন্ধ করে দেওয়ার চেয়ে সুন্দর উপহার আর কী হতে পারে?</p>
+                <button class="btn btn-warning btn-lg mt-3">গিফট হিসেবে পাঠান →</button>
+            </div>
+        </div>
+        <div class="container py-5">
+            <!-- Feature Cards -->
+            <div class="d-flex flex-wrap gap-3 justify-content-center mb-5">
+                <div class="card border-0 p-3 shadow-sm text-center" style="width: 150px;">
+                    <p class="mb-1">☕</p>
+                    <small class="text-muted d-block">ক্যাপাসিটি</small>
+                    <strong class="small">২৫০ ml</strong>
+                </div>
+                <div class="card border-0 p-3 shadow-sm text-center" style="width: 150px;">
+                    <p class="mb-1">⚡</p>
+                    <small class="text-muted d-block">মোটর স্পিড</small>
+                    <strong class="small">১৭০০ RPM</strong>
+                </div>
+                <!-- অন্যান্য কার্ডগুলো একই ভাবে লিখুন -->
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item mb-3 border-0 shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed bg-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                            একবার চার্জে কতদিন চলে?
+                        </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            উত্তর এখানে থাকবে...
+                        </div>
+                    </div>
+                </div>
+                <!-- আরও আইটেম যোগ করুন -->
             </div>
         </div>
     </div>

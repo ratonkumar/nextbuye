@@ -2156,3 +2156,30 @@ div#top-banner-and-menu {
     height: 57px;
     width: 100%;
 }
+
+
+
+/* ড্যাশ বর্ডার তৈরি করতে */
+.border-dashed {
+    border: 2px dashed #ffc107 !important;
+}
+
+/* বাটনের রঙ ঠিক করতে */
+.btn-warning {
+    background-color: #f97316 !important;
+    border-color: #f97316 !important;
+    color: white !important;
+}
+
+.bg-warning {
+    background-color: #f97316 !important;
+}
+
+/* কার্ড স্টাইল */
+.card {
+    border-radius: 15px !important;
+}
+
+.rounded-4 {
+    border-radius: 20px !important;
+}
