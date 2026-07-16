@@ -820,88 +820,26 @@
                 class="bh"
                 style="font-weight: 800; font-size: 20px; line-height: 1.35; letter-spacing: -0.3px; margin: 0px"
             >
-                অর্ডার করলেই ফ্রি — <span style="color: rgb(178, 58, 24)">৳500+ মূল্যের ডিজিটাল গিফট</span>
+                {!!   $giftContent['gift_top_title'] ?? ''  !!}
+                {{-- অর্ডার করলেই ফ্রি — <span style="color: rgb(178, 58, 24)">৳500+ মূল্যের ডিজিটাল গিফট</span> --}}
             </h3>
         </div>
         <div style="display: flex; flex-direction: column; gap: 13px">
-            <div
-                class="bn"
-                style="
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 11px;
-                    font-size: 15px;
-                    line-height: 1.6;
-                    color: rgb(58, 53, 46);
-                "
-            >
-                <span style="margin-top: 1px; flex-shrink: 0"
-                    ><svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#F0532B"
-                        stroke-width="2.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style="flex-shrink: 0"
-                    >
-                        <path d="M20 6L9 17l-5-5"></path></svg></span
-                ><span>৩০টি ঝটপট বাংলা রেসিপি (ভর্তা, বাটা মশলা, কিমা, বাচ্চার খাবার)</span>
+            @if(isset($giftContent['gift_top_rep']) && is_array($giftContent['gift_top_rep']))
+            <div style="margin-bottom: 24px; text-align: left;">
+                @foreach($giftContent['gift_top_rep'] as $item)
+                    <div class="bn" style="display: flex; align-items: flex-start; gap: 11px; font-size: 15px; line-height: 1.6; color: rgb(58, 53, 46); margin-bottom: 10px;">
+                        <span style="margin-top: 1px; flex-shrink: 0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0532B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0">
+                                <path d="M20 6L9 17l-5-5"></path>
+                            </svg>
+                        </span>
+                        <span>{{ $item['title'] ?? 'এখানে টেক্সট দিন' }}</span>
+                    </div>
+                @endforeach
             </div>
-            <div
-                class="bn"
-                style="
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 11px;
-                    font-size: 15px;
-                    line-height: 1.6;
-                    color: rgb(58, 53, 46);
-                "
-            >
-                <span style="margin-top: 1px; flex-shrink: 0"
-                    ><svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#F0532B"
-                        stroke-width="2.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style="flex-shrink: 0"
-                    >
-                        <path d="M20 6L9 17l-5-5"></path></svg></span
-                ><span>রান্নার সময় বাঁচানোর ২০টি টিপস</span>
-            </div>
-            <div
-                class="bn"
-                style="
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 11px;
-                    font-size: 15px;
-                    line-height: 1.6;
-                    color: rgb(58, 53, 46);
-                "
-            >
-                <span style="margin-top: 1px; flex-shrink: 0"
-                    ><svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#F0532B"
-                        stroke-width="2.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style="flex-shrink: 0"
-                    >
-                        <path d="M20 6L9 17l-5-5"></path></svg></span
-                ><span>CHOPLET কেয়ার গাইড (পরিষ্কার, চার্জ, ব্লেডের যত্ন)</span>
-            </div>
+            @endif
+           
         </div>
         <div
             class="bn"
@@ -931,7 +869,7 @@
                 <path d="M14 9h4l3 3v4h-7z"></path>
                 <circle cx="6" cy="18" r="2"></circle>
                 <circle cx="17" cy="18" r="2"></circle></svg
-            >ডেলিভারির পর আপনার ইনবক্সে পাঠিয়ে দেওয়া হবে।
+            > {!!   $giftContent['gift_top_text'] ?? ''  !!}
         </div>
     </div>
 </section>
