@@ -229,22 +229,15 @@
                     </div>
                 </form>
 
-         <?php
-            // ১. ডাটাবেজ থেকে ডাটা ফেচ করুন (উদাহরণস্বরূপ)
-            $query = "SELECT phone_one FROM basicinfos LIMIT 1";
-            $result = $conn->query($query);
-            $data = $result->fetch_assoc();
-            $phone = $data['phone_one']; // ধরি এখানে '09638988888' ডাটা আছে
-            ?>
 
             <!-- ২. এইচটিএমএল-এ ডাটা বসান -->
-            <a href="tel:<?php echo $phone; ?>" class="bn lift" style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14.5px; font-weight: 700; color: #1e1a15; margin-bottom: 22px; text-decoration: none; padding: 12px; border: 1px solid #e8e0d4; border-radius: 30px; background: #fff;">
+            <a href="tel:{{ $shipping->phone_one }}" class="bn lift" style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14.5px; font-weight: 700; color: #1e1a15; margin-bottom: 22px; text-decoration: none; padding: 12px; border: 1px solid #e8e0d4; border-radius: 30px; background: #fff;">
                 <span style="color: #f0532b; display: flex">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l.61-.61a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
                 </span>
-                কল করে অর্ডার করুন: <span style="color: #b23a18"><?php echo $phone; ?></span>
+                কল করে অর্ডার করুন: <span style="color: #b23a18">{{ $shipping->phone_one }}</span>
             </a>
 
             <div
