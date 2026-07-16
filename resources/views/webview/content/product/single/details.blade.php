@@ -31,7 +31,7 @@
         @endphp
 
         <div style="margin-bottom: 12px">
-            <div class="bn" style="font-size: 13px; color: #8a8278; margin-bottom: 3px">
+            <div class="bn" style="font-size: 13px; color: #8a8278; margin-bottom: 3px; margin-top:10px">
                 নিয়মিত মূল্য <span class="num" style="text-decoration: line-through">৳{{ $regularPrice}}</span>
             </div>
             <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap">
