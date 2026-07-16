@@ -17,7 +17,7 @@
     
     <div style="display: flex; flex-direction: column; gap: 12px">
         @if(isset($faqContent['faq_rep']) && is_array($faqContent['faq_rep']))
-            @foreach($faqContent['faq_rep'] as $index => $item)
+             @for($i = 1; $i <= 4; $i++)
             <details class="reveal clp" 
                 style="background: #fff; border: 1px solid #e8e0d4; border-radius: 16px; padding: 18px 22px;"
                 {{ $index == 0 ? 'open' : '' }}> {{-- প্রথম আইটেমটি ডিফল্ট খোলা রাখার জন্য --}}
@@ -31,7 +31,7 @@
                     {{ $faqContent['label'.$i] ?? '' }}
                 </p>
             </details>
-            @endforeach
+            @endfor
         @endif
     </div>
 </section>
