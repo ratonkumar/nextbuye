@@ -614,47 +614,7 @@ p {
     </div>
 </section>
 
-<section class="section-padding">
-    <div class="container">
-        <h2 class="text-center mb-4">সচরাচর জিজ্ঞাসা</h2>
-        <div class="accordion" id="faqAccordion">
-            <div class="card">
-                <div class="card-header">একবার চার্জে কতদিন চলে?</div>
-                <div class="card-body">এটি ফুল চার্জে দীর্ঘ সময় ব্যাকআপ দেয়।</div>
-            </div>
-            <div class="card">
-                <div class="card-header">পরিষ্কার করা কি ঝামেলার?</div>
-                <div class="card-body">না, এর পার্টসগুলো সহজেই খোলা ও ধোয়া যায়।</div>
-            </div>
-            </div>
-    </div>
-</section>
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="{{ asset('path/to/choplet-main.jpg') }}" class="img-fluid rounded" alt="Choplet">
-            </div>
-            <div class="col-md-6">
-                <span class="badge bg-warning text-dark">● নতুন লঞ্চ - প্রথম ১০০ পরিবার</span>
-                <h1 class="fw-bold mt-2">CHOPLET™ — কর্ডলেস ইলেকট্রিক চপার</h1>
-                <p class="lead">রোজ ১০ মিনিটের কাটাকুটি, চোখে পানি, হাতে জ্বলুনি — এবার সেটাই মাত্র ১০ সেকেন্ডে!</p>
-                
-                <div class="card p-3 my-3">
-                    <ul class="list-unstyled mb-0">
-                        <li>✓ ফ্রি ডেলিভারি - সারাদেশে</li>
-                        <li>✓ ৬ মাস রিপ্লেসমেন্ট ওয়ারেন্টি</li>
-                        <li>✓ ১০-সেকেন্ড চ্যালেঞ্জ — কাজ না করলে ফেরত, টাকা লাগবে না</li>
-                    </ul>
-                </div>
-                
-                <h2 class="text-danger fw-bold">৳৭৯০ <s class="text-muted fs-5">৳১৬৯০</s></h2>
-                <button class="btn btn-lg btn-danger w-100 rounded-pill mt-3">অর্ডার করুন — টাকা হাতে পেয়ে দেবেন →</button>
-                <button class="btn btn-outline-secondary w-100 rounded-pill mt-2">কল করে অর্ডার করুন: ০১৬৩৮-১৮৮৮৮৮</button>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 {{-- modal for process and cart --}}
 @section('subjs')
