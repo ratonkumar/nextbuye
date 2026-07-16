@@ -32,7 +32,10 @@
     
 @endsection
 <style>
-
+p {
+    color: #555555;
+    margin-bottom: 0px !important;
+}
  @media screen and (max-width: 600px) {
             iframe {
                 width: 100% !important;
@@ -347,11 +350,11 @@
         <div class="row align-items-center mb-5">
             <div class="col-md-6">
                 <img src="{{ asset($l['interactive_main_image'] ?? 'placeholder.jpg') }}" class="img-fluid" style="border-radius: 20px; width: 100%;    border-radius: 20px;
-    width: 83%;
-    height: 361px;
-    text-align: center;
-    display: block;
-    margin: 0px auto;" alt="Lifestyle">
+                    width: 83%;
+                    height: 361px;
+                    text-align: center;
+                    display: block;
+                    margin: 0px auto;" alt="Lifestyle">
             </div>
             <div class="col-md-6 p-4">
                 <span style="font-size: 40px; color: #ff5722; font-weight: bold;">“</span>
@@ -419,27 +422,63 @@
     .section-padding { padding: 60px 0; }
     .feature-card { border: 1px solid #eee; padding: 20px; border-radius: 15px; background: #fff; }
 </style>
-
-<section class="section-padding">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <img src="{{ asset('path/to/choplet.jpg') }}" class="img-fluid rounded-lg">
-            </div>
-            <div class="col-md-6">
-                <span class="badge bg-warning">● নতুন লঞ্চ</span>
-                <h1>CHOPLET™ — কর্ডলেস ইলেকট্রিক চপার</h1>
-                <p>রোজ ১০ মিনিটের কাটাকুটি, চোখে পানি, হাতে জ্বলুনি — এবার সেটাই মাত্র ১০ সেকেন্ডে!</p>
-                <div class="price-box">
-                    <h2 class="text-danger">৳৭৯০</h2>
-                    <p>নিয়মিত মূল্য <s>৳১৬৯০</s></p>
+<div class="container py-5">
+        <div class="row justify-content-center g-4 mb-5">
+            <div class="col-md-5">
+                <div class="card p-4 border-0 shadow-sm h-100">
+                    <h5 class="fw-bold">সস্তা চপার</h5>
+                    <p class="text-muted small">যেটা কিনে বেশিদিন চলবে না</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="text-secondary mb-2">❌ মোটর: RPM কম, লেখাই থাকে না</li>
+                        <li class="text-secondary mb-2">❌ ব্যাটারি: দুর্বল, অল্পদিনেই চার্জ ধরে না</li>
+                        <li class="text-secondary mb-2">❌ ব্লেড: ৫-২টা, অল্প দিনেই ভোঁতা</li>
+                        <li class="text-secondary mb-2">❌ নষ্ট হলে: ফোন ধরার কেউ নেই</li>
+                        <li class="text-secondary mb-2">❌ পেমেন্ট: আগে টাকা, পরে ভাগা</li>
+                    </ul>
                 </div>
-                <button class="btn btn-custom w-100">অর্ডার করুন — টাকা হাতে পেয়ে দেবেন →</button>
+            </div>
+            <div class="col-md-5">
+                <div class="card p-4 border-2 border-orange shadow h-100 position-relative">
+                    <span class="badge bg-orange position-absolute top-0 start-50 translate-middle">আপনি যা পাচ্ছেন</span>
+                    <h5 class="fw-bold text-orange">CHOPLET™</h5>
+                    <p class="text-muted small">প্রতিটা আসপেক্ট এক ধাপ এগিয়ে</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2">✅ মোটর: ১৭০০ RPM — আদা, বাদামও থেমে যায় না</li>
+                        <li class="mb-2">✅ ব্যাটারি: ৮০০mAh — USB-C — এক চার্জে বহুদিন</li>
+                        <li class="mb-2">✅ ব্লেড: ৩টা ধারালো স্টেইনলেস স্টিল ব্লেড</li>
+                        <li class="mb-2">✅ নষ্ট হলে: ৬ মাসের মধ্যে সমস্যা হলে নতুনটা পাঠাই</li>
+                        <li class="mb-2">✅ পেমেন্ট: হাতে পেয়ে, চালিয়ে দেখে, তারপর টাকা</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 bg-dark text-white p-5 rounded-4 text-center">
+                <p class="small text-uppercase mb-1">পুরনো নিয়মে যা খরচ হয়</p>
+                <h2 class="display-4 fw-bold text-orange mb-3">৳২৪,০০০+</h2>
+                <p class="text-secondary mb-5">প্রতি বছর — শুধু কুটাখুটির পেছনেই সময় আর রোজগার বেসাতো তো এর বাইরে।</p>
+                
+                <div class="row border-top border-secondary pt-4">
+                    <div class="col-4">
+                        <p class="text-secondary mb-0">বুয়া রাখলে</p>
+                        <h5 class="fw-bold">৳২,০০০+</h5>
+                        <small>প্রতি মাসে</small>
+                    </div>
+                    <div class="col-4 border-start border-secondary">
+                        <p class="text-secondary mb-0">নিজে করলে</p>
+                        <h5 class="fw-bold">৩০+ ঘণ্টা</h5>
+                        <small>বছরে — পুরো আড়াই দিন</small>
+                    </div>
+                    <div class="col-4 border-start border-secondary">
+                        <p class="text-secondary mb-0">রোজকার তেরদারি</p>
+                        <h5 class="fw-bold">প্রতিদিন</h5>
+                        <small>চোখ পানি, হাত জখম</small>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
-
 <section class="section-padding bg-light">
     <div class="container text-center">
         <h2 class="mb-5">এক নজরে Choplet</h2>
