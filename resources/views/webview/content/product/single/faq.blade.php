@@ -28,7 +28,7 @@
                 </summary>
                 
                 <p class="bn" style="font-size: 15.5px; line-height: 1.85; color: #6b645a; margin: 14px 0px 0px">
-                    {{ $item['answer'] }}
+                    {{ $faqContent['label'.$i] ?? '' }}
                 </p>
             </details>
             @endforeach
