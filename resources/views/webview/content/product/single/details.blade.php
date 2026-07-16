@@ -13,7 +13,9 @@
         <div class="col-md-6">
             <span class="badge" style="background:#fdebd0; color:#d35400;">● নতুন লঞ্চ - প্রথম ১০০ পরিবার</span>
             <h1 class="product-title">{{ $productdetails->ProductName }}</h1>
-            <p class="highlight-text">রোজ ১০ মিনিটের কাটাকুটি, চোখে পানি, হাতে জ্বলুনি — এবার সেটাই মাত্র ১০ সেকেন্ডে!</p>
+
+            {!! $productdetails->ProductDetails  !!}
+            {{-- <p class="highlight-text">রোজ ১০ মিনিটের কাটাকুটি, চোখে পানি, হাতে জ্বলুনি — এবার সেটাই মাত্র ১০ সেকেন্ডে!</p>
             
             <div class="offer-box">
                 <ul class="list-unstyled">
@@ -21,7 +23,7 @@
                     <li>✓ ৬ মাস রিপ্লেসমেন্ট ওয়ারেন্টি</li>
                     <li>✓ ১০-সেকেন্ড চ্যালেঞ্জ — কাজ না করলে ফেরত, টাকা লাগবে না</li>
                 </ul>
-            </div>
+            </div> --}}
 
          @php
             // নিয়মিত মূল্য এবং বিক্রয় মূল্যের পার্থক্য বের করা
