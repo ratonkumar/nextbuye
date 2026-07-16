@@ -23,7 +23,7 @@
                 {{ $index == 0 ? 'open' : '' }}> {{-- প্রথম আইটেমটি ডিফল্ট খোলা রাখার জন্য --}}
                 
                 <summary class="bh" style="font-weight: 600; font-size: 17.5px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;">
-                    {{ $item['question'] }}
+                    {{ $faqContent['val'.$i] ?? '' }}
                     <span class="clp-plus" style="color: #f0532b; font-size: 22px; flex-shrink: 0; transition: transform 0.2s">+</span>
                 </summary>
                 
