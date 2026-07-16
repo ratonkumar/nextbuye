@@ -744,16 +744,13 @@ p {
     </div>
 </section>
 
-
+@include('webview.content.product.single.middle_cart')
 @include('webview.content.product.single.gift_section')
 @include('webview.content.product.single.cart_future')
 @include('webview.content.product.single.faq')
 @include('webview.content.product.single.feedback')
 @include('webview.content.product.single.cra_cart')
-
 @include('webview.content.product.single.footer_cart')
-
-
 
 {{-- modal for process and cart --}}
 @section('subjs')
