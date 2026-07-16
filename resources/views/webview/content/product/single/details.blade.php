@@ -49,7 +49,9 @@
             <!-- Order Button -->
             <form action="{{url('add-to-cart')}}" method="POST" class="mt-3">
                 @csrf
+                
                 <input type="hidden" name="product_id" value="{{ $productdetails->id }}">
+                <input type="hidden" name="qty" value="1">
                 <button type="submit" class="order-btn">অর্ডার করুন — টাকা হাতে পেয়ে দেবেন →</button>
             </form>
 
