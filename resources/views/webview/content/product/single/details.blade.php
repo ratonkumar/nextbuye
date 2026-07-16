@@ -163,17 +163,36 @@
                         "
                     >
                   
-                    <input type="hidden" name="qty" value="1">
-                        <button
-                            style="width: 44px; height: 54px; border: none; background: transparent; font-size: 22px; cursor: pointer"
-                        >
-                            −</button
-                        ><span class="num" style="min-width: 30px; text-align: center; font-weight: 700; font-size: 17px">১</span
-                        ><button
-                            style="width: 44px; height: 54px; border: none; background: transparent; font-size: 20px; cursor: pointer"
-                        >
-                            +
-                        </button>
+                  <input type="hidden" name="qty" id="qtyInput" value="1">
+
+                <button type="button" onclick="changeQty(-1)" style="width: 44px; height: 54px; border: none; background: transparent; font-size: 22px; cursor: pointer;">−</button>
+
+                <span id="numDisplay" class="num" style="min-width: 30px; text-align: center; font-weight: 700; font-size: 17px">১</span>
+
+                <button type="button" onclick="changeQty(1)" style="width: 44px; height: 54px; border: none; background: transparent; font-size: 20px; cursor: pointer;">+</button>
+
+                <script>
+                function changeQty(val) {
+                    // ১. বর্তমান সংখ্যাটি নিন
+                    let display = document.getElementById('numDisplay');
+                    let hiddenInput = document.getElementById('qtyInput');
+                    
+                    // বাংলা সংখ্যাকে ইংরেজি সংখ্যায় রূপান্তরের জন্য ম্যাপ
+                    let banglaToEnglish = {'১': 1, '২': 2, '৩': 3, '৪': 4, '৫': 5, '৬': 6, '৭': 7, '৮': 8, '৯': 9, '০': 0};
+                    let englishToBangla = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+                    
+                    // ২. বর্তমান ভ্যালু ক্যালকুলেশন
+                    let currentVal = parseInt(hiddenInput.value);
+                    let newVal = currentVal + val;
+                    
+                    // ৩. সর্বনিম্ন ১ এর নিচে যেন না যায়
+                    if (newVal < 1) newVal = 1;
+                    
+                    // ৪. আপডেট করুন
+                    hiddenInput.value = newVal;
+                    display.innerText = newVal.toString().split('').map(digit => englishToBangla[digit]).join('');
+                }
+                </script>
                     </div>
                     <button
                         class="lift"
