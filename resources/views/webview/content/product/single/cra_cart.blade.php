@@ -1,12 +1,13 @@
 @php
     $orderCtaData = \App\Models\LandingPageSetting::where('section_key', 'order_cta_section')
-                        ->where('product_id', $productdetails->id)
-                        ->where('is_active', 1)
-                        ->first();
+    ->where('product_id', $productdetails->id)
+    ->where('is_active', 1)
+    ->first();
     
     // ডাটা ডিকোড করা
     $cta = $orderCtaData ? json_decode($orderCtaData->content, true) : [];
-@endphp@if($orderCtaData)
+@endphp
+@if($orderCtaData)
 <section style="max-width: 1100px; margin: 0px auto; padding: 80px 20px">
     <div class="reveal-s" style="background: rgb(255, 255, 255); border: 1px solid rgb(232, 224, 212); border-radius: 32px; overflow: hidden; display: flex; flex-wrap: wrap; align-items: stretch;">
         
@@ -24,11 +25,25 @@
                 {{ $cta['order_cta_subtitle'] ?? 'আপনার সাবটাইটেল এখানে...' }}
             </p>
 
+            @php
+                $regularPrice = intval($productdetails->ProductRegularPrice);
+                $salePrice = intval($productdetails->ProductSalePrice);
+                $savings = $regularPrice - $salePrice;
+            @endphp
+
             <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 22px; flex-wrap: wrap">
-                <span style="font-weight: 800; font-size: 38px">৳{{ $cta['new_price'] ?? '990' }}</span>
+                <span style="font-weight: 800; font-size: 38px">৳{{ $salePrice }}</span>
+                
                 <span style="font-weight: 500; font-size: 20px; color: rgb(154, 145, 131); text-decoration: line-through">
-                    ৳{{ $cta['old_price'] ?? '1,690' }}
+                    ৳{{ $regularPrice }}
                 </span>
+                
+                @if($savings > 0)
+                    <span style="font-size: 13px; background: #fff0e0; color: #f0532b; padding: 2px 8px; border-radius: 4px; font-weight: bold;">
+                        ৳{{ $savings }} সাশ্রয়
+                    </span>
+                @endif
+                
                 <span style="font-size: 13px; color: rgb(138, 130, 120)">ফ্রি ডেলিভারি · COD</span>
             </div>
 
