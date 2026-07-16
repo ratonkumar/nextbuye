@@ -51,6 +51,8 @@
                 'cart_middle_count', 
                 'cart_middle_text', 
                 'cart_middle_repeter', 
+                'cart_price_section', 
+                'cart_waranty_section', 
             ],
             'product_gift_cart_section' => [
                 'gift_top_title', 
@@ -116,7 +118,7 @@
                                 @if(in_array($field, ['problem_desc', 'card1_desc', 'card2_desc', 'card3_desc', 'card4_desc']))
                                     <textarea name="content[{{ $field }}]" class="form-control">{{ $content[$field] ?? '' }}</textarea>
                                     
-                                @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text', 'product_title', 'product_sub_title','interactive_bottom_feature','feedback_title','feedback_descraption','feedback_author']))
+                                @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text', 'product_title', 'product_sub_title','interactive_bottom_feature','feedback_title','feedback_descraption','feedback_author''cart_price_section', 'cart_waranty_section']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                 @elseif(in_array($field, ['features_left_image', 'product_main_image', 'interactive_main_image', 'order_cta_image', 'image_6', 'image_7']))
                                     <div class="mb-3">
@@ -153,7 +155,7 @@
                                                         <input type="text" name="content[{{ $field }}][{{$index}}][subtitle]" class="form-control" value="{{ $item['subtitle'] ?? '' }}" placeholder="Description">
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <textarea type="text" name="content[{{ $field }}][{{$index}}][icon]" class="form-control" value="{{ $item['icon'] ?? '' }}" placeholder="Icon Name herer">{{ $item['icon'] ?? '' }}</textarea>
+                                                        <input type="text" name="content[{{ $field }}][{{$index}}][icon]" class="form-control" value="{{ $item['icon'] ?? '' }}" placeholder="Icon Name herer">
                                                     </div>
                                                     <div class="col-md-1">
                                                         <button type="button" class="btn btn-danger remove-row">-</button>
