@@ -130,14 +130,14 @@
                                             
                                             @foreach($items as $index => $item)
                                                 <div class="row mb-2 feature-row">
-                                                    <div class="col-md-5">
+                                                    <div class="col-md-4">
                                                         <input type="text" name="content[{{ $field }}][{{$index}}][title]" class="form-control" value="{{ $item['title'] ?? '' }}" placeholder="Title">
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <input type="text" name="content[{{ $field }}][{{$index}}][subtitle]" class="form-control" value="{{ $item['subtitle'] ?? '' }}" placeholder="Description">
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <input type="text" name="content[{{ $field }}][{{$index}}][icon]" class="form-control" value="{{ $item['icon'] ?? '' }}" placeholder="Description">
+                                                    <div class="col-md-3">
+                                                        <input type="text" name="content[{{ $field }}][{{$index}}][icon]" class="form-control" value="{{ $item['icon'] ?? '' }}" placeholder="Icon Name herer">
                                                     </div>
                                                     <div class="col-md-1">
                                                         <button type="button" class="btn btn-danger remove-row">-</button>
@@ -204,9 +204,9 @@
         let index = container.find('.feature-row').length;
         let html = `
             <div class="row mb-2 feature-row">
-                <div class="col-md-5"><input type="text" name="content[${id}][${index}][title]" class="form-control" placeholder="Title"></div>
-                <div class="col-md-6"><input type="text" name="content[${id}][${index}][subtitle]" class="form-control" placeholder="Description"></div>
-                <div class="col-md-6"><input type="text" name="content[${id}][${index}][icon]" class="form-control" placeholder="Description"></div>
+                <div class="col-md-4"><input type="text" name="content[${id}][${index}][title]" class="form-control" placeholder="Title"></div>
+                <div class="col-md-4"><input type="text" name="content[${id}][${index}][subtitle]" class="form-control" placeholder="Description"></div>
+                <div class="col-md-3"><input type="text" name="content[${id}][${index}][icon]" class="form-control" placeholder="Icon Name here"></div>
                 <div class="col-md-1"><button type="button" class="btn btn-danger remove-row">-</button></div>
             </div>`;
         container.append(html);
