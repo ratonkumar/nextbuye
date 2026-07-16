@@ -351,7 +351,7 @@
             <div class="col-md-6 p-4">
                 <span style="font-size: 40px; color: #ff5722; font-weight: bold;">“</span>
                 <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 20px;">{{ $l['interactive_title'] ?? '' }}</h2>
-                <p style="color: #555; line-height: 1.6;">{{ $l['interactive_sub_title'] ?? '' }}</p>
+                <p style="color: #555; line-height: 1.6;">{{ $l['interactive_step_description'] ?? '' }}</p>
             </div>
         </div>
 
@@ -360,8 +360,8 @@
                 <i class="fa fa-shield-alt" style="color: #ff5722; font-size: 24px; margin-right: 15px;"></i>
                 <h4 class="mb-0">{{ $l['interactive_step_description'] ?? '' }}</h4>
             </div>
-            <p style="margin-bottom: 10px;">{!! $l['interactive_step_description'] ?? '' !!}</p>
             <p style="margin-bottom: 10px;">{!! $l['interactive_features_steps'] ?? '' !!}</p>
+            <p style="margin-bottom: 10px;">{!! $l['interactive_bottom_feature'] ?? '' !!}</p>
             <p style="font-weight: bold; color: #ff5722;">{{ $l['payment_note'] ?? '' }}</p>
         </div>
     </div>
