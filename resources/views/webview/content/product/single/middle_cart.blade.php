@@ -77,18 +77,8 @@
         <div style="height: 5px; background: linear-gradient(90deg, rgb(240, 83, 43), rgb(178, 58, 24))"></div>
         <div style="padding: 34px 26px">
             <div style="text-align: center; margin-bottom: 26px">
-                <div class="bn" style="font-size: 14.5px; color: rgb(107, 100, 90); margin-bottom: 6px">
-                    সব ঝামেলার একটাই সমাধান
-                </div>
-                <div class="bh" style="font-weight: 800; font-size: 24px; line-height: 1.25">
-                    CHOPLET™ — একবার কিনলেই শেষ
-                </div>
-                <div style="display: flex; align-items: baseline; justify-content: center; gap: 12px; margin-top: 8px">
-                    <span class="num" style="font-weight: 800; font-size: 46px; letter-spacing: -1.5px">৳990</span
-                    ><span class="num" style="font-size: 20px; color: rgb(154, 145, 131); text-decoration: line-through"
-                        >৳1,690</span
-                    >
-                </div>
+                {!! $cartContent['cart_price_section'] ?? '' !!}
+               
             </div>
             <div
                 style="
@@ -99,35 +89,8 @@
                     margin-bottom: 26px;
                 "
             >
-                <div class="bn" style="font-size: 13.5px; color: rgb(184, 175, 159); margin-bottom: 6px">
-                    ৬ মাসের ওয়ারেন্টি হিসাবে দাঁড়ায়
-                </div>
-                <div style="display: flex; align-items: baseline; justify-content: center; gap: 9px">
-                    <span
-                        class="bnum pop4"
-                        style="
-                            font-weight: 800;
-                            font-size: 62px;
-                            line-height: 1;
-                            color: rgb(240, 83, 43);
-                            letter-spacing: -2px;
-                        "
-                        >৳৫.৫০</span
-                    ><span class="bn" style="font-size: 18px; color: rgb(250, 246, 240); font-weight: 600">/ দিন</span>
-                </div>
-                <p
-                    class="bn"
-                    style="
-                        font-size: 14.5px;
-                        line-height: 1.75;
-                        color: rgb(217, 209, 194);
-                        margin: 13px auto 0px;
-                        max-width: 430px;
-                    "
-                >
-                    <span class="bnum">৳৯৯০ ÷ ১৮০ দিন</span> — এক কাপ চায়ের চেয়েও কম। আর ৬ মাস পেরোলে? যতদিন চলবে,
-                    প্রতিটা দিন একদম ফ্রি।
-                </p>
+                {!! $cartContent['cart_waranty_section'] ?? '' !!}
+                
             </div>
             <div
                 style="border: 1px solid rgb(232, 224, 212); border-radius: 18px; overflow: hidden; margin-bottom: 16px"
