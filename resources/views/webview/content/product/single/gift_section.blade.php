@@ -1,15 +1,5 @@
-@php
-    // ডাটাবেজ থেকে ডাটা নিয়ে আসা
-    $giftData = \App\Models\LandingPageSetting::where('section_key', 'product_gift_cart_section')
-        ->where('product_id', $productdetails->id)
-        ->where('is_active', 1)
-        ->first();
-    
-    // ডাটা ডিকোড করা
-    $giftContent = $giftData ? json_decode($giftData->content, true) : null;
-@endphp
 
-@if($giftContent)
+
 <section style="max-width: 820px; margin: 0px auto; padding: 80px 20px">
     <div class="reveal" style="text-align: center; margin-bottom: 30px">
         <span
@@ -776,6 +766,21 @@
             </div>
         </div>
     </div>
+</section>
+
+@php
+    // ডাটাবেজ থেকে ডাটা নিয়ে আসা
+    $giftData = \App\Models\LandingPageSetting::where('section_key', 'product_gift_cart_section')
+        ->where('product_id', $productdetails->id)
+        ->where('is_active', 1)
+        ->first();
+    
+    // ডাটা ডিকোড করা
+    $giftContent = $giftData ? json_decode($giftData->content, true) : null;
+@endphp
+
+@if($giftContent)
+<section style="max-width: 820px; margin: 0px auto; padding: 80px 20px">
     <div
         class="reveal-s"
         style="
