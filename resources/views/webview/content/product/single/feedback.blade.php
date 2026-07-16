@@ -15,7 +15,7 @@
         {!! $feedback['feedback_title'] ?? 'আমাদের সম্পর্কে গ্রাহকদের মতামত' !!}
         {!! $feedback['feedback_subtitle'] ?? 'যাঁরা আমাদের ওপর আস্থা রেখেছেন' !!}
 
-        <div style=" padding: 40px; border-radius: 24px;box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+        <div style=" padding: 20px; border-radius: 24px;box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
             "{!! $feedback['feedback_descraption'] ?? 'এখানে গ্রাহকের মন্তব্যটি প্রদর্শিত হবে...' !!}"
             
             <div style="font-weight: 700; font-size: 16px; color: rgb(240, 83, 43);">
