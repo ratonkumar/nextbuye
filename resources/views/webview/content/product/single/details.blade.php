@@ -30,13 +30,29 @@
             $savings = $regularPrice - $salePrice;
         @endphp
 
-        <div class="d-flex align-items-center mt-3">
-            <span class="mr-3">নিয়মিত মূল্য <s>৳{{ $regularPrice }}</s></span>
-            
-            @if($savings > 0)
-                <span class="discount-badge">৳{{ $savings }} সাশ্রয়</span>
-            @endif
+        <div style="margin-bottom: 12px">
+            <div class="bn" style="font-size: 13px; color: #8a8278; margin-bottom: 3px">
+                নিয়মিত মূল্য <span class="num" style="text-decoration: line-through">৳{{ $regularPrice}}</span>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap">
+                <span class="bn" style="font-size: 13.5px; font-weight: 600; color: #b23a18">আজকের অফার</span
+                ><span class="num" style="font-weight: 800; font-size: 50px; line-height: 0.95; letter-spacing: -1px">৳{{ $salePrice}}</span
+                ><span
+                    class="bn"
+                    style="
+                        background: #f0532b;
+                        color: #fff;
+                        font-weight: 700;
+                        font-size: 13px;
+                        padding: 6px 12px;
+                        border-radius: 20px;
+                    "
+                    >৳ {{ $savings}}
+                    সাশ্রয়</span
+                >
+            </div>
         </div>
+
 
         <div class="price-box">৳{{ $salePrice }}</div>
 
