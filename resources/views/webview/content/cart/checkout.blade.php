@@ -45,7 +45,7 @@
                     <div class="col-md-6">
                         <aside class="card mb-4">
                             <article class="card-body">
-                                <h2 class="font-display font-bold text-[20px] mb-5">Delivery details</h2>
+                                <h2 class="delivery-details">Delivery details</h2>
                                 <form action="{{ url('press/order') }}" method="POST"  class="from-prevent-multiple-submits" id="orderForm">
                                     @csrf
                                     <div class="row">
@@ -80,7 +80,7 @@
                                         </div>
                                        
                                       <div class="form-group col-sm-12">
-                                        <label>অর্ডার সম্পর্কে নোট</label>
+                                        <label>Email (optional)</label>
                                         <textarea id="customerNotes" name="customerNotes" 
                                                   class="form-control" rows="1" 
                                                   placeholder="অর্ডার বা প্রোডাক্ট সম্পর্কে কোনো নোট">@if(Auth::id()){{-- যদি আগে থেকে কোনো নোট দেখাতে চান --}}@endif</textarea>
