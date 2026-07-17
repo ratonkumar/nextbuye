@@ -1,6 +1,17 @@
 .main-body {
     background-color: #f3f3f3;
 }
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&display=swap');
+
+:root {
+    /* আপনার ভেরিয়েবলটি এভাবে সেট করুন */
+    --font-hanken: 'Hanken Grotesk', sans-serif;
+}
+
+body,p,h1,h2,h3,h4,h5,h6,div,table,span, {
+    font-family: var(--font-hanken);
+}
 .quantity-container.info-container.text-center.py-3 {
     overflow: hidden;
     float: left;
