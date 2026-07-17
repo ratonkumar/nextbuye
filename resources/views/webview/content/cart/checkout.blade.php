@@ -180,13 +180,22 @@
                                 <button class="btn btn-secondary px-4">Apply</button>
                             </div>
 
-                            <!-- Price Breakdown -->
-                            <div class="d-flex justify-content-between mb-2"><span>Subtotal</span> <strong>৳{{ Cart::subtotalFloat() }}</strong></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Delivery</span> <strong>৳<span id="dinamicdalivery">0</span></strong></div>
+                            <!-- Subtotal -->
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal</span> 
+                                <strong>৳<span id="subtotalprice">{{ Cart::subtotalFloat() }}</span></strong>
+                            </div>
 
+                            <!-- Delivery -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Delivery</span> 
+                                <strong>৳<span id="dinamicdalivery">0</span></strong>
+                            </div>
+
+                            <!-- Total -->
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <h4 class="fw-bold">Total</h4>
-                                <h4 class="fw-bold text-danger">৳<span id="totalamount"></span></h4>
+                                <h4 class="fw-bold text-danger">৳<span id="totalamount">0</span></h4>
                             </div>
 
                             <!-- Place Order Button -->
@@ -215,18 +224,30 @@
 
 <script>
 function calculateTotals() {
-    let subtotal = parseFloat($('#subtotalprice').text()); // আপনার সাবটোটাল ফিল্ড
-    let delivery = parseFloat($('#dinamicdalivery').text());
+    // সাবটোটাল টেক্সট থেকে নাম্বার বের করা
+    let subtotalText = $('#subtotalprice').text().trim();
+    let subtotal = parseFloat(subtotalText.replace(/[^0-9.]/g, '')) || 0;
+
+    // ডেলিভারি চার্জ থেকে নাম্বার বের করা
+    let deliveryText = $('#dinamicdalivery').text().trim();
+    let delivery = parseFloat(deliveryText.replace(/[^0-9.]/g, '')) || 0;
+
+    // টোটাল হিসাব
     let total = subtotal + delivery;
-    
+
+    // আপডেট করা
     $('#totalamount').text(total);
     $('#btnTotal').text(total);
 }
 
-// পেজ লোড হওয়ার পর ক্যালকুলেট করুন
+// পেজ লোড হওয়ার পর কল হবে
 $(document).ready(function() {
     calculateTotals();
 });
+
+// যখনই কোয়ান্টিটি বা ডেলিভারি পরিবর্তন হবে, তখন আবার এই ফাংশনটি কল করবেন
+// উদাহরণস্বরূপ:
+// function updateQuantity(...) { ... calculateTotals(); }
 </script>
     <style>
         /*.spinner {*/
