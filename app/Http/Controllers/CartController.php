@@ -11,49 +11,40 @@ use Session;
 
 class CartController extends Controller
 {
-    public function addtocart(Request $request){ 
+    public function addtocart(Request $request) 
+    { 
+        $cartProduct = Product::where('id', $request->product_id)->first();
         
-        $pid = $request->product_id;
-        $cartProduct = Product::where('id',$pid)->first();
-        
-        if(!empty($request->weight)) {
-           Cart::add([
-                'id' => $request->product_id,
-                'name' => $cartProduct->ProductName,
-                'code' => $cartProduct->ProductSku,
-                'price' =>  $request->sale_price,
-                'qty' => $request->qty,
-                'weight' =>1,
-                'image' => $cartProduct->ProductImage,
-                'options' => [
-                    'size' => $request->size,
-                    'color' => $request->color,
-                    'salePrice' => $request->sale_price,
-                    'regularPrice' => $request->rg_price,
-                     'get_weight' => $request->weight,
-                ],
-    
-            ]); 
-        } else {
-            Cart::add([
-            'id' => $request->product_id,
-            'name' => $cartProduct->ProductName,
-            'code' => $cartProduct->ProductSku,
-            'price' => $cartProduct->ProductSalePrice,
-            'qty' => $request->qty,
-            'weight' =>1,
-            'image' => $cartProduct->ProductImage,
-            'options' => [
-                'size' => $request->size,
-                'color' => $request->color,
-                'salePrice' => $request->sale_price,
-                'regularPrice' => $request->rg_price,
-                 'get_weight' => $request->weight,
-            ],
-
-        ]);
-            
+        if (!$cartProduct) {
+            return response()->json('error', 404);
         }
+
+        // 1. Clear existing cart items for "Buy Now" functionality
+        Cart::destroy(); 
+
+        // 2. Determine price dynamically
+        $price = !empty($request->weight) ? $request->sale_price : $cartProduct->ProductSalePrice;
+
+        // 3. Add to cart
+        Cart::add([
+            'id'       => $request->product_id,
+            'name'     => $cartProduct->ProductName,
+            'code'     => $cartProduct->ProductSku,
+            'price'    => $price,
+            'qty'      => $request->qty,
+            'weight'   => 1,
+            'image'    => $cartProduct->ProductImage,
+            'options'  => [
+                'size'         => $request->size,
+                'color'        => $request->color,
+                'salePrice'    => $request->sale_price,
+                'regularPrice' => $request->rg_price,
+                'get_weight'   => $request->weight,
+            ],
+        ]); 
+
+        return response()->json('success', 200);
+    }
         
         return response()->json('success', 200);
         // return redirect('checkout');
