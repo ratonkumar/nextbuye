@@ -146,23 +146,15 @@
 
 
                                     </div>
+                                 
                                     <div class="row">
                                         <div class="col-12 text-center">
-                                            <button type="submit" id="orderConfirm"
-                                                    class="btn btn-lg btn-styled from-prevent-multiple-submits btn-base-1 btn-block btn-icon-left strong-500 hov-bounce hov-shaddow buy-now"
-                                                    style="background:green;border:1px solid green; color:white;font-size:30px; width: 100% !important;">
-                                                <i class="spinner fa fa-spinner fa-spin"></i> অর্ডার কনফার্ম করুন
+                                            <button id="sslczPayBtn"  class="btn btn-lg btn-styled from-prevent-multiple-submits btn-base-1 btn-block btn-icon-left strong-500 hov-bounce hov-shaddow buy-now"
+                                                    token="if you have any token validation" style="display: none; background:green;color:white;font-size:30px; width: 100% ;height: 60px !important;"
+                                                    postdata=""
+                                                    order="If you already have the transaction generated for current order"
+                                                    endpoint="{{url('/pay-via-ajax')}}"> Pay Now
                                             </button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 text-center">
-                                    <button id="sslczPayBtn"  class="btn btn-lg btn-styled from-prevent-multiple-submits btn-base-1 btn-block btn-icon-left strong-500 hov-bounce hov-shaddow buy-now"
-                                            token="if you have any token validation" style="display: none; background:green;color:white;font-size:30px; width: 100% ;height: 60px !important;"
-                                            postdata=""
-                                            order="If you already have the transaction generated for current order"
-                                            endpoint="{{url('/pay-via-ajax')}}"> Pay Now
-                                    </button>
                                         </div>
                                     </div>
                                 </form>
@@ -273,7 +265,15 @@
                                     </dd>
                                 </dl>
                             </article>
-
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button type="submit" id="orderConfirm"
+                                            class="btn btn-lg btn-styled from-prevent-multiple-submits btn-base-1 btn-block btn-icon-left strong-500 hov-bounce hov-shaddow buy-now"
+                                            style="background:green;border:1px solid green; color:white;font-size:30px; width: 100% !important;">
+                                        <i class="spinner fa fa-spinner fa-spin"></i> অর্ডার কনফার্ম করুন
+                                    </button>
+                                </div>
+                            </div>
                         </aside>
                     </div>
 
