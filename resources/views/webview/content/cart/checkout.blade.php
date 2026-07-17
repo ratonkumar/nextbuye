@@ -39,6 +39,8 @@
                 <h1 class="fw-bold mb-2">Checkout</h1>
                 <p class="text-muted">No account needed — just your delivery details. Pay cash when it arrives.</p>
         </div>
+        <form action="{{ url('press/order') }}" method="POST"  class="from-prevent-multiple-submits" id="orderForm">
+            @csrf
         <section class="section-content padding-y bg slidetop">
             <div class="container p-0">
                 <div class="row">
@@ -46,8 +48,7 @@
                         <aside class="card mb-4">
                             <article class="card-body">
                                 <h2 class="delivery-details" style="font-size: 25px; font-weight: bold; margin-bottom: 10px !important;">Delivery details</h2>
-                                <form action="{{ url('press/order') }}" method="POST"  class="from-prevent-multiple-submits" id="orderForm">
-                                    @csrf
+                              
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <label>Full name</label>
@@ -145,7 +146,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                </form>
+                       
                             </article> <!-- card-body.// -->
                         </aside>
                     </div>
@@ -231,6 +232,7 @@
                 </div>
             </div>
         </section>
+    </form>
     @endif
 
 
