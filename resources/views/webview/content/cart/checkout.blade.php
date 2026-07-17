@@ -200,6 +200,7 @@
                                 <span>Delivery</span> 
                                 <strong>৳<span id="dinamicdalivery">0</span></strong>
                             </div>
+                            <hr>
 
                             <!-- Total -->
                             <div class="d-flex justify-content-between align-items-center mb-4">
