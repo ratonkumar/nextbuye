@@ -150,7 +150,7 @@ class OrderController extends Controller
             $order->user_id        = $request->user_id;
             $order->store_id       = 1;
             $order->invoiceID      = $this->uniqueID();
-            $order->subTotal       = $request->subTotal;
+            $order->subTotal       = $request->subTotal ?? 0;
             $order->deliveryCharge = $request->deliveryCharge;
             $order->orderDate      = date('Y-m-d');
             $order->customerNote   = $request->customerNotes;
