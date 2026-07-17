@@ -155,27 +155,27 @@
 
                             <!-- Cart Items -->
                             @foreach ($cartProducts as $cartProduct)
-                                <div class="d-flex align-items-center mb-3 p-3 border rounded shadow-sm">
+                                <div class="d-flex align-items-center mb-3">
                                     <!-- Image -->
-                                    <img src="{{ asset($cartProduct->image) }}" class="rounded" style="width: 70px; height: 70px; object-fit: cover;">
+                                    <img src="{{ asset($cartProduct->image) }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
                                     
                                     <div class="ms-3 flex-grow-1">
-                                        <div class="fw-bold text-truncate" style="max-width: 200px;">{{ $cartProduct->name }}</div>
+                                        <div class="fw-bold">{{ $cartProduct->name }}</div>
                                         
                                         <div class="d-flex align-items-center mt-2">
                                             <!-- Quantity Control -->
-                                            <div class="input-group" style="width: 120px;">
-                                                <button class="btn btn-outline-secondary btn-sm" type="button" onclick="remnum('{{$cartProduct->rowId}}')">-</button>
-                                                <input type="text" class="form-control form-control-sm text-center" value="{{ $cartProduct->qty }}" readonly style="background-color: #f8f9fa;">
-                                                <button class="btn btn-outline-secondary btn-sm" type="button" onclick="updatenum('{{$cartProduct->rowId}}')">+</button>
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="remnum('{{$cartProduct->rowId}}')">-</button>
+                                                <input type="text" id="qty_{{$cartProduct->rowId}}" class="form-control form-control-sm text-center" style="width: 40px;" value="{{ $cartProduct->qty }}" readonly>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="updatenum('{{$cartProduct->rowId}}')">+</button>
                                             </div>
                                             
                                             <a href="javascript:void(0)" onclick="removeFromCart('{{ $cartProduct->rowId }}')" class="ms-3 text-muted text-decoration-none small">Remove</a>
                                         </div>
                                     </div>
 
-                                    <!-- Price Section -->
-                                    <div class="fw-bold ms-3 fs-5">৳{{ $cartProduct->qty * $cartProduct->price }}</div>
+                                    <!-- Price -->
+                                    <div class="fw-bold ms-3">৳<span id="price_{{$cartProduct->rowId}}">{{ $cartProduct->qty * $cartProduct->price }}</span></div>
                                 </div>
                             @endforeach
 
@@ -212,6 +212,31 @@
     .rounded-4 { border-radius: 1.5rem !important; }
     .btn-danger { background-color: #f0532b !important; border: none; }
  </style>
+ <script>
+function updatenum(rowId) {
+    let qtyInput = $('#qty_' + rowId);
+    let currentQty = parseInt(qtyInput.val());
+    let newQty = currentQty + 1;
+    qtyInput.val(newQty);
+    
+    // আপনার এখানে Ajax কল হবে ডাটাবেজ আপডেট করার জন্য
+    // এরপর UI আপডেট করুন:
+    let pricePerUnit = parseFloat($('#price_' + rowId).text()) / currentQty;
+    $('#price_' + rowId).text(newQty * pricePerUnit);
+}
+
+function remnum(rowId) {
+    let qtyInput = $('#qty_' + rowId);
+    let currentQty = parseInt(qtyInput.val());
+    if (currentQty > 1) {
+        let newQty = currentQty - 1;
+        qtyInput.val(newQty);
+        
+        let pricePerUnit = parseFloat($('#price_' + rowId).text()) / currentQty;
+        $('#price_' + rowId).text(newQty * pricePerUnit);
+    }
+}
+</script>
 <script>
 function calculateTotals() {
     // সাবটোটাল টেক্সট থেকে নাম্বার বের করা
