@@ -255,7 +255,12 @@
                                 <div class="col-12 text-center">
                                     <button type="submit" id="orderConfirm"
                                             class="btn btn-lg btn-styled from-prevent-multiple-submits btn-base-1 btn-block btn-icon-left strong-500 hov-bounce hov-shaddow buy-now"
-                                            style="background:green;border:1px solid green; color:white;font-size:30px; width: 100% !important;">
+                                            style="border: 0px solid green;
+                                                color: white;
+                                                font-size: 20px;
+                                                width: 61% !important;
+                                                padding: 16px 27px;
+                                                background: #f0532b;">
                                         <i class="spinner fa fa-spinner fa-spin"></i> অর্ডার কনফার্ম করুন
                                     </button>
                                 </div>
