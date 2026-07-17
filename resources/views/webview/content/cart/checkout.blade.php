@@ -45,7 +45,7 @@
                     <div class="col-md-6">
                         <aside class="card mb-4">
                             <article class="card-body">
-                                <h2 class="delivery-details">Delivery details</h2>
+                                <h2 class="delivery-details" style="font-size: 25px; font-weight: bold; margin-bottom: 10px !important;">Delivery details</h2>
                                 <form action="{{ url('press/order') }}" method="POST"  class="from-prevent-multiple-submits" id="orderForm">
                                     @csrf
                                     <div class="row">
