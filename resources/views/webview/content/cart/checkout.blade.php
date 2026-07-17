@@ -132,6 +132,34 @@
                                             </ul>
                                         </div>
 
+                                        <h4 class="fw-bold mb-3">Payment</h4>
+                                            <!-- Cash on Delivery -->
+                                            <label class="d-flex align-items-center p-3 mb-3 border rounded-4" 
+                                                style="border: 2px solid #fd7e14; background-color: #fff0e6; cursor: pointer;">
+                                                <input type="radio" name="payment" checked class="me-3" style="width: 20px; height: 20px; accent-color: #fd7e14;">
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-bold">Cash on Delivery</div>
+                                                    <div class="text-muted small">Pay when your order arrives</div>
+                                                </div>
+                                                <i class="fas fa-money-bill-wave text-danger"></i>
+                                            </label>
+
+                                            <!-- bKash/Nagad -->
+                                            <label class="d-flex align-items-center p-3 border rounded-4 bg-light" style="opacity: 0.6; cursor: not-allowed;">
+                                                <input type="radio" name="payment" disabled class="me-3" style="width: 20px; height: 20px;">
+                                                <div class="flex-grow-1">
+                                                    <div class="fw-bold text-muted">
+                                                        bKash / Nagad 
+                                                        <span class="badge bg-secondary ms-2 small" style="font-size: 10px;">UNAVAILABLE NOW</span>
+                                                    </div>
+                                                    <div class="text-muted small">Online payment coming soon</div>
+                                                </div>
+                                                <div class="d-flex gap-1">
+                                                    <span class="badge bg-secondary">bKash</span>
+                                                    <span class="badge bg-secondary">Nagad</span>
+                                                </div>
+                                            </label>
+
 
                                     </div>
                                  
