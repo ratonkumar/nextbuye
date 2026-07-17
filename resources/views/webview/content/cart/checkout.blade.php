@@ -150,130 +150,84 @@
                         </aside>
                     </div>
                     <div class="col-md-6 orderDetails">
-                        <aside class="card">
-                            <article class="card-body">
-                                <header class="mb-4">
-                                    <h4 class="card-title" style="font-size: 16px;">আপনার অর্ডার</h4>
-                                </header>
-                                <div class="row">
-                                    <table class="table border-bottom">
-                                        @forelse ($cartProducts as $cartProduct)
-                                            <tr class="cart-item" id="productcart{{ $cartProduct->rowId }}">
-                                                <td class="product-image" id="proImgDiv">
-                                                    <a href="#" class="mr-3">
-                                                        <img class=" ls-is-cached lazyloaded"
-                                                             src="{{ asset($cartProduct->image) }}" id="proImg">
-                                                    </a>
-                                                </td>
+                        <div class="card shadow-sm border-0 rounded-4 p-4">
+                            <h4 class="fw-bold mb-4">Your order</h4>
 
-                                                <td class="product-total" style="width: 80px;" hidden>
-                                                    <span>৳ <span id="pricetotal{{ $cartProduct->rowId }}"
-                                                                  class="price">{{ $cartProduct->qty * $cartProduct->price }}</span></span>
-                                                </td>
-
-                                                <td class="product-name">
-                                                    <span class="pr-4 d-block w-100"
-                                                          id="proName">{{ $cartProduct->name }}</span>
-                                                    <div class="ext w-100">
-                                                        <div class="price">
-                                                            <span class="pr-3 d-block" id="proPrice">৳
-                                                                {{ $cartProduct->price }}</span>
-                                                        </div>
-                                                        <div class="qtyinfo">
-                                                            <div class="input-group input-group--style-2 pr-4"
-                                                                 style="width: 130px;float:left">
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn btn-number"
-                                                                            onclick="remnum('{{$cartProduct->rowId}}')"
-                                                                            id="remqty" type="button">
-                                                                        <i class="fas fa-minus"></i>
-                                                                    </button>
-                                                                </span>
-                                                                <input type="text"
-                                                                       name="quantity[{{ $cartProduct->id }}]"
-                                                                       id="QuantityPeo{{ $cartProduct->rowId }}"
-                                                                       class="form-control input-number" placeholder="1"
-                                                                       value="{{ $cartProduct->qty }}" min="1" max="10"
-                                                                       onchange="updateQuantity('{{ $cartProduct->rowId }}', this)">
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn btn-number"
-                                                                            onclick="updatenum('{{$cartProduct->rowId}}')"
-                                                                            id="äddqty" type="button">
-                                                                        <i class="fas fa-plus"></i>
-                                                                    </button>
-                                                                </span>
-                                                            </div>
-                                                            <a type="button" id="proDelCart"
-                                                               style="width: 30px;font-size: 18px;"
-                                                               onclick="removeFromCart('{{ $cartProduct->rowId }}')"
-                                                               class="text-right pl-4">
-                                                                <i class="fas fa-trash"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <input type="text" name="productP" id="priceOf{{ $cartProduct->rowId }}"
-                                                       value="{{ $cartProduct->price }}" hidden>
-
-                                            </tr>
-                                        @empty
-                                        @endforelse
-                                    </table>
+                            <!-- Cart Items -->
+                            @foreach ($cartProducts as $cartProduct)
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="{{ asset($cartProduct->image) }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div class="ms-3 flex-grow-1">
+                                        <div class="fw-bold text-truncate" style="max-width: 200px;">{{ $cartProduct->name }}</div>
+                                        <div class="d-flex align-items-center mt-1">
+                                            <div class="input-group input-group-sm" style="width: 100px;">
+                                                <button class="btn btn-outline-secondary" type="button" onclick="remnum('{{$cartProduct->rowId}}')">-</button>
+                                                <input type="text" class="form-control text-center" value="{{ $cartProduct->qty }}" readonly>
+                                                <button class="btn btn-outline-secondary" type="button" onclick="updatenum('{{$cartProduct->rowId}}')">+</button>
+                                            </div>
+                                            <a href="javascript:void(0)" onclick="removeFromCart('{{ $cartProduct->rowId }}')" class="ms-3 text-muted text-decoration-none small">Remove</a>
+                                        </div>
+                                    </div>
+                                    <div class="fw-bold">৳{{ $cartProduct->qty * $cartProduct->price }}</div>
                                 </div>
-                            </article>
+                            @endforeach
 
-                            <input type="text" name="size" value="{{ $cartProduct->options->size }}" hidden>
-                            <input type="text" name="color" value="{{ $cartProduct->options->color }}" hidden>
-                            <article class="card-body border-top">
-                                <dl class="row mb-0">
-                                    <!-- Subtotal -->
-                                    <dt class="col-7 col-sm-8">Subtotal:</dt>
-                                    <dd class="col-5 col-sm-4 text-end text-right">
-                                        <strong>৳ <span id="subtotalprice">{{ Cart::subtotalFloat() }}</span></strong>
-                                    </dd>
+                            <hr>
 
-                                    <!-- Delivery Charge -->
-                                    <dt class="col-7 col-sm-8">Delivery charge:</dt>
-                                    <dd class="col-5 col-sm-4 text-danger text-end text-right">
-                                        <strong>৳ 
-                                            @if (isset($product->inside_dhaka))
-                                                <span id="dinamicdalivery">{{ $product->inside_dhaka }}</span>
-                                            @else
-                                                <span id="dinamicdalivery">{{ App\Models\Basicinfo::first()->inside_dhaka_charge }}</span>
-                                            @endif
-                                        </strong>
-                                    </dd>
-
-                                    <!-- Total -->
-                                    <dt class="col-7 col-sm-8">Total:</dt>
-                                    <dd class="col-5 col-sm-4 text-end text-right">
-                                        <strong class="h5 text-dark">৳ <span id="totalamount"></span></strong>
-                                    </dd>
-                                </dl>
-                            </article>
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    <button type="submit" id="orderConfirm"
-                                            class="btn btn-lg btn-styled from-prevent-multiple-submits btn-base-1 btn-block btn-icon-left strong-500 hov-bounce hov-shaddow buy-now"
-                                            style="border: 0px solid green;
-                                                color: white;
-                                                font-size: 20px;
-                                                width: 61% !important;
-                                                padding: 16px 27px;
-                                                background: #f0532b;">
-                                        <i class="spinner fa fa-spinner fa-spin"></i> অর্ডার কনফার্ম করুন
-                                    </button>
-                                </div>
+                            <!-- Coupon Section -->
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="COUPON CODE">
+                                <button class="btn btn-secondary px-4">Apply</button>
                             </div>
-                        </aside>
+
+                            <!-- Price Breakdown -->
+                            <div class="d-flex justify-content-between mb-2"><span>Subtotal</span> <strong>৳{{ Cart::subtotalFloat() }}</strong></div>
+                            <div class="d-flex justify-content-between mb-3"><span>Delivery</span> <strong>৳<span id="dinamicdalivery">0</span></strong></div>
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h4 class="fw-bold">Total</h4>
+                                <h4 class="fw-bold text-danger">৳<span id="totalamount"></span></h4>
+                            </div>
+
+                            <!-- Place Order Button -->
+                            <button type="submit" id="orderConfirm" class="btn btn-danger w-100 py-3 fw-bold fs-5">
+                                Place Order · ৳<span id="btnTotal">0</span>
+                            </button>
+
+                            <!-- Features List -->
+                            <ul class="list-unstyled mt-4 text-muted small">
+                                <li><i class="fas fa-check me-2"></i> No advance payment required</li>
+                                <li><i class="fas fa-check me-2"></i> 7-day easy returns</li>
+                                <li><i class="fas fa-check me-2"></i> We call to confirm every order</li>
+                            </ul>
+                        </div>
                     </div>
+
+                    <style>
+                        .rounded-4 { border-radius: 1.5rem !important; }
+                        .btn-danger { background-color: #f0532b !important; border: none; }
+                    </style>
 
                 </div>
             </div>
         </section>
     @endif
 
+<script>
+function calculateTotals() {
+    let subtotal = parseFloat($('#subtotalprice').text()); // আপনার সাবটোটাল ফিল্ড
+    let delivery = parseFloat($('#dinamicdalivery').text());
+    let total = subtotal + delivery;
+    
+    $('#totalamount').text(total);
+    $('#btnTotal').text(total);
+}
 
+// পেজ লোড হওয়ার পর ক্যালকুলেট করুন
+$(document).ready(function() {
+    calculateTotals();
+});
+</script>
     <style>
         /*.spinner {*/
         /*    display: none;*/
