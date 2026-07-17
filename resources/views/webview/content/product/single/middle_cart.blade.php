@@ -200,14 +200,14 @@
                         <path d="m9 12 2 2 4-4"></path></svg>
                     </span>
                 <div class="bn" style="font-size: 13.5px; line-height: 1.55; color: rgb(58, 53, 46)">
-                    লঞ্চের <b style="color: rgb(178, 58, 24)">প্রথম ১০০ পরিবারের</b> একজন হয়ে যান — শুধু তাঁরাই পাচ্ছেন
-                    পরের অর্ডারে <b style="color: rgb(178, 58, 24)">২০% ছাড়</b>।
+                     {{ $orderContent['offer_text'] ?? '' }}
+                   
                 </div>
             </div>
             @php
                 // ডেট টাইম ফরম্যাট: YYYY-MM-DD HH:MM:SS
-                $expiryDate = "2026-07-17 23:59:59"; 
-                $originalPrice = "৳1,690";
+                $expiryDate = $orderContent['offer_date']; 
+                $originalPrice = intval($productdetails->ProductRegularPrice);
             @endphp
 
             <div id="countdown-section" style="background: rgb(251, 246, 239); border: 1px solid rgb(232, 224, 212); border-radius: 16px; padding: 16px 16px 14px; margin-bottom: 18px;">
