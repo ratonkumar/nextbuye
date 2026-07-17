@@ -55,8 +55,8 @@ class CartController extends Controller
             
         }
         
-        
-        return redirect('checkout');
+        return response()->json('success', 200);
+        // return redirect('checkout');
         // return response()->json('success',200);
     }
 
