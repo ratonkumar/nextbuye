@@ -44,6 +44,13 @@
                 'interactive_features_steps', 
                 'interactive_bottom_feature'
             ],
+            'product_comparison_table' => [
+                'comparison_title', 
+                'comparison_description', 
+                'comparison_left', 
+                'comparison_right', 
+                'comparison_bottom', 
+            ],
              'product_cart_section' => [
                 'cart_top_sub_title', 
                 'cart_top_title', 
