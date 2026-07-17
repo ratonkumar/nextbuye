@@ -105,7 +105,7 @@
                                             <h4 class="fw-bold mb-3">Payment</h4>
                                             <!-- Cash on Delivery -->
                                             <label class="d-flex align-items-center p-3 mb-3 border rounded-4" 
-                                                style="border: 2px solid #fd7e14; background-color: #fff0e6; cursor: pointer;">
+                                                style="border: 2px solid #fd7e14 !important; background-color: #fff0e6; cursor: pointer;">
                                                 <input type="radio" name="payment" checked class="me-3" style="width: 20px; height: 20px; accent-color: #fd7e14;">
                                                 <div class="flex-grow-1">
                                                     <div class="fw-bold">Cash on Delivery</div>
