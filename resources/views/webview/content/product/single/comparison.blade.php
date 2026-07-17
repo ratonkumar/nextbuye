@@ -11,7 +11,7 @@
    
         {!! $data['product_comparison_title'] !!}
     <p style="text-align: center; font-size: 16.5px; color: rgb(107, 100, 90); max-width: 560px; margin: 0px auto 36px; line-height: 1.75;">
-        {!! $data['comparison_description'] !!}
+        {!! $data['product_comparison_description'] !!}
     </p>
 
     <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: stretch; justify-content: center">
@@ -29,7 +29,7 @@
 
     <!-- Bottom Text -->
     <div style="max-width: 700px; margin: 36px auto 0px; text-align: center">
-       {!! $data['comparison_bottom'] !!}
+       {!! $data['product_comparison_bottom'] !!}
     </div>
 </section>
 @endif
