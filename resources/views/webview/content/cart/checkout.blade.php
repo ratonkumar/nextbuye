@@ -180,7 +180,15 @@
                             @endforeach
 
                             <hr>
-
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control rounded-start-pill border-secondary-subtle px-3" 
+                                    placeholder="COUPON CODE" style="height: 50px; font-weight: 500;">
+                                
+                                <button class="btn btn-secondary rounded-end-pill px-4" 
+                                        style="height: 50px; background-color: #888; border: none;">
+                                    Apply
+                                </button>
+                            </div>
                             <!-- Subtotal -->
                             <div class="d-flex justify-content-between mb-2">
                                 <span>Subtotal</span> 
@@ -203,7 +211,7 @@
                                 Place Order · ৳<span id="btnTotal">0</span>
                             </button>
 
-                            <ul class="list-unstyled mt-4">
+                            <ul class="list-unstyled mt-1">
                                 <li class="mb-2 d-flex align-items-center">
                                     <i class="fas fa-check me-2" style="color: #000;"></i> 
                                     <span class="text-dark">No advance payment required</span>
