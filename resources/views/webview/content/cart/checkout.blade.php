@@ -505,60 +505,50 @@ $(document).ready(function() {
             var price = $('#priceOf' + rowId).val();
             var producttotal = quantity * price;
 
-            var prevPrice = $('#pricetotal' + rowId).html();
-            if (producttotal > prevPrice) {
-                var subPrice = $('#subtotalprice').html();
-                var updatesubprice = subPrice - (-price);
-                $('#subtotalprice').html(updatesubprice);
-                //ordersubtotal
-                $('#ordersubtotalprice').html(updatesubprice);
-                //cart number
-                var prevcart = $('#cartNumber').html();
-                var cartUpdate = prevcart - (-1);
-                $('#cartNumber').html(cartUpdate);
-
-            } else {
-                //cart number
-                var prevcart = $('#cartNumber').html();
-                var cartUpdate = prevcart - 1;
-                $('#cartNumber').html(cartUpdate);
-
-                var subPrice = $('#subtotalprice').html();
-                var updatesubprice = subPrice - price;
-                $('#subtotalprice').html(updatesubprice);
-                $('#ordersubtotalprice').html(updatesubprice);
-
-            }
-            //mincart
+            // ১. নির্দিষ্ট আইটেমের টোটাল আপডেট করুন
+            $('#pricetotal' + rowId).html(producttotal);
             $('#minQty' + rowId).html(quantity);
-            $('#minsubtotalprice').html(updatesubprice);
-            //total price part
-            var deliverycharge = $('#deliveryCharge').val();
-            var totalprice = updatesubprice - (-deliverycharge);
+
+            // ২. পুনরায় সাবটোটাল ক্যালকুলেট করুন (সব আইটেম যোগ করে)
+            var newSubtotal = 0;
+            $('.item-total').each(function() { // নিশ্চিত করুন প্রতিটি আইটেমের টোটালে 'item-total' ক্লাস আছে
+                newSubtotal += parseFloat($(this).text()) || 0;
+            });
+
+            // ৩. কার্টের মোট সংখ্যা ক্যালকুলেট করুন
+            var totalCartItems = 0;
+            $('input[id^="QuantityPeo"]').each(function() {
+                totalCartItems += parseInt($(this).val()) || 0;
+            });
+
+            // UI আপডেট
+            $('#subtotalprice').html(newSubtotal);
+            $('#ordersubtotalprice').html(newSubtotal);
+            $('#minsubtotalprice').html(newSubtotal);
+            $('#cartNumber').html(totalCartItems);
+
+            // ৪. ডেলিভারি চার্জসহ টোটাল আপডেট
+            var deliverycharge = parseFloat($('#deliveryCharge').val()) || 0;
+            var totalprice = newSubtotal + deliverycharge;
             $('#totalamount').html(totalprice);
 
-
-            $('#pricetotal' + rowId).html(producttotal);
-
+            // ৫. সার্ভারে ডাটা পাঠানো
             $.ajax({
                 type: 'POST',
                 url: 'update-cart',
-
                 data: {
                     _token: '{{ csrf_token() }}',
                     rowId: rowId,
                     qty: quantity,
                 },
-
                 success: function (data) {
+                    // সার্ভার থেকে আপডেট ভ্যালু নিশ্চিত করা
                     $('#QuantityPeo' + rowId).val(data.qty);
-
                 },
                 error: function (error) {
-                    console.log('error');
+                    console.log('Error updating cart');
                 }
             });
-
         }
 
         function removeFromCart(rowId) {
