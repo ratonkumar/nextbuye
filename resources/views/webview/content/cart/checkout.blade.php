@@ -79,7 +79,6 @@
                                             <label>Email (optional)</label>
                                             <input id="customerEmail" name="customerEmail"  class="form-control" placeholder="Enter Email Address"></input>
                                         </div>
-                                        
                                         <label class="form-label fw-bold">Delivery zone</label>
                                         <div class="d-flex gap-3 mb-4">
                                             <!-- Inside Dhaka -->
@@ -231,32 +230,6 @@
         </section>
     @endif
 
- <script>
-function selectZone(element) {
-    // ১. ডিজাইনের জন্য অ্যাক্টিভ ক্লাস টগল করা
-    $('.delivery-option').removeClass('active').css({'background-color': '#fff', 'color': '#000'});
-    $(element).addClass('active').css({'background-color': '#000', 'color': '#fff'});
-    
-    // ২. রেডিও বাটন সিলেক্ট করা
-    $(element).find('input[type="radio"]').prop('checked', true);
-    
-    // ৩. চার্জ ক্যালকুলেশন
-    let charge = parseFloat($(element).data('charge'));
-    $('#dinamicdalivery').text(charge);
-    
-    // ৪. টোটাল অ্যামাউন্ট আপডেট করা (আপনার আগের সাবটোটাল ধরে)
-    let subtotal = parseFloat($('#ordersubtotalprice').val()) || 0; // textarea থেকে ভ্যালু নেওয়া
-    let total = subtotal + charge;
-    
-    $('#totalamount').text(total);
-    $('#btnTotal').text(total);
-}
-
-// পেজ লোড হলে প্রথম অপশনটি সিলেক্টেড রাখা
-$(document).ready(function() {
-    $('.delivery-option').first().trigger('click');
-});
-</script>
 
     <style>
         /*.spinner {*/
@@ -334,7 +307,30 @@ $(document).ready(function() {
     
     <script>
 
+        function selectZone(element) {
+            // ১. ডিজাইনের জন্য অ্যাক্টিভ ক্লাস টগল করা
+            $('.delivery-option').removeClass('active').css({'background-color': '#fff', 'color': '#000'});
+            $(element).addClass('active').css({'background-color': '#000', 'color': '#fff'});
+            
+            // ২. রেডিও বাটন সিলেক্ট করা
+            $(element).find('input[type="radio"]').prop('checked', true);
+            
+            // ৩. চার্জ ক্যালকুলেশন
+            let charge = parseFloat($(element).data('charge'));
+            $('#dinamicdalivery').text(charge);
+            
+            // ৪. টোটাল অ্যামাউন্ট আপডেট করা (আপনার আগের সাবটোটাল ধরে)
+            let subtotal = parseFloat($('#ordersubtotalprice').val()) || 0; // textarea থেকে ভ্যালু নেওয়া
+            let total = subtotal + charge;
+            
+            $('#totalamount').text(total);
+            $('#btnTotal').text(total);
+        }
 
+        // পেজ লোড হলে প্রথম অপশনটি সিলেক্টেড রাখা
+        $(document).ready(function() {
+            $('.delivery-option').first().trigger('click');
+        });
         function updatenum(id) {
             var num = $('#QuantityPeo' + id).val();
             var fv = Number(num) + 1;
