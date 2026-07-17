@@ -41,7 +41,9 @@
                             <span class="cart-count">{{ count(Cart::content()) }}</span>
                         </a>
                     </div>
+                    @if(!empty($productdetails->id))
                     <a href="#" class="btn-order-now" onclick="buynow('{{ $productdetails->id ?? 0 }}', 1)">Order Now</a>
+                    @endif
                 </div>
             </div>
         </div>
