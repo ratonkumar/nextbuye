@@ -115,14 +115,14 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0532B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0">
                             <path d="M20 6L9 17l-5-5"></path>
                         </svg>
-                        {{ $item['name'] }}
+                        {{ $item['title'] }}
                     </span>
                     <span style="display: flex; align-items: baseline; gap: 7px; white-space: nowrap">
-                        @if(isset($item['old_price']))
-                            <span class="num" style="font-size: 13.5px; color: rgb(154, 145, 131); text-decoration: line-through">{{ $item['old_price'] }}</span>
+                        @if(isset($item['subtitle']))
+                            <span class="num" style="font-size: 13.5px; color: rgb(154, 145, 131); text-decoration: line-through">{{ $item['subtitle'] }}</span>
                         @endif
                         <span class="bn" style="font-weight: 700; font-size: 13.5px; color: {{ isset($item['is_free']) ? 'rgb(178, 58, 24)' : 'rgb(30, 26, 21)' }}">
-                            {{ $item['price'] }}
+                            {{ $item['icon'] }}
                         </span>
                     </span>
                 </div>

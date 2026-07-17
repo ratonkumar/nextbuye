@@ -114,7 +114,7 @@
                         <div class="row">
                             @php
                                 // আপনার সব রিপিটার ফিল্ডের নাম এখানে যোগ করুন
-                                $repeaterFields = ['features_list', 'product_features_steps', 'steps_list', 'requirements_list', 'faq_rep','features_rep','gift_top_rep','cart_middle_repeter'];
+                                $repeaterFields = ['items','features_list', 'product_features_steps', 'steps_list', 'requirements_list', 'faq_rep','features_rep','gift_top_rep','cart_middle_repeter'];
                             @endphp
                             @foreach($fields as $field)
                             <div class="col-md-6 mb-3"> 
@@ -143,6 +143,7 @@
                                     </div>
                                 {{-- ৪. ডাইনামিক রিপিটার --}}
                                 {{-- লুপের ভেতরে কন্ডিশনটি এভাবে আপডেট করুন --}}
+                                
                                 @elseif(in_array($field, $repeaterFields))
                                     <div class="card p-3 mb-4">
                                         <h5>{{ ucfirst(str_replace('_', ' ', $field)) }}</h5>
