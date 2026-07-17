@@ -124,7 +124,7 @@
                                 
                                 @if(in_array($field, ['problem_desc', 'card1_desc', 'card2_desc', 'card3_desc', 'card4_desc']))
                                     <textarea name="content[{{ $field }}]" class="form-control">{{ $content[$field] ?? '' }}</textarea>
-                                @if(in_array($field, ['offer_date']))
+                                @elseif(in_array($field, ['offer_date']))
                                     <input type="date" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
                                 @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text', 'product_title', 'product_sub_title','interactive_bottom_feature','feedback_title','feedback_descraption','feedback_author','cart_price_section', 'cart_waranty_section','offer_text']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
