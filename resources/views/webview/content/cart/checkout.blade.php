@@ -31,9 +31,20 @@
     @else
         <br>
         <section class="section-content padding-y bg slidetop">
+            <div class="container py-4">
+                <!-- Back to cart link -->
+                <a href="{{ url('/cart') }}" class="text-decoration-none text-muted mb-3 d-block">
+                    &larr; Back to cart
+                </a>
+                
+                <!-- Title and Subtitle -->
+                <h1 class="fw-bold mb-2">Checkout</h1>
+                <p class="text-muted">No account needed — just your delivery details. Pay cash when it arrives.</p>
+            </div>
             <div class="container p-0">
                 <div class="row">
                     <div class="col-md-6">
+                        <h2 class="font-display font-bold text-[20px] mb-5">Delivery details</h2>
                         <aside class="card mb-4">
                             <article class="card-body">
                               
