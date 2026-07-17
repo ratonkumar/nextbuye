@@ -44,10 +44,10 @@
             <div class="container p-0">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2 class="font-display font-bold text-[20px] mb-5">Delivery details</h2>
+                     
                         <aside class="card mb-4">
                             <article class="card-body">
-                              
+                                <h2 class="font-display font-bold text-[20px] mb-5">Delivery details</h2>
                                 <form action="{{ url('press/order') }}" method="POST"
                                       class="from-prevent-multiple-submits" id="orderForm">
                                     @csrf
