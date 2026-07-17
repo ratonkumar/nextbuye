@@ -327,6 +327,29 @@
             });
         }
 
+    function buynowDetails(product_id) {
+        // Show your processing modal
+        $('#processing').css({'display': 'flex', 'justify-content': 'center', 'align-items': 'center'});
+        $('#processing').modal('show');
+
+        $.ajax({
+            type: 'POST',
+            url: '{{ url('add-to-cart') }}',
+            data: $('#orderForm').serialize(), // Collects product_id and qty automatically
+            success: function(data) {
+                updatecart(); // Your existing function
+                if (data == 'success') {
+                    window.location.href = '{{ url('checkout') }}';
+                    $('#processing').modal('hide');
+                }
+            },
+            error: function(error) {
+                console.log('error');
+                $('#processing').modal('hide');
+            }
+        });
+    }
+
        function buynow(product_id,qty =1) {
 
             $('#processing').css({
