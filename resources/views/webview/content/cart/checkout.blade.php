@@ -42,7 +42,7 @@
         <section class="section-content padding-y bg slidetop">
             <div class="container p-0">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <aside class="card mb-4">
                             <article class="card-body">
                                 <h2 class="delivery-details" style="font-size: 25px; font-weight: bold; margin-bottom: 10px !important;">Delivery details</h2>
@@ -149,36 +149,37 @@
                             </article> <!-- card-body.// -->
                         </aside>
                     </div>
-                    <div class="col-md-6 orderDetails">
+                    <div class="col-md-4 orderDetails">
                         <div class="card shadow-sm border-0 rounded-4 p-4">
                             <h4 class="fw-bold mb-4">Your order</h4>
 
                             <!-- Cart Items -->
                             @foreach ($cartProducts as $cartProduct)
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="{{ asset($cartProduct->image) }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
-                                    <div class="ms-3 flex-grow-1">
-                                        <div class="fw-bold text-truncate" style="max-width: 200px;">{{ $cartProduct->name }}</div>
-                                        <div class="d-flex align-items-center mt-1">
-                                            <div class="input-group input-group-sm" style="width: 100px;">
-                                                <button class="btn btn-outline-secondary" type="button" onclick="remnum('{{$cartProduct->rowId}}')">-</button>
-                                                <input type="text" class="form-control text-center" value="{{ $cartProduct->qty }}" readonly>
-                                                <button class="btn btn-outline-secondary" type="button" onclick="updatenum('{{$cartProduct->rowId}}')">+</button>
-                                            </div>
-                                            <a href="javascript:void(0)" onclick="removeFromCart('{{ $cartProduct->rowId }}')" class="ms-3 text-muted text-decoration-none small">Remove</a>
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="{{ asset($cartProduct->image) }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
+                                <div class="ms-3 flex-grow-1">
+                                    <div class="fw-bold text-truncate" style="max-width: 200px;">{{ $cartProduct->name }}</div>
+                                    <div class="d-flex align-items-center mt-1">
+                                        <div class="input-group input-group-sm" style="width: 100px;">
+                                            <!-- বাটনগুলোতে rowId পাস করা হয়েছে -->
+                                            <button class="btn btn-outline-secondary" type="button" onclick="remnum('{{$cartProduct->rowId}}')">-</button>
+                                            
+                                            <!-- ইনপুট ফিল্ডে আইডি দেওয়া হয়েছে -->
+                                            <input type="text" id="QuantityPeo{{$cartProduct->rowId}}" class="form-control text-center" value="{{ $cartProduct->qty }}" readonly>
+                                            
+                                            <button class="btn btn-outline-secondary" type="button" onclick="updatenum('{{$cartProduct->rowId}}')">+</button>
                                         </div>
+                                        <a href="javascript:void(0)" onclick="removeFromCart('{{ $cartProduct->rowId }}')" class="ms-3 text-muted text-decoration-none small">Remove</a>
                                     </div>
-                                    <div class="fw-bold">৳{{ $cartProduct->qty * $cartProduct->price }}</div>
                                 </div>
+                                <!-- এখানে প্রাইস ক্যালকুলেশনের জন্য আইডি দেওয়া হয়েছে -->
+                                <div class="fw-bold">৳<span id="pricetotal{{$cartProduct->rowId}}" class="item-total">{{ $cartProduct->qty * $cartProduct->price }}</span></div>
+                                <!-- জাভাস্ক্রিপ্টের হিসাবের জন্য হিডেন প্রাইস ফিল্ড -->
+                                <input type="hidden" id="priceOf{{$cartProduct->rowId}}" value="{{ $cartProduct->price }}">
+                            </div>
                             @endforeach
 
                             <hr>
-
-                            <!-- Coupon Section -->
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="COUPON CODE">
-                                <button class="btn btn-secondary px-4">Apply</button>
-                            </div>
 
                             <!-- Subtotal -->
                             <div class="d-flex justify-content-between mb-2">
@@ -198,30 +199,19 @@
                                 <h4 class="fw-bold text-danger">৳<span id="totalamount">0</span></h4>
                             </div>
 
-                            <!-- Place Order Button -->
                             <button type="submit" id="orderConfirm" class="btn btn-danger w-100 py-3 fw-bold fs-5">
                                 Place Order · ৳<span id="btnTotal">0</span>
                             </button>
-
-                            <!-- Features List -->
-                            <ul class="list-unstyled mt-4 text-muted small">
-                                <li><i class="fas fa-check me-2"></i> No advance payment required</li>
-                                <li><i class="fas fa-check me-2"></i> 7-day easy returns</li>
-                                <li><i class="fas fa-check me-2"></i> We call to confirm every order</li>
-                            </ul>
                         </div>
                     </div>
-
-                    <style>
-                        .rounded-4 { border-radius: 1.5rem !important; }
-                        .btn-danger { background-color: #f0532b !important; border: none; }
-                    </style>
-
                 </div>
             </div>
         </section>
     @endif
-
+ <style>
+    .rounded-4 { border-radius: 1.5rem !important; }
+    .btn-danger { background-color: #f0532b !important; border: none; }
+ </style>
 <script>
 function calculateTotals() {
     // সাবটোটাল টেক্সট থেকে নাম্বার বের করা
@@ -245,9 +235,6 @@ $(document).ready(function() {
     calculateTotals();
 });
 
-// যখনই কোয়ান্টিটি বা ডেলিভারি পরিবর্তন হবে, তখন আবার এই ফাংশনটি কল করবেন
-// উদাহরণস্বরূপ:
-// function updateQuantity(...) { ... calculateTotals(); }
 </script>
     <style>
         /*.spinner {*/
