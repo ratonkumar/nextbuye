@@ -149,23 +149,80 @@
             </div>
 
 
-               <form id="orderForm" class="mt-3">
+                 <form id="orderForm" class="mt-3">
                     @csrf
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap">
-                        <input type="hidden" name="product_id" value="{{ $productdetails->id }}">
-                        
-                        <!-- Quantity Control -->
-                        <div style="display: flex; align-items: center; border: 1px solid #e8e0d4; border-radius: 30px; background: #fff; overflow: hidden;">
-                            <input type="hidden" name="qty" id="qtyInput" value="1">
-                            <button type="button" onclick="changeQty(-1)" style="...">−</button>
-                            <span id="numDisplay" class="num" style="...">১</span>
-                            <button type="button" onclick="changeQty(1)" style="...">+</button>
-                        </div>
+                    <input type="hidden" name="product_id" value="{{ $productdetails->id }}">
+                    <div
+                        style="
+                            display: flex;
+                            align-items: center;
+                            border: 1px solid #e8e0d4;
+                            border-radius: 30px;
+                            background: #fff;
+                            overflow: hidden;
+                            flex-shrink: 0;
+                        "
+                    >
+                  
+                        <input type="hidden" name="qty" id="qtyInput" value="1">
+                        <button type="button" onclick="changeQty(-1)" style="width: 44px; height: 30px; border: none; background: transparent; font-size: 22px; cursor: cell;color: #000;font-weight: bold;">−</button>
+                        <span id="numDisplay" class="num" style="min-width: 30px; text-align: center; font-weight: 700; font-size: 17px">১</span>
+                        <button type="button" onclick="changeQty(1)" style="width: 44px; height: 30px; border: none;color: #000; background: transparent; font-size: 20px; cursor: pointer;">+</button>
 
-                        <!-- Order Button -->
-                        <button type="button" onclick="buynowDetails({{ $productdetails->id }})" class="lift" style="...">
-                            অর্ডার করুন — টাকা হাতে পেয়ে দেবেন
-                            <!-- SVG remains the same -->
+                        <script>
+                            function changeQty(val) {
+                                // ১. বর্তমান সংখ্যাটি নিন
+                                let display = document.getElementById('numDisplay');
+                                let hiddenInput = document.getElementById('qtyInput');
+                                
+                                // বাংলা সংখ্যাকে ইংরেজি সংখ্যায় রূপান্তরের জন্য ম্যাপ
+                                let banglaToEnglish = {'১': 1, '২': 2, '৩': 3, '৪': 4, '৫': 5, '৬': 6, '৭': 7, '৮': 8, '৯': 9, '০': 0};
+                                let englishToBangla = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+                                
+                                // ২. বর্তমান ভ্যালু ক্যালকুলেশন
+                                let currentVal = parseInt(hiddenInput.value);
+                                let newVal = currentVal + val;
+                                
+                                // ৩. সর্বনিম্ন ১ এর নিচে যেন না যায়
+                                if (newVal < 1) newVal = 1;
+                                
+                                // ৪. আপডেট করুন
+                                hiddenInput.value = newVal;
+                                display.innerText = newVal.toString().split('').map(digit => englishToBangla[digit]).join('');
+                            }
+                        </script>
+                    </div>
+                        <button
+                            class="lift"
+                            style="
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 9px;
+                                background: #f0532b;
+                                color: #fff;
+                                font-weight: 600;
+                                font-size: 17px;
+                                padding: 17px;
+                                border-radius: 30px;
+                                border: none;
+                                cursor: pointer;
+                                box-shadow: 0 10px 24px -10px rgba(240, 83, 43, 0.6);
+                                flex: 1 1 200px;
+                            "
+                            onclick="buynowDetails('{{ $productdetails->id }}')"
+                        >
+                            অর্ডার করুন — টাকা হাতে পেয়ে দেবেন<svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.4"
+                            >
+                                <path d="M5 12h14M13 6l6 6-6 6"></path>
+                            </svg>
                         </button>
                     </div>
                 </form>
