@@ -46,10 +46,7 @@ class CartController extends Controller
         return response()->json('success', 200);
     }
         
-        return response()->json('success', 200);
-        // return redirect('checkout');
-        // return response()->json('success',200);
-    }
+    
 
     public function singleAddCart(Request $request){ 
         
