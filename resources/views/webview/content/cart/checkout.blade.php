@@ -85,54 +85,30 @@
                                                   class="form-control" rows="1" 
                                                   placeholder="অর্ডার বা প্রোডাক্ট সম্পর্কে কোনো নোট">@if(Auth::id()){{-- যদি আগে থেকে কোনো নোট দেখাতে চান --}}@endif</textarea>
                                     </div>
-                                        <textarea id="ordersubtotalprice" name="subTotal" cols="10" rows="5"
-                                                  hidden>{{ Cart::subtotalFloat() }}</textarea>
-                                        <div class="form-group col-sm-12">
-                                            <label>Select Area </label>
-                                            <select id="deliveryCharge" name="deliveryCharge" class="form-control"
-                                                    onchange="setdeliverychargr()">
-                                                @if (isset($product->inside_dhaka) && isset($product->outside_dhaka))
-                                                    <option value="{{ $product->inside_dhaka }}">ঢাকার ভিতর
-                                                        ({{ $product->inside_dhaka }})
-                                                    </option>
-                                                    <option value="{{ $product->outside_dhaka }}">ঢাকার বাহির
-                                                        ({{ $product->outside_dhaka }})
-                                                    </option>
-                                                @else
-                                                    <option value="{{App\Models\Basicinfo::first()->inside_dhaka_charge}}">
-                                                        ঢাকার ভিতর
-                                                        ({{App\Models\Basicinfo::first()->inside_dhaka_charge}})
-                                                    </option>
-                                                    <option value="{{App\Models\Basicinfo::first()->outside_dhaka_charge}}">
-                                                        ঢাকার বাহির
-                                                        ({{App\Models\Basicinfo::first()->outside_dhaka_charge}})
-                                                    </option>
-                                                @endif
+                                        <label class="form-label fw-bold">Delivery zone</label>
+                                        <div class="d-flex gap-3 mb-4">
+                                            <!-- Inside Dhaka -->
+                                            <label class="delivery-option flex-grow-1 p-3 border rounded-4 text-center cursor-pointer" 
+                                                data-charge="{{ isset($product->inside_dhaka) ? $product->inside_dhaka : App\Models\Basicinfo::first()->inside_dhaka_charge }}" 
+                                                onclick="selectZone(this)">
+                                                <input type="radio" name="deliveryCharge" value="{{ isset($product->inside_dhaka) ? $product->inside_dhaka : App\Models\Basicinfo::first()->inside_dhaka_charge }}" checked hidden>
+                                                <div class="fw-bold">Inside Dhaka</div>
+                                                <div class="small">FREE · 1-2 days</div>
+                                            </label>
 
-                                            </select>
-
-
+                                            <!-- Outside Dhaka -->
+                                            <label class="delivery-option flex-grow-1 p-3 border rounded-4 text-center cursor-pointer" 
+                                                data-charge="{{ isset($product->outside_dhaka) ? $product->outside_dhaka : App\Models\Basicinfo::first()->outside_dhaka_charge }}" 
+                                                onclick="selectZone(this)">
+                                                <input type="radio" name="deliveryCharge" value="{{ isset($product->outside_dhaka) ? $product->outside_dhaka : App\Models\Basicinfo::first()->outside_dhaka_charge }}" hidden>
+                                                <div class="fw-bold">Outside Dhaka</div>
+                                                <div class="small">FREE · 2-3 days</div>
+                                            </label>
                                         </div>
-
-                                        <div class="section-tab check-mark-tab text-center pb-4" id="paysection">
-                                            <ul class="nav nav-tabs justify-content-around m-0" id="myTab"
-                                                role="tablist">
-                                            
-                                                <li class="nav-item active" role="presentation">
-                                                    <a class="nav-link active"
-                                                       id="credit-card-tab" style="padding: 8px;" data-bs-toggle="tab"
-                                                       href="#credit-card" role="tab" aria-controls="credit-card"
-                                                       aria-selected="true" tabindex="-1" onclick="showCashOnDelivery()">
-                                                        <img src="https://khati.plus/public/cod.png"
-                                                             style="width: 65px;" alt="">
-                                                        <span class="d-block pt-2">Cash on Delivery</span>
-                                                    </a>
-                                                </li>
-                                           
-                                            </ul>
-                                        </div>
-
-                                        <h4 class="fw-bold mb-3">Payment</h4>
+                                       
+                                
+                                        <div class="payment-tab">
+                                            <h4 class="fw-bold mb-3">Payment</h4>
                                             <!-- Cash on Delivery -->
                                             <label class="d-flex align-items-center p-3 mb-3 border rounded-4" 
                                                 style="border: 2px solid #fd7e14; background-color: #fff0e6; cursor: pointer;">
@@ -159,8 +135,7 @@
                                                     <span class="badge bg-secondary">Nagad</span>
                                                 </div>
                                             </label>
-
-
+                                        </div>
                                     </div>
                                  
                                     <div class="row">
