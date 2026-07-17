@@ -239,6 +239,32 @@
     .rounded-4 { border-radius: 1.5rem !important; }
     .btn-danger { background-color: #f0532b !important; border: none; }
  </style>
+ <script>
+function selectZone(element) {
+    // ১. ডিজাইনের জন্য অ্যাক্টিভ ক্লাস টগল করা
+    $('.delivery-option').removeClass('active').css({'background-color': '#fff', 'color': '#000'});
+    $(element).addClass('active').css({'background-color': '#000', 'color': '#fff'});
+    
+    // ২. রেডিও বাটন সিলেক্ট করা
+    $(element).find('input[type="radio"]').prop('checked', true);
+    
+    // ৩. চার্জ ক্যালকুলেশন
+    let charge = parseFloat($(element).data('charge'));
+    $('#dinamicdalivery').text(charge);
+    
+    // ৪. টোটাল অ্যামাউন্ট আপডেট করা (আপনার আগের সাবটোটাল ধরে)
+    let subtotal = parseFloat($('#ordersubtotalprice').val()) || 0; // textarea থেকে ভ্যালু নেওয়া
+    let total = subtotal + charge;
+    
+    $('#totalamount').text(total);
+    $('#btnTotal').text(total);
+}
+
+// পেজ লোড হলে প্রথম অপশনটি সিলেক্টেড রাখা
+$(document).ready(function() {
+    $('.delivery-option').first().trigger('click');
+});
+</script>
 <script>
 function calculateTotals() {
     // সাবটোটাল টেক্সট থেকে নাম্বার বের করা
