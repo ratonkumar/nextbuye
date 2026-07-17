@@ -40,20 +40,17 @@
             <p class="text-muted">No account needed — just your delivery details. Pay cash when it arrives.</p>
         </div>
         <section class="section-content padding-y bg slidetop">
-          
             <div class="container p-0">
                 <div class="row">
                     <div class="col-md-6">
-                     
                         <aside class="card mb-4">
                             <article class="card-body">
                                 <h2 class="font-display font-bold text-[20px] mb-5">Delivery details</h2>
-                                <form action="{{ url('press/order') }}" method="POST"
-                                      class="from-prevent-multiple-submits" id="orderForm">
+                                <form action="{{ url('press/order') }}" method="POST"  class="from-prevent-multiple-submits" id="orderForm">
                                     @csrf
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label>আপনার নাম *</label>
+                                            <label>Full name</label>
                                             <input type="text" id="customerName" name="customerName"
                                                    @if(Auth::id()) value="{{Auth::guard('web')->user()->name}}"
                                                    @else @endif    placeholder="আপনার নাম লিখুন"
@@ -68,19 +65,20 @@
 
                                         @endif
                                         <div class="form-group col-sm-12">
-                                            <label>আপনার ঠিকানা * </label>
-                                            <input type="text" id="customerAddress" name="customerAddress"
-                                                   placeholder="আপনার ঠিকানা লিখুন" required class="form-control"
-                                                   style=" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
-                                        </div>
-                                        <div class="form-group col-sm-12">
-                                            <label>আপনার মোবাইল * </label>
+                                            <label>Phone number</label>
                                             <input type="text" minlength="11" maxlength="11"
                                                    pattern="[0-1]{2}[0-9]{6}[0-9]{3}" id="customerPhone"
                                                    @if(Auth::id()) value="{{Auth::guard('web')->user()->phone}}"
                                                    @else @endif  name="customerPhone" required
                                                    class="form-control" placeholder="আপনার মোবাইল লিখুন">
                                         </div>
+                                        <div class="form-group col-sm-12">
+                                            <label>Full address </label>
+                                            <input type="text" id="customerAddress" name="customerAddress"
+                                                   placeholder="আপনার ঠিকানা লিখুন" required class="form-control"
+                                                   style=" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                        </div>
+                                       
                                       <div class="form-group col-sm-12">
                                         <label>অর্ডার সম্পর্কে নোট</label>
                                         <textarea id="customerNotes" name="customerNotes" 
@@ -130,17 +128,7 @@
                                                         <span class="d-block pt-2">Cash on Delivery</span>
                                                     </a>
                                                 </li>
-                                                <!--<li class="nav-item" role="presentation">-->
-                                                <!--    <a class="nav-link"  id="paypal-tab"-->
-                                                <!--       data-bs-toggle="tab" href="#paypal" role="tab"-->
-                                                <!--       aria-controls="paypal" style="    padding: 8px;"-->
-                                                <!--       aria-selected="false" tabindex="-1" onclick="showOnlinePay()">-->
-                                                <!--        <img src="https://khati.plus/public/sslcommerz.png"-->
-                                                <!--             style="width: 65px;" alt="">-->
-                                                <!--        <span class="d-block pt-2">Online Pay</span>-->
-                                                <!--    </a>-->
-                                                   
-                                                <!--</li>-->
+                                           
                                             </ul>
                                         </div>
 
@@ -163,8 +151,6 @@
                     </div>
                     <div class="col-md-6 orderDetails">
                         <aside class="card">
-
-
                             <article class="card-body">
                                 <header class="mb-4">
                                     <h4 class="card-title" style="font-size: 16px;">আপনার অর্ডার</h4>
