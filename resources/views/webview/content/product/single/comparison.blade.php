@@ -9,10 +9,10 @@
 @if($data)
 <section style="max-width: 940px; margin: 0px auto; padding: 80px 20px 20px">
     <h2 style="font-weight: 800; font-size: 33px; letter-spacing: -0.4px; text-align: center; margin: 0px 0px 10px">
-        {{ $data['comparison_title'] }}
+        {!! $data['comparison_title'] !!}
     </h2>
     <p style="text-align: center; font-size: 16.5px; color: rgb(107, 100, 90); max-width: 560px; margin: 0px auto 36px; line-height: 1.75;">
-        {{ $data['comparison_description'] }}
+        {!! $data['comparison_description'] !!}
     </p>
 
     <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: stretch; justify-content: center">
