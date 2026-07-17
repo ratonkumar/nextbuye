@@ -202,6 +202,21 @@
                             <button type="submit" id="orderConfirm" class="btn btn-danger w-100 py-3 fw-bold fs-5">
                                 Place Order · ৳<span id="btnTotal">0</span>
                             </button>
+
+                            <ul class="list-unstyled mt-4">
+                                <li class="mb-2 d-flex align-items-center">
+                                    <i class="fas fa-check me-2" style="color: #000;"></i> 
+                                    <span class="text-dark">No advance payment required</span>
+                                </li>
+                                <li class="mb-2 d-flex align-items-center">
+                                    <i class="fas fa-check me-2" style="color: #000;"></i> 
+                                    <span class="text-dark">7-day easy returns</span>
+                                </li>
+                                <li class="mb-2 d-flex align-items-center">
+                                    <i class="fas fa-check me-2" style="color: #000;"></i> 
+                                    <span class="text-dark">We call to confirm every order</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
