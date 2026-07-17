@@ -331,74 +331,8 @@
         $(document).ready(function() {
             $('.delivery-option').first().trigger('click');
         });
-        function updatenum(id) {
-            var num = $('#QuantityPeo' + id).val();
-            var fv = Number(num) + 1;
-            if (fv > 9) {
 
-            } else {
-                $('#QuantityPeo' + id).val(fv);
-                $.ajax({
-                    type: 'POST',
-                    url: 'update-cart',
-
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                        rowId: id,
-                        qty: fv,
-                    },
-
-                    success: function (data) {
-                        $('#QuantityPeo' + id).val(data.qty);
-                        updateQuantity(id);
-
-                    },
-                    error: function (error) {
-                        console.log('error');
-                    }
-                });
-            }
-        }
-
-        function remnum(id) {
-            var num = $('#QuantityPeo' + id).val();
-            var fv = Number(num) - 1;
-            if (fv < 1) {
-
-            } else {
-                $('#QuantityPeo' + id).val(fv);
-                $.ajax({
-                    type: 'POST',
-                    url: 'update-cart',
-
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                        rowId: id,
-                        qty: fv,
-                    },
-
-                    success: function (data) {
-                        $('#QuantityPeo' + id).val(data.qty);
-                        updateQuantity(id);
-
-                    },
-                    error: function (error) {
-                        console.log('error');
-                    }
-                });
-
-            }
-
-        }
-
-        function setdeliverychargr() {
-            var deliverycharge = $('#deliveryCharge').val();
-            $('#dinamicdalivery').html(deliverycharge);
-
-            var subprice = $('#subtotalprice').html();
-            var totalprice = subprice - (-deliverycharge);
-            $('#totalamount').html(totalprice)
-        }
+  
 
         function updateQuantity(rowId) {
             var quantity = $('#QuantityPeo' + rowId).val();
