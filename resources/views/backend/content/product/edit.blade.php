@@ -44,7 +44,7 @@
                 'interactive_features_steps', 
                 'interactive_bottom_feature'
             ],
-            'product_comparison_table' => [
+            'product_comparison_tables' => [
                 'product_comparison_title', 
                 'product_comparison_description', 
                 'product_comparison_left', 

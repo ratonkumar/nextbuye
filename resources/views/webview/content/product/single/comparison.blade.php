@@ -1,5 +1,5 @@
 @php
-  $productComparison = \App\Models\LandingPageSetting::where('section_key', 'product_comparison_table')
+  $productComparison = \App\Models\LandingPageSetting::where('section_key', 'product_comparison_tables')
     ->where('product_id', $productdetails->id)
     ->where('is_active', 1)
     ->first();  
