@@ -54,6 +54,17 @@
                 'cart_price_section', 
                 'cart_waranty_section', 
             ],
+             'product_order_section' => [
+                'section_header', 
+                'items', 
+                'cart_middle_title', 
+                'cart_middle_count', 
+                'cart_middle_text', 
+                'cart_middle_repeter', 
+                'cart_price_section', 
+                'cart_waranty_section', 
+            ],
+            
             'product_gift_cart_section' => [
                 'gift_top_title', 
                 'gift_top_rep', 

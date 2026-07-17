@@ -92,205 +92,73 @@
                 {!! $cartContent['cart_waranty_section'] ?? '' !!}
                 
             </div>
-            <div
-                style="border: 1px solid rgb(232, 224, 212); border-radius: 18px; overflow: hidden; margin-bottom: 16px"
-            >
-                <div
-                    class="bn"
-                    style="
-                        background: rgb(251, 246, 239);
-                        padding: 12px 18px;
-                        font-size: 12.5px;
-                        font-weight: 700;
-                        color: rgb(107, 100, 90);
-                        letter-spacing: 0.3px;
-                    "
-                >
-                    অর্ডারে আপনি যা যা পাচ্ছেন
+            @php
+                // ডাটাবেজ থেকে ডাটা নিয়ে আসা
+                $orderData = \App\Models\LandingPageSetting::where('section_key', 'product_order_section')
+                    ->where('product_id', $productdetails->id)
+                    ->where('is_active', 1)
+                    ->first();
+                
+                $orderContent = $orderData ? json_decode($orderData->content, true) : null;
+            @endphp
+
+            @if($orderContent)
+            <div style="border: 1px solid rgb(232, 224, 212); border-radius: 18px; overflow: hidden; margin-bottom: 16px">
+                <div class="bn" style="background: rgb(251, 246, 239); padding: 12px 18px; font-size: 12.5px; font-weight: 700; color: rgb(107, 100, 90); letter-spacing: 0.3px;">
+                    {{ $orderContent['section_header'] ?? 'অর্ডারে আপনি যা যা পাচ্ছেন' }}
                 </div>
-                <div
-                    style="
-                        display: flex;
-                        justify-content: space-between;
-                        gap: 14px;
-                        align-items: center;
-                        padding: 12px 18px;
-                        border-top: 1px solid rgb(232, 224, 212);
-                    "
-                >
-                    <span
-                        class="bn"
-                        style="display: flex; align-items: center; gap: 9px; font-size: 14.5px; color: rgb(58, 53, 46)"
-                        ><svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="#F0532B"
-                            stroke-width="2.6"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            style="flex-shrink: 0"
-                        >
+
+                {{-- আইটেম লিস্ট রিপিটার --}}
+                @foreach($orderContent['items'] as $item)
+                <div style="display: flex; justify-content: space-between; gap: 14px; align-items: center; padding: 12px 18px; border-top: 1px solid rgb(232, 224, 212);">
+                    <span class="bn" style="display: flex; align-items: center; gap: 9px; font-size: 14.5px; color: rgb(58, 53, 46)">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0532B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0">
                             <path d="M20 6L9 17l-5-5"></path>
                         </svg>
-                        CHOPLET™ কর্ডলেস চপার</span><span class="num" style="font-weight: 700; font-size: 14.5px; color: rgb(30, 26, 21)">৳1,490</span>
-                </div>
-                <div
-                    style="
-                        display: flex;
-                        justify-content: space-between;
-                        gap: 14px;
-                        align-items: center;
-                        padding: 12px 18px;
-                        border-top: 1px solid rgb(232, 224, 212);
-                    "
-                >
-                    <span
-                        class="bn"
-                        style="display: flex; align-items: center; gap: 9px; font-size: 14.5px; color: rgb(58, 53, 46)"
-                        ><svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="#F0532B"
-                            stroke-width="2.6"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            style="flex-shrink: 0"
-                        >
-                            <path d="M20 6L9 17l-5-5"></path></svg>৬ মাস রিপ্লেসমেন্ট ওয়ারেন্টি</span
-                    ><span style="display: flex; align-items: baseline; gap: 7px; white-space: nowrap"
-                        ><span
-                            class="num"
-                            style="font-size: 13.5px; color: rgb(154, 145, 131); text-decoration: line-through"
-                            >৳300</span
-                        ><span class="bn" style="font-weight: 700; font-size: 13.5px; color: rgb(178, 58, 24)"
-                            >ফ্রি</span
-                        ></span
-                    >
-                </div>
-                <div
-                    style="
-                        display: flex;
-                        justify-content: space-between;
-                        gap: 14px;
-                        align-items: center;
-                        padding: 12px 18px;
-                        border-top: 1px solid rgb(232, 224, 212);
-                    "
-                >
-                    <span
-                        class="bn"
-                        style="display: flex; align-items: center; gap: 9px; font-size: 14.5px; color: rgb(58, 53, 46)"
-                        ><svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="#F0532B"
-                            stroke-width="2.6"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            style="flex-shrink: 0"
-                        >
-                            <path d="M20 6L9 17l-5-5"></path></svg>সারাদেশে হোম ডেলিভারি
-                        </span
-                    ><span style="display: flex; align-items: baseline; gap: 7px; white-space: nowrap"
-                        ><span
-                            class="num"
-                            style="font-size: 13.5px; color: rgb(154, 145, 131); text-decoration: line-through"
-                            >৳120</span
-                        ><span class="bn" style="font-weight: 700; font-size: 13.5px; color: rgb(178, 58, 24)"
-                            >ফ্রি</span
-                        ></span
-                    >
-                </div>
-                <div
-                    style="
-                        display: flex;
-                        justify-content: space-between;
-                        gap: 14px;
-                        align-items: center;
-                        padding: 12px 18px;
-                        border-top: 1px solid rgb(232, 224, 212);
-                    "
-                >
-                    <span
-                        class="bn"
-                        style="display: flex; align-items: center; gap: 9px; font-size: 14.5px; color: rgb(58, 53, 46)"
-                        ><svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="#F0532B"
-                            stroke-width="2.6"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            style="flex-shrink: 0"
-                        >
-                            <path d="M20 6L9 17l-5-5"></path></svg>ফ্রি ডিজিটাল বোনাস প্যাক
-                    </span
-                    >
-                    <span style="display: flex; align-items: baseline; gap: 7px; white-space: nowrap"
-                        ><span
-                            class="num"
-                            style="font-size: 13.5px; color: rgb(154, 145, 131); text-decoration: line-through"
-                            >৳500</span
-                        ><span class="bn" style="font-weight: 700; font-size: 13.5px; color: rgb(178, 58, 24)"
-                            >ফ্রি</span
-                        >
+                        {{ $item['name'] }}
+                    </span>
+                    <span style="display: flex; align-items: baseline; gap: 7px; white-space: nowrap">
+                        @if(isset($item['old_price']))
+                            <span class="num" style="font-size: 13.5px; color: rgb(154, 145, 131); text-decoration: line-through">{{ $item['old_price'] }}</span>
+                        @endif
+                        <span class="bn" style="font-weight: 700; font-size: 13.5px; color: {{ isset($item['is_free']) ? 'rgb(178, 58, 24)' : 'rgb(30, 26, 21)' }}">
+                            {{ $item['price'] }}
+                        </span>
                     </span>
                 </div>
-                <div
-                    style="
-                        display: flex;
-                        justify-content: space-between;
-                        gap: 14px;
-                        align-items: center;
-                        padding: 12px 18px;
-                        border-top: 1px dashed rgb(232, 224, 212);
-                        background: rgb(252, 250, 246);
-                    "
-                >
-                    <span class="bn" style="font-size: 14px; color: rgb(107, 100, 90)">মোট মূল্য</span
-                    ><span class="num" style="font-size: 16px; color: rgb(154, 145, 131); text-decoration: line-through"
-                        >৳2,410</span
-                    >
+                @endforeach
+
+               @php
+                    // আপনার ডাটাবেজ কলামের নাম অনুযায়ী এগুলো পরিবর্তন করে নিন
+                    $totalOldPrice = $productdetails->regular_price ?? 0; 
+                    $currentPrice = $productdetails->price ?? 0;
+                    $savings = $totalOldPrice - $currentPrice;
+                @endphp
+
+                {{-- মোট মূল্য --}}
+                <div style="display: flex; justify-content: space-between; gap: 14px; align-items: center; padding: 12px 18px; border-top: 1px dashed rgb(232, 224, 212); background: rgb(252, 250, 246);">
+                    <span class="bn" style="font-size: 14px; color: rgb(107, 100, 90)">মোট মূল্য</span>
+                    <span class="num" style="font-size: 16px; color: rgb(154, 145, 131); text-decoration: line-through">
+                        ৳{{ number_format($totalOldPrice) }}
+                    </span>
                 </div>
-                <div
-                    style="
-                        display: flex;
-                        justify-content: space-between;
-                        gap: 12px;
-                        align-items: center;
-                        padding: 16px 18px;
-                        background: rgb(30, 26, 21);
-                        color: rgb(255, 255, 255);
-                        flex-wrap: wrap;
-                    "
-                >
-                    <span class="bh" style="font-weight: 700; font-size: 15px">আজকের মূল্য</span
-                    ><span style="display: flex; align-items: center; gap: 10px"
-                        ><span
-                            class="bn"
-                            style="
-                                font-size: 12px;
-                                background: rgba(240, 83, 43, 0.2);
-                                color: rgb(255, 199, 179);
-                                font-weight: 700;
-                                padding: 3px 9px;
-                                border-radius: 10px;
-                            "
-                            >৳1,420 বাঁচল</span
-                        ><span class="num" style="font-weight: 800; font-size: 27px; color: rgb(240, 83, 43)"
-                            >৳990</span
-                        ></span
-                    >
+
+                {{-- আজকের চূড়ান্ত মূল্য --}}
+                <div style="display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 16px 18px; background: rgb(30, 26, 21); color: rgb(255, 255, 255); flex-wrap: wrap;">
+                    <span class="bh" style="font-weight: 700; font-size: 15px">আজকের মূল্য</span>
+                    <span style="display: flex; align-items: center; gap: 10px">
+                        @if($savings > 0)
+                        <span class="bn" style="font-size: 12px; background: rgba(240, 83, 43, 0.2); color: rgb(255, 199, 179); font-weight: 700; padding: 3px 9px; border-radius: 10px;">
+                            ৳{{ number_format($savings) }} বাঁচল
+                        </span>
+                        @endif
+                        <span class="num" style="font-weight: 800; font-size: 27px; color: rgb(240, 83, 43)">
+                            ৳{{ number_format($currentPrice) }}
+                        </span>
+                    </span>
                 </div>
             </div>
+            @endif
             <div
                 style="
                     display: flex;
