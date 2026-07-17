@@ -264,7 +264,13 @@ $(document).ready(function() {
         /*.spinner {*/
         /*    display: none;*/
         /*}*/
-
+        hr {
+            border: solid #ddd;
+            border-width: 1px 0 0;
+            clear: both;
+            height: 0;
+            margin: 10px 0px 10px;
+        }
         @media only screen and (min-width: 768px) {
             #proName {
                 font-size: 18px;
