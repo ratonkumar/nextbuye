@@ -30,14 +30,14 @@
         </div>
     @else
         <div class="container py-4">
-            <!-- Back to cart link -->
-            <a href="{{ url('/cart') }}" class="text-decoration-none text-muted mb-3 d-block">
-                &larr; Back to cart
-            </a>
-            
-            <!-- Title and Subtitle -->
-            <h1 class="fw-bold mb-2">Checkout</h1>
-            <p class="text-muted">No account needed — just your delivery details. Pay cash when it arrives.</p>
+                <!-- Back to cart link -->
+                <a href="{{ url('/cart') }}" class="text-decoration-none text-muted mb-3 d-block">
+                    &larr; Back to cart
+                </a>
+                
+                <!-- Title and Subtitle -->
+                <h1 class="fw-bold mb-2">Checkout</h1>
+                <p class="text-muted">No account needed — just your delivery details. Pay cash when it arrives.</p>
         </div>
         <section class="section-content padding-y bg slidetop">
             <div class="container p-0">
@@ -51,11 +51,7 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <label>Full name</label>
-                                            <input type="text" id="customerName" name="customerName"
-                                                   @if(Auth::id()) value="{{Auth::guard('web')->user()->name}}"
-                                                   @else @endif    placeholder="আপনার নাম লিখুন"
-                                                   required class="form-control"
-                                                   style=" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                            <input type="text" id="customerName" name="customerName" placeholder="Please Enter Full Name"  required class="form-control"  style=" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
                                         </div>
                                         @if(Auth::id())
                                             <input type="text" id="user_id" name="user_id"
@@ -70,21 +66,20 @@
                                                    pattern="[0-1]{2}[0-9]{6}[0-9]{3}" id="customerPhone"
                                                    @if(Auth::id()) value="{{Auth::guard('web')->user()->phone}}"
                                                    @else @endif  name="customerPhone" required
-                                                   class="form-control" placeholder="আপনার মোবাইল লিখুন">
+                                                   class="form-control" placeholder="Please Enter Phone">
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <label>Full address </label>
                                             <input type="text" id="customerAddress" name="customerAddress"
-                                                   placeholder="আপনার ঠিকানা লিখুন" required class="form-control"
+                                                   placeholder="Please Enter Address" required class="form-control"
                                                    style=" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
                                         </div>
                                        
-                                      <div class="form-group col-sm-12">
-                                        <label>Email (optional)</label>
-                                        <textarea id="customerNotes" name="customerNotes" 
-                                                  class="form-control" rows="1" 
-                                                  placeholder="অর্ডার বা প্রোডাক্ট সম্পর্কে কোনো নোট">@if(Auth::id()){{-- যদি আগে থেকে কোনো নোট দেখাতে চান --}}@endif</textarea>
-                                    </div>
+                                        <div class="form-group col-sm-12">
+                                            <label>Email (optional)</label>
+                                            <input id="customerEmail" name="customerEmail"  class="form-control" placeholder="Enter Email Address"></input>
+                                        </div>
+                                        
                                         <label class="form-label fw-bold">Delivery zone</label>
                                         <div class="d-flex gap-3 mb-4">
                                             <!-- Inside Dhaka -->
@@ -235,10 +230,7 @@
             </div>
         </section>
     @endif
- <style>
-    .rounded-4 { border-radius: 1.5rem !important; }
-    .btn-danger { background-color: #f0532b !important; border: none; }
- </style>
+
  <script>
 function selectZone(element) {
     // ১. ডিজাইনের জন্য অ্যাক্টিভ ক্লাস টগল করা
@@ -265,30 +257,7 @@ $(document).ready(function() {
     $('.delivery-option').first().trigger('click');
 });
 </script>
-<script>
-function calculateTotals() {
-    // সাবটোটাল টেক্সট থেকে নাম্বার বের করা
-    let subtotalText = $('#subtotalprice').text().trim();
-    let subtotal = parseFloat(subtotalText.replace(/[^0-9.]/g, '')) || 0;
 
-    // ডেলিভারি চার্জ থেকে নাম্বার বের করা
-    let deliveryText = $('#dinamicdalivery').text().trim();
-    let delivery = parseFloat(deliveryText.replace(/[^0-9.]/g, '')) || 0;
-
-    // টোটাল হিসাব
-    let total = subtotal + delivery;
-
-    // আপডেট করা
-    $('#totalamount').text(total);
-    $('#btnTotal').text(total);
-}
-
-// পেজ লোড হওয়ার পর কল হবে
-$(document).ready(function() {
-    calculateTotals();
-});
-
-</script>
     <style>
         /*.spinner {*/
         /*    display: none;*/
@@ -361,72 +330,7 @@ $(document).ready(function() {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossorigin="anonymous"></script>
-    <script>
-        function showCashOnDelivery() {
-            document.getElementById("orderConfirm").style.display = "block";
-            document.getElementById("sslczPayBtn").style.display = "none";
-        }
 
-        function showOnlinePay() {
-            document.getElementById("orderConfirm").style.display = "none";
-            document.getElementById("sslczPayBtn").style.display = "block";
-        }
-    </script>
-    <script>
-        $(document).ready(function () {
-            $(document).on('click', '#sslczPayBtn', function (e) {
-                
-               e.preventDefault();
-               
-                var name = $('#customerName').val();
-                var phone = $('#customerPhone').val();
-                var address = $('#customerAddress').val();
-
-                if (!name || !phone || !address) {
-                    // alert('Please fill in all required fields.');
-                    return; // Prevent the rest of the code from running
-                }
-               
-                var obj = {};
-                obj.cus_name = $('#customerName').val();
-                obj.cus_phone = $('#customerPhone').val();
-                obj.cus_email = 'dumy@gmail.com';
-                obj.cus_addr1 = $('#customerAddress').val();
-                obj.amount = $('#totalamount').html();
-                obj.deliveryCharge= $('#deliveryCharge').val();
-
-                $('#sslczPayBtn').prop('postdata', obj);
-                
-                console.log(obj)
-            })
-        })
-    </script>
-
-{{--    <script>--}}
-
-{{--        (function (window, document) {--}}
-{{--            var loader = function () {--}}
-{{--                var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];--}}
-{{--                script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);--}}
-{{--                tag.parentNode.insertBefore(script, tag);--}}
-{{--            };--}}
-
-{{--            window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);--}}
-{{--        })(window, document);--}}
-{{--    </script>--}}
-
-    <script>
-        (function (window, document) {
-            var loader = function () {
-                var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
-                script.src = "https://seamless-epay.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
-                tag.parentNode.insertBefore(script, tag);
-            };
-
-            window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-        })(window, document);
-    </script>
-    
     
     <script>
 
@@ -597,15 +501,6 @@ $(document).ready(function() {
             $('#totalamount').html(totalprice)
 
         };
-    </script>
-
-    <script type="text/javascript">
-        (function () {
-            $('.from-prevent-multiple-submits').on('submit', function () {
-                $('.from-prevent-multiple-submits').attr('disabled', 'true');
-                $('.spinner').css('display', 'inline');
-            })
-        })();
     </script>
 
 @endsection
