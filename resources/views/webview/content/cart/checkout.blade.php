@@ -160,14 +160,14 @@
                                 <div class="ms-3 flex-grow-1">
                                     <div class="fw-bold text-truncate" style="max-width: 200px;">{{ $cartProduct->name }}</div>
                                     <div class="d-flex align-items-center mt-1">
-                                        <div class="input-group input-group-sm" style="width: 100px;">
+                                        <div class="input-group input-group-sm checkout-qty" style="width: 100px;">
                                             <!-- বাটনগুলোতে rowId পাস করা হয়েছে -->
-                                            <button class="btn btn-outline-secondary" type="button" onclick="remnum('{{$cartProduct->rowId}}')">-</button>
+                                            <button class="btn btn-outline-secondary plus-munus" type="button" onclick="remnum('{{$cartProduct->rowId}}')">-</button>
                                             
                                             <!-- ইনপুট ফিল্ডে আইডি দেওয়া হয়েছে -->
-                                            <input type="text" id="QuantityPeo{{$cartProduct->rowId}}" class="form-control text-center" value="{{ $cartProduct->qty }}" readonly>
+                                            <input type="text" id="QuantityPeo{{$cartProduct->rowId}}" class="form-control qty-checkout text-center" value="{{ $cartProduct->qty }}" readonly>
                                             
-                                            <button class="btn btn-outline-secondary" type="button" onclick="updatenum('{{$cartProduct->rowId}}')">+</button>
+                                            <button class="btn btn-outline-secondary plus-munus" type="button" onclick="updatenum('{{$cartProduct->rowId}}')">+</button>
                                         </div>
                                         <a href="javascript:void(0)" onclick="removeFromCart('{{ $cartProduct->rowId }}')" class="ms-3 text-muted text-decoration-none small">Remove</a>
                                     </div>
