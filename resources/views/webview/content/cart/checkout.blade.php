@@ -51,7 +51,8 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <label>Full name</label>
-                                            <input type="text" id="customerName" name="customerName" placeholder="Please Enter Full Name"  required class="form-control"  style=" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                            <input type="text" id="customerName" name="customerName" placeholder="Please Enter Full Name"  required class="form-control custom-input"  style=" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                            <div class="error-message" id="nameError">This field is required</div>
                                         </div>
                                         @if(Auth::id())
                                             <input type="text" id="user_id" name="user_id"
@@ -66,18 +67,20 @@
                                                    pattern="[0-1]{2}[0-9]{6}[0-9]{3}" id="customerPhone"
                                                    @if(Auth::id()) value="{{Auth::guard('web')->user()->phone}}"
                                                    @else @endif  name="customerPhone" required
-                                                   class="form-control" placeholder="Please Enter Phone">
+                                                   class="form-control custom-input" placeholder="Please Enter Phone">
+                                            <div class="error-message" id="nameError">This field is required</div>
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <label>Full address </label>
                                             <input type="text" id="customerAddress" name="customerAddress"
-                                                   placeholder="Please Enter Address" required class="form-control"
+                                                   placeholder="Please Enter Address" required class="form-control custom-input"
                                                    style=" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
-                                        </div>
+                                            <div class="error-message" id="nameError">This field is required</div>
+                                       </div>
                                        
                                         <div class="form-group col-sm-12">
                                             <label>Email (optional)</label>
-                                            <input id="customerEmail" name="customerEmail"  class="form-control" placeholder="Enter Email Address"></input>
+                                            <input id="customerEmail" name="customerEmail"  class="form-control custom-input" placeholder="Enter Email Address"></input>
                                         </div>
                                         <label class="form-label fw-bold">Delivery zone</label>
                                         <div class="d-flex gap-3 mb-4">
@@ -306,6 +309,23 @@
 
     
    <script>
+        function validateForm() {
+            let isValid = true;
+            const inputs = document.querySelectorAll('.custom-input');
+
+            inputs.forEach(input => {
+                if (input.value.trim() === "") {
+                    input.classList.add('is-invalid');
+                    input.nextElementSibling.style.display = 'block'; // এরর মেসেজ দেখাবে
+                    isValid = false;
+                } else {
+                    input.classList.remove('is-invalid');
+                    input.nextElementSibling.style.display = 'none';
+                }
+            });
+
+            return isValid;
+        }
         // ১. কেন্দ্রীয় ক্যালকুলেশন ফাংশন
         function calculateOverall() {
             var newSubtotal = 0;

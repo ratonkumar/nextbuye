@@ -2249,3 +2249,37 @@ button.btn.btn-outline-secondary.plus-munus {
 button#orderConfirm {
     border-radius: 50px;
 }
+
+/* বেসিক স্টাইল */
+.custom-input {
+    border: 1px solid #e5e7eb; /* হালকা বর্ডার */
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+/* Hover ইফেক্ট */
+.custom-input:hover {
+    border-color: #f97316; /* অরেঞ্জ বর্ডার */
+}
+
+/* Focus ইফেক্ট */
+.custom-input:focus {
+    outline: none;
+    border-color: #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+
+/* Validation (Error) স্টেট - যখন ফিল্ড খালি থাকবে */
+.custom-input.is-invalid {
+    border-color: #ef4444; /* লাল বর্ডার */
+    background-color: #fef2f2;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
