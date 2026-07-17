@@ -327,31 +327,35 @@
             });
         }
 
-        function buynow(product_id) {
+       function buynow(product_id,qty =1) {
+
             $('#processing').css({
                 'display': 'flex',
                 'justify-content': 'center',
                 'align-items': 'center'
-            })
+            });
             $('#processing').modal('show');
+            // Define your checkout URL dynamically
+             var checkoutUrl = "{{ url('checkout') }}";
+
             $.ajax({
                 type: 'POST',
                 url: '{{ url('add-to-cart') }}',
                 data: {
                     _token: token,
                     product_id: product_id,
-                    qty: '1',
+                    qty: qty, // Use the variable here
                 },
-
                 success: function(data) {
                     updatecart();
                     if (data == 'success') {
-                        window.location.href = 'https://smartdealbd.com/checkout';
+                        window.location.href = checkoutUrl;
                         $('#processing').modal('hide');
                     }
                 },
                 error: function(error) {
                     console.log('error');
+                    $('#processing').modal('hide'); // Hide loader on error
                 }
             });
         }
