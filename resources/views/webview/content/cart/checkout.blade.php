@@ -155,31 +155,28 @@
 
                             <!-- Cart Items -->
                             @foreach ($cartProducts as $cartProduct)
-                            <div class="d-flex align-items-center mb-3 p-2 border rounded">
-                                <!-- Image -->
-                                <img src="{{ asset($cartProduct->image) }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
-                                
-                                <div class="ms-3 flex-grow-1">
-                                    <div class="fw-bold text-truncate" style="max-width: 150px;">{{ $cartProduct->name }}</div>
+                                <div class="d-flex align-items-center mb-3 p-3 border rounded shadow-sm">
+                                    <!-- Image -->
+                                    <img src="{{ asset($cartProduct->image) }}" class="rounded" style="width: 70px; height: 70px; object-fit: cover;">
                                     
-                                    <div class="d-flex align-items-center mt-2">
-                                        <!-- Buttons & Input Group -->
-                                        <div class="btn-group btn-group-sm" role="group">
-                                            <button type="button" class="btn btn-outline-secondary" onclick="remnum('{{$cartProduct->rowId}}')">-</button>
-                                            <input type="text" id="QuantityPeo{{$cartProduct->rowId}}" class="form-control text-center" style="width: 50px;" value="{{ $cartProduct->qty }}" readonly>
-                                            <button type="button" class="btn btn-outline-secondary" onclick="updatenum('{{$cartProduct->rowId}}')">+</button>
-                                        </div>
+                                    <div class="ms-3 flex-grow-1">
+                                        <div class="fw-bold text-truncate" style="max-width: 200px;">{{ $cartProduct->name }}</div>
                                         
-                                        <a href="javascript:void(0)" onclick="removeFromCart('{{ $cartProduct->rowId }}')" class="ms-3 text-muted text-decoration-none small">Remove</a>
+                                        <div class="d-flex align-items-center mt-2">
+                                            <!-- Quantity Control -->
+                                            <div class="input-group" style="width: 120px;">
+                                                <button class="btn btn-outline-secondary btn-sm" type="button" onclick="remnum('{{$cartProduct->rowId}}')">-</button>
+                                                <input type="text" class="form-control form-control-sm text-center" value="{{ $cartProduct->qty }}" readonly style="background-color: #f8f9fa;">
+                                                <button class="btn btn-outline-secondary btn-sm" type="button" onclick="updatenum('{{$cartProduct->rowId}}')">+</button>
+                                            </div>
+                                            
+                                            <a href="javascript:void(0)" onclick="removeFromCart('{{ $cartProduct->rowId }}')" class="ms-3 text-muted text-decoration-none small">Remove</a>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Price Section -->
-                                <div class="fw-bold ms-3">
-                                    ৳<span id="pricetotal{{$cartProduct->rowId}}" class="item-total">{{ $cartProduct->qty * $cartProduct->price }}</span>
+                                    <!-- Price Section -->
+                                    <div class="fw-bold ms-3 fs-5">৳{{ $cartProduct->qty * $cartProduct->price }}</div>
                                 </div>
-                                <input type="hidden" id="priceOf{{$cartProduct->rowId}}" value="{{ $cartProduct->price }}">
-                            </div>
                             @endforeach
 
                             <hr>
