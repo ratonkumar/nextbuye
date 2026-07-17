@@ -2223,3 +2223,16 @@ button.btn.btn-outline-secondary.plus-munus {
     border-radius: 20px;
     height: 32px;
 }
+.qty-checkout {
+    background: none !important;
+    border: 0px !important;
+    box-shadow: none !important;
+}
+button.btn.btn-outline-secondary.plus-munus {
+    height: 30px;
+    padding: 4px 11px;
+    margin-bottom: 0px;
+    border: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
