@@ -305,132 +305,83 @@
             crossorigin="anonymous"></script>
 
     
-    <script>
-
-        function selectZone(element) {
-            // ১. ডিজাইনের জন্য অ্যাক্টিভ ক্লাস টগল করা
-            $('.delivery-option').removeClass('active').css({'background-color': '#fff', 'color': '#000'});
-            $(element).addClass('active').css({'background-color': '#000', 'color': '#fff'});
-            
-            // ২. রেডিও বাটন সিলেক্ট করা
-            $(element).find('input[type="radio"]').prop('checked', true);
-            
-            // ৩. চার্জ ক্যালকুলেশন
-            let charge = parseFloat($(element).data('charge'));
-            $('#dinamicdalivery').text(charge);
-            
-            // ৪. টোটাল অ্যামাউন্ট আপডেট করা (আপনার আগের সাবটোটাল ধরে)
-            let subtotal = parseFloat($('#ordersubtotalprice').val()) || 0; // textarea থেকে ভ্যালু নেওয়া
-            let total = subtotal + charge;
-            
-            $('#totalamount').text(total);
-            $('#btnTotal').text(total);
-        }
-
-        // পেজ লোড হলে প্রথম অপশনটি সিলেক্টেড রাখা
-        $(document).ready(function() {
-            $('.delivery-option').first().trigger('click');
+   <script>
+    // ১. কেন্দ্রীয় ক্যালকুলেশন ফাংশন (এটিই সবকিছু নিয়ন্ত্রণ করবে)
+    function calculateOverall() {
+        // সাবটোটাল বের করা
+        var newSubtotal = 0;
+        $('.item-total').each(function() {
+            newSubtotal += parseFloat($(this).text()) || 0;
         });
 
-  
+        // ডেলিভারি চার্জ নেওয়া
+        var deliverycharge = parseFloat($('input[name="deliveryCharge"]:checked').val()) || 0;
 
-        function updateQuantity(rowId) {
-            var quantity = $('#QuantityPeo' + rowId).val();
-            var price = $('#priceOf' + rowId).val();
-            var producttotal = quantity * price;
+        // কুপন ডিসকাউন্ট (যদি থাকে)
+        var discount = parseFloat($('#discountAmount').text()) || 0; 
 
-            // ১. নির্দিষ্ট আইটেমের টোটাল আপডেট করুন
-            $('#pricetotal' + rowId).html(producttotal);
-            $('#minQty' + rowId).html(quantity);
+        // মোট হিসাব
+        var totalprice = (newSubtotal + deliverycharge) - discount;
 
-            // ২. পুনরায় সাবটোটাল ক্যালকুলেট করুন (সব আইটেম যোগ করে)
-            var newSubtotal = 0;
-            $('.item-total').each(function() { // নিশ্চিত করুন প্রতিটি আইটেমের টোটালে 'item-total' ক্লাস আছে
-                newSubtotal += parseFloat($(this).text()) || 0;
-            });
+        // সব UI আপডেট করা
+        $('#subtotalprice').text(newSubtotal);
+        $('#ordersubtotalprice').text(newSubtotal);
+        $('#minsubtotalprice').text(newSubtotal);
+        $('#dinamicdalivery').text(deliverycharge);
+        $('#totalamount').text(totalprice);
+        $('#btnTotal').text(totalprice);
+    }
 
-            // ৩. কার্টের মোট সংখ্যা ক্যালকুলেট করুন
-            var totalCartItems = 0;
-            $('input[id^="QuantityPeo"]').each(function() {
-                totalCartItems += parseInt($(this).val()) || 0;
-            });
+    // ২. ডেলিভারি জোন সিলেক্ট করলে
+    function selectZone(element) {
+        $('.delivery-option').removeClass('active').css({'background-color': '#fff', 'color': '#000'});
+        $(element).addClass('active').css({'background-color': '#000', 'color': '#fff'});
+        
+        $(element).find('input[type="radio"]').prop('checked', true);
+        
+        // ডেলিভারি ভ্যালু হিডেন ফিল্ডে সেট করা (যাতে সার্ভারে পায়)
+        $('#deliveryCharge').val($(element).data('charge'));
+        
+        calculateOverall(); // আপডেট কল করুন
+    }
 
-            // UI আপডেট
-            $('#subtotalprice').html(newSubtotal);
-            $('#ordersubtotalprice').html(newSubtotal);
-            $('#minsubtotalprice').html(newSubtotal);
-            $('#cartNumber').html(totalCartItems);
+    // ৩. কোয়ান্টিটি আপডেট করলে
+    function updateQuantity(rowId) {
+        var quantity = $('#QuantityPeo' + rowId).val();
+        var price = $('#priceOf' + rowId).val();
+        var producttotal = quantity * price;
 
-            // ৪. ডেলিভারি চার্জসহ টোটাল আপডেট
-            var deliverycharge = parseFloat($('#deliveryCharge').val()) || 0;
-            var totalprice = newSubtotal + deliverycharge;
-            $('#totalamount').html(totalprice);
+        $('#pricetotal' + rowId).text(producttotal);
+        $('#minQty' + rowId).text(quantity);
 
-            // ৫. সার্ভারে ডাটা পাঠানো
-            $.ajax({
-                type: 'POST',
-                url: 'update-cart',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    rowId: rowId,
-                    qty: quantity,
-                },
-                success: function (data) {
-                    // সার্ভার থেকে আপডেট ভ্যালু নিশ্চিত করা
-                    $('#QuantityPeo' + rowId).val(data.qty);
-                },
-                error: function (error) {
-                    console.log('Error updating cart');
-                }
-            });
-        }
+        // কার্ট নাম্বার আপডেট
+        var totalCartItems = 0;
+        $('input[id^="QuantityPeo"]').each(function() {
+            totalCartItems += parseInt($(this).val()) || 0;
+        });
+        $('#cartNumber').text(totalCartItems);
 
-        function removeFromCart(rowId) {
-            var thisprice = $('#pricetotal' + rowId).html();
-            var subPrice = $('#subtotalprice').html();
-            var updatesubprice = subPrice - thisprice;
-            $('#subtotalprice').html(updatesubprice);
+        calculateOverall(); // আপডেট কল করুন
 
-            //order subtotal
-            $('#ordersubtotalprice').html(updatesubprice);
+        // AJAX কল
+        $.ajax({
+            type: 'POST',
+            url: 'update-cart',
+            data: { _token: '{{ csrf_token() }}', rowId: rowId, qty: quantity },
+            success: function(data) { $('#QuantityPeo' + rowId).val(data.qty); }
+        });
+    }
 
-            var deliverycharge = $('#deliveryCharge').val();
-            var totalprice = updatesubprice - (-deliverycharge);
-            $('#totalamount').html(totalprice);
-            //cart number
-            var quantity = $('#QuantityPeo' + rowId).val();
-            var prevcart = $('#cartNumber').html();
-            var cartUpdate = prevcart - quantity;
-            $('#cartNumber').html(cartUpdate);
+    // ৪. কুপন ক্লিক বা অ্যাপ্লাই করার পর
+    function applyCoupon() {
+        // ধরুন কুপন কোড চেক করে ডিসকাউন্ট ভ্যালু সেট করছেন
+        // $('#discountAmount').text(calculatedDiscount);
+        calculateOverall(); // ক্যালকুলেশন রিফ্রেশ করুন
+    }
 
-            $.ajax({
-                type: 'POST',
-                url: 'remove-cart',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    rowId: rowId,
-                },
-
-                success: function (data) {
-                    $('#productcart' + rowId).css('display', 'none');
-                    if (data == 'empty') {
-                        location.reload();
-                    }
-                },
-                error: function (error) {
-                    console.log('error');
-                }
-            });
-        }
-
-        window.onload = (event) => {
-            var subPrice = $('#subtotalprice').html();
-            //total price part
-            var deliverycharge = $('#deliveryCharge').val();
-            var totalprice = subPrice - (-deliverycharge);
-            $('#totalamount').html(totalprice)
-
-        };
-    </script>
-
+    // পেজ লোড হলে
+    $(document).ready(function() {
+        calculateOverall();
+    });
+</script>
 @endsection
