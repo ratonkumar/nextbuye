@@ -15,6 +15,10 @@ body,p,h1,h2,h3,h4,h5,h6,div,table,span, {
 label.delivery-option.flex-grow-1.p-3.border.rounded-4.text-center.cursor-pointer {
     text-align: left !important;
 }
+button#orderConfirm {
+    background: #fd7e14 !important;
+    border: 1px solid #fd7e10 !important;
+}
 .quantity-container.info-container.text-center.py-3 {
     overflow: hidden;
     float: left;
