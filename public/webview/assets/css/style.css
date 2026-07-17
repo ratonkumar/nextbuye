@@ -2212,3 +2212,14 @@ input:not([type]), input[type="text"], input[type="password"], input[type="date"
     -o-transition: border-color .15s linear, background .15s linear;
     transition: border-color .15s linear, background .15s linear;
 }
+button.btn.btn-outline-secondary.plus-munus {
+    height: 33px;
+    padding: 4px 11px;
+    margin-bottom: 9px;
+    border: 0px;
+}
+.input-group.input-group-sm.checkout-qty {
+    border: 1px solid #eee;
+    border-radius: 20px;
+    height: 32px;
+}
