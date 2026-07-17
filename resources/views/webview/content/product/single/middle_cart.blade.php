@@ -200,7 +200,7 @@
                         <path d="m9 12 2 2 4-4"></path></svg>
                     </span>
                 <div class="bn" style="font-size: 13.5px; line-height: 1.55; color: rgb(58, 53, 46)">
-                     {{ $orderContent['offer_text'] ?? '' }}
+                     {!! $orderContent['offer_text'] ?? '' !!}
                    
                 </div>
             </div>
