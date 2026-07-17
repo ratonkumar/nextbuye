@@ -128,18 +128,18 @@
                 </div>
                 @endforeach
 
-               @php
-                    // আপনার ডাটাবেজ কলামের নাম অনুযায়ী এগুলো পরিবর্তন করে নিন
-                    $totalOldPrice = $productdetails->regular_price ?? 0; 
-                    $currentPrice = $productdetails->price ?? 0;
-                    $savings = $totalOldPrice - $currentPrice;
+                @php
+                    // নিয়মিত মূল্য এবং বিক্রয় মূল্যের পার্থক্য বের করা
+                    $regularPrice = intval($productdetails->ProductRegularPrice);
+                    $salePrice = intval($productdetails->ProductSalePrice);
+                    $savings = $regularPrice - $salePrice;
                 @endphp
 
                 {{-- মোট মূল্য --}}
                 <div style="display: flex; justify-content: space-between; gap: 14px; align-items: center; padding: 12px 18px; border-top: 1px dashed rgb(232, 224, 212); background: rgb(252, 250, 246);">
                     <span class="bn" style="font-size: 14px; color: rgb(107, 100, 90)">মোট মূল্য</span>
                     <span class="num" style="font-size: 16px; color: rgb(154, 145, 131); text-decoration: line-through">
-                        ৳{{ number_format($totalOldPrice) }}
+                        ৳{{ number_format($regularPrice) }}
                     </span>
                 </div>
 
@@ -153,7 +153,7 @@
                         </span>
                         @endif
                         <span class="num" style="font-weight: 800; font-size: 27px; color: rgb(240, 83, 43)">
-                            ৳{{ number_format($currentPrice) }}
+                            ৳{{ number_format($salePrice) }}
                         </span>
                     </span>
                 </div>
