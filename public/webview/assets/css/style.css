@@ -2228,11 +2228,6 @@ button.btn.btn-outline-secondary.plus-munus {
     border: 0px !important;
     box-shadow: none !important;
 }
-button.btn.btn-outline-secondary.plus-munus {
-    height: 30px;
-    padding: 4px 11px;
-    margin-bottom: 0px;
-    border: 0px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+button#orderConfirm {
+    border-radius: 50px;
 }

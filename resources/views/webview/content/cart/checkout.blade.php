@@ -155,7 +155,7 @@
 
                             <!-- Cart Items -->
                             @foreach ($cartProducts as $cartProduct)
-                            <div class="d-flex align-items-center mb-3">
+                            <div class="d-flex align-items-center">
                                 <img src="{{ asset($cartProduct->image) }}" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
                                 <div class="ms-3 flex-grow-1">
                                     <div class="fw-bold text-truncate" style="max-width: 200px;">{{ $cartProduct->name }}</div>
