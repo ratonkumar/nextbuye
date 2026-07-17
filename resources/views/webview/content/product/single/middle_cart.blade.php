@@ -158,7 +158,7 @@
                     </span>
                 </div>
             </div>
-            @endif
+          
             <div
                 style="
                     display: flex;
@@ -204,193 +204,79 @@
                     পরের অর্ডারে <b style="color: rgb(178, 58, 24)">২০% ছাড়</b>।
                 </div>
             </div>
-            <div
-                style="
-                    background: rgb(251, 246, 239);
-                    border: 1px solid rgb(232, 224, 212);
-                    border-radius: 16px;
-                    padding: 16px 16px 14px;
-                    margin-bottom: 18px;
-                "
-            >
-                <div
-                    class="bn"
-                    style="
-                        text-align: center;
-                        font-size: 12px;
-                        font-weight: 700;
-                        letter-spacing: 0.5px;
-                        text-transform: uppercase;
-                        color: rgb(178, 58, 24);
-                        margin-bottom: 12px;
-                    "
-                >
+            @php
+                // ডেট টাইম ফরম্যাট: YYYY-MM-DD HH:MM:SS
+                $expiryDate = "2026-07-17 23:59:59"; 
+                $originalPrice = "৳1,690";
+            @endphp
+
+            <div id="countdown-section" style="background: rgb(251, 246, 239); border: 1px solid rgb(232, 224, 212); border-radius: 16px; padding: 16px 16px 14px; margin-bottom: 18px;">
+                <div class="bn" style="text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: rgb(178, 58, 24); margin-bottom: 12px;">
                     লঞ্চ অফার শেষ হতে বাকি
                 </div>
+                
                 <div style="display: flex; gap: 7px; justify-content: center; align-items: center">
+                    {{-- দিন --}}
                     <div style="display: flex; align-items: center; gap: 7px">
-                        <div
-                            style="
-                                min-width: 56px;
-                                background: rgb(30, 26, 21);
-                                border-radius: 12px;
-                                padding: 9px 8px;
-                                text-align: center;
-                            "
-                        >
-                            <div
-                                class="num"
-                                style="
-                                    font-weight: 800;
-                                    font-size: 25px;
-                                    line-height: 1;
-                                    color: rgb(240, 83, 43);
-                                    letter-spacing: -0.5px;
-                                "
-                            >
-                                ০১
-                            </div>
-                            <div
-                                class="bn"
-                                style="
-                                    font-size: 10px;
-                                    color: rgb(163, 154, 136);
-                                    margin-top: 4px;
-                                    letter-spacing: 0.3px;
-                                "
-                            >
-                                দিন
-                            </div>
+                        <div style="min-width: 56px; background: rgb(30, 26, 21); border-radius: 12px; padding: 9px 8px; text-align: center;">
+                            <div id="days" class="num" style="font-weight: 800; font-size: 25px; line-height: 1; color: rgb(240, 83, 43);">00</div>
+                            <div class="bn" style="font-size: 10px; color: rgb(163, 154, 136); margin-top: 4px;">দিন</div>
                         </div>
-                        <span
-                            class="num"
-                            style="color: rgb(201, 190, 174); font-weight: 800; font-size: 18px; line-height: 1"
-                            >:</span
-                        >
+                        <span class="num" style="color: rgb(201, 190, 174); font-weight: 800; font-size: 18px;">:</span>
                     </div>
+                    {{-- ঘণ্টা --}}
                     <div style="display: flex; align-items: center; gap: 7px">
-                        <div
-                            style="
-                                min-width: 56px;
-                                background: rgb(30, 26, 21);
-                                border-radius: 12px;
-                                padding: 9px 8px;
-                                text-align: center;
-                            "
-                        >
-                            <div
-                                class="num"
-                                style="
-                                    font-weight: 800;
-                                    font-size: 25px;
-                                    line-height: 1;
-                                    color: rgb(240, 83, 43);
-                                    letter-spacing: -0.5px;
-                                "
-                            >
-                                ১১
-                            </div>
-                            <div
-                                class="bn"
-                                style="
-                                    font-size: 10px;
-                                    color: rgb(163, 154, 136);
-                                    margin-top: 4px;
-                                    letter-spacing: 0.3px;
-                                "
-                            >
-                                ঘণ্টা
-                            </div>
+                        <div style="min-width: 56px; background: rgb(30, 26, 21); border-radius: 12px; padding: 9px 8px; text-align: center;">
+                            <div id="hours" class="num" style="font-weight: 800; font-size: 25px; line-height: 1; color: rgb(240, 83, 43);">00</div>
+                            <div class="bn" style="font-size: 10px; color: rgb(163, 154, 136); margin-top: 4px;">ঘণ্টা</div>
                         </div>
-                        <span
-                            class="num"
-                            style="color: rgb(201, 190, 174); font-weight: 800; font-size: 18px; line-height: 1"
-                            >:</span
-                        >
+                        <span class="num" style="color: rgb(201, 190, 174); font-weight: 800; font-size: 18px;">:</span>
                     </div>
+                    {{-- মিনিট --}}
                     <div style="display: flex; align-items: center; gap: 7px">
-                        <div
-                            style="
-                                min-width: 56px;
-                                background: rgb(30, 26, 21);
-                                border-radius: 12px;
-                                padding: 9px 8px;
-                                text-align: center;
-                            "
-                        >
-                            <div
-                                class="num"
-                                style="
-                                    font-weight: 800;
-                                    font-size: 25px;
-                                    line-height: 1;
-                                    color: rgb(240, 83, 43);
-                                    letter-spacing: -0.5px;
-                                "
-                            >
-                                ৩৩
-                            </div>
-                            <div
-                                class="bn"
-                                style="
-                                    font-size: 10px;
-                                    color: rgb(163, 154, 136);
-                                    margin-top: 4px;
-                                    letter-spacing: 0.3px;
-                                "
-                            >
-                                মিনিট
-                            </div>
+                        <div style="min-width: 56px; background: rgb(30, 26, 21); border-radius: 12px; padding: 9px 8px; text-align: center;">
+                            <div id="minutes" class="num" style="font-weight: 800; font-size: 25px; line-height: 1; color: rgb(240, 83, 43);">00</div>
+                            <div class="bn" style="font-size: 10px; color: rgb(163, 154, 136); margin-top: 4px;">মিনিট</div>
                         </div>
-                        <span
-                            class="num"
-                            style="color: rgb(201, 190, 174); font-weight: 800; font-size: 18px; line-height: 1"
-                            >:</span
-                        >
+                        <span class="num" style="color: rgb(201, 190, 174); font-weight: 800; font-size: 18px;">:</span>
                     </div>
+                    {{-- সেকেন্ড --}}
                     <div style="display: flex; align-items: center; gap: 7px">
-                        <div
-                            style="
-                                min-width: 56px;
-                                background: rgb(30, 26, 21);
-                                border-radius: 12px;
-                                padding: 9px 8px;
-                                text-align: center;
-                            "
-                        >
-                            <div
-                                class="num"
-                                style="
-                                    font-weight: 800;
-                                    font-size: 25px;
-                                    line-height: 1;
-                                    color: rgb(240, 83, 43);
-                                    letter-spacing: -0.5px;
-                                "
-                            >
-                                ০৭
-                            </div>
-                            <div
-                                class="bn"
-                                style="
-                                    font-size: 10px;
-                                    color: rgb(163, 154, 136);
-                                    margin-top: 4px;
-                                    letter-spacing: 0.3px;
-                                "
-                            >
-                                সেকেন্ড
-                            </div>
+                        <div style="min-width: 56px; background: rgb(30, 26, 21); border-radius: 12px; padding: 9px 8px; text-align: center;">
+                            <div id="seconds" class="num" style="font-weight: 800; font-size: 25px; line-height: 1; color: rgb(240, 83, 43);">00</div>
+                            <div class="bn" style="font-size: 10px; color: rgb(163, 154, 136); margin-top: 4px;">সেকেন্ড</div>
                         </div>
                     </div>
                 </div>
-                <p
-                    class="bn"
-                    style="text-align: center; font-size: 12.5px; color: rgb(107, 100, 90); margin: 12px 0px 0px"
-                >
-                    এই দাম শুধু <b style="color: rgb(178, 58, 24)">১৭ জুলাই ২০২৬</b> পর্যন্ত — এরপর ৳1,690।
+
+                <p class="bn" style="text-align: center; font-size: 12.5px; color: rgb(107, 100, 90); margin: 12px 0px 0px">
+                    এই দাম শুধু <b style="color: rgb(178, 58, 24)">{{ date('j F Y', strtotime($expiryDate)) }}</b> পর্যন্ত — এরপর {{ $originalPrice }}।
                 </p>
             </div>
+
+            <script>
+                const countDownDate = new Date("{{ $expiryDate }}").getTime();
+                const x = setInterval(function() {
+                    const now = new Date().getTime();
+                    const distance = countDownDate - now;
+
+                    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById("days").innerHTML = d.toString().padStart(2, '0');
+                    document.getElementById("hours").innerHTML = h.toString().padStart(2, '0');
+                    document.getElementById("minutes").innerHTML = m.toString().padStart(2, '0');
+                    document.getElementById("seconds").innerHTML = s.toString().padStart(2, '0');
+
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("countdown-section").style.display = "none";
+                    }
+                }, 1000);
+            </script>
+              @endif
             <button
                 class="lift"
                 style="
