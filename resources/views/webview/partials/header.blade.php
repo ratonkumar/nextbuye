@@ -41,8 +41,7 @@
                             <span class="cart-count">{{ count(Cart::content()) }}</span>
                         </a>
                     </div>
-
-                    <a href="#" class="btn-order-now">Order Now</a>
+                    <a href="#" class="btn-order-now" onclick="buynow('{{ $productdetails->id }}', 1)">Order Now</a>
                 </div>
             </div>
         </div>

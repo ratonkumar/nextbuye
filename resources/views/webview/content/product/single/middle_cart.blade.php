@@ -298,7 +298,7 @@
                     box-shadow: rgba(240, 83, 43, 0.6) 0px 10px 24px -10px;
                     width: 100%;
                 "
-                onclick="buynow('{{ $productdetails->id }}')"
+                onclick="buynow('{{ $productdetails->id }}',1)"
             >
                 অর্ডার করুন — টাকা হাতে পেয়ে দেবেন<svg
                     width="18"
