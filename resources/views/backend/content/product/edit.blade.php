@@ -8,7 +8,7 @@
 
     @php
         $allSections = [
-            'product_top_section' => ['daily_cost_label','daily_cost_amount','daily_cost_title','daily_cost_subtitle', 'payment_policy_title','payment_policy_subtitle','order_button_text', 'call_to_action'],
+            'product_top_section' => ['daily_cost_label','daily_cost_amount','daily_cost_title','daily_cost_subtitle', 'payment_policy_title','payment_policy_subtitle','order_button_text', 'call_to_action', 'top_features'],
             'highlights_section' => ['val1', 'label1', 'val2', 'label2', 'val3', 'label3', 'val4', 'label4'],
             'problem_section' => [
                 'story_title', 'title', 'problem_desc', 
@@ -124,7 +124,7 @@
                         <div class="row">
                             @php
                                 // আপনার সব রিপিটার ফিল্ডের নাম এখানে যোগ করুন
-                                $repeaterFields = ['items','features_list', 'product_features_steps', 'steps_list', 'requirements_list', 'faq_rep','features_rep','gift_top_rep','cart_middle_repeter'];
+                                $repeaterFields = ['items','features_list', 'product_features_steps', 'steps_list', 'requirements_list', 'faq_rep','features_rep','gift_top_rep','cart_middle_repeter','top_features'];
                             @endphp
                             @foreach($fields as $field)
                             <div class="col-md-6 mb-3"> 

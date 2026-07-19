@@ -191,6 +191,32 @@
                  <span style="color: #b23a18">{{ $shipping->phone_one }}</span>
             </a>
 
+            @php
+                $features = $top['features'];
+            @endphp
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; padding-top: 22px; border-top: 1px solid #e8e0d4;">
+                @foreach($features as $item)
+                    <div style="display: flex; align-items: center; gap: 11px">
+                        <span style="width: 38px; height: 38px; border-radius: 11px; background: #fce9e1; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #f0532b;">
+                            {{-- আপনার SVG গুলো এখানে কন্ডিশনাল রেন্ডার হবে --}}
+                            @if($item['icon'] == 'truck') 
+                                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="13" height="10" rx="1"></rect><path d="M14 9h4l3 3v4h-7z"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg>
+                            @elseif($item['icon'] == 'cash')
+                                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5"></path><path d="M16 12h.01"></path></svg>
+                            @elseif($item['icon'] == 'warranty')
+                                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                            @else
+                                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                            @endif
+                        </span>
+                        <div>
+                            <div class="bn" style="font-weight: 600; font-size: 14px; line-height: 1.2">{{ $item['title'] }}</div>
+                            <div class="bn" style="font-size: 12px; color: #8a8278">{{ $item['subtitle'] }}</div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
             <div
                 style="
                     display: grid;
