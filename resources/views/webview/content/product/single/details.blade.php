@@ -1,3 +1,12 @@
+@php
+    $topSectionData = \App\Models\LandingPageSetting::where('section_key', 'product_top_section')
+        ->where('product_id', $productdetails->id)
+        ->where('is_active', 1)
+        ->first();
+    
+    // ডাটা ডিকোড করা
+    $top = $topSectionData ? json_decode($topSectionData->content, true) : [];
+@endphp
 <div class="container bg-light-cream">
     <div class="row">
         <!-- ইমেজ সেকশন -->
@@ -99,51 +108,18 @@
             </div>
 
             <!-- Trust Box -->
-            <div
-                style="
-                    display: flex;
-                    gap: 12px;
-                    align-items: flex-start;
-                    background: #fff;
-                    border: 1.5px solid #f0532b;
-                    border-radius: 16px;
-                    padding: 14px 16px;
-                    margin-bottom: 18px;
-                "
-            >
-                <span
-                    style="
-                        width: 38px;
-                        height: 38px;
-                        border-radius: 10px;
-                        background: #fce9e1;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        flex-shrink: 0;
-                        color: #f0532b;
-                    "
-                    ><svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style="display: block"
-                    >
-                        <path
-                            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
-                        ></path>
-                        <path d="m9 12 2 2 4-4"></path></svg></span>
-                <div>
-                    <div class="bh" style="font-weight: 700; font-size: 15px; line-height: 1.35; margin-bottom: 2px">
-                        এখনই টাকা নয় — আগে টেস্ট, পরে পেমেন্ট
+            {{-- ডায়নামিক ডেইলি কস্ট সেকশন --}}
+            <div class="reveal-s" style="display: flex; align-items: center; gap: 18px; background: #fce9e1; border: 1px solid #f6d7cb; border-radius: 18px; padding: 16px 20px; margin-bottom: 18px;">
+                <div style="text-align: center; flex-shrink: 0">
+                    <div class="bn" style="font-size: 10.5px; font-weight: 700; color: #b23a18;">{{ $top['daily_cost_label'] ?? 'প্রতিদিন' }}</div>
+                    <div class="bnum pop4" style="font-size: 42px; font-weight: 800; line-height: 0.9; color: #f0532b">{{ $top['daily_cost_amount'] ?? '৳৫.৫০' }}</div>
+                </div>
+                <div style="border-left: 1px solid #eac9bb; padding-left: 18px">
+                    <div class="bh" style="font-weight: 700; font-size: 16px; color: #1e1a15; margin-bottom: 4px">
+                        {{ $top['daily_cost_title'] ?? 'দিনে এক কাপ চায়ের চেয়েও কম' }}
                     </div>
-                    <div class="bn" style="font-size: 13px; line-height: 1.55; color: #6b645a">
-                        প্রোডাক্ট হাতে পেয়ে, খুলে, ১০ সেকেন্ড চালিয়ে দেখে — তারপর টাকা দিন।
+                    <div class="bn" style="font-size: 12.5px; color: #6b645a">
+                        {{ $top['daily_cost_subtitle'] ?? '৬ মাসের ওয়ারেন্টি হিসাবে হিসাব' }}
                     </div>
                 </div>
             </div>
