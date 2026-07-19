@@ -6,6 +6,8 @@
     
     // ডাটা ডিকোড করা
     $top = $topSectionData ? json_decode($topSectionData->content, true) : [];
+
+    print_r($top);
 @endphp
 <div class="container bg-light-cream">
     <div class="row">
