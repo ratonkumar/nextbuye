@@ -187,12 +187,12 @@
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l.61-.61a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
                 </span>
-                {!! $top1['call_to_action']  !!}
+                {!! $top1['call_to_action'] ??''  !!}
                  <span style="color: #b23a18">{{ $shipping->phone_one }}</span>
             </a>
 
             @php
-                $features = $top1['top_features'];
+                $features = $top1['top_features'] ?? NULL;
             @endphp
 
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; padding-top: 22px; border-top: 1px solid #e8e0d4;">
