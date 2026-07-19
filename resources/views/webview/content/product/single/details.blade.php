@@ -7,7 +7,6 @@
     // ডাটা ডিকোড করা
     $top1 = $topSectionData1 ? json_decode($topSectionData1->content, true) : [];
 
-    print_r($top1);
 @endphp
 <div class="container bg-light-cream">
     <div class="row">
@@ -188,7 +187,8 @@
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l.61-.61a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
                 </span>
-                কল করে অর্ডার করুন: <span style="color: #b23a18">{{ $shipping->phone_one }}</span>
+                {{ $top1['call_to_action']  }}
+                 <span style="color: #b23a18">{{ $shipping->phone_one }}</span>
             </a>
 
             <div
