@@ -5,9 +5,9 @@
         ->first();
     
     // ডাটা ডিকোড করা
-    $top = $topSectionData1 ? json_decode($topSectionData1->content, true) : [];
+    $top1 = $topSectionData1 ? json_decode($topSectionData1->content, true) : [];
 
-    print_r($top);
+    print_r($top1);
 @endphp
 <div class="container bg-light-cream">
     <div class="row">
@@ -78,15 +78,15 @@
                 </div>
                 <div style="border-left: 1px solid #eac9bb; padding-left: 18px">
                     <div class="bh" style="font-weight: 700; font-size: 16px; color: #1e1a15; margin-bottom: 4px">
-                        {{ $top['daily_cost_title'] ?? 'দিনে এক কাপ চায়ের চেয়েও কম' }}
+                        {{ $top1['daily_cost_title'] ?? 'দিনে এক কাপ চায়ের চেয়েও কম' }}
                     </div>
                     <div class="bn" style="font-size: 12.5px; color: #6b645a">
-                        {{ $top['daily_cost_subtitle'] ?? '৬ মাসের ওয়ারেন্টি হিসাবে হিসাব' }}
+                        {{ $top1['daily_cost_subtitle'] ?? '৬ মাসের ওয়ারেন্টি হিসাবে হিসাব' }}
                     </div>
                 </div>
             </div>
             {{-- Trust Box (Dynamic) --}}
-            @if(!empty($top['payment_policy_title']))
+            @if(!empty($top1['payment_policy_title']))
             <div style="display: flex; gap: 12px; align-items: flex-start; background: #fff; border: 1.5px solid #f0532b; border-radius: 16px; padding: 14px 16px; margin-bottom: 18px;">
                 <span style="width: 38px; height: 38px; border-radius: 10px; background: #fce9e1; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #f0532b;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display: block">
@@ -96,10 +96,10 @@
                 </span>
                 <div>
                     <div class="bh" style="font-weight: 700; font-size: 15px; line-height: 1.35; margin-bottom: 2px">
-                        {{ $top['payment_policy_title'] ?? 'এখনই টাকা নয় — আগে টেস্ট, পরে পেমেন্ট' }}
+                        {{ $top1['payment_policy_title'] ?? 'এখনই টাকা নয় — আগে টেস্ট, পরে পেমেন্ট' }}
                     </div>
                     <div class="bn" style="font-size: 13px; line-height: 1.55; color: #6b645a">
-                        {{ $top['payment_policy_subtitle'] ?? 'প্রোডাক্ট হাতে পেয়ে, খুলে, ১০ সেকেন্ড চালিয়ে দেখে — তারপর টাকা দিন।' }}
+                        {{ $top1['payment_policy_subtitle'] ?? 'প্রোডাক্ট হাতে পেয়ে, খুলে, ১০ সেকেন্ড চালিয়ে দেখে — তারপর টাকা দিন।' }}
                     </div>
                 </div>
             </div>
@@ -149,7 +149,7 @@
                             }
                         </script>
                     </div>
-                    @if(!empty($top['order_button_text'])) @endif
+                    @if(!empty($top1['order_button_text'])) @endif
                         <button
                             class="lift"
                             style="
@@ -170,7 +170,7 @@
                             "
                             onclick="buynowDetails('{{ $productdetails->id }}')"
                         >
-                            {{ $top['order_button_text'] ?? 'অর্ডার করুন — টাকা হাতে পেয়ে দেবেন' }}
+                            {{ $top1['order_button_text'] ?? 'অর্ডার করুন — টাকা হাতে পেয়ে দেবেন' }}
                             
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
                                 <path d="M5 12h14M13 6l6 6-6 6"></path>
