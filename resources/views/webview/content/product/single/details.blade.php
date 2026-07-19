@@ -147,7 +147,7 @@
                             }
                         </script>
                     </div>
-                    @if(!empty($top['order_button_text']))
+                    @if(!empty($top['order_button_text'])) @endif
                         <button
                             class="lift"
                             style="
@@ -174,7 +174,7 @@
                                 <path d="M5 12h14M13 6l6 6-6 6"></path>
                             </svg>
                         </button>
-                    @endif
+                    
                     </div>
                 </form>
 
