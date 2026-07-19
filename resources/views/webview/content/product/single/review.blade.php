@@ -1,4 +1,43 @@
 
+@php
+    // ডেটা ফেচিং (আগের লজিক অনুযায়ী)
+    $reviewData = $top['ratings'] ?? ['5' => 86, '4' => 10, '3' => 3, '2' => 1, '1' => 0];
+    $avgRating = $top['average_rating'] ?? '4.8';
+    $totalReviews = $top['total_reviews'] ?? '150';
+@endphp
+
+<section id="reviews" style="background: #fff; border-top: 1px solid #efe7db; border-bottom: 1px solid #efe7db">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 80px 20px">
+        <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center; margin-bottom: 44px">
+            
+            {{-- রেটিং সামারি --}}
+            <div class="reveal" style="text-align: center">
+                <div class="num" style="font-weight: 800; font-size: 72px; line-height: 1">{{ $avgRating }}</div>
+                <div style="display: flex; justify-content: center; margin: 8px 0 6px">
+                    <span style="display: flex; gap: 1px">
+                        @for($i = 0; $i < 5; $i++)
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#F0A500" stroke="#F0A500" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        @endfor
+                    </span>
+                </div>
+                <div class="bn" style="font-size: 14px; color: #8a8278">{{ $totalReviews }}+ রিভিউ-এর গড়</div>
+            </div>
+
+            {{-- রেটিং বার (লুপ) --}}
+            <div class="reveal" style="flex: 1 1 280px; max-width: 420px; display: flex; flex-direction: column; gap: 9px">
+                @foreach($reviewData as $star => $percentage)
+                <div style="display: flex; align-items: center; gap: 12px">
+                    <span class="bn" style="font-size: 13px; color: #6b645a; width: 34px">{{ $star }} ★</span>
+                    <div style="flex: 1; height: 8px; border-radius: 4px; background: #f1e7da; overflow: hidden">
+                        <div style="height: 100%; width: {{ $percentage }}%; background: #f0532b; border-radius: 4px"></div>
+                    </div>
+                    <span class="bn" style="font-size: 12px; color: #8a8278; width: 38px; text-align: right">{{ $percentage }}%</span>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
 <section id="reviews" style="background: #fff; border-top: 1px solid #efe7db; border-bottom: 1px solid #efe7db">
     <div style="max-width: 1200px; margin: 0 auto; padding: 80px 20px">
         <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center; margin-bottom: 44px">
