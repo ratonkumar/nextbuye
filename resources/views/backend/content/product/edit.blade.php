@@ -8,7 +8,7 @@
 
     @php
         $allSections = [
-            'product_top_section' => ['daily_cost_analysis', 'payment_policy', 'call_to_action', 'direct_contact'],
+            'product_top_section' => ['daily_cost_analysis','daily_cost_label','daily_cost_title','daily_cost_amount','daily_cost_title','daily_cost_subtitle', 'payment_policy', 'call_to_action', 'direct_contact'],
             'highlights_section' => ['val1', 'label1', 'val2', 'label2', 'val3', 'label3', 'val4', 'label4'],
             'problem_section' => [
                 'story_title', 'title', 'problem_desc', 
