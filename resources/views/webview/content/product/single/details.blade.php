@@ -84,6 +84,7 @@
                 </div>
             </div>
             {{-- Trust Box (Dynamic) --}}
+            @if(!empty($top['payment_policy_title']))
             <div style="display: flex; gap: 12px; align-items: flex-start; background: #fff; border: 1.5px solid #f0532b; border-radius: 16px; padding: 14px 16px; margin-bottom: 18px;">
                 <span style="width: 38px; height: 38px; border-radius: 10px; background: #fce9e1; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #f0532b;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display: block">
@@ -100,7 +101,7 @@
                     </div>
                 </div>
             </div>
-
+            @endif
 
                  <form id="orderForm" class="mt-3">
                     @csrf
@@ -146,6 +147,7 @@
                             }
                         </script>
                     </div>
+                    @if(!empty($top['order_button_text']))
                         <button
                             class="lift"
                             style="
@@ -166,17 +168,13 @@
                             "
                             onclick="buynowDetails('{{ $productdetails->id }}')"
                         >
-                            অর্ডার করুন — টাকা হাতে পেয়ে দেবেন<svg
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.4"
-                            >
+                            {{ $top['order_button_text'] ?? 'অর্ডার করুন — টাকা হাতে পেয়ে দেবেন' }}
+                            
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
                                 <path d="M5 12h14M13 6l6 6-6 6"></path>
                             </svg>
                         </button>
+                    @endif
                     </div>
                 </form>
 
