@@ -8,7 +8,7 @@
 
     @php
         $allSections = [
-            'product_top_section' => ['daily_cost_analysis','daily_cost_label','daily_cost_title','daily_cost_amount','daily_cost_title','daily_cost_subtitle', 'payment_policy_title','payment_policy_subtitle','order_button_text', 'call_to_action', 'direct_contact'],
+            'product_top_section' => ['daily_cost_label','daily_cost_title','daily_cost_amount','daily_cost_title','daily_cost_subtitle', 'payment_policy_title','payment_policy_subtitle','order_button_text', 'call_to_action', 'direct_contact'],
             'highlights_section' => ['val1', 'label1', 'val2', 'label2', 'val3', 'label3', 'val4', 'label4'],
             'problem_section' => [
                 'story_title', 'title', 'problem_desc', 
@@ -134,7 +134,7 @@
                                     <textarea name="content[{{ $field }}]" class="form-control">{{ $content[$field] ?? '' }}</textarea>
                                 @elseif(in_array($field, ['offer_date']))
                                     <input type="date" name="content[{{ $field }}]" value="{{ $content[$field] ?? '' }}" class="form-control">
-                                @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text', 'product_title', 'product_sub_title','interactive_bottom_feature','feedback_title','feedback_descraption','feedback_author','cart_price_section', 'cart_waranty_section','offer_text','product_comparison_bottom','product_comparison_left','product_comparison_right','product_comparison_title','product_comparison_description','daily_cost_analysis', 'payment_policy', 'call_to_action', 'direct_contact']))
+                                @elseif(in_array($field, ['comparison_title', 'comparison_left', 'comparison_right', 'footer_text', 'product_title', 'product_sub_title','interactive_bottom_feature','feedback_title','feedback_descraption','feedback_author','cart_price_section', 'cart_waranty_section','offer_text','product_comparison_bottom','product_comparison_left','product_comparison_right','product_comparison_title','product_comparison_description', 'payment_policy', 'call_to_action', 'direct_contact']))
                                     <textarea name="content[{{ $field }}]" class="form-control summernote">{{ $content[$field] ?? '' }}</textarea>
                                 @elseif(in_array($field, ['features_left_image', 'product_main_image', 'interactive_main_image', 'order_cta_image', 'image_6', 'image_7']))
                                     <div class="mb-3">
