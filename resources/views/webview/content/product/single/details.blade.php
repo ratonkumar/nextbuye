@@ -192,7 +192,7 @@
             </a>
 
             @php
-                $features = $top['features'];
+                $features = $top1['features'];
             @endphp
 
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 20px; padding-top: 22px; border-top: 1px solid #e8e0d4;">
