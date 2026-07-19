@@ -1,11 +1,11 @@
 @php
-    $topSectionData = \App\Models\LandingPageSetting::where('section_key', 'product_top_section')
+    $topSectionData1 = \App\Models\LandingPageSetting::where('section_key', 'product_top_section')
         ->where('product_id', $productdetails->id)
         ->where('is_active', 1)
         ->first();
     
     // ডাটা ডিকোড করা
-    $top = $topSectionData ? json_decode($topSectionData->content, true) : [];
+    $top = $topSectionData1 ? json_decode($topSectionData1->content, true) : [];
 
     print_r($top);
 @endphp
