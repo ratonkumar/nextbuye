@@ -2286,4 +2286,5 @@ button#orderConfirm {
 
 button.btn.btn-danger.w-100.py-3.fw-bold.fs-5.shadow-lg {
     background: #fd7e14 !important;
+    border:0px !important
 }
