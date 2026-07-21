@@ -45,6 +45,13 @@
                 'interactive_features_steps', 
                 'interactive_bottom_feature'
             ],
+            // নতুন রিভিউ সেকশন এখানে যুক্ত করা হলো
+            'reviews_section' => [
+                'average_rating',
+                'total_reviews',
+                'ratings',
+                'customer_reviews'
+            ],
             'product_comparison_tables' => [
                 'product_comparison_title', 
                 'product_comparison_description', 
@@ -125,6 +132,7 @@
                             @php
                                 // আপনার সব রিপিটার ফিল্ডের নাম এখানে যোগ করুন
                                 $repeaterFields = ['items','features_list', 'product_features_steps', 'steps_list', 'requirements_list', 'faq_rep','features_rep','gift_top_rep','cart_middle_repeter','top_features'];
+                                $repeaterFields1 = ['customer_reviews'];
                             @endphp
                             @foreach($fields as $field)
                             <div class="col-md-6 mb-3"> 
@@ -182,6 +190,34 @@
                                         </div>
                                         <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('{{ $field }}')">Add New Item</button>
                                     </div>
+
+                                @elseif(in_array($field, $repeaterFields1))
+                                <div class="card p-3 mb-4">
+                                    <h5>{{ ucfirst(str_replace('_', ' ', $field)) }}</h5>
+                                    <div id="{{ $field }}-repeater" class="mt-3">
+                                        @php
+                                            $items = (isset($content[$field]) && is_array($content[$field])) ? $content[$field] : [['title'=>'', 'subtitle'=>'']];
+                                        @endphp
+                                        
+                                        @foreach($items as $index => $item)
+                                            <div class="row mb-2 feature-row">
+                                                <div class="col-md-4">
+                                                    <input type="text" name="content[{{ $field }}][{{$index}}][title]" class="form-control" value="{{ $item['title'] ?? '' }}" placeholder="Comment">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" name="content[{{ $field }}][{{$index}}][subtitle]" class="form-control" value="{{ $item['subtitle'] ?? '' }}" placeholder="short name">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" name="content[{{ $field }}][{{$index}}][icon]" class="form-control" value="{{ $item['icon'] ?? '' }}" placeholder="Location">
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <button type="button" class="btn btn-danger remove-row">-</button>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('{{ $field }}')">Add New Item</button>
+                                </div>
 
                                 {{-- ৫. সাধারণ ইনপুট --}}
                                     
