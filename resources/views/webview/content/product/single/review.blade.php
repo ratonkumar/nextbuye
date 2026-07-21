@@ -11,7 +11,7 @@
     // ৩. প্রয়োজনীয় ডাটা বা ডিফল্ট ফলব্যাক সেট করা
     $avgRating = $reviewsContent['average_rating'] ?? '4.8';
     $totalReviews = $reviewsContent['total_reviews'] ?? '150';
-    $reviewData = $reviewsContent['ratings'] ?? ['5' => 86, '4' => 10, '3' => 3, '2' => 1, '1' => 0];
+    $reviewData =  ['5' => 86, '4' => 10, '3' => 3, '2' => 1, '1' => 0];
     $customerReviews = $reviewsContent['customer_reviews'] ?? [];
 @endphp
 
