@@ -229,7 +229,7 @@
                                                             </div>
                                                             <div class="col-md-3 mt-2">
                                                                 <label class="small">Avatar BG Color</label>
-                                                                <input type="text" name="content[{{ $field }}][{{$index}}][bg_color]" class="form-control" value="{{ $item['bg_color'] ?? '#c98a4b' }}" placeholder="#c98a4b">
+                                                                <input type="color" name="content[{{ $field }}][{{$index}}][bg_color]" class="form-control" value="{{ $item['bg_color'] ?? '#c98a4b' }}" placeholder="#c98a4b">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -355,7 +355,7 @@
                             </div>
                             <div class="col-md-3 mt-2">
                                 <label class="small">Avatar BG Color</label>
-                                <input type="text" name="content[${id}][${index}][bg_color]" class="form-control" value="#c98a4b" placeholder="#c98a4b">
+                                <input type="color" name="content[${id}][${index}][bg_color]" class="form-control" value="#c98a4b" placeholder="#c98a4b">
                             </div>
                         </div>
                     </div>`;
