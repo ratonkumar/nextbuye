@@ -191,7 +191,7 @@
                                         <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('{{ $field }}')">Add New Item</button>
                                     </div>
 
-                               @elseif(in_array($field, $repeaterFields))
+                               @elseif(in_array($field, $repeaterFields1))
                                     <div class="card p-3 mb-4">
                                         <h5>{{ ucfirst(str_replace('_', ' ', $field)) }}</h5>
                                         <div id="{{ $field }}-repeater" class="mt-3">
