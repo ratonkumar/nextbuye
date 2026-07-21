@@ -191,33 +191,71 @@
                                         <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('{{ $field }}')">Add New Item</button>
                                     </div>
 
-                                @elseif(in_array($field, $repeaterFields1))
-                                <div class="card p-3 mb-4">
-                                    <h5>{{ ucfirst(str_replace('_', ' ', $field)) }}</h5>
-                                    <div id="{{ $field }}-repeater" class="mt-3">
-                                        @php
-                                            $items = (isset($content[$field]) && is_array($content[$field])) ? $content[$field] : [['title'=>'', 'subtitle'=>'']];
-                                        @endphp
-                                        
-                                        @foreach($items as $index => $item)
-                                            <div class="row mb-2 feature-row">
-                                                <div class="col-md-4">
-                                                    <input type="text" name="content[{{ $field }}][{{$index}}][title]" class="form-control" value="{{ $item['title'] ?? '' }}" placeholder="Comment">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input type="text" name="content[{{ $field }}][{{$index}}][subtitle]" class="form-control" value="{{ $item['subtitle'] ?? '' }}" placeholder="short name">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <input type="text" name="content[{{ $field }}][{{$index}}][icon]" class="form-control" value="{{ $item['icon'] ?? '' }}" placeholder="Location">
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <button type="button" class="btn btn-danger remove-row">-</button>
-                                                </div>
-                                            </div>
-                                        @endforeach
+                               @elseif(in_array($field, $repeaterFields))
+                                    <div class="card p-3 mb-4">
+                                        <h5>{{ ucfirst(str_replace('_', ' ', $field)) }}</h5>
+                                        <div id="{{ $field }}-repeater" class="mt-3">
+                                            @php
+                                                $items = (isset($content[$field]) && is_array($content[$field])) ? $content[$field] : [];
+                                            @endphp
+                                            
+                                            @if($field == 'customer_reviews')
+                                                {{-- কাস্টমার রিভিউয়ের জন্য আলাদা ইনপুট ফিল্ড স্ট্রাকচার --}}
+                                                @foreach($items as $index => $item)
+                                                    <div class="card mb-3 p-3 feature-row bg-light border">
+                                                        <div class="row g-2">
+                                                            <div class="col-md-3">
+                                                                <label class="small">Rating (1-5)</label>
+                                                                <input type="number" min="1" max="5" name="content[{{ $field }}][{{$index}}][rating]" class="form-control" value="{{ $item['rating'] ?? 5 }}" placeholder="Rating">
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label class="small">Author Name</label>
+                                                                <input type="text" name="content[{{ $field }}][{{$index}}][author_name]" class="form-control" value="{{ $item['author_name'] ?? '' }}" placeholder="Name">
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label class="small">Location</label>
+                                                                <input type="text" name="content[{{ $field }}][{{$index}}][location]" class="form-control" value="{{ $item['location'] ?? '' }}" placeholder="Location">
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label class="small">Short Name</label>
+                                                                <input type="text" name="content[{{ $field }}][{{$index}}][short_name]" class="form-control" value="{{ $item['short_name'] ?? '' }}" placeholder="ত">
+                                                            </div>
+                                                            <div class="col-md-1 d-flex align-items-end">
+                                                                <button type="button" class="btn btn-danger remove-row w-100">-</button>
+                                                            </div>
+                                                            <div class="col-md-9 mt-2">
+                                                                <label class="small">Comment</label>
+                                                                <textarea name="content[{{ $field }}][{{$index}}][comment]" class="form-control" rows="2" placeholder="Review Comment">{{ $item['comment'] ?? '' }}</textarea>
+                                                            </div>
+                                                            <div class="col-md-3 mt-2">
+                                                                <label class="small">Avatar BG Color</label>
+                                                                <input type="text" name="content[{{ $field }}][{{$index}}][bg_color]" class="form-control" value="{{ $item['bg_color'] ?? '#c98a4b' }}" placeholder="#c98a4b">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                {{-- অন্য সাধারণ রিপিটারগুলোর জন্য পুরনো স্ট্রাকচার --}}
+                                                @foreach($items as $index => $item)
+                                                    <div class="row mb-2 feature-row">
+                                                        <div class="col-md-4">
+                                                            <input type="text" name="content[{{ $field }}][{{$index}}][title]" class="form-control" value="{{ $item['title'] ?? '' }}" placeholder="Title">
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" name="content[{{ $field }}][{{$index}}][subtitle]" class="form-control" value="{{ $item['subtitle'] ?? '' }}" placeholder="Description">
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <input type="text" name="content[{{ $field }}][{{$index}}][icon]" class="form-control" value="{{ $item['icon'] ?? '' }}" placeholder="Icon Name here">
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <button type="button" class="btn btn-danger remove-row">-</button>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                        <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRowSecond('{{ $field }}')">Add New Item</button>
                                     </div>
-                                    <button type="button" class="btn btn-primary btn-sm mt-2" onclick="addRow('{{ $field }}')">Add New Item</button>
-                                </div>
 
                                 {{-- ৫. সাধারণ ইনপুট --}}
                                     
@@ -282,6 +320,57 @@
             </div>`;
         container.append(html);
     }
+
+       function addRowSecond(id) {
+            let container = $('#' + id + '-repeater');
+            let index = container.find('.feature-row').length;
+            let html = '';
+
+            if (id === 'customer_reviews') {
+                html = `
+                    <div class="card mb-3 p-3 feature-row bg-light border">
+                        <div class="row g-2">
+                            <div class="col-md-3">
+                                <label class="small">Rating (1-5)</label>
+                                <input type="number" min="1" max="5" name="content[${id}][${index}][rating]" class="form-control" value="5" placeholder="Rating">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="small">Author Name</label>
+                                <input type="text" name="content[${id}][${index}][author_name]" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="small">Location</label>
+                                <input type="text" name="content[${id}][${index}][location]" class="form-control" placeholder="Location">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="small">Short Name</label>
+                                <input type="text" name="content[${id}][${index}][short_name]" class="form-control" placeholder="ত">
+                            </div>
+                            <div class="col-md-1 d-flex align-items-end">
+                                <button type="button" class="btn btn-danger remove-row w-100">-</button>
+                            </div>
+                            <div class="col-md-9 mt-2">
+                                <label class="small">Comment</label>
+                                <textarea name="content[${id}][${index}][comment]" class="form-control" rows="2" placeholder="Review Comment"></textarea>
+                            </div>
+                            <div class="col-md-3 mt-2">
+                                <label class="small">Avatar BG Color</label>
+                                <input type="text" name="content[${id}][${index}][bg_color]" class="form-control" value="#c98a4b" placeholder="#c98a4b">
+                            </div>
+                        </div>
+                    </div>`;
+            } else {
+                html = `
+                    <div class="row mb-2 feature-row">
+                        <div class="col-md-4"><input type="text" name="content[${id}][${index}][title]" class="form-control" placeholder="Title"></div>
+                        <div class="col-md-4"><input type="text" name="content[${id}][${index}][subtitle]" class="form-control" placeholder="Description"></div>
+                        <div class="col-md-3"><input type="text" name="content[${id}][${index}][icon]" class="form-control" placeholder="Icon Name here"></div>
+                        <div class="col-md-1"><button type="button" class="btn btn-danger remove-row">-</button></div>
+                    </div>`;
+            }
+
+            container.append(html);
+        }
 
     $(document).on('click', '.remove-row', function() {
         $(this).closest('.feature-row').remove();
