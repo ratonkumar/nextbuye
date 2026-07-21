@@ -41,14 +41,14 @@
         </div>
         <form action="{{ url('press/order') }}" method="POST"  class="from-prevent-multiple-submits" id="orderForm">
             @csrf
-        <section class="section-content padding-y bg slidetop">
+        <section class="section-content padding-y bg slidetop mb-mobile-sticky">
             <div class="container p-0">
                 <div class="row">
                     <div class="col-md-8">
                         <aside class="card mb-4">
                             <article class="card-body">
                                 <h2 class="delivery-details" style="font-size: 25px; font-weight: bold; margin-bottom: 10px !important;">Delivery details</h2>
-                              
+                            
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <label>Full name</label>
@@ -135,7 +135,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                 
+                                   
                                     <div class="row">
                                         <div class="col-12 text-center">
                                             <button id="sslczPayBtn"  class="btn btn-lg btn-styled from-prevent-multiple-submits btn-base-1 btn-block btn-icon-left strong-500 hov-bounce hov-shaddow buy-now"
@@ -146,7 +146,7 @@
                                             </button>
                                         </div>
                                     </div>
-                       
+                               
                             </article> <!-- card-body.// -->
                         </aside>
                     </div>
@@ -162,10 +162,10 @@
                                     <div class="fw-bold text-truncate" style="max-width: 200px;">{{ $cartProduct->name }}</div>
                                     <div class="d-flex align-items-center mt-1">
                                         <div class="input-group input-group-sm checkout-qty" style="width: 100px;">
-                                            <!-- বাটনগুলোতে rowId পাস করা হয়েছে -->
+                                            <!-- বাটনগুলোতে rowId পাস করা হয়েছে -->
                                             <button class="btn btn-outline-secondary plus-munus" type="button" onclick="remnum('{{$cartProduct->rowId}}')">-</button>
                                             
-                                            <!-- ইনপুট ফিল্ডে আইডি দেওয়া হয়েছে -->
+                                            <!-- ইনপুট ফিল্ডে আইডি দেওয়া হয়েছে -->
                                             <input type="text" id="QuantityPeo{{$cartProduct->rowId}}" class="form-control qty-checkout text-center" value="{{ $cartProduct->qty }}" readonly>
                                             
                                             <button class="btn btn-outline-secondary plus-munus" type="button" onclick="updatenum('{{$cartProduct->rowId}}')">+</button>
@@ -173,7 +173,7 @@
                                         <a href="javascript:void(0)" onclick="removeFromCart('{{ $cartProduct->rowId }}')" class="ms-3 text-muted text-decoration-none small">Remove</a>
                                     </div>
                                 </div>
-                                <!-- এখানে প্রাইস ক্যালকুলেশনের জন্য আইডি দেওয়া হয়েছে -->
+                                <!-- এখানে প্রাইস ক্যালকুলেশনের জন্য আইডি দেওয়া হয়েছে -->
                                 <div class="fw-bold">৳<span id="pricetotal{{$cartProduct->rowId}}" class="item-total">{{ $cartProduct->qty * $cartProduct->price }}</span></div>
                                 <!-- জাভাস্ক্রিপ্টের হিসাবের জন্য হিডেন প্রাইস ফিল্ড -->
                                 <input type="hidden" id="priceOf{{$cartProduct->rowId}}" value="{{ $cartProduct->price }}">
@@ -232,14 +232,18 @@
                 </div>
             </div>
         </section>
+
+        <!-- Mobile Sticky Footer Button -->
+        <div class="mobile-sticky-footer d-md-none">
+            <button type="submit" class="btn btn-danger w-100 py-3 fw-bold fs-5 shadow-lg">
+                Place Order · ৳<span id="mobileBtnTotal">0</span>
+            </button>
+        </div>
     </form>
     @endif
 
 
     <style>
-        /*.spinner {*/
-        /*    display: none;*/
-        /*}*/
         hr {
             border: solid #ddd;
             border-width: 1px 0 0;
@@ -247,6 +251,24 @@
             height: 0;
             margin: 10px 0px 10px;
         }
+
+        /* Mobile Sticky Footer CSS */
+        @media only screen and (max-width: 767px) {
+            .mobile-sticky-footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                padding: 12px 15px;
+                box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            .mb-mobile-sticky {
+                padding-bottom: 80px; /* যাতে ফুটার কন্টেন্ট নিচের কোনো লেখা ঢেকে না দেয় */
+            }
+        }
+
         @media only screen and (min-width: 768px) {
             #proName {
                 font-size: 18px;
@@ -335,7 +357,7 @@
                 newSubtotal += parseFloat($(this).text()) || 0;
             });
 
-            // ডেলিভারি চার্জ রেডিও বাটন থেকে নেওয়া
+            // ডেলিভারি চার্জ রেডিও বাটন থেকে নেওয়া
             var deliverycharge = parseFloat($('input[name="deliveryCharge"]:checked').val()) || 0;
 
             // মোট হিসাব
@@ -346,6 +368,7 @@
             $('#dinamicdalivery').text(deliverycharge.toFixed(2));
             $('#totalamount').text(totalprice.toFixed(2));
             $('#btnTotal').text(totalprice.toFixed(2));
+            $('#mobileBtnTotal').text(totalprice.toFixed(2)); // মোবাইল ফুটার বাটনের টোটাল আপডেট
         }
 
         // ২. ডেলিভারি জোন সিলেক্ট করলে
@@ -357,7 +380,7 @@
             calculateOverall();
         }
 
-        // ৩. কোয়ান্টিটি বাড়ানোর ফাংশন (আপডেটেড)
+        // ৩. কোয়ান্টিটি বাড়ানোর ফাংশন (আপডেটেড)
         function updatenum(rowId) {
             var inputField = $('#QuantityPeo' + rowId);
             var currentVal = parseInt(inputField.val());
@@ -408,7 +431,7 @@
         // রিমুভ ফাংশন (এটি আপনার কোড থেকে কল হচ্ছে)
         function removeFromCart(rowId) {
             // আপনার রিমুভ করার এজ্যাক্স কোড এখানে থাকবে
-            // সফল হওয়ার পর: location.reload();
+            // সফল হওয়ার পর: location.reload();
         }
     </script>
 @endsection
