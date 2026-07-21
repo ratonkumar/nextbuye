@@ -8,7 +8,7 @@
     // ২. ডাটা ডিকোড করা (না থাকলে ডিফল্ট ভ্যালু বা অ্যারে ব্যবহার করা)
     $reviewsContent = $reviewsSectionData ? json_decode($reviewsSectionData->content, true) : [];
 
-    // ৩. প্রয়োজনীয় ডাটা বা ডিফল্ট ফলব্যাক সেট করা
+    // ৩. প্রয়োজনীয় ডাটা বা ডিফল্ট ফলব্যাক সেট করা
     $avgRating = $reviewsContent['average_rating'] ?? '4.8';
     $totalReviews = $reviewsContent['total_reviews'] ?? '150';
     $reviewData = $reviewsContent['ratings'] ?? ['5' => 86, '4' => 10, '3' => 3, '2' => 1, '1' => 0];
@@ -59,17 +59,17 @@
                     </span>
                 </div>
                 <p class="bn" style="font-size: 15.5px; line-height: 1.85; color: #3a352e; margin: 0 0 18px">
-                    “{{ $review['title'] ?? '' }}”
+                    “{{ $review['comment'] ?? '' }}”
                 </p>
                 <div style="display: flex; align-items: center; gap: 12px">
                     <span class="bh" style="width: 44px; height: 44px; border-radius: 50%; background: {{ $review['bg_color'] ?? '#c98a4b' }}; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 17px; flex-shrink: 0;">
-                        {{ $review['subtitle'] ?? '' }}
+                        {{ $review['short_name'] ?? '' }}
                     </span>
                     <div>
                         <div class="bn" style="font-weight: 700; font-size: 14px">{{ $review['author_name'] ?? '' }}</div>
                         <div class="bn" style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: #8a8278">
                             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1B9B5A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
-                            ভেরিফায়েড · {{ $review['icon'] ?? '' }}
+                            ভেরিফায়েড · {{ $review['location'] ?? '' }}
                         </div>
                     </div>
                 </div>
