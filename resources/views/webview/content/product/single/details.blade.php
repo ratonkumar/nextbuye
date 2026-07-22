@@ -72,8 +72,8 @@
             {{-- ডায়নামিক ডেইলি কস্ট সেকশন --}}
             <div class="reveal-s" style="display: flex; align-items: center; gap: 18px; background: #fce9e1; border: 1px solid #f6d7cb; border-radius: 18px; padding: 16px 20px; margin-bottom: 18px;">
                 <div style="text-align: center; flex-shrink: 0">
-                    <div class="bn" style="font-size: 10.5px; font-weight: 700; color: #b23a18;">{{ $top['daily_cost_label'] ?? 'প্রতিদিন' }}</div>
-                    <div class="bnum pop4" style="font-size: 42px; font-weight: 800; line-height: 0.9; color: #f0532b">{{ $top['daily_cost_amount'] ?? '৳৫.৫০' }}</div>
+                    <div class="bn" style="font-size: 10.5px; font-weight: 700; color: #b23a18;">{{ $top1['daily_cost_label'] ?? 'প্রতিদিন' }}</div>
+                    <div class="bnum pop4" style="font-size: 42px; font-weight: 800; line-height: 0.9; color: #f0532b">{{ $top1['daily_cost_amount'] ?? '৳৫.৫০' }}</div>
                 </div>
                 <div style="border-left: 1px solid #eac9bb; padding-left: 18px">
                     <div class="bh" style="font-weight: 700; font-size: 16px; color: #1e1a15; margin-bottom: 4px">
