@@ -11,8 +11,10 @@
 <div class="container bg-light-cream">
     <div class="row">
         <!-- ইমেজ সেকশন -->
-        <div class="col-md-6">
+        <div class="col-md-6  gallery-holder">
+             <div class="product-item-holder size-big single-product-gallery small-gallery">
             @if (isset($productdetails->PostImage))
+           
                 <div id="sync1" class="owl-carousel owl-theme">
                     <div class="items">
                             <a href="{{ asset($productdetails->ProductImage) }}" data-fancybox="gallery">
@@ -47,6 +49,7 @@
                     </a>
                 </div>
             @endif
+        </div>
         </div>
 
         <!-- ডিটেইলস সেকশন -->
