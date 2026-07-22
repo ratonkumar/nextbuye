@@ -12,11 +12,41 @@
     <div class="row">
         <!-- ইমেজ সেকশন -->
         <div class="col-md-6">
-            <img src="{{ asset($productdetails->ProductImage) }}" class="img-fluid rounded" alt="Product">
-            <div class="row mt-3">
-                <div class="col-4"><img src="{{ asset($productdetails->ProductImage) }}" class="img-fluid rounded"></div>
-                <!-- আরও ছোট থাম্বনেইল থাকলে এখানে যোগ করুন -->
-            </div>
+            @if (isset($productdetails->PostImage))
+                <div id="sync1" class="owl-carousel owl-theme">
+                    <div class="items">
+                            <a href="{{ asset($productdetails->ProductImage) }}" data-fancybox="gallery">
+                        <img class="w-100 h-100" src="{{ asset($productdetails->ProductImage) }}" alt="" style="border-radius: 4px;">
+                        </a>
+                    </div>
+                    @forelse (json_decode($productdetails->PostImage) as $productImage)
+                        <div class="items">
+                                <a href="{{ asset('public/images/product/slider/') }}/{{ $productImage }}" data-fancybox="gallery">
+                            <img class="w-100 h-100"
+                                src="{{ asset('public/images/product/slider/') }}/{{ $productImage }}" alt="" style="border-radius: 4px;">
+                            </a>
+                        </div>
+                    @empty
+                    @endforelse
+                </div>
+                <div id="sync2" class="owl-carousel owl-theme" style="padding-top: 10px;">
+                    @forelse (json_decode($productdetails->PostImage) as $productImage)
+                        <div class="items"  href="{{ asset('public/images/product/slider/') }}/{{ $productImage }}" data-fancybox="gallery">
+                                <a href="{{ asset('public/images/product/slider/') }}/{{ $productImage }}" data-fancybox="gallery">
+                            <img class="w-100 h-100" style="padding:10px;border:1px solid;border-radius: 4px;"
+                                src="{{ asset('public/images/product/slider/') }}/{{ $productImage }}" alt="">
+                            </a>
+                        </div>
+                    @empty
+                    @endforelse
+                </div>
+            @else
+                <div class="items">
+                        <a href="{{ asset($productdetails->ProductImage) }}" data-fancybox="gallery">
+                    <img class="w-100 h-100" src="{{ asset($productdetails->ProductImage) }}" alt="" style="border-radius: 4px;">
+                    </a>
+                </div>
+            @endif
         </div>
 
         <!-- ডিটেইলস সেকশন -->
