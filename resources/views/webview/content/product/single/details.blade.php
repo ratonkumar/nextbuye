@@ -21,7 +21,7 @@
 
         <!-- ডিটেইলস সেকশন -->
         <div class="col-md-6">
-            <span class="badge" style="background:#fdebd0; color:#d35400;">● নতুন লঞ্চ - প্রথম ১০০ পরিবার</span>
+            <span class="badge" style="background:#fdebd0; color:#d35400;">{{ $productdetails->ProductBreaf }}</span>
             <h1 class="product-title">{{ $productdetails->ProductName }}</h1>
 
             {!! $productdetails->ProductDetails  !!}
