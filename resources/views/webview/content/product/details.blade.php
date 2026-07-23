@@ -374,7 +374,7 @@ p {
         border-radius: 4px;
         cursor: pointer;
     }
-    .lick-list .slick-track {
+    .slick-list .slick-track {
         height: 528px;
     }
     .slick-slide {
