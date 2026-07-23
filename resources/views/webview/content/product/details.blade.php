@@ -355,6 +355,26 @@ p {
         outline: none;
     }
 </style>
+<style>
+    /* মেইন স্লাইডারের ইমেজ সাইজ ফিক্সড করতে (যেমন: ৪০০ পিক্সেল) */
+    .slider-for .items img {
+        width: 100%;
+        height: 400px; /* আপনার প্রয়োজনমত হাইট বাড়িয়ে বা কমিয়ে নিতে পারেন */
+        object-fit: contain; /* ইমেজ কেটে না গিয়ে সম্পূর্ণ দেখাবে */
+        background-color: #fff; /* ইমেজের চারপাশে ব্যাকগ্রাউন্ড কালার চাইলে */
+    }
+
+    /* থাম্বনেইল স্লাইডারের ইমেজ সাইজ ফিক্সড করতে */
+    .slider-nav .items img {
+        width: 100%;
+        height: 80px; /* থাম্বনেইলের ছোট হাইট */
+        object-fit: cover;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
 <!-- Your Initialization Script -->
 <script>
     $(document).ready(function(){
