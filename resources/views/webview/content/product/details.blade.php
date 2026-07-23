@@ -374,6 +374,12 @@ p {
         border-radius: 4px;
         cursor: pointer;
     }
+    .lick-list .slick-track {
+        height: 528px;
+    }
+    .slick-slide {
+
+    }
 </style>
 <!-- Your Initialization Script -->
 <script>
