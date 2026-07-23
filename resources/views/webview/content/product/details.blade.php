@@ -374,11 +374,11 @@ p {
         border-radius: 4px;
         cursor: pointer;
     }
-    .slick-list .slick-track {
+    .slider-for .slick-list .slick-track {
         height: 528px;
     }
-    .slick-slide {
-
+    .slider-nav .slick-list .slick-track {
+        height: 100px;
     }
 </style>
 <!-- Your Initialization Script -->
