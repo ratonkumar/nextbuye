@@ -333,7 +333,6 @@ p {
 <!-- Slick Theme CSS (Optional for default arrows/dots styling) -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <!-- jQuery (Required for Slick) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <!-- Slick JS -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
