@@ -337,7 +337,25 @@ p {
 
 <!-- Slick JS -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<style>
+    /* মেইন এবং থাম্বনেইল স্লাইডারের ইমেজগুলো ঠিকভাবে ফিট করার জন্য */
+    .slider-for .items img,
+    .slider-nav .items img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
 
+    /* স্লাইডারের ফ্লেক্স ও লেআউট ঠিক রাখার জন্য */
+    .slider-for {
+        margin-bottom: 10px;
+    }
+    
+    .slider-nav .items {
+        cursor: pointer;
+        outline: none;
+    }
+</style>
 <!-- Your Initialization Script -->
 <script>
     $(document).ready(function(){
