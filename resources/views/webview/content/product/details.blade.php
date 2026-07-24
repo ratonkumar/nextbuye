@@ -380,6 +380,45 @@ p {
     .slider-nav .slick-list .slick-track {
         height: 100px;
     }
+    /* Image Responsive */
+    .slider-for img, 
+    .slider-nav img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Move Slick Dots to the Top */
+    .slider-for {
+        position: relative;
+    }
+
+    .slider-for .slick-dots {
+        position: absolute;
+        top: 10px; /* Adjust distance from top */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        list-style: none;
+        display: flex !important;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .slider-for .slick-dots li button {
+        font-size: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        border: none;
+        cursor: pointer;
+    }
+
+    .slider-for .slick-dots li.slick-active button {
+        background: #fff; /* Active dot color */
+    }
 </style>
 <!-- Your Initialization Script -->
 <script>
@@ -389,16 +428,36 @@ p {
             slidesToScroll: 1,
             arrows: false,
             fade: true,
-            asNavFor: '.slider-nav'
+            asNavFor: '.slider-nav',
+            responsive: [
+                {
+                    breakpoint: 768, // Mobile breakpoint
+                    settings: {
+                        arrows: false,
+                        dots: true // Dots enable on mobile if needed for main slider
+                    }
+                }
+            ]
         });
 
         $('.slider-nav').slick({
             slidesToShow: 4,
             slidesToScroll: 1,
             asNavFor: '.slider-for',
-            dots: false,
+            dots: false, // Mobile navbar dorkar nai (set to false)
+            arrows: false, // Mobile a arrow dorkar nai
             centerMode: false,
-            focusOnSelect: true
+            focusOnSelect: true,
+            responsive: [
+                {
+                    breakpoint: 768, // Mobile view
+                    settings: {
+                        slidesToShow: 3, // Adjust thumbnail count for smaller screens if needed
+                        arrows: false,
+                        dots: false
+                    }
+                }
+            ]
         });
     });
 </script>
