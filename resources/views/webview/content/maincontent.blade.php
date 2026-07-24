@@ -276,15 +276,15 @@
                                     <div class="row product-micro-row">
                                         <div class="col-12">
                                             <div class="product-image" style="position: relative;">
-                                                <div class="image text-center">
+                                                <div class="image text-center" style="height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                                                     <a href="{{ url('product/' . $promotional->ProductSlug) }}">
                                                         <img src="{{ asset($promotional->ViewProductImage) }}"
-                                                            alt="{{ $promotional->ProductName }}" id="featureimagess">
+                                                            alt="{{ $promotional->ProductName }}" id="featureimagess"
+                                                            style="max-height: 100%; max-width: 100%; object-fit: contain;">
                                                     </a>
                                                 </div>
-                                                <span id="discountpart"> <span id="discountparttwo"> <p id="pdis">-{{ $promotional->Discount }}%</p> </span></span>
+                                                <span id="discountpart"><span id="discountparttwo"><p id="pdis">-{{ $promotional->Discount }}%</p></span></span>
                                             </div>
-                                            <!-- /.product-image -->
                                         </div>
                                           
                                         <!-- /.col -->
@@ -384,16 +384,15 @@
                                     <div class="row product-micro-row">
                                         <div class="col-12">
                                             <div class="product-image" style="position: relative;">
-                                                <div class="image text-center">
-                                                    <a href="{{ url('product/' . $product->ProductSlug) }}">
-                                                        <img src="{{ asset($product->ViewProductImage) }}"
-                                                            alt="{{ $product->ProductName }}" id="featureimage">
+                                                <div class="image text-center" style="height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                                                    <a href="{{ url('product/' . $promotional->ProductSlug) }}">
+                                                        <img src="{{ asset($promotional->ViewProductImage) }}"
+                                                            alt="{{ $promotional->ProductName }}" id="featureimagess"
+                                                            style="max-height: 100%; max-width: 100%; object-fit: contain;">
                                                     </a>
                                                 </div>
-                                                <span id="discountpart"> <span id="discountparttwo"> <p id="pdis">-{{ $product->Discount }}%</p> </span></span>
-                                                <!-- /.image -->
+                                                <span id="discountpart"><span id="discountparttwo"><p id="pdis">-{{ $promotional->Discount }}%</p></span></span>
                                             </div>
-                                            <!-- /.product-image -->
                                         </div>
                                         <!-- /.col -->
                                         <div class="col-12">
