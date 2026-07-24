@@ -51,7 +51,7 @@
             margin-left: 2px;
         }
          #myHeader{
-            background: '{!!App\Models\Basicinfo::first()->header_bg_color!!}';
+            background: {!!App\Models\Basicinfo::first()->header_bg_color!!};
            
         }
     </style>
