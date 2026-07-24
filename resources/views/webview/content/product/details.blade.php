@@ -382,7 +382,7 @@ p {
     }
 </style>
 @if($isMobile)
-<!-- Your Initialization Script -->
+<!-- Mobile Initialization Script -->
 <script>
     $(document).ready(function(){
         $('.slider-for').slick({
@@ -390,14 +390,14 @@ p {
             slidesToScroll: 1,
             arrows: false,
             fade: true,
-            asNavFor: '.slider-nav',
             autoplay: true,
-            autoplaySpeed: 3000
+            autoplaySpeed: 3000,
+            dots: true // মোবাইলে ডট দেখানোর জন্য এটি অন করে দেওয়া হলো
         });
     });
 </script>
 @else 
-<!-- Your Initialization Script -->
+<!-- Desktop Initialization Script -->
 <script>
     $(document).ready(function(){
         $('.slider-for').slick({
