@@ -169,6 +169,7 @@ class OrderController extends Controller
                     $customer->customerName = $request->customerName;
                     $customer->customerPhone = $request->customerPhone;
                     $customer->customerAddress = $request->customerAddress;
+         
                     $customer->save();
                     foreach ($products as $product) {
                         $orderProducts = new Orderproduct();

@@ -73,15 +73,16 @@
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <label>Full address </label>
-                                            <input type="text" id="customerAddress" name="customerAddress"
+                                            <textarea rows="3" type="text" id="customerAddress" name="customerAddress"
                                                    placeholder="Please Enter Address" required class="form-control custom-input"
                                                    style=" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                            </textarea>
                                             <div class="error-message" id="nameError">This field is required</div>
                                        </div>
                                        
                                         <div class="form-group col-sm-12">
-                                            <label>Email (optional)</label>
-                                            <input id="customerEmail" name="customerEmail"  class="form-control custom-input" placeholder="Enter Email Address"></input>
+                                            <label>Notes (optional)</label>
+                                            <textarea id="customerNotes"  rows="3" name="customerNotes"  class="form-control custom-input" placeholder="Enter Customer Notes"></textarea>
                                         </div>
                                         <label class="form-label fw-bold">Delivery zone</label>
                                         <div class="d-flex gap-3 mb-4">
