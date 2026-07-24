@@ -20,17 +20,16 @@
     <header class="custom-header" id="myHeader">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-4 col-lg-2">
+                <div class="col-3 col-lg-2">
                     <a href="{{ url('/') }}" class="logo-link">
                         <img src="{{ asset($basicinfo->logo) }}" alt="Logo" style="width: 53px;">
                     </a>
                 </div>
 
-                <div class="col-4 col-lg-2">
+                <div class="col-5 col-lg-2">
                     <h3 class="next-buye">Next Buye </h3>
                 </div>
-                <div class="col-4 col-lg-4 d-flex justify-content-end align-items-center">
-                    
+                <div class="col-3 col-lg-3 d-flex justify-content-end align-items-center">
                     <div class="cart-wrapper">
                         <a href="#" onclick="checkcart(this)">
                             <i class="fa-solid fa-basket-shopping"></i>
