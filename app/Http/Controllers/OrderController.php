@@ -151,7 +151,7 @@ class OrderController extends Controller
             $order->store_id       = 1;
             $order->invoiceID      = $this->uniqueID();
             $order->subTotal       = $request->subTotal ?? 0;
-            $order->deliveryCharge = $request->deliveryCharge;
+            $order->deliveryCharge = $request->deliveryCharge ?? 0;
             $order->orderDate      = date('Y-m-d');
             $order->customerNote   = $request->customerNotes;
             if (isset($admin)) {
@@ -161,7 +161,7 @@ class OrderController extends Controller
                 $order->admin_id = $admin->id;
             }
             $result = $order->save();
-            $total= $request->subTotal + $request->deliveryCharge;
+            $total= $request->subTotal + $request->deliveryCharge ?? 0;
             if ($result) {
               
                     $customer = new Customer();
