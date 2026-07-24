@@ -439,7 +439,12 @@ p {
        
         padding: 0px;
     }
-
+    .slider-for .items img {
+        width: 100%;
+        height: 100% !important;
+        object-fit: contain;
+        background-color: #fff;
+    }
     .slick-dots li button:before
     {
         font-family: 'slick';
