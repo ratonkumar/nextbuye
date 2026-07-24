@@ -431,6 +431,9 @@ p {
     .slider-for .slick-dots li.slick-active button {
         background-color: #ff6600; /* অ্যাক্টিভ ডট কালার (কমলা) */
     }
+    .slider-for .slick-list .slick-track {
+        height: 400px;
+    }
 }
 
 /* ডেস্কটপ এর জন্য স্বাভাবিক উচ্চতা বজায় রাখা (যাতে ডেস্কটপে বড় না হয়ে যায়) */
