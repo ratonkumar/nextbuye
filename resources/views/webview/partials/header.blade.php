@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="col-4 col-lg-2">
-                    <h3 class="next-buye">Next Buy </h3>
+                    <h3 class="next-buye">Next Buye </h3>
                 </div>
                 <div class="col-4 col-lg-4 d-flex justify-content-end align-items-center">
                     
