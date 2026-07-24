@@ -161,7 +161,7 @@ class OrderController extends Controller
                 $order->admin_id = $admin->id;
             }
             $result = $order->save();
-            $total = ($request->subTotal + $request->deliveryCharge) ?? 0;
+            $total = ($request->subTotal ?? 0) + ($request->deliveryCharge ?? 0);
             if ($result) {
               
                     $customer = new Customer();
