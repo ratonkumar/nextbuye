@@ -442,7 +442,7 @@ p {
     .slider-for .items img {
         width: 100%;
         height: 100% !important;
-        object-fit: contain;
+        object-fit: unset !important;
         background-color: #fff;
     }
     .slick-dots li button:before
