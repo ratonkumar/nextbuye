@@ -9,7 +9,7 @@
     <div class="row">
 
         <div class="col-sm-12 col-md-12 col-xl-12 mb-4">
-            <div class="bg-secondary rounded h-100 p-4">
+            <div class="bg-third rounded h-100 p-4">
                 <h2 class="mb-4" style="text-align: center;color:red">Website Basic Information Update</h2>
                 <form action="{{ route('admin.basicinfos.update', $webinfo->id) }}" method="POST"
                     enctype="multipart/form-data">
