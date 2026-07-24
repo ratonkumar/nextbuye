@@ -380,6 +380,65 @@ p {
     .slider-nav .slick-list .slick-track {
         height: 100px;
     }
+    /* মোবাইল ডিভাইসের জন্য মেইন স্লাইডারের উচ্চতা বাড়ানো */
+@media (max-width: 767px) {
+    .slider-for .items {
+        height: 400px; /* এখানে আপনার ইচ্ছামত উচ্চতা (যেমন: 400px বা 500px) দিন */
+        min-height: 400px;
+    }
+
+    .slider-for .items img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain; /* অথবা cover, যদি পুরো জায়গা জুড়ে ছবি দেখাতে চান */
+    }
+
+    /* ডটগুলোকে ইমেজের উপরে পজিশন করা */
+    .slider-for {
+        position: relative;
+    }
+
+    .slider-for .slick-dots {
+        position: absolute;
+        bottom: 15px; /* ইমেজ এর নিচে থেকে দূরত্ব */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        margin: 0;
+        padding: 0;
+        display: flex !important;
+        justify-content: center;
+        list-style: none;
+    }
+
+    /* ডট এর কালার এবং সাইজ */
+    .slider-for .slick-dots li {
+        margin: 0 5px;
+    }
+
+    .slider-for .slick-dots li button {
+        font-size: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.3); /* ইনঅ্যাক্টিভ ডট কালার (হালকা কালো) */
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* অ্যাক্টিভ ডট এর কালার (আপনার পছন্দমত দিন, যেমন: #ff6600) */
+    .slider-for .slick-dots li.slick-active button {
+        background-color: #ff6600; /* অ্যাক্টিভ ডট কালার (কমলা) */
+    }
+}
+
+/* ডেস্কটপ এর জন্য স্বাভাবিক উচ্চতা বজায় রাখা (যাতে ডেস্কটপে বড় না হয়ে যায়) */
+@media (min-width: 768px) {
+    .slider-for .items {
+        height: auto; /* অথবা আপনার আগের নির্দিষ্ট হাইট */
+    }
+}
 </style>
 @if($isMobile)
 <!-- Mobile Initialization Script -->
