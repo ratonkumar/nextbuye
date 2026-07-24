@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <label>Full address </label>
-                                            <textarea rows="1" type="text" id="customerAddress" name="customerAddress"
+                                            <textarea rows="2" type="text" id="customerAddress" name="customerAddress"
                                                    placeholder="Please Enter Address" required class="form-control custom-input"
                                                    style=" background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
                                             </textarea>
