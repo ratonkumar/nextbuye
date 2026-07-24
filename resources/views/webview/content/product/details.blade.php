@@ -445,6 +445,15 @@ p {
         object-fit: unset !important;
         background-color: #fff;
     }
+    .bottom-navbar.d-block.d-lg-none {
+        display: none !important;
+    }
+    button.header-icon-btn {
+        display: none;
+    }
+    .cart-wrapper {
+        display: none;
+    }
     .slick-dots li button:before
     {
         font-family: 'slick';
