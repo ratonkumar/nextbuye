@@ -162,21 +162,7 @@
                             <div style="font-size: 14px;">Cart</div>
                         </a>
                     </li>
-                    @if (Auth::id())
-                        <li class="text-center">
-                            <a class="nav-cart-box" href="{{ url('user/dashboard') }}">
-                                <i class="nav-box-icon fas fa-user"></i>
-                                <div style="font-size: 14px;">Account</div>
-                            </a>
-                        </li>
-                    @else
-                        <li class="text-center">
-                            <a class="nav-cart-box" href="{{ url('login') }}">
-                                <i class="nav-box-icon fas fa-user"></i>
-                                <div style="font-size: 14px;">Account</div>
-                            </a>
-                        </li>
-                    @endif
+                    
                 </ul>
             </div>
         </div>
