@@ -439,6 +439,13 @@ p {
        
         padding: 0px;
     }
+
+    .slick-dots li button:before
+    {
+        font-family: 'slick';
+        font-size: 0px;
+     
+    }
 }
 
 /* ডেস্কটপ এর জন্য স্বাভাবিক উচ্চতা বজায় রাখা (যাতে ডেস্কটপে বড় না হয়ে যায়) */
