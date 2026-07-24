@@ -52,7 +52,8 @@
         </div>
     </div>
 </div>
-<section class="shop-section py-5">
+{{-- 
+<section class="shop-section py-5" style>
     <div class="container">
         <div class="d-flex justify-content-center mb-4 gap-2">
             <button class="btn btn-dark rounded-pill px-4 filter-btn" data-filter="all">All</button>
@@ -85,6 +86,7 @@
         </div>
     </div>
 </section>
+--}}
 @if(count($featuredproducts) > 0)
 <!-- Promotional Products -->
 <div class="container pt-0 pb-4">
