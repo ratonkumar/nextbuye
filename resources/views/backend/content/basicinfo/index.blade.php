@@ -144,7 +144,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-12 col-xl-12 mb-4">
-            <div class="bg-secondary rounded h-100 p-4">
+            <div class="bg-third rounded h-100 p-4">
                 <h2 class="mb-4" style="text-align: center;color:red">Shipping Information Update</h2>
                 <form action="{{ route('admin.shipping.update', $webinfo->id) }}" method="POST"
                     enctype="multipart/form-data">
@@ -213,7 +213,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-12 col-xl-12 mb-4">
-            <div class="bg-secondary rounded h-100 p-4">
+            <div class="bg-third rounded h-100 p-4">
                 <h2 class="mb-4" style="text-align: center;color:red">Pixel & Analytics</h2>
                 <form action="{{ url('/admin/pixel/analytics', $webinfo->id) }}" method="POST"
                     enctype="multipart/form-data">
@@ -257,7 +257,7 @@
         </div>
 
         <div class="col-sm-12 col-md-12 col-xl-12">
-            <div class="bg-secondary rounded h-100 p-4">
+            <div class="bg-third rounded h-100 p-4">
                 <h2 class="mb-4" style="text-align: center;color:red">Social Links Update</h2>
                 <form action="{{ url('/admin/basicinfo/update', $webinfo->id) }}" method="POST"
                     enctype="multipart/form-data">
