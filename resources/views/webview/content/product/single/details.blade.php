@@ -13,42 +13,45 @@
         <!-- ইমেজ সেকশন -->
         <div class="col-md-6  gallery-holder">
             <div class="product-item-holder size-big single-product-gallery small-gallery">
+
                     @if (isset($productdetails->PostImage))
-                        
-                        <!-- Main Slider (এখানে Fancybox থাকবে) -->
+                                            
+                        <!-- Main Slider -->
                         <div class="slider-for">
                             <div class="items">
                                 <a href="{{ asset($productdetails->ProductImage) }}" data-fancybox="gallery">
-                                    <img class="w-100 h-100" src="{{ asset($productdetails->ProductImage) }}" alt="" style="border-radius: 4px;">
+                                    <img class="w-100 h-100" src="{{ asset($productdetails->ProductImage) }}" alt="" style="border-radius: 4px; object-fit: cover;">
                                 </a>
                             </div>
                             @forelse (json_decode($productdetails->PostImage) as $productImage)
                                 <div class="items">
                                     <a href="{{ asset('public/images/product/slider/') }}/{{ $productImage }}" data-fancybox="gallery">
-                                        <img class="w-100 h-100" src="{{ asset('public/images/product/slider/') }}/{{ $productImage }}" alt="" style="border-radius: 4px;">
+                                        <img class="w-100 h-100" src="{{ asset('public/images/product/slider/') }}/{{ $productImage }}" alt="" style="border-radius: 4px; object-fit: cover;">
                                     </a>
                                 </div>
                             @empty
                             @endforelse
                         </div>
 
-                        <!-- Thumbnail Slider (এখানে কোনো Fancybox বা 'a' ট্যাগ থাকবে না) -->
-                        <div class="slider-nav" style="padding-top: 10px;">
-                            <div class="items">
-                                <img class="w-100 h-100" style="padding:10px;border:1px solid;border-radius: 4px; cursor: pointer;" src="{{ asset($productdetails->ProductImage) }}" alt="">
-                            </div>
-                            @forelse (json_decode($productdetails->PostImage) as $productImage)
+                        <!-- Thumbnail Slider (মোবাইলে হাইড থাকবে কারণ নিচে condition দেওয়া হয়েছে) -->
+                        @if(!$isMobile)
+                            <div class="slider-nav" style="padding-top: 10px;">
                                 <div class="items">
-                                    <img class="w-100 h-100" style="padding:10px;border:1px solid;border-radius: 4px; cursor: pointer;" src="{{ asset('public/images/product/slider/') }}/{{ $productImage }}" alt="">
+                                    <img class="w-100 h-100" style="padding:10px;border:1px solid;border-radius: 4px; cursor: pointer;" src="{{ asset($productdetails->ProductImage) }}" alt="">
                                 </div>
-                            @empty
-                            @endforelse
-                        </div>
+                                @forelse (json_decode($productdetails->PostImage) as $productImage)
+                                    <div class="items">
+                                        <img class="w-100 h-100" style="padding:10px;border:1px solid;border-radius: 4px; cursor: pointer;" src="{{ asset('public/images/product/slider/') }}/{{ $productImage }}" alt="">
+                                    </div>
+                                @empty
+                                @endforelse
+                            </div>
+                        @endif
 
                     @else
                         <div class="items">
                             <a href="{{ asset($productdetails->ProductImage) }}" data-fancybox="gallery">
-                                <img class="w-100 h-100" src="{{ asset($productdetails->ProductImage) }}" alt="" style="border-radius: 4px;">
+                                <img class="w-100 h-100" src="{{ asset($productdetails->ProductImage) }}" alt="" style="border-radius: 4px; object-fit: cover;">
                             </a>
                         </div>
                     @endif

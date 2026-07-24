@@ -14,6 +14,8 @@ use App\Models\Basicinfo;
 use App\Models\Order;
 use App\Models\Brand;
 use Illuminate\Support\Facades\Auth;
+
+ use Jenssegers\Agent\Facades\Agent;
 use Cart;
 use DB;
 
@@ -99,8 +101,10 @@ class WebviewController extends Controller
                 ->linkedin()
                 ->whatsapp()
                 ->reddit()->getRawLinks();
-
-            return view('webview.content.product.details',['bestproducts'=>$bestproducts,'topproducts'=>$topproducts,'shareButtons'=>$shareButtons,'shipping'=>$shipping,'hotproducts'=>$hotproducts,'relatedproducts'=>$relatedproducts,'productdetails'=>$productdetails]);
+           
+            // Controller থেকে ভিউতে পাঠাতে পারেন অথবা সরাসরি Blade-এ ব্যবহার করতে পারেন
+            $isMobile = Agent::isMobile();
+            return view('webview.content.product.details',['bestproducts'=>$bestproducts,'isMobile'=>$isMobile,'topproducts'=>$topproducts,'shareButtons'=>$shareButtons,'shipping'=>$shipping,'hotproducts'=>$hotproducts,'relatedproducts'=>$relatedproducts,'productdetails'=>$productdetails]);
         }
         
         
