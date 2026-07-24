@@ -27,8 +27,8 @@
                 </div>
 
                 <div class="col-4 col-lg-2">
-                    Next Buy
-                </h2>
+                    <h3 class="next-buye">Next Buy </h3>
+                </div>
                 <div class="col-4 col-lg-4 d-flex justify-content-end align-items-center">
                     <button class="header-icon-btn" onclick="openSearch()">
                         <i class="fa-solid fa-magnifying-glass"></i>
