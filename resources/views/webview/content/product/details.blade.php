@@ -434,6 +434,11 @@ p {
     .slider-for .slick-list .slick-track {
         height: 400px;
     }
+    .container {
+        max-width: 100%;
+       
+        padding: 0px;
+    }
 }
 
 /* ডেস্কটপ এর জন্য স্বাভাবিক উচ্চতা বজায় রাখা (যাতে ডেস্কটপে বড় না হয়ে যায়) */
