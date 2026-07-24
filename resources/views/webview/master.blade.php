@@ -50,6 +50,10 @@
             font-size: 13px;
             margin-left: 2px;
         }
+         #myHeader{
+            background: '{!!App\Models\Basicinfo::first()->header_bg_color!!}';
+           
+        }
     </style>
     {!!App\Models\Basicinfo::first()->facebook_pixel!!}
     {!!App\Models\Basicinfo::first()->google_analytics!!}

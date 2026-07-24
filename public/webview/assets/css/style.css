@@ -1990,7 +1990,7 @@ section.section-content.padding-y.bg.slidetop.product_container {
 
 /* Header Base */
 .custom-header {
-    background: #fff;
+    /* background: #fff; */
     padding: 5px 0;
     border-bottom: 1px solid #e9e9e9;
 }
