@@ -34,11 +34,8 @@
             <div class="bh" style="font-weight: 700; font-size: 15px; white-space: nowrap">
                 {{ $productdetails->ProductName }} — 
                 <span class="num" style="font-weight: 800">৳{{ $productdetails->ProductSalePrice }}</span>
-                <span class="bn" style="font-size: 12px; color: rgb(138, 130, 120); font-weight: 500">· ফ্রি ডেলিভারি</span>
             </div>
-            <div class="bn" style="font-size: 11.5px; color: rgb(178, 58, 24); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                হাতে পেয়ে টেস্ট করে Payment
-            </div>
+            
         </div>
     </div>
 
