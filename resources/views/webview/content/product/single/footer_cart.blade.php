@@ -31,7 +31,7 @@
         </div>
 
         <div style="min-width: 0px">
-            <div class="bh order-title-fotter" style="font-weight: 700; font-size: 15px; white-space: nowrap">
+            <div class="bh order-title-fotter" style="font-weight: 700; font-size: 15px;">
                 {{ $productdetails->ProductName }} — 
                 <span class="num" style="font-weight: 800">৳{{ $productdetails->ProductSalePrice }}</span>
             </div>
